@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const treatment = require('./treatment');
 
 const patientSchema = new mongoose.Schema({
     patientID:{
@@ -18,7 +19,7 @@ const patientSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    patientTreatments:[Treatment.schema]
+    patientTreatments:[treatment.schema]
 });
 
 const Patient = mongoose.model('Patient', patientSchema);
