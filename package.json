@@ -11,7 +11,7 @@
     "start": "node server.js"
   },
   "name": "dentabase",
-  "description": "",
+  "description": "A software for storage, safekeeping and ease-of-access for dental doctors",
   "version": "1.0.0",
   "main": "server.js",
   "keywords": [],
