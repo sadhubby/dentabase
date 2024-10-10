@@ -30,11 +30,13 @@
 }
 
 .login-page .intersect {
+  display:flex;
   position: absolute;
-  width: 665px;
+  width: 50%;
   height: 544px;
   top: 263px;
   left: 0;
+  
 }
 
 .login-page .text-wrapper {
@@ -52,9 +54,10 @@
   white-space: nowrap;
 }
 
-.login-page .input-field {
+.login-page .input-password {
+  display: flex;
   position: absolute;
-  width: 327px;
+  width: 30%;
   height: 44px;
   top: 498px;
   left: 183px;
@@ -87,7 +90,7 @@
   left: 186px;
 }
 
-.login-page .group {
+.login-page .lock-icon {
   position: absolute;
   width: 33px;
   height: 36px;

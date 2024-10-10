@@ -1,0 +1,1016 @@
+.patients {
+  background-color: #a55151;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.patients .div {
+  background-color: #e01111;
+  overflow: hidden;
+  width: 100%;
+  height: 1584px;
+  position: relative;
+}
+
+.patients .overlap {
+  position: absolute;
+  width: 2344px;
+  height: 1588px;
+  top: 0;
+  left: -5px;
+}
+
+.patients .rectangle {
+  position: absolute;
+  width: 413px;
+  height: 1588px;
+  top: 0;
+  left: 0;
+  background-color: #f9fafb;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.patients .rectangle-2 {
+  position: absolute;
+  width: 1927px;
+  height: 1584px;
+  top: 0;
+  left: 417px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.patients .number-of-patients {
+  position: absolute;
+  width: 403px;
+  height: 65px;
+  top: 230px;
+  left: 474px;
+}
+
+.patients .icon {
+  position: absolute;
+  width: 62px;
+  height: 60px;
+  top: 0;
+  left: 0;
+}
+
+.patients .element-total-patients {
+  width: 326px;
+  top: 7px;
+  left: 75px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 40px;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .text-wrapper {
+  font-weight: 700;
+  color: #6b84ea;
+}
+
+.patients .span {
+  font-family: "Roboto-Regular", Helvetica;
+  color: #6b84ea;
+}
+
+.patients .text-wrapper-2 {
+  font-family: "Roboto-Regular", Helvetica;
+  color: #00000080;
+}
+
+.patients .group {
+  position: absolute;
+  width: 1836px;
+  height: 76px;
+  top: 28px;
+  left: 465px;
+}
+
+.patients .text-wrapper-3 {
+  position: absolute;
+  width: 167px;
+  top: 18px;
+  left: 0;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .overlap-group {
+  position: absolute;
+  width: 472px;
+  height: 76px;
+  top: 0;
+  left: 1286px;
+}
+
+.patients .rectangle-3 {
+  position: absolute;
+  width: 472px;
+  height: 61px;
+  top: 0;
+  left: 0;
+  background-color: #f5f6fa;
+  border-radius: 30px;
+}
+
+.patients .text-wrapper-4 {
+  position: absolute;
+  width: 364px;
+  top: 18px;
+  left: 66px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #00000066;
+  font-size: 25px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .ellipse-wrapper {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  top: 16px;
+  left: 21px;
+  background-image: url(./img/icon.svg);
+  background-size: 100% 100%;
+}
+
+.patients .ellipse {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  top: 3px;
+  left: 3px;
+  background-color: #f5f6fa;
+  border-radius: 10.5px;
+}
+
+.patients .img {
+  position: absolute;
+  width: 48px;
+  height: 45px;
+  top: 8px;
+  left: 1784px;
+}
+
+.patients .text-wrapper-5 {
+  position: absolute;
+  width: 313px;
+  top: 139px;
+  left: 475px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #475ee7;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .text-wrapper-6 {
+  position: absolute;
+  width: 313px;
+  top: 139px;
+  left: 788px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #00000066;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .rectangle-4 {
+  position: absolute;
+  width: 1792px;
+  height: 94px;
+  top: 340px;
+  left: 486px;
+  background-color: #f9fafb;
+  border-radius: 20px;
+}
+
+.patients .rectangle-5 {
+  position: absolute;
+  width: 1792px;
+  height: 1146px;
+  top: 434px;
+  left: 487px;
+  background-color: #f9fafb61;
+}
+
+.patients .group-2 {
+  position: absolute;
+  width: 1674px;
+  height: 21px;
+  top: 378px;
+  left: 515px;
+}
+
+.patients .group-3 {
+  position: absolute;
+  width: 98px;
+  height: 19px;
+  top: 1px;
+  left: 322px;
+}
+
+.patients .icon-2 {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  top: 2px;
+  left: 83px;
+}
+
+.patients .text-wrapper-7 {
+  position: absolute;
+  width: 72px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .group-4 {
+  position: absolute;
+  width: 87px;
+  height: 20px;
+  top: 1px;
+  left: 536px;
+}
+
+.patients .icon-3 {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  top: 3px;
+  left: 72px;
+}
+
+.patients .text-wrapper-8 {
+  position: absolute;
+  width: 61px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .group-5 {
+  position: absolute;
+  width: 116px;
+  height: 20px;
+  top: 1px;
+  left: 859px;
+}
+
+.patients .icon-4 {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  top: 3px;
+  left: 101px;
+}
+
+.patients .text-wrapper-9 {
+  width: 91px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .group-6 {
+  position: absolute;
+  width: 143px;
+  height: 19px;
+  top: 2px;
+  left: 1126px;
+}
+
+.patients .icon-5 {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  top: 2px;
+  left: 128px;
+}
+
+.patients .text-wrapper-10 {
+  position: absolute;
+  width: 117px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .overlap-group-wrapper {
+  position: absolute;
+  width: 130px;
+  height: 19px;
+  top: 2px;
+  left: 1308px;
+}
+
+.patients .overlap-group-2 {
+  position: relative;
+  width: 128px;
+  height: 19px;
+}
+
+.patients .icon-6 {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  top: 2px;
+  left: 115px;
+}
+
+.patients .group-7 {
+  position: absolute;
+  width: 197px;
+  height: 18px;
+  top: 1px;
+  left: 1479px;
+}
+
+.patients .icon-7 {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  top: 1px;
+  left: 182px;
+}
+
+.patients .text-wrapper-11 {
+  width: 177px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .group-8 {
+  position: absolute;
+  width: 168px;
+  height: 18px;
+  top: 0;
+  left: 0;
+}
+
+.patients .icon-8 {
+  position: absolute;
+  width: 13px;
+  height: 17px;
+  top: 1px;
+  left: 153px;
+}
+
+.patients .text-wrapper-12 {
+  position: absolute;
+  width: 142px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .patient-information {
+  position: absolute;
+  width: 1762px;
+  height: 25px;
+  top: 458px;
+  left: 515px;
+}
+
+.patients .text-wrapper-13 {
+  width: 223px;
+  top: 3px;
+  left: 859px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .text-wrapper-14 {
+  position: absolute;
+  width: 127px;
+  top: 0;
+  left: 1126px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .text-wrapper-15 {
+  position: absolute;
+  width: 127px;
+  top: 0;
+  left: 1308px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .text-wrapper-16 {
+  position: absolute;
+  width: 273px;
+  top: 0;
+  left: 1479px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .text-wrapper-17 {
+  top: 4px;
+  position: absolute;
+  width: 256px;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .group-9 {
+  position: absolute;
+  width: 183px;
+  height: 19px;
+  top: 3px;
+  left: 322px;
+}
+
+.patients .icon-9 {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 1px;
+  left: 0;
+}
+
+.patients .text-wrapper-18 {
+  position: absolute;
+  width: 152px;
+  top: 0;
+  left: 29px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .group-10 {
+  position: absolute;
+  width: 282px;
+  height: 25px;
+  top: 0;
+  left: 534px;
+}
+
+.patients .iconixto-solid-mail {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 1px;
+  left: 0;
+}
+
+.patients .text-wrapper-19 {
+  position: absolute;
+  width: 251px;
+  top: 0;
+  left: 29px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .element-patient {
+  position: absolute;
+  width: 1763px;
+  height: 29px;
+  top: 519px;
+  left: 515px;
+}
+
+.patients .text-wrapper-20 {
+  width: 223px;
+  top: 7px;
+  left: 859px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .text-wrapper-21 {
+  position: absolute;
+  width: 127px;
+  top: 7px;
+  left: 1121px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .text-wrapper-22 {
+  position: absolute;
+  width: 127px;
+  top: 4px;
+  left: 1304px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .text-wrapper-23 {
+  position: absolute;
+  width: 273px;
+  top: 0;
+  left: 1480px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .text-wrapper-24 {
+  top: 8px;
+  position: absolute;
+  width: 256px;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .group-11 {
+  position: absolute;
+  width: 183px;
+  height: 19px;
+  top: 7px;
+  left: 322px;
+}
+
+.patients .group-12 {
+  position: absolute;
+  width: 282px;
+  height: 25px;
+  top: 4px;
+  left: 534px;
+}
+
+.patients .overlap-wrapper {
+  position: absolute;
+  width: 144px;
+  height: 60px;
+  top: 244px;
+  left: 1944px;
+}
+
+.patients .overlap-2 {
+  position: relative;
+  width: 142px;
+  height: 60px;
+  background-color: #485fe796;
+  border-radius: 10px;
+}
+
+.patients .text-wrapper-25 {
+  position: absolute;
+  width: 58px;
+  top: 19px;
+  left: 54px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .icon-10 {
+  position: absolute;
+  width: 24px;
+  height: 28px;
+  top: 18px;
+  left: 15px;
+}
+
+.patients .line {
+  position: absolute;
+  width: 2px;
+  height: 60px;
+  top: 244px;
+  left: 2094px;
+}
+
+.patients .line-2 {
+  position: absolute;
+  width: 1857px;
+  height: 2px;
+  top: 503px;
+  left: 487px;
+}
+
+.patients .line-3 {
+  position: absolute;
+  width: 1857px;
+  height: 2px;
+  top: 569px;
+  left: 487px;
+}
+
+.patients .line-4 {
+  position: absolute;
+  width: 1927px;
+  height: 2px;
+  top: 193px;
+  left: 417px;
+}
+
+.patients .line-5 {
+  position: absolute;
+  width: 225px;
+  height: 2px;
+  top: 193px;
+  left: 475px;
+}
+
+.patients .line-6 {
+  position: absolute;
+  width: 1927px;
+  height: 2px;
+  top: 118px;
+  left: 417px;
+}
+
+.patients .compnay-name {
+  position: absolute;
+  width: 403px;
+  height: 118px;
+  top: 25px;
+  left: 44px;
+}
+
+.patients .BETTER-SMILES-DENTAL {
+  position: absolute;
+  width: 399px;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .text-wrapper-26 {
+  font-weight: 700;
+  color: #0f93b5;
+}
+
+.patients .text-wrapper-27 {
+  font-family: "Inter-Regular", Helvetica;
+  color: #757575;
+}
+
+.patients .p {
+  width: 341px;
+  top: 94px;
+  left: 0;
+  font-family: "Lato-Regular", Helvetica;
+  font-weight: 400;
+  color: #00000080;
+  font-size: 20px;
+  white-space: nowrap;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .text-wrapper-28 {
+  position: absolute;
+  width: 97px;
+  top: 200px;
+  left: 47px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #00000066;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .side-menu-arrow {
+  position: absolute;
+  width: 52px;
+  height: 54px;
+  top: 47px;
+  left: 395px;
+  background-color: #ffffff;
+  border-radius: 26px/27px;
+  border: 0.25px solid;
+  border-color: #0000003d;
+}
+
+.patients .iconixto-solid-caret {
+  position: absolute;
+  width: 45px;
+  height: 46px;
+  top: 4px;
+  left: 2px;
+}
+
+.patients .side-menu-icons {
+  display: flex;
+  flex-direction: column;
+  width: 267px;
+  height: 554px;
+  align-items: flex-start;
+  gap: 46px;
+  position: absolute;
+  top: 271px;
+  left: 47px;
+}
+
+.patients .frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.patients .vector {
+  position: relative;
+  width: 64.7px;
+  height: 49.51px;
+}
+
+.patients .text-wrapper-29 {
+  position: relative;
+  width: 113.79px;
+  height: 48px;
+  margin-top: -0.25px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .frame-2 {
+  display: flex;
+  width: 214px;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.patients .iconixto-solid-user {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-left: -12.2px;
+}
+
+.patients .text-wrapper-30 {
+  position: relative;
+  width: 134.41px;
+  height: 52.29px;
+  margin-right: -12.2px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .frame-3 {
+  display: flex;
+  width: 243px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.patients .iconixto-solid {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-left: -2.79px;
+}
+
+.patients .text-wrapper-31 {
+  position: relative;
+  width: 155.57px;
+  height: 35px;
+  margin-right: -2.79px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .frame-4 {
+  display: flex;
+  width: 267px;
+  height: 80px;
+  align-items: center;
+  gap: 13px;
+  position: relative;
+}
+
+.patients .img-2 {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.patients .text-wrapper-32 {
+  position: relative;
+  width: 153.41px;
+  height: 52.42px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.patients .frame-wrapper {
+  display: flex;
+  width: 210px;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: absolute;
+  top: 1481px;
+  left: 57px;
+}
+
+.patients .frame-5 {
+  display: flex;
+  width: 204px;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.patients .text-wrapper-33 {
+  position: relative;
+  width: fit-content;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.patients .div-wrapper {
+  position: fixed;
+  width: 170px;
+  height: 60px;
+  top: 244px;
+  left: 2100px;
+}
+
+.patients .overlap-3 {
+  position: relative;
+  width: 168px;
+  height: 60px;
+  background-color: #485fe7;
+  border-radius: 10px;
+}
+
+.patients .icon-11 {
+  position: absolute;
+  width: 22px;
+  height: 23px;
+  top: 18px;
+  left: 15px;
+}
+
+.patients .text-wrapper-34 {
+  position: absolute;
+  width: 110px;
+  top: 19px;
+  left: 48px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
