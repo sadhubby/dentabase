@@ -9,6 +9,19 @@ require('dotenv').config();
 
 const port = process.env.PORT || 3000;
 
+
+
+async function database(){
+    try{
+        await connectToMongo();
+    }
+    catch(error){
+        console.error('Server failed to start', error);
+    }
+}
+
 server.listen(port, async function(){
+    await database();
     console.log(`Server running on: http://localhost:${port}`);
 });
+
