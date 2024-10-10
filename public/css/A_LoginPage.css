@@ -1,0 +1,119 @@
+.login-page {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-page .overlap-group-wrapper {
+  background-color: #4d2b2b;
+  width: 100%;
+  height: 100%;
+}
+
+.login-page .overlap-group {
+  position: relative;
+  height: 1024px;
+  background: url('/public/img/dentist-pic.png');
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.login-page .rectangle {
+  position: absolute;
+  width: 50%;
+  height: 1024px;
+  top: 0;
+  left: 0;
+  background-color: #1446f8;
+}
+
+.login-page .intersect {
+  position: absolute;
+  width: 665px;
+  height: 544px;
+  top: 263px;
+  left: 0;
+}
+
+.login-page .text-wrapper {
+  position: absolute;
+  width: 383px;
+  top: 79px;
+  left: 155px;
+  font-family: "Nikukyu-Regular", Helvetica;
+  font-weight: 400;
+  color: #f1e4e4;
+  font-size: 48px;
+  text-align: center;
+  letter-spacing: -0.96px;
+  line-height: 57.6px;
+  white-space: nowrap;
+}
+
+.login-page .input-field {
+  position: absolute;
+  width: 327px;
+  height: 44px;
+  top: 498px;
+  left: 183px;
+  border-radius: 3px;
+  border: 3px solid;
+  border-color: #000000;
+  gap: var(--size-space-200);
+}
+
+.login-page .div {
+  position: absolute;
+  width: 158px;
+  top: 457px;
+  left: 230px;
+  font-family: "Nikukyu-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 26.7px;
+  text-align: center;
+  letter-spacing: -0.53px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.login-page .lock-fill {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  top: 446px;
+  left: 186px;
+}
+
+.login-page .group {
+  position: absolute;
+  width: 33px;
+  height: 36px;
+  top: 4px;
+  left: 6px;
+}
+
+.login-page .sort {
+  position: absolute;
+  width: 117px;
+  height: 116px;
+  top: 55px;
+  left: 41px;
+  background: url('sort.png');
+  background-size: cover;
+}
+
+.sort{
+  position: absolute;
+  width: 117px;
+  height: 116px;
+  top: 55px;
+  left: 41px;
+
+  background-size: cover;
+}
+
+
+
