@@ -7,9 +7,13 @@ const path = require('path');
 const connectToMongo = require('./src/scripts/connection.js');
 require('dotenv').config();
 
+// Router
+const router = require('./src/routes/router.js');
+
+
+server.use(router);
+
 const port = process.env.PORT || 3000;
-
-
 
 async function database(){
     try{
