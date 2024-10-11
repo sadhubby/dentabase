@@ -75,6 +75,8 @@
     letter-spacing: 0;
     line-height: normal;
   }
+
+
   
   .treatment .text-wrapper {
     font-weight: 700;
@@ -111,6 +113,10 @@
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
+  }
+
+  .text-wrapper-2{
+    margin-top: 0.7%;
   }
   
   .treatment .text-wrapper-3 {
@@ -263,13 +269,13 @@
     position: absolute;
     width: 1158px;
     height: 741px;
-    top: 286px;
+    top: 271px;
     left: 293px;
     background-color: #f9fafb61;
   }
   
   .treatment .start-from {
-    top: 342px;
+    top: 343px;
     position: absolute;
     width: 93px;
     left: 648px;
@@ -280,6 +286,7 @@
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
+    margin: 0%;
   }
   
   .treatment .text-wrapper-9 {
@@ -303,7 +310,7 @@
     gap: 6.46px;
     padding: 6.46px;
     position: absolute;
-    top: 343px;
+    top: 338px;
     left: 423px;
     background-color: #efefef;
     border-radius: 10.99px;
@@ -500,6 +507,7 @@
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
+    margin: 0%;
   }
   
   .treatment .element-hour-s-treatments {
@@ -514,6 +522,7 @@
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
+    margin: 0%;
   }
   
   .treatment .text-wrapper-21 {
@@ -835,4 +844,12 @@
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
+  }
+
+  .BETTER-SMILES-DENTAL{
+    margin: 0%;
+  }
+
+  .text-wrapper-2{
+    margin-top: 0.7%;
   }
