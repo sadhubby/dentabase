@@ -121,7 +121,7 @@
 }
 
 .patients .overlap-group {
- position: absolute;
+  position: absolute;
   width: 346px;
   height: 45px;
   top: 0;
@@ -195,9 +195,9 @@
   width: 1525px;
   height: 40px;
   padding-top: -100px;
-   background-color: #f9fafb;
+  background-color: #f9fafb;
   border-radius: 7px;
- }
+}
 
 .patients .group-wrapper {
   position: absolute;
@@ -924,7 +924,7 @@
   width: 1461px;
   height: 18px;
   left: 27px;
-background-color: #000000;
+  background-color: #000000;
 }
 
 .patients .line-7 {
