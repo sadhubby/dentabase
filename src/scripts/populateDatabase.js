@@ -13,6 +13,17 @@ const bycrypt = require('bcrypt');
 const accounts = require('../models/accounts.js');
 const saltRounds = 10;
 
+async function dropDatabase(){
+    try{
+        await mongoose.connection.dropDatabase();
+        console.log('Database dropped successfully');
+    }
+    catch (error) {
+        console.erro('Error dropping database', error);
+    }
+}
+
+
 async function hashedPassword(password){
     try{
         for(const accountData of sampleAccounts){
@@ -28,9 +39,12 @@ async function hashedPassword(password){
 
 async function populateDatabase(){
     try{
+
+        await dropDatabase();
+
         for (const accountData of sampleAccounts) {
-            const hashedPassword = await hashedPassword(accountData.accountPass);
-            accountData.accountPass = hashedPassword;
+            // const hashedPassword = await hashedPassword(accountData.accountPass);
+            // accountData.accountPass = hashedPassword;
             const account = new Account(accountData);
             await account.save();
         }
@@ -53,3 +67,5 @@ async function populateDatabase(){
         console.log('Population function completed');
     }
 }
+
+module.exports = populateDatabase;

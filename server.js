@@ -19,6 +19,7 @@ async function database(){
     try{
         await connectToMongo();
         await populateDatabase();
+
     }
     catch(error){
         console.error('Server failed to start', error);
