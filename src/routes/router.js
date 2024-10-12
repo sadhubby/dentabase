@@ -10,9 +10,9 @@ const Router = require('express');
 
 const Patient = require('../models/patient');
 const Treatment = require('../models/treatment');
-
+const Account = require('../models/accounts');
 
 const router = Router();
 router.use(express.json());
 
-
+module.exports = router;
