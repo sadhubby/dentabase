@@ -585,7 +585,7 @@
 
 .patients .line-3 {
   position: absolute;
-  width: 124px;
+  width: 186px;
   height: 1px;
   top: 135px;
   left: 362px;
@@ -805,7 +805,7 @@
 .patients .text-wrapper-33 {
   width: 262px;
   top: 100px;
-  left: 590px;
+  left: 615px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
   color: #999999;
@@ -820,7 +820,7 @@
   width: 10px;
   height: 21px;
   top: 105px;
-  left: 535px;
+  left: 580px;
 }
 
 .patients .group-14 {
