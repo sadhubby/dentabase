@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const accountSchema = new mongoose.Schema({
 
-    accountId: {
+    accountID: {
         type: Number,
         required: true,
         unique: true
@@ -26,4 +26,6 @@ const accountSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Accounts', accountSchema);
+const Account = mongoose.model('Accounts', accountSchema);
+
+module.exports = Account;

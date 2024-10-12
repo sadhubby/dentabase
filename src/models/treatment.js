@@ -17,4 +17,6 @@ const treatmentSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Treatments', treatmentSchema);
+const Treatment = mongoose.model('Treatments', treatmentSchema);
+
+module.exports = Treatment;
