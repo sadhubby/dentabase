@@ -11,7 +11,9 @@ const sampleTreatments = require('./sampleData/treatmentData.js');
 
 async function populateDatabase(){
     try{
-        
+        for(const accountData of sampleAccounts){
+            
+        }
     }
     catch{
 
