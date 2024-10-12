@@ -1,34 +1,34 @@
-.treatment .report:hover{
+.report:hover{
     background-color: #E9EFFB;
     width: 248.889px;
     border-radius: 9.697px;
   }
 
-  .treatment .treatment:hover{
+  .treatment:hover{
     background-color: #E9EFFB;
     width: 248.889px;
     border-radius: 9.697px;
   }
 
-  .treatment .logout:hover{
+  .logout:hover{
     background-color: #E9EFFB;
     width: 223.889px;
     border-radius: 9.697px;
   }
 
-  .treatment .div-2:hover{
+  .div-2:hover{
     background-color: #E9EFFB;
     width: 243.889px;
     border-radius: 9.697px;
   }
 
-  .treatment .to-do:hover{
+  .to-do:hover{
     background-color: #E9EFFB;
     width: 243.889px;
     border-radius: 9.697px;
   }
 
-  .treatment .icon-2:hover{
+  .icon-2:hover{
     background-color: #E9EFFB;
     border-radius: 50%;
   }
