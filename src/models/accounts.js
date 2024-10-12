@@ -11,7 +11,11 @@ const accountSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    accountName: {
+    accountOwnerName: {
+        type: String,
+        required: true
+    },
+    accountUserName: {
         type: String,
         required: true
     },

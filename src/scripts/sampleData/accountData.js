@@ -16,3 +16,14 @@
 //     required: true
 // }
 
+const sampleAccounts = [
+    {
+        accountID: 1,
+        accountType: "Doctor",
+        accountOwnerName: "Juan De La Cruz",
+        accounUserName: "juan_dlc",
+        accountPass: "juan_dlc"
+    }
+];
+
+module.exports = sampleAccounts;

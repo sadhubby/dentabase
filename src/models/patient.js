@@ -7,6 +7,11 @@ const patientSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    patientPic:{
+        type: String,
+        require: true,
+        default: "https://i.sstatic.net/l60Hf.png"
+    },
     patientName:{
         type: String,
         required: true

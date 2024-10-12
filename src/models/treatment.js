@@ -6,7 +6,7 @@ const treatmentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    treatmentData:{
+    treatmentDate:{
         type: Date,
         required: true
     },
