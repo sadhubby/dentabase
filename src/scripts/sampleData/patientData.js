@@ -1,4 +1,4 @@
-const treatments = require('../../models/treatment');
+const treatments = require('./treatmentData');
 const samplePatients = [
     {
         patientID: 1,
