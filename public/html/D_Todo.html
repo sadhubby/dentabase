@@ -12,7 +12,12 @@
         <div class="div">
             <div class="overlap">
 
-                <div class="rectangle-2"></div>
+                <div class="rectangle-2">
+                    <div class="done-box">       
+                        <img class="icon-tick" src="\public\img\icon-tick.svg" />       
+                        <div class="done-box-text">Done</div>     
+                    </div>
+                </div>
                 <div class="number-of-treatments"> <img class="icon" src="/public/img/icon-calendar.svg" />
                     <p class="element-total-treatments"> <span class="text-wrapper">100</span>
                         <span class="span">&nbsp;</span> <span class="text-wrapper-2">Total Appointments</span> </p>
@@ -124,30 +129,33 @@
                             <img class="icon-9" src="/public/img/icon-updown.svg" />
                             <div class="text-wrapper-10">PATIENT NAME</div>
                         </div>
+
+                       <input type="checkbox" class="checkbox">
                     </div>
                 </div>
 
-                <!-- Treatment List Information (treatment-name, price, estimated time, type of visit)-->
-                <div class="treatment-bar0">
-                    <div class="treatment-name">Teeth Whitening</div>
-                    <div class="start-from">Start &nbsp; from</div>
-                    <div class="price">$300</div>
-                    <div class="hour">=1 hour(s)</div>
-                    <div class="text-wrapper-14">/treatments</div>
-                    <div class="div-multiple"><div class="multiple-visit">MULTIPLE VISIT</div></div>
+                <!-- Todo List Information -->
+                <div class="todo-bar0">
+                    <input type="checkbox" class="checkbox" id="checkbox0">
+                    <div class="patient-name">Miguel Carlos</div>
+
+                    <img class="icon-7" src="/public/img/icon-phone.svg"/>
+                    <div class="number">+63912345678</div>
+                    
+                    <img class="icon-8" src="/public/img/icon-mail.svg" />
+                    <a href="mailto:miguelcarlos@google.com" target="_blank" rel="noopener noreferrer">
+                        <div class="email">miguelcarlos@google.com</div>
+                    </a>
+                    
+                    <div class="time">12:00PM - 13:00PM</div>
+                    <div class="procedure">Teeth Whitening</div>
                 </div>
 
                 <!--Divider-->
                 <div class="line-5-1"></div>
 
-                <!--If User adds treatment this is where their info will go-->
-                <div class="treatment-bar1">
-                    <div class="treatment-name">Teeth Cleaning</div>
-                    <div class="start-from">Start &nbsp; from</div>
-                    <div class="price">$75</div>
-                    <div class="hour">=1 hour(s)</div>
-                    <div class="text-wrapper-14">/treatments</div>
-                    <div class="div-single"><div class="single-visit">SINGLE VISIT</div></div>
+                <!--If User adds todo this is where their info will go-->
+                <div class="todo-bar1">
                 </div>
 
                 <div class="line-5"></div>
