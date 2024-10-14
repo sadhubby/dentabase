@@ -9,7 +9,7 @@ const samplePatients = [
     //     patientTreatments: [treatments[0]]
     // },
     {
-        id: 1,
+        id: 6,
         firstName: "Cody",
         lastName: "Rhodes",
         middleName: "Mid",
