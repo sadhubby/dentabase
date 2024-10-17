@@ -121,5 +121,7 @@ async function run(){
         "new_picture"        // pic
     );
 
+    await functions.deactivatePatient(6);
+
 }
 

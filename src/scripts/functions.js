@@ -104,10 +104,21 @@ async function updatePatientInfo(patientID, firstName, lastName, middleName, nic
         });
     }
 
+async function deactivatePatient(patientID){
+    patientModel.findOne({id: patientID}).then(function(patient){
+        patient.isActive = false;
+
+        patient.save().then(function(updated){
+            console.log(updated.firstName + " patient deactivated");
+        });
+    })
+}
+
 
 module.exports = {
     readPatient,
     createPatient,
     searchPatientName,
-    updatePatientInfo
+    updatePatientInfo,
+    deactivatePatient
 };

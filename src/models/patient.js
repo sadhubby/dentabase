@@ -66,7 +66,7 @@ const patientSchema = new mongoose.Schema({
     },
     contact:{
         type: Number,
-        require: true
+        required: true
     },
     effectiveDate:{ //idk what this means
         type: Date
@@ -84,15 +84,20 @@ const patientSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
+    isActive:{
+        type: Boolean,
+        default: true
+    },
     
     
     pic:{
         type: String,
-        require: true,
+        required: true,
         default: "https://i.sstatic.net/l60Hf.png"
     },
     treatments:[treatment.schema]
+
+    
 });
 
 const Patient = mongoose.model('Patient', patientSchema);
