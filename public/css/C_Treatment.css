@@ -556,7 +556,7 @@
   
   .treatment .line-3 {
     position: absolute;
-    width: 186px;
+    width: 193px;
     height: 1px;
     top: 135px;
     left: 362px;
@@ -687,8 +687,8 @@
   .treatment .text-wrapper-26 {
     position: absolute;
     width: 83px;
-    top: 1px;
-    left: 65px;
+    top: 7px;
+    left: 60px;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
@@ -716,8 +716,8 @@
   .treatment .text-wrapper-27 {
     position: absolute;
     width: 99px;
-    top: 5px;
-    left: 66px;
+    top: 15px;
+    left: 60px;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
@@ -746,7 +746,7 @@
     position: absolute;
     width: 114px;
     top: 11px;
-    left: 57px;
+    left: 60px;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
@@ -775,8 +775,8 @@
   .treatment .text-wrapper-29 {
     position: absolute;
     width: 112px;
-    top: 3px;
-    left: 54px;
+    top: 10px;
+    left: 70px;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
@@ -1052,6 +1052,7 @@
     height: 41px;
     background-color: #485fe796;
     border-radius: 6.84px;
+    transform: translate(-18px, 0px);
   }
   
   .treatment .group-17 {
@@ -1088,10 +1089,9 @@
     width: 1px;
     height: 41px;
     top: 0;
-    left: 103px;
+    left: 85px;
     background-color: rgb(172, 170, 170);
     border: 0px solid rgb(172, 170, 170);
-  
   }
   
   .treatment .group-18 {
@@ -1109,10 +1109,11 @@
   
   .treatment .overlap-group-4 {
     position: relative;
-    width: 115px;
+    width: 135px;
     height: 41px;
     background-color: #485fe7;
     border-radius: 6.84px;
+    transform: translate(-17px, 0px);
   }
   
   .treatment .icon-17 {
@@ -1136,4 +1137,3 @@
     line-height: normal;
     white-space: nowrap;
   }
-  

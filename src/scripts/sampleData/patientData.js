@@ -1,24 +1,5 @@
-// patientID:{
-//     type: Number,
-//     required: true,
-//     unique: true
-// },
-// patientName:{
-//     type: String,
-//     required: true
-// },
-// patientContact:{
-//     type: Number,
-//     require: true
-// },
-// patientEmail:{
-//     type: String,
-//     required: true
-// },
-// patientTreatments:[treatment.schema]
-// });
-
-const samplePatient = [
+const treatments = require('./treatmentData');
+const samplePatients = [
     {
         patientID: 1,
         patientPic: "https://static.wikia.nocookie.net/bwwe/images/5/5b/Cody_Rhodes_5.png/revision/latest?cb=20220523040407",

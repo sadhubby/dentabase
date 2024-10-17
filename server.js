@@ -5,11 +5,11 @@ const session = require('express-session');
 // import connection to mongoDB and populating
 const path = require('path');
 const connectToMongo = require('./src/scripts/connection.js');
+const populateDatabase = require('./src/scripts/populateDatabase.js');
 require('dotenv').config();
 
 // Router
 const router = require('./src/routes/router.js');
-
 
 server.use(router);
 
@@ -18,6 +18,8 @@ const port = process.env.PORT || 3000;
 async function database(){
     try{
         await connectToMongo();
+        await populateDatabase();
+
     }
     catch(error){
         console.error('Server failed to start', error);
