@@ -6,10 +6,10 @@ const session = require('express-session');
 const path = require('path');
 const connectToMongo = require('./src/scripts/connection.js');
 const populateDatabase = require('./src/scripts/populateDatabase.js');
-require('dotenv').config();
-
-
+const functions = require('./src/scripts/functions.js');
 const patientModel = require('./src/models/patient.js');
+
+require('dotenv').config();
 
 // Router
 const router = require('./src/routes/router.js');
@@ -36,54 +36,9 @@ server.listen(port, async function(){
     console.log(`Server running on: http://localhost:${port}`);
 });
 
-async function createPatient(firstName, lastName, middleName, nickname, homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, occupation, dentalInsurance, officeNo, faxNo, contact, effectiveDate, guardianName, guardianOccupation, referralName, consultationReason, pic) {
-    var patientID = 1;
-    let lastPatient = await patientModel.findOne().sort({ id: -1 });
-    // console.log(await patientModel.countDocuments());
-
-    if(lastPatient){
-        patientID = lastPatient.id + 1;
-    }
-
-    
-
-    // Create the new patient document
-    const patient = new patientModel({
-        id: patientID,
-        firstName: firstName,
-        lastName: lastName,
-        middleName: middleName,
-        nickname: nickname,
-        homeAddress: homeAddress,
-        birthdate: birthdate,
-        age: age,
-        sex: sex,
-        religion: religion,
-        nationality: nationality,
-        email: email,
-        homeNo: homeNo,
-        occupation: occupation,
-        dentalInsurance: dentalInsurance,
-        officeNo: officeNo,
-        faxNo: faxNo,
-        contact: contact,
-        effectiveDate: effectiveDate,
-        guardianName: guardianName,
-        guardianOccupation: guardianOccupation,
-        referralName: referralName,
-        consultationReason: consultationReason,
-        pic: pic,
-    });
-
-    // Save the patient
-    await patient.save().then(function () {
-        console.log("Patient created.");
-    });
-}
-
 
 async function run(){
-    await createPatient(
+    await functions.createPatient(
         "John",              // firstName
         "Doe",               // lastName
         "Michael",           // middleName
@@ -108,7 +63,7 @@ async function run(){
         "Routine Checkup",   // consultationReason
         "another_picture"    // pic
     );
-    await createPatient(
+    await functions.createPatient(
         "Alice",             // firstName
         "Johnson",           // lastName
         "Elizabeth",         // middleName
@@ -133,5 +88,11 @@ async function run(){
         "Cavity Check",      // consultationReason
         "third_picture"     // pic
     );
+
+    let patient = await functions.readPatient(8);
+    //console.log(patient);
+
+    let searchTest = await functions.searchPatientName("john");
+    console.log(searchTest);
 }
 
