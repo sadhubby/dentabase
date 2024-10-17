@@ -93,6 +93,33 @@ async function run(){
     //console.log(patient);
 
     let searchTest = await functions.searchPatientName("john");
-    console.log(searchTest);
+    //console.log(searchTest);
+
+    await functions.updatePatientInfo(7,
+        "Samuel",             // firstName
+        "Smith",              // lastName
+        "James",              // middleName
+        "Sammy",              // nickname
+        "456 Elm St",         // homeAddress
+        new Date('1990-04-10'), // birthdate
+        34,                   // age
+        'M',                  // sex
+        "Catholic",           // religion
+        "American",           // nationality
+        "samuel.smith@example.com", // email
+        "1234567890",        // homeNo
+        "Architect",          // occupation
+        "Premier Dental Ins.", // dentalInsurance
+        "9876543210",        // officeNo
+        "54321",             // faxNo
+        "3216549870",        // contact
+        new Date('2025-01-01'), // effectiveDate
+        "Mary Smith",        // guardianName
+        "Nurse",             // guardianOccupation
+        "Dr. Alice",         // referralName
+        "Follow-up Appointment", // consultationReason
+        "new_picture"        // pic
+    );
+
 }
 
