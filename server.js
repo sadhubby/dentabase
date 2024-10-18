@@ -123,5 +123,43 @@ async function run(){
 
     await functions.deactivatePatient(6);
 
+    await functions.updateMedicalHistory(
+        6,                                   // patientID
+        'Dr. Bobbity bob',                     // physicianName
+        'Australia',  // physicianOfficeAddress
+        'Doctoring',                               // physicianSpecialty
+        5,                                   // physicianOfficeNumber
+        'glass',                          // prescription
+        'foot surgery',                    // illnessOrSurgery (assuming this should be an array)
+        'diarrhea',                          // condition (assuming this should be an array)
+        false,                                // isUsingTobacco
+        true,                               // isAlcoholOrDrugs
+        ['Sulfa drugs'],                // allergies
+        false,                                // isPregnant
+        true,                               // isNursing
+        false,                                // isBirthControlPills
+        ['Heart Disease', 'Angina']  // healthProblems
+      );
+
+      await functions.updateMedicalHistory(
+        8,                                   // patientID
+        'Dr. jason',                     // physicianName
+        'america',  // physicianOfficeAddress
+        'cardio',                               // physicianSpecialty
+        10,                                   // physicianOfficeNumber
+        'betadine',                          // prescription
+        'ugly',                    // illnessOrSurgery (assuming this should be an array)
+        'constipation',                          // condition (assuming this should be an array)
+        true,                                // isUsingTobacco
+        true,                               // isAlcoholOrDrugs
+        ['Sulfa drugs', 'Penicillin'],                // allergies
+        false,                                // isPregnant
+        false,                               // isNursing
+        false,                                // isBirthControlPills
+        []  // healthProblems
+      );
+      
+    let medicalHistory = await functions.readMedicalHistory(8);
+    console.log(medicalHistory);
 }
 

@@ -1,4 +1,5 @@
 const patientModel = require('../models/patient.js');
+const medicalHistoryModel = require('../models/medicalHistory.js');
 
 async function readPatient(patientID) {
     let patient = await patientModel.findOne({id: patientID});
@@ -114,11 +115,81 @@ async function deactivatePatient(patientID){
     })
 }
 
+async function createMedicalHistory(patientID, physicianName, physicianOfficeAddress, physicianSpecialty
+                                    , physicianOfficeNumber, prescription, illnessOrSurgery, condition
+                                    , isUsingTobacco, isAlcoholOrDrugs, allergies, isPregnant, isNursing
+                                    , isBirthControlPills, healthProblems){
+        const medicalHistory = new medicalHistoryModel(
+            {
+                patientID: patientID,
+                physicianName: physicianName,
+                physicianOfficeAddress: physicianOfficeAddress,
+                physicianSpecialty: physicianSpecialty,
+                physicianOfficeNumber: physicianOfficeNumber,
+                prescription: prescription,
+                illnessOrSurgery: illnessOrSurgery,
+                condition: condition,
+                isUsingTobacco: isUsingTobacco,
+                isAlcoholOrDrugs: isNursing,
+                allergies: allergies,
+                isPregnant: isPregnant,
+                isNursing: isPregnant,
+                isBirthControlPills: isBirthControlPills,
+                healthProblems: healthProblems,
+            }
+        );
+
+        await medicalHistory.save();
+        console.log('medical history created');
+    }
+
+async function updateMedicalHistory(patientID, physicianName, physicianOfficeAddress, physicianSpecialty
+                                    , physicianOfficeNumber, prescription, illnessOrSurgery, condition
+                                    , isUsingTobacco, isAlcoholOrDrugs, allergies, isPregnant, isNursing
+                                    , isBirthControlPills, healthProblems){
+    const medicalHistory = await medicalHistoryModel.findOne({patientID: patientID});
+
+    if(medicalHistory){
+        console.log("updating med history found.");
+        medicalHistory.physicianName = physicianName;
+        medicalHistory.physicianOfficeAddress = physicianOfficeAddress;
+        medicalHistory.physicianSpeciality = physicianSpecialty;
+        medicalHistory.physicianOfficeNumber = physicianOfficeNumber;
+        medicalHistory.prescription = prescription;
+        medicalHistory.illnessOrSurgery = illnessOrSurgery;
+        medicalHistory.condition = condition;
+        medicalHistory.isUsingTobacco = isUsingTobacco;
+        medicalHistory.isAlcoholOrDrugs = isAlcoholOrDrugs;
+        medicalHistory.allergies = allergies;
+        medicalHistory.isPregnant = isPregnant;
+        medicalHistory.isNursing = isNursing;
+        medicalHistory.isBirthControlPills = isBirthControlPills;
+        medicalHistory.healthProblems = healthProblems;
+
+        await medicalHistory.save();
+    } else {
+        console.log("updating mes history not found.");
+        await createMedicalHistory(patientID, physicianName, physicianOfficeAddress, physicianSpecialty
+            , physicianOfficeNumber, prescription, illnessOrSurgery, condition
+            , isUsingTobacco, isAlcoholOrDrugs, allergies, isPregnant, isNursing
+            , isBirthControlPills, healthProblems);
+    }
+}
+
+async function readMedicalHistory(patientID){
+    const medicalHistory = await medicalHistoryModel.findOne({patientID: patientID});
+
+    return medicalHistory;
+}
+
 
 module.exports = {
     readPatient,
     createPatient,
     searchPatientName,
     updatePatientInfo,
-    deactivatePatient
+    deactivatePatient,
+    updateMedicalHistory,
+    createMedicalHistory,
+    readMedicalHistory
 };

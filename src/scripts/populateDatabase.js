@@ -4,10 +4,13 @@ const connectToMongo = require('./connection.js');
 const Account = require('../models/accounts.js');
 const Patient = require('../models/patient.js');
 const Treatment = require('../models/treatment.js');
+const MedicalHistory = require('../models/medicalHistory.js');
+
 
 const sampleAccounts = require('./sampleData/accountData.js');
 const samplePatients = require('./sampleData/patientData.js');
 const sampleTreatments = require('./sampleData/treatmentData.js');
+const sampleMedicalHistory = require('./sampleData/medicalHistoryData.js');
 
 const bycrypt = require('bcrypt');
 const accounts = require('../models/accounts.js');
@@ -57,6 +60,11 @@ async function populateDatabase(){
         for (const treatmentData of sampleTreatments){
             const treatment = new Treatment(treatmentData);
             await treatment.save();
+        }
+
+        for (const medicalHistoryData of sampleMedicalHistory){
+            const medicalHistory = new MedicalHistory(medicalHistoryData);
+            await medicalHistory.save();
         }
 
     }
