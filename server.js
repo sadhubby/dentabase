@@ -160,6 +160,35 @@ async function run(){
       );
       
     let medicalHistory = await functions.readMedicalHistory(8);
-    console.log(medicalHistory);
+    //console.log(medicalHistory);
+
+    await functions.createTreatment(
+        7,
+        new Date('1990-01-01'),
+        [4,5],
+        'cleaning',
+        'dr dentist',
+        1000,
+        1000,
+        0,
+        new Date('2024-02-02'),
+        'ongoing'
+    );
+    await functions.updateTreatment(
+        1,
+        new Date('2023-06-06'),
+        [9, 10],
+        'new procedure',
+        'dr hello',
+        5000,
+        4000,
+        1000,
+        new Date('2023-12-12'),
+        'ongoing'
+    )
+
+
+    let treatment = await functions.readTreatment(1);
+    console.log(treatment);
 }
 

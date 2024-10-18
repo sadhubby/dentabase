@@ -33,7 +33,7 @@ const samplePatients = [
         referralName: "Dr. John",
         consultationReason: "Teeth Fixing",
         pic: "picture",
-        treatments: [treatments[0]]
+        treatments: []
     }
 ];
 

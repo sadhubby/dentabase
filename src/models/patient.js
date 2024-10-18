@@ -95,7 +95,7 @@ const patientSchema = new mongoose.Schema({
         required: true,
         default: "https://i.sstatic.net/l60Hf.png"
     },
-    treatments:[treatment.schema]
+    treatments:[{type: mongoose.Schema.Types.ObjectId, ref: 'Treatments'}]
 
     
 });

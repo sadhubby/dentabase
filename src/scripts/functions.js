@@ -1,5 +1,6 @@
 const patientModel = require('../models/patient.js');
 const medicalHistoryModel = require('../models/medicalHistory.js');
+const treatmentModel = require('../models/treatment.js');
 
 async function readPatient(patientID) {
     let patient = await patientModel.findOne({id: patientID});
@@ -182,6 +183,63 @@ async function readMedicalHistory(patientID){
     return medicalHistory;
 }
 
+async function createTreatment(patientID, date, teethAffected, procedure, dentist, amountCharged
+                                , amountPaid, balance, nextAppointmentDate, status
+){
+    const lastTreatment = await treatmentModel.findOne().sort({id: -1});
+    var treatmentID = 1;
+
+    if(lastTreatment){
+        treatmentID = lastTreatment.id + 1;
+    }
+
+    const treatment = new treatmentModel({
+        id: treatmentID,
+        date: date,
+        teethAffected: teethAffected,
+        procedure: procedure,
+        dentist: dentist,
+        amountCharged: amountCharged,
+        amountPaid: amountPaid,
+        balance: balance,
+        nextAppointmentDate: nextAppointmentDate,
+        status: status
+    })
+
+    await treatment.save();
+
+    const patient = await patientModel.findOne({id: patientID});
+    await patient.treatments.push(treatment._id);
+
+    await patient.save();
+}
+
+async function updateTreatment(treatmentID, date, teethAffected, procedure, dentist, amountCharged
+                                , amountPaid, balance, nextAppointmentDate, status){
+
+    const treatment = await treatmentModel.findOne({ id: treatmentID });    
+
+     treatment.date = date;
+    treatment.teethAffected = teethAffected;
+        treatment.procedure = procedure;
+        treatment.dentist = dentist;
+        treatment.amountCharged = amountCharged;
+        treatment.amountPaid = amountPaid;
+        treatment.balance = balance;
+        treatment.nextAppointmentDate = nextAppointmentDate;
+        treatment.status = status;
+
+    await treatment.save();
+
+    
+
+ }
+
+ async function readTreatment(treatmentID){
+    const treatment = treatmentModel.findOne({id: treatmentID});
+    return treatment;
+ }
+
 
 module.exports = {
     readPatient,
@@ -191,5 +249,8 @@ module.exports = {
     deactivatePatient,
     updateMedicalHistory,
     createMedicalHistory,
-    readMedicalHistory
+    readMedicalHistory,
+    createTreatment,
+    updateTreatment,
+    readTreatment
 };
