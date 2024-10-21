@@ -6,11 +6,17 @@
 
 
   <link rel="stylesheet" href="/css/O_MainTemplate.css" />
-  <link rel="stylesheet" href="/css/sidebar_animation.css" />
+    <link rel="stylesheet" href="/css/sidebar_animation.css" />
 </head>
 
 <body>
-    {{>B_PatientInformation_page}}
+<!-- Sidebar will always show-->
+{{>sidebar}} 
+
+
+    {{>D_Todo}}   
+
+    
   </body>
 
 </html>

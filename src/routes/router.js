@@ -17,9 +17,29 @@ router.use(express.json());
 
 
 router.get("/", (req, res) => {
+
+    
     res.render("B_PatientInformation_page", {
         title: "B_PatientInformation_page",
     });
+    
+   
+    /*
+   res.render("C_Treatment", {
+       title: "C_Treatment",
+    });
+     */
+    
+    /*
+    
+ res.render("D_Todo", {
+        title: "D_Todo",
+    });
+*/
+
+
+
+
 });
 
 module.exports = router;

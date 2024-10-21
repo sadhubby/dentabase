@@ -3,8 +3,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-   width: 100%;
-   height: auto;
+  width: 100%;
+  height: auto;
+  z-index: 1;
 }
 
 
@@ -16,6 +17,7 @@
   top: 18px;
   left: 336px;
 }
+
 .side-bar-design .name-page {
   position: absolute;
   width: 156px;
@@ -28,7 +30,8 @@
   letter-spacing: 0;
   line-height: normal;
 }
-.side-bar-design .search-settings-group{
+
+.side-bar-design .search-settings-group {
   position: absolute;
   width: 348px;
   height: 56px;
@@ -45,6 +48,7 @@
   position: absolute;
   top: 0;
 }
+
 .side-bar-design .search-box-2 {
   position: absolute;
   width: 267px;
@@ -57,6 +61,7 @@
   letter-spacing: 0;
   line-height: normal;
 }
+
 .side-bar-design .ellipse-wrapper {
   position: absolute;
   width: 23px;
@@ -74,6 +79,7 @@
   top: 4px;
   left: 1493px;
 }
+
 .side-bar-design .line {
   top: 142px;
   position: absolute;
@@ -123,8 +129,9 @@
   top: 3px;
   left: 1px;
 }
+
 .side-bar-design .company-name {
- position: absolute;
+  position: absolute;
   width: 292px;
   top: 0px;
   left: 25px;
@@ -148,14 +155,17 @@
   letter-spacing: 0;
   line-height: normal;
 }
+
 .side-bar-design .better-smiles-text {
   font-weight: 700;
   color: #0f93b5;
 }
+
 .side-bar-design .dental-clinic-text {
   font-family: "Inter-Regular", Helvetica;
   color: #757575;
 }
+
 .side-bar-design .clinic-address-text {
   position: absolute;
   width: 250px;
@@ -169,6 +179,7 @@
   line-height: normal;
   white-space: nowrap;
 }
+
 .side-bar-design .clinic-text {
   position: absolute;
   width: 71px;
@@ -182,6 +193,7 @@
   line-height: normal;
   white-space: nowrap;
 }
+
 .side-bar-design .side-menu-icons {
   position: absolute;
   width: 196px;
@@ -189,7 +201,8 @@
   top: 199px;
   left: 30px;
 }
-.side-bar-design .todo-element{
+
+.side-bar-design .todo-element {
   position: absolute;
   width: 150px;
   height: 36px;
@@ -204,6 +217,7 @@
   top: 0;
   left: 0;
 }
+
 .side-bar-design .todo-text {
   position: absolute;
   width: 83px;
@@ -216,6 +230,7 @@
   letter-spacing: 0;
   line-height: normal;
 }
+
 .side-bar-design .patients-element {
   position: absolute;
   width: 167px;
@@ -223,6 +238,7 @@
   top: 75px;
   left: 1px;
 }
+
 .side-bar-design .icon-sidemenu-user {
   position: absolute;
   width: 39px;
@@ -230,6 +246,7 @@
   top: 0;
   left: 0;
 }
+
 .side-bar-design .patients-text {
   position: absolute;
   width: 99px;
@@ -242,6 +259,7 @@
   letter-spacing: 0;
   line-height: normal;
 }
+
 .side-bar-design .treatment-element {
   position: absolute;
   width: 173px;
@@ -249,6 +267,7 @@
   top: 162px;
   left: 3px;
 }
+
 .side-bar-design .icon-stethoscope {
   position: absolute;
   width: 48px;
@@ -256,6 +275,7 @@
   top: 0;
   left: 0;
 }
+
 .side-bar-design .treatment-text {
   position: absolute;
   width: 114px;
@@ -269,6 +289,7 @@
   line-height: normal;
   white-space: nowrap;
 }
+
 .side-bar-design .report-element {
   position: absolute;
   width: 168px;
@@ -284,6 +305,7 @@
   top: 0;
   left: 0;
 }
+
 .side-bar-design .report-text {
   position: absolute;
   width: 112px;
@@ -296,6 +318,7 @@
   letter-spacing: 0;
   line-height: normal;
 }
+
 .side-bar-design .logout-element {
   position: absolute;
   width: 134px;
@@ -303,6 +326,7 @@
   top: 732px;
   left: 25px;
 }
+
 .side-bar-design .icon-logout {
   position: absolute;
   width: 46px;
@@ -310,6 +334,7 @@
   top: 0;
   left: 0;
 }
+
 .side-bar-design .logout-text {
   position: absolute;
   top: 9px;

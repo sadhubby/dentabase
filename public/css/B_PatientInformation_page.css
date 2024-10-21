@@ -12,7 +12,18 @@
   height: 995px;
 }
 
-
+.patient-information .text-wrapper-3 {
+    width: 122px;
+    top: 36px;
+    left: 360px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 29.3px;
+    position: absolute;
+    letter-spacing: 0;
+    line-height: normal;
+  }
 
 .patient-information .text-wrapper-10 {
   position: absolute;
