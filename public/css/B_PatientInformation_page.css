@@ -440,7 +440,7 @@
   height: 745px;
   top: 261px;
   left: 303px;
-  background-color: #fff4f4;
+  background-color: #ffffff;
   border-radius: 5px;
   overflow: auto;
 }
@@ -1454,6 +1454,7 @@
   height: 628px;
   top: 55px;
   left: 0;
+  overflow: auto;
 }
 
 .patient-information .overlap-6 {
@@ -1476,6 +1477,9 @@
   height: 1px;
   top: 145px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .line-10 {
@@ -1484,6 +1488,9 @@
   height: 1px;
   top: 214px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .line-11 {
@@ -1492,6 +1499,9 @@
   height: 1px;
   top: 283px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .line-12 {
@@ -1500,6 +1510,9 @@
   height: 1px;
   top: 352px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .line-13 {
@@ -1508,6 +1521,9 @@
   height: 1px;
   top: 421px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .line-14 {
@@ -1516,6 +1532,9 @@
   height: 1px;
   top: 490px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .line-15 {
@@ -1524,6 +1543,9 @@
   height: 1px;
   top: 559px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .line-16 {
@@ -1532,6 +1554,9 @@
   height: 1px;
   top: 76px;
   left: 0;
+    background-color: rgb(172, 170, 170);
+  border: 0px solid rgb(172, 170, 170);
+  opacity: 0.5;
 }
 
 .patient-information .patient-info {
@@ -2766,6 +2791,8 @@
   top: -1px;
   left: 0;
   object-fit: cover;
+  border: #000000 1px solid;
+  background-color: #000000;
 }
 
 .patient-information .line-18 {
@@ -2875,6 +2902,12 @@
   height: 79px;
   top: -5px;
   left: 0;
+}
+
+
+.patient-information .icon-back-teeth-group-2{
+position: absolute;
+top:-20px
 }
 
 .patient-information .group-96-1 {
@@ -3403,13 +3436,141 @@
   height: 21px;
 }
 
-.patient-information .icon-tooth-11 {
+.patient-information .icon-back-tooth-11 {
   position: absolute;
   width: 500px;
   height: 21px;
   top: 0;
-  left: 0px;
+  left: -230px;
 }
+.patient-information .icon-back-tooth-12 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: -190px;
+}
+.patient-information .icon-back-tooth-13 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: -145px;
+}
+.patient-information .icon-back-tooth-14 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: -105px;
+}
+
+.patient-information .icon-back-tooth-15 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: -63px;
+}
+
+.patient-information .icon-back-tooth-16 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: -20px;
+}
+
+.patient-information .icon-back-tooth-17 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 20px;
+}
+
+
+.patient-information .icon-back-tooth-18 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 67px;
+}
+
+
+
+
+.patient-information .icon-back-tooth-21 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 106px;
+}
+
+
+.patient-information .icon-back-tooth-22 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 147px;
+}
+
+
+.patient-information .icon-back-tooth-23 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 190px;
+}
+
+
+.patient-information .icon-back-tooth-24 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 232px;
+}
+
+
+.patient-information .icon-back-tooth-25 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 273px;
+}
+
+
+.patient-information .icon-back-tooth-26 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 315px;
+}
+
+.patient-information .icon-back-tooth-27 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 357px;
+}
+
+.patient-information .icon-back-tooth-28 {
+  position: absolute;
+  width: 500px;
+  height: 21px;
+  top: 0;
+  left: 400px;
+}
+
+
 
 
 
@@ -3438,13 +3599,13 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    top: 183%;
+    top: 184%;
     transform: translateX(-50%);
 }
 
 .icon-tooth-left {
     position: absolute;
-    left: 46.9%;
+    left: 46.8%;
     top: 165%;
     transform: translateY(-50%);
 }
@@ -3659,6 +3820,11 @@
   left: 5px;
 }
 
+.patient-information .icon-back-teeth-group{
+position: absolute;
+}
+
+
 .patient-information .group-105 {
   position: absolute;
   width: 308px;
@@ -3869,6 +4035,7 @@
 }
 
 
+
 .patient-information .front-tooth-status {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -3893,14 +4060,30 @@
 }
 
 
+.patient-information .icon-front-teeth-group{
+position: absolute;
+width: 100%;
+height: 50%;
 
+top: -20px;
+left: 13px;
+}
+
+.patient-information .icon-front-teeth-group-2{
+position: absolute;
+width: 100%;
+height: 10%;
+
+top: 82px;
+left: 13px;
+}
 
 
 
 .patient-information .front-down-teeth {
   display: flex;
   position: absolute;
-  width: 394px;
+  width: 450px;
   height: 144px;
   top: 459px;
   left: 113px;
@@ -4751,11 +4934,21 @@
 }
 
 .patient-information .text-wrapper-149 {
+   font-size: 17.7px;
+  letter-spacing: 0;
+  line-height: normal;
   font-weight: 700;
+  font-family: "Roboto-Bold", Helvetica;
 }
 
 .patient-information .text-wrapper-150 {
-  font-family: "Roboto-Regular", Helvetica;
+   font-family: "Roboto-Bold", Helvetica;
+  font-weight: 400;
+  color: #040404;
+  font-size: 17.7px;
+  letter-spacing: 0;
+  line-height: normal;
+
 }
 
 .patient-information .am-amaigam-filling {
@@ -5011,7 +5204,7 @@
   position: absolute;
   width: 197px;
   height: 22px;
-  top: 55px;
+  top: 65px;
   left: 1214px;
 }
 

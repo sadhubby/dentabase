@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.tooth-icon {
+    position: relative;
+    width: 120px; /* Adjust the size based on your needs */
+    height: 120px;
+}
+
+/* Style for the center of the tooth icon */
+.center {
+    position: absolute;
+    width: 40px; /* Adjust for the desired size of the center */
+    height: 40px;
+
+    border-radius: 50%; /* Make it circular */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+}
+
+/* Positioning the images */
+.tooth-up {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooth-down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    top: 65%;
+    transform: translateX(-50%);
+}
+
+.tooth-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tooth-right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
