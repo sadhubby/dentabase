@@ -15,4 +15,11 @@ const Account = require('../models/accounts');
 const router = Router();
 router.use(express.json());
 
+
+router.get("/", (req, res) => {
+    res.render("B_PatientInformation_page", {
+        title: "B_PatientInformation_page",
+    });
+});
+
 module.exports = router;
