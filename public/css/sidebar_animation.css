@@ -1,34 +1,29 @@
-.report:hover{
-    background-color: #E9EFFB;
-    width: 248.889px;
-    border-radius: 9.697px;
-  }
+.todo-element:hover {
+  background-color: #E9EFFB;
+  width: 243.889px;
+  border-radius: 9.697px;
+}
 
-  .treatment:hover{
-    background-color: #E9EFFB;
-    width: 248.889px;
-    border-radius: 9.697px;
-  }
+.patients-element:hover {
+  background-color: #E9EFFB;
+  width: 243.889px;
+  border-radius: 9.697px;
+}
 
-  .logout:hover{
-    background-color: #E9EFFB;
-    width: 223.889px;
-    border-radius: 9.697px;
-  }
+.treatment-element:hover {
+  background-color: #E9EFFB;
+  width: 248.889px;
+  border-radius: 9.697px;
+}
 
-  .div-2:hover{
-    background-color: #E9EFFB;
-    width: 243.889px;
-    border-radius: 9.697px;
-  }
+.report-element:hover {
+  background-color: #E9EFFB;
+  width: 248.889px;
+  border-radius: 9.697px;
+}
 
-  .to-do:hover{
-    background-color: #E9EFFB;
-    width: 243.889px;
-    border-radius: 9.697px;
-  }
-
-  .icon-2:hover{
-    background-color: #E9EFFB;
-    border-radius: 50%;
-  }
+.logout-element:hover {
+  background-color: #E9EFFB;
+  width: 223.889px;
+  border-radius: 9.697px;
+}

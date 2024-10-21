@@ -6,13 +6,6 @@
   width: 100%;
 }
 
-.patients .div {
-  background-color: #ffffff;
-  width: 1911px;
-  height: 995px;
-  top: -70px;
-  position: relative;
-}
 
 .patients .overlap {
   position: absolute;
@@ -32,15 +25,6 @@
   box-shadow: 0px 2.92px 2.92px #00000040;
 }
 
-.patients .rectangle-2 {
-  position: absolute;
-  width: 1609px;
-  height: 995px;
-  top: 0;
-  left: 301px;
-  background-color: #ffffff;
-  box-shadow: 0px 2.93px 2.93px #00000040;
-}
 
 .patients .number-of-patients {
   position: absolute;
@@ -585,9 +569,9 @@
 
 .patients .line-3 {
   position: absolute;
-  width: 186px;
+  width: 130px;
   height: 1px;
-  top: 135px;
+  top: 142px;
   left: 362px;
   background-color: #6b84ea;
   border: 0px solid #6b84ea;
@@ -805,7 +789,7 @@
 .patients .text-wrapper-33 {
   width: 262px;
   top: 100px;
-  left: 615px;
+  left: 585px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
   color: #999999;
@@ -820,7 +804,7 @@
   width: 10px;
   height: 21px;
   top: 105px;
-  left: 580px;
+  left: 530px;
 }
 
 .patients .group-14 {
