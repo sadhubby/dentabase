@@ -93,7 +93,7 @@
         </div>
 
         <!--Category List-->
-        <div class="treatment-list-group">
+        <div class="todo-list-group">
             <div class="rectangle">
                 <div class="group-2">
 
@@ -129,28 +129,13 @@
             </div>
 
             <!-- Todo List Information -->
-            <div class="todo-bar0">
-                <input type="checkbox" class="checkbox" id="checkbox0">
-                <div class="patient-name">Miguel Carlos</div>
-
-                <img class="icon-7" src="/img/icon-phone.svg" />
-                <div class="number">+63912345678</div>
-
-                <img class="icon-8" src="/img/icon-mail.svg" />
-                <a href="mailto:miguelcarlos@google.com" target="_blank" rel="noopener noreferrer">
-                    <div class="email">miguelcarlos@google.com</div>
-                </a>
-
-                <div class="time">12:00PM - 13:00PM</div>
-                <div class="procedure">Teeth Whitening</div>
-            </div>
+            {{> D_Todo-bar}}
 
             <!--Divider-->
             <div class="line-5-1"></div>
 
             <!--If User adds todo this is where their info will go-->
-            <div class="todo-bar1">
-            </div>
+            {{> D_Todo-bar}}
 
             <div class="line-5"></div>
             <div class="line-6"></div>

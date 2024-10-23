@@ -169,8 +169,8 @@
     left: 1493px;
   }
   
-  .treatment .treatment-list-group {
-    display: flex;
+  .treatment .todo-list-group {
+    display: block;
     position: absolute;
     width: 1525px;
     height: 730px;
@@ -356,12 +356,13 @@
     line-height: normal;
   }
   
-  .treatment .todo-bar0 {
+  .treatment .todo-bar {
     position: absolute;
-    width: 1462px;
+    width: 100%;
     height: 19px;
     top: 9%;
     left: 2%;
+    display: block;
   }
   
   .treatment .icon-7 {
@@ -902,6 +903,17 @@
     opacity: 0.5;
   }
   
+  /*.treatment .divider{
+    position: absolute;
+    width: 1525px;
+    height: 1px;
+    top: 33px;
+    left: -30px;
+    background-color: rgb(172, 170, 170);
+    border: 0px solid rgb(172, 170, 170);
+    opacity: 0.5;
+  }*/
+
   .treatment .line-5-1 {
     position: absolute;
     width: 1525px;
