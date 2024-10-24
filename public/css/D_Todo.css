@@ -95,17 +95,18 @@
   }
   
   .treatment .text-wrapper-3 {
-    width: 122px;
-    top: -202px;
-    left: 100;
-    font-family: "Roboto-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 29.3px;
-    position: absolute;
-    letter-spacing: 0;
-    line-height: normal;
-  }
+  width: 122px;
+  top: 35px;
+  left: 350px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 29.3px;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 1;
+}
   
   .treatment .search-bar-wrapper {
     position: absolute;

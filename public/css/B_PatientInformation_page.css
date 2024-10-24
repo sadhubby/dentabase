@@ -1926,6 +1926,7 @@
   border-color: #000000;
 }
 
+
 .patient-information .text-wrapper-80 {
   position: absolute;
   top: -10px;
@@ -1965,6 +1966,7 @@
   height: 22px;
   top: 2px;
   left: 451px;
+  z-index: 1;
 }
 
 .patient-information .group-35 {
@@ -2017,7 +2019,7 @@
   width: 228px;
   height: 21px;
   top: 38px;
-  left: 24px;
+  left: 54px;
 }
 
 .patient-information .group-39 {
@@ -2025,7 +2027,7 @@
   width: 157px;
   height: 21px;
   top: 38px;
-  left: 276px;
+  left: 300px;
 }
 
 .patient-information .group-40 {
@@ -2727,25 +2729,13 @@
   left: 64px;
 }
 
-.patient-information .group-93 {
-  position: absolute;
-  width: 1605px;
-  height: 21px;
-  top: 38px;
-  left: 0;
-}
 
-.patient-information .group-94 {
-  position: relative;
-  width: 1607px;
-  height: 21px;
-}
 
 .patient-information .text-wrapper-86 {
   position: absolute;
   width: 1605px;
-  top: 0;
-  left: 0;
+  top: 50px;
+  left: -120px;
   font-family: "Roboto-Bold", Helvetica;
   font-weight: 700;
   color: #040404;
@@ -2760,7 +2750,7 @@
   width: 950px;
   height: 603px;
   top: 99px;
-  left: 267px;
+  left: 120px;
 }
 
 .patient-information .teeth-chart-group {
@@ -3469,10 +3459,6 @@ left: -9px;
   top: 0;
   left: 400px;
 }
-
-
-
-
 
 /* Style for the center of the tooth icon */
 .icon-tooth-center {
@@ -5465,4 +5451,71 @@ left: 13px;
   height: 34px;
   top: 221px;
   left: 1094px;
+}
+
+
+
+
+/* +ANIMATION FOR THIS PAGE*/
+/* Hide the actual checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+
+/* `YES OR NO CHOICES */
+/* Change box background when checkbox is checked */
+input[type="checkbox"]:checked ~ .rectangle-4 {
+    background-color: #485fe7;
+}
+
+/* Change box background when checkbox is checked */
+input[type="checkbox"]:checked ~ .rectangle-5 {
+    background-color: #485fe7;
+}
+
+
+
+
+/* `DENTAL CHART ANIMATION*/
+/* Change box background when checkbox is checked */
+input[type="checkbox"]:checked ~ .icon-tooth-left {
+    background-color: #485fe7;
+}
+/* Change box background when checkbox is checked */
+input[type="checkbox"]:checked ~ .icon-tooth-right {
+    background-color: #485fe7;
+}
+/* Change box background when checkbox is checked */
+input[type="checkbox"]:checked ~ .icon-tooth-up {
+    background-color: #485fe7;
+}
+/* Change box background when checkbox is checked */
+input[type="checkbox"]:checked ~ .icon-tooth-down {
+    background-color: #485fe7;
+}
+/* Change box background when checkbox is checked */
+input[type="checkbox"]:checked ~ .icon-tooth-left {
+    background-color: #485fe7;
+}
+
+
+/* General styles for the image hover effect */
+.icon-back-tooth-11 img {
+    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Hover effect - change the size and apply a filter */
+.icon-back-tooth-11 img:hover {
+    transform: scale(1.2); /* Enlarge image slightly */
+    filter: brightness(1.2); /* Increase brightness */
+}
+
+
+
+/* Hover effect for the center div */
+.icon-back-tooth-11 .icon-tooth-center:hover {
+    background-color: #ff6347; /* Change color on hover */
+    transform: scale(1.2); /* Enlarge on hover */
 }
