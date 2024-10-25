@@ -120,6 +120,7 @@
   border-radius: 19.06px / 19.79px;
   border: 0.18px solid;
   border-color: #0000003d;
+  z-index: 1;
 }
 
 .side-bar-design .iconixto-solid-caret {

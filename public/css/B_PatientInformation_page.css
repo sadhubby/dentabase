@@ -2294,8 +2294,8 @@
   position: absolute;
   width: 132px;
   height: 22px;
-  top: 59px;
-  left: 435px;
+  top: 55px;
+  left: 445px;
 }
 
 .patient-information .overlap-17 {
@@ -5464,58 +5464,89 @@ input[type="checkbox"] {
 
 
 /* `YES OR NO CHOICES */
-/* Change box background when checkbox is checked */
-input[type="checkbox"]:checked ~ .rectangle-4 {
+/* YES OR NO CHOICES */
+/* Hide the default radio button circles */
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Style for custom radio boxes */
+.rectangle-4, .rectangle-5 {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Style for custom checkbox box */
+.rectangle-6 {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Change background when Yes radio is checked */
+input[type="radio"]:checked#radio-yes ~ .rectangle-4 {
     background-color: #485fe7;
 }
 
-/* Change box background when checkbox is checked */
-input[type="checkbox"]:checked ~ .rectangle-5 {
+/* Change background when No radio is checked */
+input[type="radio"]:checked#radio-no ~ .rectangle-5 {
     background-color: #485fe7;
 }
 
+/* Change background when "Others" checkbox is checked */
+input[type="checkbox"]:checked + .rectangle-4 {
+    background-color: #485fe7;
+}
+
+/* Initially hide the text input */
+.hidden {
+    display: none;
+}
+
+/* Show input field when 'Others' checkbox is checked */
+#checkbox-others:checked + .rectangle-6 + #other-allergy-input {
+    display: block;
+}
+
+#other-allergy-input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 
 
 /* `DENTAL CHART ANIMATION*/
-/* Change box background when checkbox is checked */
-input[type="checkbox"]:checked ~ .icon-tooth-left {
-    background-color: #485fe7;
-}
-/* Change box background when checkbox is checked */
-input[type="checkbox"]:checked ~ .icon-tooth-right {
-    background-color: #485fe7;
-}
-/* Change box background when checkbox is checked */
-input[type="checkbox"]:checked ~ .icon-tooth-up {
-    background-color: #485fe7;
-}
-/* Change box background when checkbox is checked */
-input[type="checkbox"]:checked ~ .icon-tooth-down {
-    background-color: #485fe7;
-}
-/* Change box background when checkbox is checked */
-input[type="checkbox"]:checked ~ .icon-tooth-left {
-    background-color: #485fe7;
+/* Default styling */
+.icon-back-tooth-11 label {
+    cursor: pointer;
 }
 
-
-/* General styles for the image hover effect */
-.icon-back-tooth-11 img {
-    transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition on hover */
-    cursor: pointer; /* Change cursor to pointer */
+.icon-back-tooth-11 label img,
+.icon-back-tooth-11 label .icon-tooth-center {
+    transition: background-color 0.2s ease;
+    display: inline-block;
 }
 
-/* Hover effect - change the size and apply a filter */
-.icon-back-tooth-11 img:hover {
-    transform: scale(1.2); /* Enlarge image slightly */
-    filter: brightness(1.2); /* Increase brightness */
+/* Hover effect with a light color */
+.icon-back-tooth-11 label:hover img,
+.icon-back-tooth-11 label:hover .icon-tooth-center {
+    background-color: #f0f0f0; /* light color */
 }
 
-
-
-/* Hover effect for the center div */
-.icon-back-tooth-11 .icon-tooth-center:hover {
-    background-color: #ff6347; /* Change color on hover */
-    transform: scale(1.2); /* Enlarge on hover */
+/* Checked state (darker color when clicked) */
+#checkbox-left:checked ~ label img.icon-tooth-left,
+#checkbox-right:checked ~ label img.icon-tooth-right,
+#checkbox-center:checked ~ label .icon-tooth-center,
+#checkbox-up:checked ~ label img.icon-tooth-up,
+#checkbox-down:checked ~ label img.icon-tooth-down {
+    background-color: #c0c0c0; /* darker color */
 }

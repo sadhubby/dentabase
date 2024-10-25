@@ -18,11 +18,12 @@
 
     <!-- + MAIN INTERFACE Patient's Details-->
     <div class="patient-information">
+        <div class="text-wrapper-3">Patients</div>
         <div class="overlap-wrapper">
             <div class="text-wrapper-10">Patient Information</div>
             <div class="text-wrapper-11">Medical History</div>
             <div class="line"></div>
-            <p class="text-wrapper-12">John Doe G. Garcia | 29 yrs. Old | Male</p>
+            <p class="text-wrapper-12">{{full_name}} | {{age}} | {{sex}}</p>
             <div class="line-2"></div>
             <div class="text-wrapper-13">Dental Record Chart</div>
             <div class="text-wrapper-14">Informed Consent</div>
@@ -66,39 +67,39 @@
                 <div class="patient-info-group">
                     <div class="birthdate-group">
                         <div class="text-wrapper-22">Birthdate (mm/dd/yy)</div>
-                        <div class="text-wrapper-23">October 1, 2000</div>
+                        <div class="text-wrapper-23">{{birth_month}} {{birth_date}}, {{birth_year}}</div>
                     </div>
                     <div class="age-group">
                         <div class="text-wrapper-24">Age</div>
-                        <div class="text-wrapper-25">10</div>
+                        <div class="text-wrapper-25">{{age}}</div>
                     </div>
                     <div class="address-group">
                         <div class="text-wrapper-26">Home Address</div>
-                        <p class="text-wrapper-27">2401 Taft Ave, Malate, Manila, 1004 Metro Manila</p>
+                        <p class="text-wrapper-27">{{home_address}}</p>
                     </div>
                     <div class="occupation-group">
                         <div class="text-wrapper-24">Occupation</div>
-                        <div class="text-wrapper-28">Student</div>
+                        <div class="text-wrapper-28">{{personal_occupation}}</div>
                     </div>
                     <div class="religion-group">
                         <div class="text-wrapper-29">Religion</div>
-                        <div class="text-wrapper-30">Catholic</div>
+                        <div class="text-wrapper-30">{{religion}}</div>
                     </div>
                     <div class="nationality-group">
                         <div class="text-wrapper-31">Nationality</div>
-                        <div class="text-wrapper-32">Filipino</div>
+                        <div class="text-wrapper-32">{{nationality}}</div>
                     </div>
                     <div class="dental-insurance">
                         <div class="text-wrapper-33">Dental Insurance</div>
-                        <div class="text-wrapper-34">NA</div>
+                        <div class="text-wrapper-34">{{dental_insurance}}</div>
                     </div>
                     <div class="nickname-group">
                         <div class="text-wrapper-35">Nickname</div>
-                        <div class="text-wrapper-36">Miguel</div>
+                        <div class="text-wrapper-36">{{nickname}}</div>
                     </div>
                     <div class="sex-group">
                         <div class="text-wrapper-35">Sex (M/F)</div>
-                        <div class="text-wrapper-36">Male</div>
+                        <div class="text-wrapper-36">{{sex}}</div>
                     </div>
 
                     <!--`END-->
@@ -108,26 +109,25 @@
                     <div class="contact-info-group">
                         <div class="group-6">
                             <div class="fax-num-group">
-                                <div class="text-wrapper-37">000975</div>
                                 <div class="text-wrapper-38">Fax No.</div>
+                                <div class="text-wrapper-37">{{fax_number}}</div>
                             </div>
                             <div class="office-num-group">
-                                <div class="text-wrapper-39">000975</div>
                                 <div class="text-wrapper-40">Office No.</div>
+                                <div class="text-wrapper-39">{{office_number}}</div>
                             </div>
                             <div class="phone-num-group">
-                                <div class="text-wrapper-41">000975</div>
                                 <div class="text-wrapper-42">Cel/Mobile No.</div>
+                                <div class="text-wrapper-41">{{mobile_number}}</div>
                             </div>
                             <div class="home-num-group">
-                                <div class="text-wrapper-37">000975</div>
                                 <div class="text-wrapper-43">Home No.</div>
+                                <div class="text-wrapper-37">{{home_number}}</div>
                             </div>
                             <div class="email-address-group">
-                                <div class="text-wrapper-38">Email Address</div> <a
-                                    href="mailto:miguelcarlos@google.com" target="_blank" rel="noopener noreferrer">
-                                    <div class="text-wrapper-44">miguelcarlos@google.com</div>
-                                </a>
+                                <div class="text-wrapper-38">Email Address</div>
+                                <div class="text-wrapper-44">{{email_address}}</div>
+
                             </div>
                         </div>
                         <div class="group-7">
@@ -146,11 +146,11 @@
                         </div>
                         <div class="previous-dentist">
                             <div class="text-wrapper-24">Previous Dentist</div>
-                            <div class="text-wrapper-46">N/A</div>
+                            <div class="text-wrapper-46">{{previous-dentist}}</div>
                         </div>
                         <div class="last-visit-group">
                             <div class="text-wrapper-24">Last Dental Visit</div>
-                            <div class="text-wrapper-47">Jan 1, 0224</div>
+                            <div class="text-wrapper-47">{{LDV_month}} {{LDV_date}}, {{LDV_year}}</div>
                         </div>
                     </div>
                     <!--`END-->
@@ -160,19 +160,19 @@
                     <div class="minors-group">
                         <div class="parent-name-group">
                             <div class="text-wrapper-54">Parent/Guardian’s Name</div>
-                            <div class="text-wrapper-55">Carlos</div>
+                            <div class="text-wrapper-55">{{guardian_name}}</div>
                         </div>
                         <div class="parent-occupatin">
                             <div class="text-wrapper-52">Occupation</div>
-                            <div class="text-wrapper-53">Sales Manager</div>
+                            <div class="text-wrapper-53">{{guardian_occupation}}</div>
                         </div>
                         <div class="refer-you-group">
                             <p class="text-wrapper-50">Whom may we thank for refering you?</p>
-                            <div class="text-wrapper-51">Sales Manager</div>
+                            <div class="text-wrapper-51">{{minor_question_one}}</div>
                         </div>
                         <div class="reason-consulation">
                             <p class="text-wrapper-48">What is your reason for dental consulation</p>
-                            <div class="text-wrapper-49">Sales Manager</div>
+                            <div class="text-wrapper-49">{{minor_question_two}}</div>
                         </div>
 
 
@@ -248,25 +248,26 @@
                             </div>
 
                             <div class="patient-info">
-                                <div class="text-wrapper-63">Dr. John Doe Doroteo</div>
-                                <div class="text-wrapper-64">1,000,000</div>
-                                <div class="text-wrapper-65">1,000,000</div>
+                                <div class="text-wrapper-63">{{current_dentist}}</div>
+                                <div class="text-wrapper-64">{{amount_charged}}</div>
+                                <div class="text-wrapper-65">{{amount_paid}}</div>
                                 <div class="overlap-7">
-                                    <div class="text-wrapper-66">1,000,000</div>
-                                    <div class="text-wrapper-67">December 30, 2024</div>
+                                    <div class="text-wrapper-66">{{balance}}</div>
+                                    <div class="text-wrapper-67">{{next_appointment_date}}</div>
                                 </div>
                                 <div class="overlap-8">
-                                    <div class="text-wrapper-68">February 30, 2030</div>
+                                    <div class="text-wrapper-68">{{treatment_date}}</div>
                                     <div class="group-19">
                                         <div class="element-wrapper">
-                                            <div class="element">53<br />60</div>
+                                            <div class="element">{{tooth_number}}<br />60</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="group-20">
                                     <div class="overlap-9">
                                         <div class="rectangle-3"></div>
-                                        <div class="tooth-cleaning">tooth cleaning, sdfdsf <br />restortion,</div>
+                                        <div class="tooth-cleaning">{{treatment_procedures}}, sdfdsf <br />restortion,
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -321,165 +322,167 @@
                 <div class="medical-history-2">
                     <div class="group-26">
                         <div class="text-wrapper-72">Name of Physician</div>
-                        <div class="text-wrapper-73">Dr. John Doe Garcia.Phd</div>
+                        <div class="text-wrapper-73">{{physician_name}}</div>
                     </div>
                     <div class="group-27">
                         <div class="text-wrapper-72">Specialty, If applicable</div>
-                        <div class="text-wrapper-74">N/A</div>
+                        <div class="text-wrapper-74">{{physician_specialty}}</div>
                     </div>
                     <div class="group-28">
                         <div class="group-29">
-                            <div class="text-wrapper-75">N/A</div>
                             <div class="text-wrapper-72">Office Number</div>
+                            <div class="text-wrapper-75">{{physician_office_number}}</div>
                         </div>
                     </div>
                     <div class="group-30">
                         <div class="text-wrapper-76">Office Address</div>
-                        <p class="text-wrapper-77">2401 Taft Ave, Malate, Manila, 1004 Metro Manila</p>
+                        <p class="text-wrapper-77">{{physician_address}}</p>
                     </div>
                     <div class="group-31">
                         <p class="text-wrapper-78">Do you use tobacco products?</p>
                         <div class="group-32">
 
+                            <!-- Yes option -->
                             <div class="text-wrapper-79">Yes</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="radio" id="radio-yes" name="tobacco-question" value="yes"
+                                    {{#if is_tobacco_user}}checked{{/if}}>
                                 <div class="rectangle-4"></div>
                             </label>
 
+                            <!-- No option -->
                             <div class="text-wrapper-80">No</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="radio" id="radio-no" name="tobacco-question" value="no"
+                                    {{#if is_not_tobacco_user}}checked{{/if}}>
                                 <div class="rectangle-5"></div>
                             </label>
-
                         </div>
                     </div>
+
                     <div class="group-33">
                         <div class="group-34">
-                            <div class="text-wrapper-79">Yes</div>
 
+                            <!-- Yes option -->
+                            <div class="text-wrapper-79">Yes</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="radio" id="radio-yes" name="alcohol-question" value="yes"
+                                    {{#if is_alcohol_user}}checked{{/if}}>
                                 <div class="rectangle-4"></div>
                             </label>
 
-
+                            <!-- No option -->
                             <div class="text-wrapper-80">No</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="radio" id="radio-no" name="alcohol-question" value="no"
+                                    {{#if is_not_alcohol_user}}checked{{/if}}>
                                 <div class="rectangle-5"></div>
                             </label>
                         </div>
+
                         <div class="group-35">
                             <p class="text-wrapper-81">Do you use alcohol, cocaine or other dangerous drugs?</p>
                         </div>
+
+
                     </div>
                     <div class="group-36">
 
-                        <div class="group-37">
-
-                            <div class="text-wrapper-79">Yes</div>
-                            <label>
-                                <input type="checkbox" id="checkbox">
-                                <div class="rectangle-4"></div>
-                            </label>
-
-                            <div class="text-wrapper-80">No</div>
-                            <label>
-                                <input type="checkbox" id="checkbox">
-                                <div class="rectangle-5"></div>
-                            </label>
-
-                        </div>
 
                         <div class="group-35">
                             <p class="text-wrapper-81">Are you allergic to any of the following:</p>
-
                             <div class="group-37">
-
                                 <div class="text-wrapper-79">Yes</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-yes" name="allergic-question" value="yes"
+                                        {{#if is_allergic_user}}checked{{/if}}>
                                     <div class="rectangle-4"></div>
                                 </label>
-
                                 <div class="text-wrapper-80">No</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-no" name="allergic-question" value="no"
+                                        {{#if is_not_allergic_user}}checked{{/if}}>
                                     <div class="rectangle-5"></div>
                                 </label>
-
                             </div>
-
-
                         </div>
 
-
+                        <!-- Allergy options with checkboxes -->
                         <div class="group-38">
                             <div class="text-wrapper-79">Local Anesthetic (ex. Lidocaine)</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="checkbox" id="checkbox-lidocaine" name="allergy" value="lidocaine">
                                 <div class="rectangle-4"></div>
                             </label>
                         </div>
                         <div class="group-39">
-                            <div class="text-wrapper-79">Penicilin, Antibiotics</div>
+                            <div class="text-wrapper-79">Penicillin, Antibiotics</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="checkbox" id="checkbox-penicillin" name="allergy" value="penicillin">
                                 <div class="rectangle-4"></div>
                             </label>
                         </div>
                         <div class="group-40">
                             <div class="text-wrapper-79">Sulfa Drugs</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
-                                <div class="rectangl;e-4"></div>
+                                <input type="checkbox" id="checkbox-sulfa" name="allergy" value="sulfa">
+                                <div class="rectangle-4"></div>
                             </label>
                         </div>
                         <div class="group-41">
                             <div class="text-wrapper-79">Aspirin</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="checkbox" id="checkbox-aspirin" name="allergy" value="aspirin">
                                 <div class="rectangle-4"></div>
                             </label>
                         </div>
                         <div class="group-42">
                             <div class="text-wrapper-79">Latex</div>
                             <label>
-                                <input type="checkbox" id="checkbox">
+                                <input type="checkbox" id="checkbox-latex" name="allergy" value="latex">
                                 <div class="rectangle-4"></div>
                             </label>
                         </div>
+
+                        <!-- Others allergy checkbox and input field -->
                         <div class="group-43">
                             <div class="text-wrapper-79">Others:</div>
-
-                            <div class="rectangle-6"></div>
+                            <label>
+                                <input type="checkbox" id="checkbox-others">
+                                <div class="rectangle-6"></div>
+                            </label>
+                            <!-- Text input field for specifying other allergies -->
+                            <input type="text" id="other-allergy-input" placeholder="Please specify" class="hidden">
                         </div>
+
+
+
                     </div>
                     <div class="group-44">
-                        <div class="overlap-10">
-                            <div class="overlap-11">
-                                <p class="are-you-under"> Are you under medical treatment
-                                    now?<br />&nbsp;&nbsp;&nbsp;If
-                                    yes, what is the condition being treated: </p>
-                                <div class="group-45">
 
-                                    <div class="text-wrapper-79">Yes</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
-                                        <div class="rectangle-4"></div>
-                                    </label>
+                        <div class="overlap-11">
+                            <p class="are-you-under"> Are you under medical treatment
+                                now?<br />&nbsp;&nbsp;&nbsp;If
+                                yes, what is the condition being treated: </p>
+                            <div class="group-45">
 
-                                    <div class="text-wrapper-80">No</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
-                                        <div class="rectangle-5"></div>
-                                    </label>
-                                </div>
+                                <div class="text-wrapper-79">Yes</div>
+                                <label>
+                                    <input type="radio" id="radio-yes" name="med-treatment-question" value="yes"
+                                        {{#if is_med_treatment_user}}checked{{/if}}>
+                                    <div class="rectangle-4"></div>
+                                </label>
+                                <div class="text-wrapper-80">No</div>
+                                <label>
+                                    <input type="radio" id="radio-no" name="med-treatment-question" value="no"
+                                        {{#if is_not_med_treatment_user}}checked{{/if}}>
+                                    <div class="rectangle-5"></div>
+                                </label>
+
                             </div>
-                            <div class="rectangle-7"></div>
                         </div>
+                        <div class="rectangle-7"></div>
+
                     </div>
                     <div class="group-46">
                         <div class="overlap-12">
@@ -493,16 +496,18 @@
 
                                 <div class="text-wrapper-79">Yes</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-yes" name="illness-question" value="yes"
+                                        {{#if is_illness_user}}checked{{/if}}>
                                     <div class="rectangle-4"></div>
                                 </label>
-
                                 <div class="text-wrapper-80">No</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-no" name="illness-question" value="no"
+                                        {{#if is_not_illness_user}}checked{{/if}}>
                                     <div class="rectangle-5"></div>
                                 </label>
                             </div>
+
                         </div>
                     </div>
                     <div class="group-48">
@@ -519,15 +524,17 @@
 
                                 <div class="text-wrapper-79">Yes</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-yes" name="prescription-question" value="yes"
+                                        {{#if is_prescription_user}}checked{{/if}}>
                                     <div class="rectangle-4"></div>
                                 </label>
-
                                 <div class="text-wrapper-80">No</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-no" name="prescription-question" value="no"
+                                        {{#if is_not_prescription_user}}checked{{/if}}>
                                     <div class="rectangle-5"></div>
                                 </label>
+
                             </div>
                         </div>
                     </div>
@@ -536,178 +543,188 @@
                             <div class="for-women-only-are-wrapper">
                                 <p class="for-women-only-are">
                                     For Women Only:&nbsp;&nbsp;&nbsp;&nbsp;
-                                    Are
-                                    youpregnant?<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are
-                                    you
-                                    nursing?<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are
-                                    you taking birth control pills?
+                                    Are you
+                                    pregnant?<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    Are you
+                                    nursing?<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    Are you taking birth control pills?
                                 </p>
                             </div>
                             <div class="group-51">
 
                                 <div class="text-wrapper-79">Yes</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-yes" name="pregnant-question" value="yes"
+                                        {{#if is_pregnant_user}}checked{{/if}}>
                                     <div class="rectangle-4"></div>
                                 </label>
-
                                 <div class="text-wrapper-80">No</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-no" name="pregnant-question" value="no"
+                                        {{#if is_not_pregnant_user}}checked{{/if}}>
                                     <div class="rectangle-5"></div>
                                 </label>
                             </div>
+
                             <div class="group-52">
 
                                 <div class="text-wrapper-79">Yes</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-yes" name="nursing-question" value="yes"
+                                        {{#if is_nursing_user}}checked{{/if}}>
                                     <div class="rectangle-4"></div>
                                 </label>
-
                                 <div class="text-wrapper-80">No</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-no" name="nursing-question" value="no"
+                                        {{#if is_not_nursing_user}}checked{{/if}}>
                                     <div class="rectangle-5"></div>
                                 </label>
                             </div>
+
                             <div class="group-53">
                                 <div class="text-wrapper-79">Yes</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-yes" name="birth_control-question" value="yes"
+                                        {{#if is_birth_control_user}}checked{{/if}}>
                                     <div class="rectangle-4"></div>
                                 </label>
-
                                 <div class="text-wrapper-80">No</div>
                                 <label>
-                                    <input type="checkbox" id="checkbox">
+                                    <input type="radio" id="radio-no" name="birth_control-question" value="no"
+                                        {{#if is_not_birth_control_user}}checked{{/if}}>
                                     <div class="rectangle-5"></div>
                                 </label>
 
                             </div>
                         </div>
                     </div>
+
+
                     <div class="overlap-17">
                         <div class="group-54">
                             <p class="text-wrapper-82">Do you have or have you had any of the following? Check that
                                 apply</p>
                             <div class="medical-condition">
-                                <div class="group-55">
+                                <div class="group-55">                                  
+
+
                                     <div class="text-wrapper-83">Stroke</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-stroke" name="medical-condition" value="stroke">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
+                               
                                 <div class="group-56">
                                     <div class="text-wrapper-83">High Blood Pressure</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-high-blood" name="medical-condition" value="high-blood">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-57">
                                     <div class="text-wrapper-83">Heart Disease</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-heart-disease" name="medical-condition" value="heart-disease">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-58">
                                     <div class="text-wrapper-83">Cancer / Tumors</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                  <label>
+                                        <input type="checkbox" id="checkbox-cancer" name="medical-condition" value="cancer">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-59">
                                     <div class="text-wrapper-83">Anemia</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-anemia" name="medical-condition" value="anemia">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-60">
                                     <div class="text-wrapper-83">Angina</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                   <label>
+                                        <input type="checkbox" id="checkbox-angina" name="medical-condition" value="angina">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-61">
                                     <div class="text-wrapper-83">Asthma</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                   <label>
+                                        <input type="checkbox" id="checkbox-asthma" name="medical-condition" value="asthma">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-62">
                                     <div class="text-wrapper-83">Emphysema</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-emphysema" name="medical-condition" value="emphysema">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-63">
                                     <div class="text-wrapper-83">Bleeding Problems</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-bleeding-problems" name="medical-condition" value="bleeding-problems">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-64">
                                     <div class="text-wrapper-83">Blood Disease</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-blood-disease" name="medical-condition" value="blood-disease">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-65">
                                     <div class="text-wrapper-83">Head Injuries</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-head-injuries" name="medical-condition" value="head-injuries">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-66">
                                     <div class="text-wrapper-83">Arthritis / Rheumatism</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-arthritis" name="medical-condition" value="arthritis">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-67">
                                     <div class="text-wrapper-83">Other</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                 <label>
+                                        <input type="checkbox" id="checkbox-other" name="medical-condition" value="other">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-68">
                                     <div class="text-wrapper-83">Heart Murmur</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-heart-murmur" name="medical-condition" value="heart-murmur">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-69">
                                     <div class="text-wrapper-83">Hepatitis / Liver Disease</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-liver-disease" name="medical-condition" value="liver-disease">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-70">
                                     <div class="text-wrapper-83">Rheumatic Fever</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-rheumatic-fever" name="medical-condition" value="rheumatic-fever">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-71">
                                     <div class="text-wrapper-83">Hay Fever / Allergies</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                  <label>
+                                        <input type="checkbox" id="checkbox-hay-fever" name="medical-condition" value="hay-fever">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
@@ -715,7 +732,7 @@
                                     <div class="text-wrapper-83">Respiratory Problem</div>
 
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-respiratory-problem" name="medical-condition" value="respiratory-problem">
                                         <div class="rectangle-4"></div>
                                     </label>
 
@@ -723,23 +740,23 @@
                                 <div class="group-73">
                                     <div class="text-wrapper-83">Hepatitis / Jaundice</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-jaundice" name="medical-condition" value="jaundice">
                                         <div class="rectangle-4"></div>
                                     </label>
 
                                 </div>
                                 <div class="group-74">
                                     <div class="text-wrapper-83">Tuberculosis</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                 <label>
+                                        <input type="checkbox" id="checkbox-tuberculosis" name="medical-condition" value="tuberculosis">
                                         <div class="rectangle-4"></div>
                                     </label>
 
                                 </div>
                                 <div class="group-75">
                                     <div class="text-wrapper-83">Swollen ankles</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                  <label>
+                                        <input type="checkbox" id="checkbox-swollen-ankles" name="medical-condition" value="swollen-ankles">
                                         <div class="rectangle-4"></div>
                                     </label>
 
@@ -747,8 +764,8 @@
                                 <div class="group-76">
                                     <div class="text-wrapper-83">Kidney Disease</div>
 
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-kidney-disease" name="medical-condition" value="kidney-disease">
                                         <div class="rectangle-4"></div>
                                     </label>
 
@@ -756,105 +773,102 @@
                                 <div class="group-77">
                                     <div class="text-wrapper-83">Diabetes</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-diabetes" name="medical-condition" value="diabetes">
                                         <div class="rectangle-4"></div>
                                     </label>
 
                                 </div>
                                 <div class="group-78">
                                     <div class="text-wrapper-83">Chest Pain</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                   <label>
+                                        <input type="checkbox" id="checkbox-chest-pain" name="medical-condition" value="chest-pain">
                                         <div class="rectangle-4"></div>
                                     </label>
 
                                 </div>
                                 <div class="group-79">
                                     <div class="text-wrapper-83">Low Blood Pressure</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                <label>
+                                        <input type="checkbox" id="checkbox-low-blood" name="medical-condition" value="low-blood">
                                         <div class="rectangle-4"></div>
                                     </label>
 
                                 </div>
                                 <div class="group-80">
                                     <div class="text-wrapper-83">Epilepsy / Convulsions</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-epilepsy" name="medical-condition" value="epilepsy">
                                         <div class="rectangle-4"></div>
                                     </label>
 
                                 </div>
                                 <div class="group-81">
                                     <div class="text-wrapper-83">AIDS or HIV Infection</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
-                                        <label>
-                                            <input type="checkbox" id="checkbox">
-                                            <div class="rectangle-4"></div>
-                                        </label>
+                                     <label>
+                                        <input type="checkbox" id="checkbox-aids" name="medical-condition" value="aids">
+                                        <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-82">
                                     <div class="text-wrapper-83">Sexually Transmitted Disease</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-std" name="medical-condition" value="std">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-83">
                                     <div class="text-wrapper-83">Stomach Troubles / Ulcers</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-ulcers" name="medical-condition" value="ulcers">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-84">
                                     <div class="text-wrapper-83">Fainting Seizure</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-fainting-seizures" name="medical-condition" value="fainting-seizures">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-85">
                                     <div class="text-wrapper-83">Rapid Weight Loss</div>
                                     <label>
-                                        <input type="checkbox" id="checkbox">
+                                        <input type="checkbox" id="checkbox-weight-loss" name="medical-condition" value="weight-loss">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-86">
                                     <div class="text-wrapper-83">Radiation Therapy</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-radiation-therapy" name="medical-condition" value="radiation-therapy">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-87">
                                     <div class="text-wrapper-83">Joint Replacement / Implant</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-joint-replacement" name="medical-condition" value="joint-replacement">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-88">
                                     <div class="text-wrapper-83">Heart Surgery</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-heart-surgery" name="medical-condition" value="heart-surgery">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-89">
                                     <div class="text-wrapper-83">Heart Attack</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-heart-attack" name="medical-condition" value="heart-attack">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
                                 <div class="group-90">
                                     <div class="text-wrapper-83">Thyroid Problem</div>
-                                    <label>
-                                        <input type="checkbox" id="checkbox">
+                                     <label>
+                                        <input type="checkbox" id="checkbox-thyroid-problem" name="medical-condition" value="thyroid-problem">
                                         <div class="rectangle-4"></div>
                                     </label>
                                 </div>
