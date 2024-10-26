@@ -37,6 +37,7 @@
   height: 56px;
   top: 0;
   left: 1138px;
+  z-index: 1;
 }
 
 .side-bar-design .search-box {
@@ -78,6 +79,7 @@
   height: 33px;
   top: 4px;
   left: 1493px;
+  z-index: 1;
 }
 
 .side-bar-design .line {
@@ -88,6 +90,7 @@
   left: 301px;
   background-color: #757575;
   opacity: 0.5;
+  z-index: 1;
 }
 
 .side-bar-design .line-2 {
@@ -98,6 +101,7 @@
   left: 301px;
   background-color: #757575;
   opacity: 0.5;
+  z-index: 1;
 }
 
 .side-bar-design .left-container {
