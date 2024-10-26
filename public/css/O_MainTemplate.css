@@ -144,56 +144,64 @@
   line-height: normal;
 }
 
-.side-bar-design .BETTER-SMILES-DENTAL {
-  position: absolute;
-  width: 292px;
-  top: 0;
-  left: 0;
-  font-family: "Inter-Bold", Helvetica;
-  font-weight: 400;
-  color: transparent;
-  font-size: 29.3px;
-  letter-spacing: 0;
-  line-height: normal;
+/* Brand logo and name styles */
+.brand-logo {
+  text-align: center;
+  margin-top: 30px;
+  margin-left: -40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.side-bar-design .better-smiles-text {
-  font-weight: 700;
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-name-blue {
+  font-size: 30px;
   color: #0f93b5;
+  font-weight: bold;
 }
 
-.side-bar-design .dental-clinic-text {
-  font-family: "Inter-Regular", Helvetica;
-  color: #757575;
+.brand-name-gray {
+  font-size: 27px;
+  color: gray;
 }
 
-.side-bar-design .clinic-address-text {
-  position: absolute;
-  width: 250px;
-  top: 80px;
-  left: 0;
-  font-family: "Lato-Regular", Helvetica;
-  font-weight: 400;
-  color: #00000080;
-  font-size: 14.7px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+.brand-services {
+  margin-top: 10px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Ensures text wraps properly for smaller screens */
 }
 
-.side-bar-design .clinic-text {
-  position: absolute;
-  width: 71px;
-  top: 150px;
-  left: 30px;
-  font-family: "Roboto-Regular", Helvetica;
-  font-weight: 400;
-  color: #00000066;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+.service-item {
+  color: black;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  /* Space between the text and circle */
 }
+
+/* Small dot (circle) separator */
+.service-item::after {
+  content: "•";
+  margin-left: 5px;
+}
+
+/* Remove the dot after the last service */
+.service-item:last-child::after {
+  content: "";
+}
+
+
 
 .side-bar-design .side-menu-icons {
   position: absolute;
@@ -222,8 +230,8 @@
 .side-bar-design .todo-text {
   position: absolute;
   width: 83px;
-  top: 5px;
-  left: 66px;
+  top: 1px;
+  left: 65px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -251,7 +259,7 @@
 .side-bar-design .patients-text {
   position: absolute;
   width: 99px;
-  top: 13px;
+  top: 5px;
   left: 66px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
@@ -281,7 +289,7 @@
   position: absolute;
   width: 114px;
   top: 11px;
-  left: 66px;
+  left: 57px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -310,8 +318,8 @@
 .side-bar-design .report-text {
   position: absolute;
   width: 112px;
-  top: 10px;
-  left: 73px;
+  top: 3px;
+  left: 54px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
