@@ -201,7 +201,19 @@
   content: "";
 }
 
-
+.clinic-text {
+  position: absolute;
+  width: 71px;
+  top: 147px;
+  left: 30px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #00000066;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
 
 .side-bar-design .side-menu-icons {
   position: absolute;
