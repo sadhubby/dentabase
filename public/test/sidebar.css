@@ -161,6 +161,8 @@ body {
 
 }
 
+
+
 /* +END SIDEBAR DESIGN & ANIMATION*/
 
 
@@ -216,6 +218,8 @@ body {
   font-weight: 400;
   color: #00000066;
   font-size: 1.4rem; /* Using rem for scalable font size */
+  border: #b8b8b8 0.1px solid; 
+  
 }
 
 .search-box::placeholder {
@@ -265,6 +269,11 @@ left: 37px
 
 .title-element{
   color: #007bff;
+}
+
+.icon-solid-right-arrow{
+  width: 15px;
+  height: 15px;
 }
 
 .indicator-line {
