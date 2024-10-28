@@ -1,0 +1,967 @@
+/* Frame styling */
+.frame-4 {
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px 0;
+
+}
+
+/* Header for section titles */
+.header {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Patient data group styling */
+.patient-data-group {
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+/* Box styling */
+.box {
+    background-color: #fff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+
+
+}
+
+
+
+
+/* Container for the bottom boxes */
+.box-container {
+    display: flex;
+    gap: 10px;
+}
+
+/* Bottom box styling */
+.bottom-box {
+    flex: 1;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+
+
+.name-button-nav-group{
+    display: flex;
+    flex-direction: column;
+   top: 0;
+    position: sticky;
+    width: 100%;
+    height: 6rem;
+background-color:white;
+z-index: 1;
+}
+
+
+/* `NAME-buttom-GROUP*/
+.name-button-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+   margin-top: 0.5rem;
+    width: 100%;
+    height: 2rem;
+    z-index: 1;
+    background-color: #ffffff;
+}
+.name-group {
+    margin-left: 0.5rem;
+    font-size: 25px;
+    color: #485fe7;
+    font-weight: bold;
+    /* Additional styling for name-group if needed */
+}
+
+.buttons-group {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+
+.divider {
+    width: 1px;
+    /* Width of the divider line */
+    height: 30px;
+    /* Height of the divider line */
+    background-color: #6b84ea;
+    /* Color of the divider line */
+    margin: 0 5px;
+    /* Margin around the divider */
+}
+
+/* Base styles for buttons */
+.button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    /* Default gap between icon and text */
+    border-radius: 6.85px;
+    position: relative;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 13.7px;
+    color: #ffffff;
+}
+
+/* Specific button styles */
+.patient-info-elements {
+    width: 165px;
+    height: auto;
+    padding: 11.65px 6.85px;
+    background-color: #485fe7;
+}
+
+
+.edit-elements {
+    width: 69.9px;
+    height: auto;
+    padding: 8.22px;
+    background-color: #bcbcbc;
+}
+
+.done-elements {
+    width: 81.55px;
+    height: auto;
+    padding: 8.22px;
+    background-color: #00912b96;
+}
+
+.icon-add {
+    width: 15.05px;
+    height: 15.49px;
+}
+
+.icon-edit {
+    width: 20.07px;
+    height: 20.07px;
+}
+
+.icon-done {
+    width: 17.85px;
+    height: 17.13px;
+}
+/* ` END NAME-buttom-GROUP*/
+
+.navigation-group {
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    background-color: #ffffff;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #aaaaaa;
+    gap: 20px;
+   
+   margin-top: -0.2rem;
+   
+   
+}
+
+.nav-item {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Change color on hover and active states */
+.nav-item:focus,
+.nav-item:hover {
+    color: #007BFF; /* Change color on hover */
+}
+
+/* Active state for nav item */
+.nav-item:target {
+    font-weight: bold; /* Make active item bold */
+    color: #007BFF; /* Change the color of the active link */
+}
+
+/* Underline effect for active item */
+.nav-item:target::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px; /* Position the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #007BFF; /* Underline color */
+}
+
+/* Remove margin for the last item to avoid extra space */
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+
+
+/* `END NAME-buttom-GROUP*/
+
+
+/* `PATIENT DATA*/
+.box {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.header {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+}
+
+.info-box {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1 1 calc(20% - 10px);
+    min-width: 150px;
+    max-width: 100%;
+}
+
+/* Full-width address box */
+.full-width {
+    flex: 0 0 100%;
+}
+
+/* Style for the input fields */
+.input-field {
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 1px solid #ccc; /* Add a default border */
+}
+
+.input-field::placeholder {
+    color: #999; /* Placeholder color */
+    opacity: 1; /* Ensure placeholder is visible */
+}
+
+.input-field:hover {
+    background-color: #fff; /* Background color on hover */
+    border: 1px solid #e2e2e2; /* Border appears on hover */
+}
+
+/* Hide placeholder when input is empty and hovered */
+.input-field:placeholder-shown:hover::placeholder {
+    color: transparent; /* Hide placeholder text on hover if input is empty */
+}
+
+/* Keep placeholder visible if there is input */
+.input-field:not(:placeholder-shown)::placeholder {
+    color: transparent; /* Hide placeholder text if there is input */
+}
+
+/* Set text color when focused */
+.input-field:focus {
+    color: #000; /* Text color when focused */
+}
+
+/* Adjust for select elements */
+.input-field[type="date"],
+.input-field[type="number"],
+.input-field[type="text"],
+.input-field select {
+    appearance: none;
+    background-color: #fff;
+}
+
+/* `END PATIENT DATA GROUP*/
+
+
+
+
+
+
+/* ?DENTAL, CONTCT INFO, MINORS GROUP*/
+.dental-history-group {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #b3b3b3;
+    margin-left: 10px;
+}
+
+.dental-history-group .info-grid {
+    display: flex;
+    /* Use Flexbox for layout */
+    flex-direction: column;
+    /* Stack items in a column */
+    gap: 0px;
+    /* Space between rows */
+
+}
+
+.dental-history-group .info-box {
+    background-color: #ffffff;
+    /* Light background for each info box */
+    padding: 12px;
+    /* Padding for each info box */
+    border-radius: 5px;
+    /* Rounded corners for info boxes */
+    flex: 1 1 auto;
+    /* Allow boxes to grow/shrink as needed */
+    min-width: 150px;
+    /* Minimum width for each box */
+}
+
+.dental-history-group .input-field {
+    width: 100%;
+    /* Full width for input fields */
+    padding: 8px;
+    /* Padding inside input fields */
+    border: 1px solid #ccc;
+    /* Border for input fields */
+    border-radius: 4px;
+    /* Rounded corners for input fields */
+    font-size: 14px;
+    /* Font size for input fields */
+}
+
+/* ?end DENTAL GROUP*/
+
+
+
+
+/* ?CONTACT INFO GROUP */
+.contact-information {
+    border: 1px solid #b3b3b3;
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.contact-information .header {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-information .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns with equal width */
+    gap: 16px;
+    /* Space between items */
+}
+
+.contact-information .info-box {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+/* Full-width for email input field */
+.contact-information .info-box.full-width {
+    grid-column: span 2;
+}
+
+.contact-information .input-field {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+/* ? END CONTACT INFO GROUP */
+
+
+/* ? END FOR MINORS GROUP */
+
+.for-minors-group {
+    border: 1px solid #b3b3b3;
+    margin-right: 10px;
+}
+
+.for-minors-group .info-grid {
+    display: flex;
+    /* Use Flexbox for layout */
+    flex-direction: column;
+    /* Stack items in a column */
+    gap: 5px;
+    /* Smaller space between rows */
+
+}
+
+.for-minors-group .info-box {
+    background-color: #ffffff;
+    /* Light background for each info box */
+    padding: 8px;
+    /* Reduced padding for each info box */
+    border-radius: 5px;
+    /* Rounded corners for info boxes */
+    flex: 1;
+    /* Allow boxes to grow/shrink as needed */
+}
+
+.for-minors-group .info-box.full-width {
+    flex: 1 0 100%;
+    /* Make this box take the full width */
+}
+
+.for-minors-group .input-field {
+    width: 100%;
+    /* Full width for input fields */
+    padding: 6px;
+    /* Reduced padding inside input fields */
+    border: 1px solid #ccc;
+    /* Border for input fields */
+    border-radius: 4px;
+    /* Rounded corners for input fields */
+    font-size: 14px;
+    /* Font size for input fields */
+}
+
+
+
+/* +MEDICAL HISTROY FRAME */
+
+
+/* `DOCTOR INFO*/
+.medical-history-text {
+    margin-left: 1rem;
+}
+
+.medical-history-grid {
+    display: flex;
+    /* Use Flexbox for layout */
+    flex-wrap: wrap;
+    /* Allow wrapping to the next line */
+    gap: 10px;
+    /* Space between boxes */
+}
+
+.medical-box {
+    background-color: #ffffff;
+    /* Light background for each box */
+    padding: 12px;
+    /* Padding for each box */
+    border-radius: 5px;
+    /* Rounded corners for boxes */
+    flex: 1 1 calc(50% - 10px);
+    /* Two columns for symmetrical layout */
+    min-width: 200px;
+    /* Minimum width for each box */
+}
+
+.input-field {
+    width: 100%;
+    /* Full width for input fields */
+    padding: 8px;
+    /* Padding inside input fields */
+    border: 1px solid #ccc;
+    /* Border for input fields */
+    border-radius: 4px;
+    /* Rounded corners for input fields */
+    font-size: 14px;
+    /* Font size for input fields */
+}
+
+/* `END DOCTOR INFO*/
+
+
+/* `MEDICAL QUESTIOSNS*/
+.medical-questions-section {
+   
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.medical-questions-section .header {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.medical-questions-section .info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Reduced gap between questions */
+}
+
+.medical-questions-section .info-box {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 0; /* Remove margin for more compact layout */
+}
+
+.medical-questions-section .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between radio buttons */
+}
+
+.medical-questions-section .radio-label {
+    position: relative;
+    padding-left: 30px; /* Space for the custom square */
+    cursor: pointer; /* Show a pointer cursor */
+}
+
+.medical-questions-section .radio-label::before {
+    content: '';
+    position: absolute;
+    left: 0; /* Position to the left of the label */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    width: 12px; /* Width of the square */
+    height: 12px; /* Height of the square */
+    border: 1px solid rgb(90, 90, 90); /* Border color */
+    background-color: white; /* Background color */
+    border-radius: 30%; /* No rounded corners */
+}
+
+.medical-questions-section input[type="radio"] {
+    display: none; /* Hides the actual radio button */
+}
+
+/* Style for checked state */
+.medical-questions-section input[type="radio"]:checked + .radio-label::before {
+    background-color: #485fe7;; /* Color when checked */
+}
+
+/* Add transition for smooth change */
+.medical-questions-section .radio-label::before {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.medical-questions-section .radio-label {
+    margin-right: 10px;
+}
+
+.medical-questions-section .additional-options {
+    display: none; /* Initially hidden */
+    margin-left: 10px; /* Space from the radio buttons */
+    align-items: center; /* Align items in the same row */
+}
+
+.medical-questions-section input[type="radio"]:checked + .radio-label + input[type="radio"] + .radio-label + .additional-options {
+    display: flex; /* Show if the corresponding "Yes" radio is checked */
+    align-items: center; /* Align items vertically in the center */
+}
+
+.medical-questions-section .others-label {
+    margin-right: 5px; /* Space between label and input */
+}
+
+.medical-questions-section .input-field {
+    width: 55rem; /* Set a fixed width for the input fields */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* ?ALLERGY LIST*/
+.allergy-list {
+    display: auto; /* Hide the allergy list by default */
+}
+
+/* Show the allergy list when "Yes" is checked */
+.radio-group input[type="radio"]:checked + .radio-label + input[type="radio"] + .additional-options + #allergy-list {
+    display: block; /* Show the allergy list when "Yes" is checked */
+}
+
+/* Styling for the allergy options in a row */
+.allergy-options {
+    display: flex; /* Use flexbox to align items in a row */
+    flex-wrap: wrap; /* Allow items to wrap if the row is too full */
+    gap: 15px; /* Space between items */
+    margin-top: 10px; /* Space from the radio buttons */
+}
+
+.additional-options {
+    margin-top: 10px; /* Space between options */
+}
+/* ? END ALLERGY LIST*/
+
+/*?DISEASE/CONDITIONS QUESTION*/
+
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.signature-area {
+    margin-top: 20px;
+}
+/*? END DISEASE/CONDITIONS QUESTION*/
+/* `END MEDICAL QUESTIOSNS*/
+
+
+/* +DENTAL CHART FRAME*/
+.dental-chart-text{
+    margin-left: 1rem;
+}
+
+.dental-chart-container {
+    padding: 20px; /* Optional padding around the container */
+    border: 1px solid #ffffff; /* Optional border for the container */
+    background-color: #f9f9f9; /* Optional background color */
+}
+
+
+
+.dental-chart-box-container {
+    display: flex; /* Use flexbox to arrange boxes in a row */
+    flex-direction: column;
+    justify-content: space-between; /* Space between boxes */
+}
+
+.dental-chart-box {
+    flex: 1; /* Each box will take up equal space */
+    margin: 0 10px; /* Add margin between boxes */
+    padding: 20px; /* Padding inside each box */
+    background-color: #ffe2e2; /* Background color for boxes */
+    border: 1px solid #ccc; /* Border for boxes */
+    border-radius: 4px; /* Rounded corners for boxes */
+    text-align: center; /* Center text inside boxes */
+}
+
+
+/* `CHART DIVIDER GROUP*/
+.chart-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.divider.horizontal {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+/* Vertical divider for tooth boxes */
+.divider.vertical-flex {
+    width: 2px;
+    background-color: #ccc;
+    margin: 0 10px;
+    align-self: stretch; /* Make the divider stretch to the full height of the flex container */
+}
+
+
+
+
+/* `teeth-position-box*/
+.teeth-position-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.top-boxes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f0ff69;
+    max-width: 310px; /* Adjust as needed for two rows */
+}
+
+
+.bottom-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+        background-color: #009425;
+    max-width: 500px; /* Adjust as needed for two rows */
+}
+
+.tooth-box {
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    background-color: #ffffff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: #000 1px solid;
+}
+
+.teeth-position-box input {
+    width: 100%; /* Make the input fill the box */
+    height: 100%; /* Make the input fill the box */
+    border: none; /* Remove the default border */
+    border-radius: 4px; /* Match the box's border-radius */
+    background-color: transparent; /* Remove white background */
+    color: rgb(0, 0, 0); /* Text color */
+    text-align: center; /* Center the text */
+    outline: none; /* Remove outline on focus */
+}
+
+.teeth-position-box  input:focus {
+    background-color: transparent; /* Keep transparent background on focus */
+}
+
+/* Optional: Add a transition for a smoother effect */
+.teeth-position-box  input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Lighten the placeholder text */
+}
+
+
+.spacer {
+    height: 50px; /* Space between top and bottom boxes */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* +INFORMED CONSENT*/
+.informed-consent-text {
+    margin-left: 1rem;
+}
+
+/* Container for the informed consent form */
+.consent-container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: space-between; /* Space items evenly */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 0px; /* Space between the sections */
+}
+
+/* Styling for each consent section */
+.consent-section {
+    flex: 1; /* Each section takes equal width */
+    min-width: 100%; /* Minimum width for responsiveness */
+    padding: 15px; /* Add padding */
+    border: 1px solid #ddd; /* Add a border */
+  
+    background-color: #ffffff; /* Background color */
+}
+
+/* Styling for the header */
+.header-consent {
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center align the header */
+    color: #333; /* Change text color */
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+/* Styling for the section titles */
+h3 {
+    font-size: 15px; /* Font size for titles */
+    margin-bottom: 10px; /* Space below titles */
+}
+
+.initials {
+    display: flex;
+    margin-top: 15px; /* Space above the initials line */
+    font-size: 16px; /* Font size for initials line */
+    font-weight: bold; /* Make the text bold */
+    color: #555; /* Change text color */
+    justify-content: end;
+    align-items: end;
+}
+/* Container for the agreement section */
+.agreement-section {
+    margin-top: 0px; /* Space above the agreement section */
+    padding: 15px; /* Padding around the agreement section */
+    border: 1px solid #ffffff; /* Border around the section */
+    border-radius: 5px; /* Round corners */
+    background-color: #ffffff; /* Background color */
+}
+
+/* Styling for the agreement text */
+.agreement-text {
+    font-size: 16px; /* Font size for agreement text */
+    margin-bottom: 15px; /* Space below the agreement text */
+    text-align: center; /* Center the text */
+}
+
+/* Container for signature lines */
+.signature-container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Stack signature lines in a column */
+    margin-top: 20px; /* Space above the signature section */
+    justify-content: space-evenly;
+}
+
+/* Styling for each signature line */
+.signature-line {
+    font-size: 16px; /* Font size for signature line */
+    margin: 10px 0; /* Space between signature lines */
+    font-weight: bold; /* Make the text bold */
+    color: #555; /* Change text color */
+}
+
+/* Styling for name lines */
+.name-line {
+    font-size: 16px; /* Font size for name line */
+    margin: 0 0 10px 0; /* Space below the name line */
+    color: #555; /* Change text color */
+}
+/* + END INFORMED CONSENT*/
+
+/* + TREATMENT RECORD*/
+
+.treatment-record-text{
+    margin-left: 1rem;
+}
+
+
+.treatment-category-group {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+ border-radius: 10px;
+ border: 1px gray solid ;
+  align-items: center;
+  justify-content: space-evenly; /* Align items to start */
+  padding: 0 20px;
+  gap: 10px; /* Add even spacing between items */
+}
+
+
+
+.date-elements,
+.tooth-num-elements,
+.procedure-elements,
+.dentist-elements,
+.amount-charged-elements,
+.amount-paid-elements,
+.balance-elements,
+.next-appointment-elements {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex: 1; /* Allow elements to grow evenly */
+}
+
+.patient-name-elements {
+  margin-left: -6rem; /* Bring it closer to the checkbox */
+}
+
+.icon-updown {
+  width: 11px;
+  height: 14px;
+  margin-left: 8px; /* Space between text and icon */
+}
+
+.category-text {
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 16.4px;
+  line-height: normal;
+}
+
+
+/* `PATIENT LIST */
+/* General Styling */
+.patient-list-group {
+  display: flex;
+  flex-direction: column; /* Stacks each patient entry vertically */
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background-color: bisque;
+  gap: 15px; /* Adds spacing between each patient entry */
+}
+
+.patient-information-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  border-bottom: 1px solid #000000; /* Divider */
+}
+
+.patient-information-group:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+/* Patient Details */
+.patient-details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+  font-family: "Roboto-Bold", Helvetica;
+  color: #000;
+  font-size: 14px;
+  flex-grow: 1; /* Allows details to expand to fit the row */
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* + END TREATMENT RECORD*/
