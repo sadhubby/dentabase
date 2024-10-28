@@ -16,6 +16,14 @@ server.use(express.static(path.join(__dirname, 'public')));
 server.set('view engine', 'hbs');
 server.use(bodyParser.urlencoded({extended: true}));
 
+// Close browser but still logged in / no bad things happen
+server.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie:{secure: false, maxAge: 1209600000}
+}));
+
 server.engine('hbs', handlebars.engine({
     extname: 'hbs',
     runtimeOptions:{
@@ -23,6 +31,8 @@ server.engine('hbs', handlebars.engine({
         allowProtoMethodsByDefault: true
     }
 }));
+
+
 
 server.use(router);
 
