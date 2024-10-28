@@ -23,23 +23,38 @@ router.get("/", (req, res) => {
         title: "B_PatientInformation_page",
     });
     */
-   
+
     
-   res.render("C_Treatment", {
-       title: "C_Treatment",
+    res.render("C_Treatment", {
+        title: "C_Treatment",
     });
-     
+
     
     /*
     
- res.render("D_Todo", {
+res.render("D_Todo", {
         title: "D_Todo",
     });
 */
 
+});
+
+router.get("/patient-list", (req, res) =>{
+    res.render("B_PatientList_page",{
+        title: "Patient List"
+    })
+});
+router.get("/patient-information", (req, res) =>{
+    res.render("B_PatientInformation_page",{
+        title: "Patient Information"
+    })
+});
 
 
-
+router.get("/to-do", (req, res) =>{
+    res.render("D_Todo",{
+        title: "To Do"
+    })
 });
 
 module.exports = router;
