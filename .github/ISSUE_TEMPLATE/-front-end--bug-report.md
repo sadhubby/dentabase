@@ -1,35 +1,74 @@
 ---
 name: "[FRONT END] Bug Report"
-about: Create issue for a bug in Front End
-title: "[FRONT END] Bug Report"
+about: Create issue for a bug in FRONT End
+title: "[FRONT END] Bug Report "
 labels: ''
 assignees: ''
 
 ---
 
 **Name the bug**
-Create a title for the bug. The title must be in the format of [FRONT END] "Name"
+D_Todo design
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+Many designs in the D_Todo Front End are not showing
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+1. Go to 'layouts -> main.hbs'
+2. Change partial to D_Todo
+3. Input npm run start in the terminal 
+4. Go to http://localhost:3000
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
+To render all the designs in the D_Todo without any missing elements
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+https://drive.google.com/file/d/1_wkmkCaMLHdS2PMbSYimoW10qbcTnXOy/view?usp=sharing
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+ - OS: [Windows]
+ - Browser [Chrome]
 
 **Additional context**
 Add any other context about the problem here.
+
+---
+name: "[FRONT END] Bug Report"
+about: Create issue for a bug in FRONT End
+title: "[FRONT END] Bug Report "
+labels: ''
+assignees: ''
+
+---
+
+**Name the bug**
+D_Todo design
+
+**Describe the bug**
+Some designs in the D_Todo Front End are not showing
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to 'layouts -> main.hbs'
+2. Change partial to D_Todo
+3. Input npm run start in the terminal 
+4. Go to http://localhost:3000
+
+**Expected behavior**
+To render all the designs in the D_Todo without any missing elements
+
+**Screenshots**
+https://drive.google.com/file/d/1G8SXv0Grm67J7xESGqFQfUMw9TWm4EXK/view?usp=sharing
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+**Additional context**
+Add any other context about the problem here.
+
+
+
+
+
