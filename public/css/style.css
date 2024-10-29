@@ -1,0 +1,389 @@
+.field {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  .field .form-container {
+    position: relative;
+    width: 538px;
+    height: 753px;
+    top: 68px;
+    left: 650px;
+  }
+  .field .form-overlap {
+    position: relative;
+    height: 753px;
+  }
+  .field .form-container-2 {
+    position: absolute;
+    width: 538px; 
+    height: 753px; 
+    top: 0;
+    left: 0;
+  }
+  .field .form-wrapper {
+    height: 753px;
+  }
+  .field .form-overlap-group {
+    position: relative;
+    width: 538px; 
+    height: 753px; 
+  }
+  .field .form-overlap-2 {
+    position: relative;
+    width: 550px;
+    height: 753px;
+  }
+  .field .form-overlap-group-wrapper {
+    position: absolute;
+    width: 550px;
+    height: 753px;
+    top: 0;
+    left: 0;
+  }
+  .field .rectangle {
+    position: absolute;
+    width: 535px;
+    height: 753px;
+    top: 0;
+    left: 3px;
+  }
+  .field .Phone-Number-Text {
+    position: absolute;
+    width: 90px;
+    top: 430px;
+    left: 29px;
+    color: #000000;
+    font-size: 20px;
+    white-space: nowrap;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  .field .Email-Text {
+    position: absolute;
+    width: 90px;
+    top: 320px;
+    left: 29px;
+    color: #000000;
+    font-size: 20px;
+    white-space: nowrap;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  .field .Patient-Name-Text {
+    position: absolute;
+    width: 130px;
+    top: 210px;
+    left: 29px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .field .date-time {
+    position: absolute;
+    width: 130px;
+    top: 540px;
+    left: 29px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .field .Cancel-Text {
+    position: absolute;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #fffffffa;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .field .done-frame {
+    display: flex;
+    width: 105px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    position: absolute;
+    top: 680px;
+    left: 394px;
+    background-color: #dedede;
+    border-radius: 7px;
+  }
+  .field .cancel-frame {
+    display: flex;
+    width: 105px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    position: absolute;
+    top: 680px;
+    left: 250px;
+    background-color: #dedede;
+    border-radius: 7px;
+  }
+  .field .Done-Text {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.50px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #fffffffa;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .field .Treatment-Text {
+    position: absolute;
+    width: 90px;
+    top: 100px;
+    left: 29px;
+    color: #000000;
+    font-size: 20px;
+    white-space: nowrap;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  .field .Form-Header {
+    position: absolute;
+    width: 240px;
+    top: 25px;
+    left: 29px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .field .line {
+    top: 61px;
+    left: 0;
+    position: absolute;
+    width: 712px;
+    height: 3px;
+    object-fit: cover;
+  }
+  .field .to-text {
+    position: absolute;
+    top: 587px;
+    left: 380px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 550;
+    color: #0000007d;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .field .Start-Time-Group {
+    position: absolute;
+    width: 107px;
+    height: 32px;
+    top: 580px;
+    left: 260px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #00000026;
+  }
+  .field .Time-Group {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+  }
+  .field .img-2 {
+    position: relative;
+    width: 17px;
+    height: 17px;
+    top: 2px;
+  }
+  .field .Start-Time-Text {
+    position: relative;
+    width: fit-content;
+    margin-top: 5px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 550;
+    color: #000000fa;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .field .End-Time-Text {
+    position: relative;
+    width: fit-content;
+    margin-top: 5px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 550;
+    color: #000000fa;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+    .field .Textbox {
+      width: 468px;
+      height: 40px;
+      padding: 8px;
+      position: absolute;
+      left: 29px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      font-family: "Roboto-Regular", Helvetica;
+      font-weight: 400;
+      font-size: 20px;
+      color: rgb(153, 153, 153);
+      line-height: normal;
+      border-style: solid;
+      border-color: #000000;
+      border-width: 0.5px;
+  }
+  .field #Patient-Textbox{
+    top: 240px;
+  }
+  .field .text-wrapper-10 {
+    position: relative;
+    flex: 1;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    color: rgb(153, 153, 153);
+  }
+  .field .Patient-Test {
+    width: 468px;
+    height: 40px;
+    padding: 8px;
+    position: absolute;
+    top: 240px;
+    left: 29px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--gray);
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 20px;
+    color: rgb(153, 153, 153);
+    line-height: normal;
+}
+  .field .dropdown-box {
+    display: flex;
+    width: 468px;
+    height: 40px;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    position: absolute;
+    top: 130px;
+    left: 29px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid;
+    border-color: var(--gray);
+  }
+  .field .chevron {
+    position: relative;
+    width: 26px;
+    height: 26px;
+  }
+  .field #Phone-Number-Textbox{
+    top: 460px;
+  }
+  .field .End-Time-Group {
+    position: absolute;
+    width: 107px;
+    height: 32px;
+    top: 580px;
+    left: 407px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #00000026;
+  }
+  .field #Email-Textbox{
+    top: 350px;
+  }
+  .field .text-input {
+    display: flex;
+    flex-direction: column;
+    width: 253px;
+    align-items: flex-start;
+    gap: 4px;
+    position: absolute;
+    top: 703px;
+    left: 37px;
+    border-radius: 50px;
+  }
+  .field .input {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    position: relative;
+    align-self: stretch;
+    width: 75%;
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: var(--grey-400);
+    box-shadow: var(--shadow-xs);
+    left: -8px;
+    top: -130px;
+  }
+  .field .text {
+    position: relative;
+    flex: 1;
+    margin-top: -3.00px;
+    margin-bottom: -1.00px;
+    font-family: var(--16-regular-font-family);
+    font-weight: var(--16-regular-font-weight);
+    color: var(--grey-900);
+    font-size: var(--16-regular-font-size);
+    letter-spacing: var(--16-regular-letter-spacing);
+    line-height: var(--16-regular-line-height);
+    font-style: var(--16-regular-font-style);
+  }
+  .field .calendar {
+    position: relative;
+    width: 20px;
+    height: 20px;
+  }
+
+  .field .line{
+    left: 4px;
+    width: 533px;
+  }
+
+  .field .line2{
+    transform: translate(-32px, -100px);
+    width: 533px;
+  }
