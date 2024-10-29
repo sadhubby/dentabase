@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="D_todo_test.css">
-  <link rel="stylesheet" href="B_PatientList.css">
+  <link rel="stylesheet" href="B_Todo.css">
+  <link rel="stylesheet" href="O_MainTemplate.css">
 
 </head>
 
@@ -31,7 +30,7 @@
 
 
         <ul>
-          <div class=clinic-text"> CLINIC</div>
+          <div class="clinic-text"> CLINIC</div>
           <li><a href="/D_Todo">
               <img src="/public/img/icon-todo.svg" alt="To Do" class="sidebar-icon">
               <span class="sidebar-text">To Do</span></a></li>
@@ -77,9 +76,9 @@
         <div class="title-divider"></div>
 
         <div class="title-group">
-          <div class="title-element">Patient List</div>
+          <div class="title-element">Sample</div>
           <img class="icon-solid-right-arrow" src="/public/img/icon-solid-right-arrow.svg" />
-          <div class="title-element-2">Patient Detail</div>
+          <div class="title-element-2">Sample</div>
         </div>
         <div class="title-divider-2"></div>
         <div class="indicator-line"></div>
@@ -95,9 +94,9 @@
         <div class="schedule-group">
 
           <div class="appointment-number-elements">
-            <img class="icon-calendar" src="/public/img/icon-appointment-user.svg" />
+            <img class="icon-calendar" src="/public/img/icon-calendar.svg" />
             <div class="appointment-number">100</div>
-            <div class="total-appointment-text">Total Patients</div>
+            <div class="total-appointment-text">Total Appointment</div>
           </div>
 
           <div class="date-elements">
@@ -122,7 +121,11 @@
               <img class="icon icon-edit" src="/public/img/icon-edit.svg" />
               <div class="text-buttons text-wrapper">Edit</div>
             </div>
-           
+            <div class="divider"></div> <!-- Divider between buttons -->
+            <div class="button trash-elements">
+              <img class="icon icon-trash" src="/public/img/icon-trash.svg" />
+              <div class="text-buttons text-wrapper">Delete</div>
+            </div>
           </div>
 
         </div>
@@ -146,21 +149,12 @@
             <div class="category-text">EMAIL</div>
             <img class="icon-updown" src="/public/img/icon-updown.svg" />
           </div>
-          <div class="address-elements">
-            <div class="category-text">ADDRESS</div>
+          <div class="time-elements">
+            <div class="category-text">TIME</div>
             <img class="icon-updown" src="/public/img/icon-updown.svg" />
           </div>
-          <div class="registered-elements">
-            <div class="category-text">REGISTERED</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
-          </div>
-          
-          <div class="last-visit-elements">
-            <div class="category-text">LAST VISIT</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
-          </div>
-          <div class="last-treatment-elements">
-            <div class="category-text">LAST TREATMENT</div>
+          <div class="treatment-elements">
+            <div class="category-text">TREATMENT</div>
             <img class="icon-updown" src="/public/img/icon-updown.svg" />
           </div>
 

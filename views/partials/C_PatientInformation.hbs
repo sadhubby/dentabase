@@ -1,0 +1,859 @@
+<!-- `NAME PAGE, SEARCH BOX-->
+    <div class="frame-1">
+      <div class="name-page"> Patients</div>
+      <div class="search-settings-group">
+        <img class="icon-search" src="/img/icon-search.svg" />
+        <input type="text" class="search-box" placeholder="Search for a Patient" />
+      </div>
+
+    </div>
+    <!--`END -->
+
+ <!-- `TITLES -->
+
+      <div class="frame-2">
+
+        <div class="title-divider"></div>
+
+        <div class="title-group">
+          <div class="title-element">Patient List</div>
+          <img class="icon-solid-right-arrow" src="/img/icon-solid-right-arrow.svg" />
+          <div class="title-element-2">Patient Details</div>
+        </div>
+        <div class="title-divider-2"></div>
+        <div class="indicator-line"></div>
+
+      </div>
+      <!-- `END TITLES-->
+
+<!-- +PATIENT DETAILS-->
+<div class="frame-3 patient-info-file">
+
+
+    <div class="name-button-nav-group">
+
+        <!--`NAME-BUTTON-GROUP-->
+        <div class="name-button-group">
+            <div class="name-group">{{full_name}} | {{age}} | {{sex}}</div>
+
+            <div class="buttons-group">
+                <div class="button patient-info-elements">
+                    <img class="icon icon-add" src="/img/icon-add.svg" />
+                    <div class="text-buttons create-appointment-text">Create Appointment</div>
+                </div>
+                <div class="divider"></div> <!-- Divider between buttons -->
+                <div class="button edit-elements">
+                    <img class="icon icon-edit" src="/img/icon-edit.svg" />
+                    <div class="text-buttons text-wrapper">Edit</div>
+                </div>
+
+                <div class="divider"></div> <!-- Divider between buttons -->
+                <div class="button done-elements">
+                    <img class="icon-filter" src="/img/icon-check.svg" />
+                    <div class="text-buttons text-wrapper">Done</div>
+                </div>
+            </div>
+
+        </div>
+        <!--`END NAME,BUTTON, GROUP-->
+
+        <div class="navigation-group">
+            <a href="#patient-data" class="nav-item">Patient Information</a>
+            <a href="#medical-history" class="nav-item">Medical History</a>
+            <a href="#dental-record-chart" class="nav-item">Dental Record Chart</a>
+            <a href="#informed-consent" class="nav-item">Informed Consent</a>
+            <a href="#treatment-record" class="nav-item">Treatment Record</a>
+        </div>
+    </div>
+
+    <!-- +PATIENT DATA-->
+    <div class="frame-4">
+
+        <!-- `PATIENT DATA-->
+        <div class="box top-box">
+            <div class="header patient-data-group" id="patient-data">| PATIENT DATA</div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <label for="birthdate">Birthdate:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
+                            value="{{birth_month}}{{birth_date}}{{birth_year}}"
+                            title="Please enter your birthdate in MM/DD/YYYY format">
+                    </div>
+
+
+                </div>
+
+                <div class="info-box">
+                    <label for="age">Age:</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="age" class="input-field" min="0" placeholder="Enter your age"
+                            value="{{age}}">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="nickname">Nickname:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="nickname" class="input-field" placeholder="Enter your nickname"
+                            value="{{nickname}}">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="sex">Sex:</label>
+                    <div class="input-wrapper">
+                        <select id="sex" class="input-field" name="sex" title="Please select your sex">
+                            <option value="" disabled selected>Select your sex</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+                    <label for="occupation">Occupation:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
+                            value="{{personal_occupation}}">
+                    </div>
+                </div>
+
+                <div class="info-box full-width">
+                    <label for="address">Address:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="address" class="input-field" placeholder="Enter your address"
+                            value="{{home_address}}">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="religion">Religion:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="religion" class="input-field" placeholder="Enter your religion" value="{{religion}}">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="nationality">Nationality:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="nationality" class="input-field" placeholder="Enter your nationality"  value="{{nationality}}">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="insurance">Dental Insurance:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="insurance" class="input-field" placeholder="Enter your dental insurance"  value="{{dental_insurance}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- `END PATIENT DATA-->
+
+
+        <!-- ?DENTAL GROUP-->
+        <div class="box-container">
+            <div class="box bottom-box dental-history-group">
+                <div class="header">| DENTAL HISTORY</div>
+                <div class="info-grid">
+                    <div class="info-box">
+                        <label for="previous-dentist">Previous Dentist:</label>
+                        <input type="text" id="previous-dentist" class="input-field"
+                            placeholder="Enter name of previous dentist"  value="{{previous_dentist}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="last-visit">Last Dental Visit:</label>
+                        <input type="text" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
+                            title="Enter last dental visit date in MM/DD/YYYY format"  value="{{LDV_month}} {{LDV_date}}  {{LDV_year}}">
+                    </div>
+                </div>
+            </div>
+            <!-- ?end DENTAL GROUP-->
+
+            <!-- ?CONTACT INFO GROUP -->
+            <div class="box bottom-box contact-information">
+                <div class="header">| CONTACT INFORMATION</div>
+                <div class="info-grid">
+                    <div class="info-box full-width">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="input-field" placeholder="Enter your email"  value="{{email_address}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="home-no">Home No:</label>
+                        <input type="text" id="home-no" class="input-field" placeholder="Enter home number"  value="{{home_number}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="mobile-no">Cell/Mobile No:</label>
+                        <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"  value="{{mobil_number}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="office-no">Office No:</label>
+                        <input type="text" id="office-no" class="input-field" placeholder="Enter office number"  value="{{office_number}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="fax-no">Fax No:</label>
+                        <input type="text" id="fax-no" class="input-field" placeholder="Enter fax number"  value="{{fax_number}}">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ? END CONTACT INFO GROUP-->
+
+            <!-- ? FOR MINORS GROUP-->
+            <div class="box bottom-box for-minors-group">
+                <div class="header">| FOR MINORS</div>
+                <div class="info-grid">
+                    <div class="info-box full-width">
+                        <label for="guardian-name">Parent/Guardian's Name:</label>
+                        <input type="text" id="guardian-name" class="input-field"
+                            placeholder="Enter name of parent/guardian"  value="{{guardian_name}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="guardian-occupation">Occupation:</label>
+                        <input type="text" id="guardian-occupation" class="input-field" placeholder="Enter occupation"  value="{{guardian_occupation}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="referral-source">Whom may we thank for referring you?</label>
+                        <input type="text" id="referral-source" class="input-field" placeholder="Enter referral source"  value="{{minor_referral_question}}">
+                    </div>
+                    <div class="info-box">
+                        <label for="consultation-reason">What is your reason for dental
+                            consultation?</label>
+                        <input type="text" id="consultation-reason" class="input-field"
+                            placeholder="Enter reason for consultation"  value="{{minor_reason_consulation_question}}">
+                    </div>
+                </div>
+            </div>
+            <!-- ? END FOR MINORS GROUP-->
+        </div>
+    </div>
+
+    <!-- + END PATIENT DATA-->
+
+
+
+    <!-- +MEDICAL HISTORY FRAME-->
+
+    <div class="frame-4">
+        <div class="header medical-history-text" id="medical-history">| MEDICAL HISTORY</div>
+
+        <!-- `DOCTOR INFO-->
+        <div class="medical-history-grid">
+            <div class="medical-box">
+                <label for="physician-name">Name of Physician:</label>
+                <input type="text" id="physician-name" class="input-field" placeholder="Enter physician's name"  value="{{physician_name}}">
+            </div>
+            <div class="medical-box">
+                <label for="specialty">Specialty,If Applicable:</label>
+                <input type="text" id="specialty" class="input-field" placeholder="Enter specialty"  value="{{physician_specialty}}">
+            </div>
+            <div class="medical-box">
+                <label for="office-address">Office Address:</label>
+                <input type="text" id="office-address" class="input-field" placeholder="Enter office address" value="{{physician_office_number}}">
+            </div>
+            <div class="medical-box">
+                <label for="office-number">Office Number:</label>
+                <input type="text" id="office-number" class="input-field" placeholder="Enter office number" value="{{physician_address}}">
+            </div>
+        </div>
+        <!-- `END  DOCTOR INFO-->
+
+
+        <!-- `MEDICAL QUESTIONS-->
+        <div class="box medical-questions-section">
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <label for="medical-question-1">1. Are you under medical treatment now? </label>
+                    <div class="radio-group">
+                        <input type="radio" name="medical-treatment" id="medical-treatment-yes" class="input-radio" />
+                        <label for="medical-treatment-yes" class="radio-label">Yes</label>
+                       
+                        <input type="radio" name="medical-treatment" id="medical-treatment-no" class="input-radio" />
+                        <label for="medical-treatment-no" class="radio-label">No</label>
+                        
+                        <div class="additional-options" id="options-1">
+                            <label for="allergy-details" class="others-label">Others:</label>
+                            <input type="text" id="allergy-details" class="input-field"
+                                placeholder="If yes, what is the condition being treated:" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="medical-question-2">2.Have you ever had serious illness or surgical
+                        operation?</label>
+                    <div class="radio-group">
+                        <input type="radio" name="illness" id="illness-yes" class="input-radio" />
+                        <label for="illness-yes" class="radio-label">Yes</label>
+                        <input type="radio" name="illness" id="illness-no" class="input-radio" />
+                        <label for="illness-no" class="radio-label">No</label>
+                        <div class="additional-options" id="options-2">
+                            <label for="illness-details" class="others-label">Others:</label>
+                            <input type="text" id="illness-details" class="input-field"
+                                placeholder="If yes, what illness or operation:" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="medical-question-3">3.Are you taking any prescription/non-prescription
+                        medication? </label>
+                    <div class="radio-group">
+                        <input type="radio" name="prescription" id="prescription-yes" class="input-radio" />
+                        <label for="prescription-yes" class="radio-label">Yes</label>
+                        <input type="radio" name="prescription" id="prescription-no" class="input-radio" />
+                        <label for="prescription-no" class="radio-label">No</label>
+                        <div class="additional-options" id="options-3">
+                            <label for="prescription-details" class="others-label">Others:</label>
+                            <input type="text" id="prescription-details" class="input-field"
+                                placeholder=" If yes, please specify:" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <label for="medical-question-4">4.Do you use tobacco products?</label>
+                    <div class="radio-group">
+                        <input type="radio" name="tobacco" id="tobacco-yes" class="input-radio" />
+                        <label for="tobacco-yes" class="radio-label">Yes</label>
+                        <input type="radio" name="tobacco" id="tobacco-no" class="input-radio" />
+                        <label for="tobacco-no" class="radio-label">No</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="info-box">
+                <label for="medical-question-5">5.Do you use alcohol, cocaine or other dangerous
+                    drugs?</label>
+                <div class="radio-group">
+                    <input type="radio" name="alcohol" id="alcohol-yes" class="input-radio" />
+                    <label for="alcohol-yes" class="radio-label">Yes</label>
+                    <input type="radio" name="alcohol" id="alcohol-no" class="input-radio" />
+                    <label for="alcohol-no" class="radio-label">No</label>
+                </div>
+            </div>
+
+
+            <!-- ?ALLERGY QUESTIONS-->
+            <div class="info-box allergy-question">
+                <label for="medical-question-6">6.Are you allergic to any of the following:</label>
+                <div class="radio-group">
+                    <input type="radio" name="allergy-group" id="allergy-yes" class="input-radio" />
+                    <label for="allergy-yes" class="radio-label">Yes</label>
+                    <input type="radio" name="allergy-group" id="allergy-no" class="input-radio" />
+                    <label for="allergy-no" class="radio-label">No</label>
+
+                    <div class="additional-options" id="allergy-options">
+                        <label for="allergy-details" class="others-label">Others:</label>
+                        <input type="text" id="allergy-details" class="input-field"
+                            placeholder=" If yes, please specify:" />
+                    </div>
+                </div>
+
+                <!-- List of Allergies -->
+                <div class="allergy-list" id="allergy-list">
+                    <p>Please select any allergies:</p>
+                    <div class="allergy-options">
+                        <label><input type="checkbox" name="allergy-options" value="Local Anesthetic (ex. Lidocaine)">
+                            Local Anesthetic (ex.
+                            Lidocaine)</label>
+                        <label><input type="checkbox" name="allergy-options" value="Penicillin">
+                            Penicillin</label>
+                        <label><input type="checkbox" name="allergy-options" value="Antibiotics">
+                            Antibiotics</label>
+                        <label><input type="checkbox" name="allergy-options" value="Sulfa Drugs"> Sulfa
+                            Drugs</label>
+                        <label><input type="checkbox" name="allergy-options" value="Aspirin">
+                            Aspirin</label>
+                        <label><input type="checkbox" name="allergy-options" value="Latex"> Latex</label>
+                    </div>
+                </div>
+            </div>
+            <!-- ?end ALLERGY QUESTIONS-->
+
+
+            <!-- ?FOR WOMEN QUESTIONS-->
+            <div class="info-box">
+                <label for="medical-question-7">7.For Women Only:</label>
+
+                <div class="radio-group">
+                    <label for="pregnant-question">Are you pregnant?</label>
+                    <input type="radio" name="pregnant" id="pregnant-yes" class="input-radio" />
+                    <label for="pregnant-yes" class="radio-label">Yes</label>
+                    <input type="radio" name="pregnant" id="pregnant-no" class="input-radio" />
+                    <label for="pregnant-no" class="radio-label">No</label>
+                </div>
+
+                <div class="radio-group">
+                    <label for="nursing-question">Are you nursing?</label>
+                    <input type="radio" name="nursing" id="nursing-yes" class="input-radio" />
+                    <label for="nursing-yes" class="radio-label">Yes</label>
+                    <input type="radio" name="nursing" id="nursing-no" class="input-radio" />
+                    <label for="nursing-no" class="radio-label">No</label>
+                </div>
+
+                <div class="radio-group">
+                    <label for="birth-control-question">Are you taking birth control pills?</label>
+                    <input type="radio" name="birth-control" id="birth-control-yes" class="input-radio" />
+                    <label for="birth-control-yes" class="radio-label">Yes</label>
+                    <input type="radio" name="birth-control" id="birth-control-no" class="input-radio" />
+                    <label for="birth-control-no" class="radio-label">No</label>
+                </div>
+            </div>
+            <!-- ?END FOR WOMEN QUESTIONS-->
+
+
+            <!-- ? DISEASE/CONDITIONS-->
+
+            <div class="info-box">
+                <label for="medical-question-8">8. Do you have or have you had any of the following? Check
+                    that apply:</label>
+
+
+                <div class="checkbox-group">
+                    <div class="column">
+                        <label><input type="checkbox" name="conditions" value="high-blood-pressure"> High
+                            Blood Pressure</label><br>
+                        <label><input type="checkbox" name="conditions" value="low-blood-pressure"> Low
+                            Blood Pressure</label><br>
+                        <label><input type="checkbox" name="conditions" value="epilepsy"> Epilepsy /
+                            Convulsions</label><br>
+                        <label><input type="checkbox" name="conditions" value="aids-hiv"> AIDS or HIV
+                            Infection</label><br>
+                        <label><input type="checkbox" name="conditions" value="std"> Sexually Transmitted
+                            Disease</label><br>
+                        <label><input type="checkbox" name="conditions" value="stomach-troubles"> Stomach
+                            Troubles / Ulcers</label><br>
+                        <label><input type="checkbox" name="conditions" value="fainting-seizure"> Fainting
+                            Seizure</label><br>
+                        <label><input type="checkbox" name="conditions" value="rapid-weight-loss"> Rapid
+                            Weight Loss</label><br>
+                    </div>
+                    <div class="column">
+                        <label><input type="checkbox" name="conditions" value="radiation-therapy"> Radiation
+                            Therapy</label><br>
+                        <label><input type="checkbox" name="conditions" value="joint-replacement"> Joint
+                            Replacement / Implant</label><br>
+                        <label><input type="checkbox" name="conditions" value="heart-surgery"> Heart
+                            Surgery</label><br>
+                        <label><input type="checkbox" name="conditions" value="heart-attack"> Heart
+                            Attack</label><br>
+                        <label><input type="checkbox" name="conditions" value="thyroid-problem"> Thyroid
+                            Problem</label><br>
+                        <label><input type="checkbox" name="conditions" value="heart-disease"> Heart
+                            Disease</label><br>
+                        <label><input type="checkbox" name="conditions" value="heart-murmur"> Heart
+                            Murmur</label><br>
+                        <label><input type="checkbox" name="conditions" value="hepatitis-liver"> Hepatitis /
+                            Liver Disease</label><br>
+                    </div>
+                    <div class="column">
+                        <label><input type="checkbox" name="conditions" value="rheumatic-fever"> Rheumatic
+                            Fever</label><br>
+                        <label><input type="checkbox" name="conditions" value="hay-fever"> Hay Fever /
+                            Allergies</label><br>
+                        <label><input type="checkbox" name="conditions" value="respiratory-problem">
+                            Respiratory Problem</label><br>
+                        <label><input type="checkbox" name="conditions" value="hepatitis-jaundice">
+                            Hepatitis / Jaundice</label><br>
+                        <label><input type="checkbox" name="conditions" value="tuberculosis">
+                            Tuberculosis</label><br>
+                        <label><input type="checkbox" name="conditions" value="swollen-ankles"> Swollen
+                            Ankles</label><br>
+                        <label><input type="checkbox" name="conditions" value="kidney-disease"> Kidney
+                            Disease</label><br>
+                        <label><input type="checkbox" name="conditions" value="diabetes">
+                            Diabetes</label><br>
+                    </div>
+                </div>
+
+                <div class="signature-area">
+                    <label for="patient-signature">Patient Signature:</label>
+                    <input type="text" id="patient-signature" name="patient-signature" placeholder="Sign here..." />
+                </div>
+            </div>
+            <!-- ? END DISEASE/CONDITIONS-->
+
+        </div>
+        <!-- `END MEDICAL QUESTIONS-->
+
+    </div>
+    <!--+END MEDICAL HISTORY FRAME-->
+
+
+    <!--+DENTAL CHART FRAME-->
+    <div class="frame-4">
+        <div class="header dental-chart-text" id="dental-record-chart">| DENTAL RECORD CHART</div>
+
+        <div class="dental-chart-box-container">
+            <div class="dental-chart-box">
+
+                <div class="chart-divider">
+                    <div class="divider horizontal"></div>
+                    <div class="divider vertical"></div>
+                </div>
+
+                <!--`TEETH BOXES-->
+
+
+                <div class="teeth-position-box">
+                    <div class="top-boxes">
+                        <!-- Create 20 input boxes at the top -->
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 1"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 2"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 3"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 4"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 5"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 6"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 7"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 8"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 9"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 10"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 11"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 12"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 13"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 14"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 15"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 16"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 17"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 18"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 19"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 20"></div>
+                    </div>
+
+                    <div class="spacer"></div>
+
+                    <div class="bottom-boxes">
+                        <!-- Create 32 input boxes at the bottom -->
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 1"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 2"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 3"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 4"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 5"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 6"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 7"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 8"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 9"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 10"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 11"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 12"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 13"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 14"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 15"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 16"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 17"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 18"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 19"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 20"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 21"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 22"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 23"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 24"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 25"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 26"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 27"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 28"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 29"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 30"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 31"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 32"></div>
+                    </div>
+                </div>
+                <!--`END TEETH BOXES-->
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="dental-chart-box">Box 2
+
+
+
+
+
+
+
+            <div class="dental-chart-box">Box 3</div>
+        </div>
+    </div>
+
+    <!--+end DENTAL CHART FRAME-->
+
+
+
+
+
+
+
+
+    <!--+INFORMED CONSENT FRAME-->
+    <div class="frame-4">
+
+        <div class="header informed-consent-text" id="informed-consent">| INFORMED CONSENT</div>
+        <div class="consent-container">
+            <div class="consent-section">
+                <h3>TREATMENT TO BE DONE:</h3>
+                <p>I understand and consent to have any treatment done by the dentist after the procedure,
+                    the risks & benefits & cost have been fully explained. These treatments include, but are
+                    not limited to, x-rays, cleanings, periodontal treatments, fillings, crowns, bridges,
+                    all types of extraction, root canals, &/or dentures, local anesthetics & surgical cases.
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+            <div class="consent-section">
+                <h3>DRUGS & MEDICATIONS:</h3>
+                <p>I understand that antibiotics, analgesics & other medications can cause allergic
+                    reactions like redness & swelling of tissues, pain, itching, vomiting, &/or anaphylactic
+                    shock.</p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+            <div class="consent-section">
+                <h3>CHANGES IN TREATMENT PLAN:</h3>
+                <p>I understand that during treatment it may be necessary to change/add procedures because
+                    of conditions found while working on the teeth that were not discovered during
+                    examination. For example, root canal therapy may be needed following routine restorative
+                    procedures. I give my permission to the dentist to make any/all changes and additions as
+                    necessary with my responsibility to pay all the costs agreed.</p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+            <div class="consent-section">
+                <h3>RADIOGRAPH:</h3>
+                <p>I understand that an x-ray shot or a radiograph maybe necessary as part of diagnostic aid
+                    to come up with tentative diagnosis of my Dental problem and to make a good treatment
+                    plan, but, this will not give me a 100% assurance for the accuracy of the treatment
+                    since all dental treatments are subject to unpredictable complications that later on may
+                    lead to sudden change of treatment plan and subject to new charges.
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+            <div class="consent-section">
+                <h3>REMOVAL OF TEETH: </h3>
+                <p>I understand that alternatives to tooth removal (root canal therapy, crowns & periodontal
+                    surgery, etc.) & I completely understand these alternatives, including their risk &
+                    benefits prior to authorizing the dentist to remove teeth & any other structures
+                    necessary for reasons above. I understand that removing teeth does not always remove all
+                    the infections, if present, & it may be necessary to have further treatment. I
+                    understand the risk involved in having teeth removed, such as pain, swelling, spread of
+                    infection, dry socket, fractured jaw, loss of feeling on the teeth, lips, tongue &
+                    surrounding tissue that can last for an indefinite period of time. I understand that I
+                    may need further treatment under a specialist if complications arise during or following
+                    treatment.
+
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+
+            <div class="consent-section">
+                <h3>CROWNS (CAPS) & BRIDGES: </h3>
+                <p>Preparing a tooth may irritate the nerve tissue in the center of the tooth, leaving the
+                    tooth extra sensitive to heat, cold & pressure. Treating such irritation may involve
+                    using special toothpastes, mouth rinses or root canal therapy. I understand that
+                    sometimes it is not possible to match the color of natural teeth exactly with artificial
+                    teeth. I further understand that I may be wearing temporary crowns, which may come off
+                    easily & that I must be careful to ensure that they are kept on until the permanent
+                    crowns are delivered. It is my responsibility to return for permanent cementation within
+                    20 days from tooth preparation, as excessive days delay may allow for tooth movement,
+                    which may necessitate a remake of the crown, bridge/ cap. I understand there will be
+                    additional charges for remakes due to my delaying of permanent cementation, & I realize
+                    that final opportunity to make changes in my new crown, bridges or cap (including shape,
+                    fit, size, & color) will be before permanent cementation.
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+
+            <div class="consent-section">
+                <h3>ENDODONTICS (ROOT CANAL):</h3>
+                <p>I understand there is no guarantee that a root canal treatment will save a tooth & that
+                    complications can occur from the treatment & that occasionally root canal filling
+                    materials may extend through the tooth which does not necessarily effect the success of
+                    the treatment. I understand that endodontic files & drills are very fine instruments &
+                    stresses vented in their manufacture & calcifications present in teeth can cause them to
+                    break during use. I understand that referral to the endodontist for additional
+                    treatments may be necessary following any root canal treatment & I agree that I am
+                    responsible for any additional cost for treatment performed by the endodontist. I
+                    understand that a tooth may require removal in spite of all efforts to save it.
+
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+
+            <div class="consent-section">
+                <h3>PERIODONTAL DISEASE: </h3>
+                <p>I understand that periodontal disease is a serious condition causing gum & bone
+                    inflammation &/or loss & that can lead eventually to the loss of my teeth. I understand
+                    the alternative treatment plans to correct periodontal disease, including gum surgery
+                    tooth extractions with or without replacement. I understand that undertaking any dental
+                    procedures may have future adverse effect on my periodontal Conditions.
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+            <div class="consent-section">
+                <h3>FILLINGS:</h3>
+                <p>I understand that care must be exercised in chewing on fillings, especially during the
+                    first 24 hours to avoid breakage. I understand that a more extensive filling or a crown
+                    may be required, as additional decay or fracture may become evident after initial
+                    excavation. I understand that significant sensitivity is a common, but usually
+                    temporary, after-effect of a newly placed filling. I further understand that filling a
+                    tooth may irritate the nerve tissue creating sensitivity & treating such sensitivity
+                    could require root canal therapy or extractions.
+
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+            <div class="consent-section">
+                <h3>DENTURES: </h3>
+                <p>I understand that wearing of dentures can be difficult. Sore spots, altered speech &
+                    difficulty in eating are common problems. Immediate dentures (placement of denture
+                    immediately after extractions) may be painful. Immediate dentures may require
+                    considerable adjusting & several relines. I understand that it is my responsibility to
+                    return for delivery of dentures. I understand that failure to keep my delivery
+                    appointment may result in poorly fitteddentures. If a remake is required due to my
+                    delays of more than 30 days, there will be additional charges. A permanent reline will
+                    be needed later, which is notincluded in the initial fee. I understand that all
+                    adjustment or alterations of any kind after this initial period is subject to charges.
+
+                </p>
+                <div class="initials">Initial: __________</div>
+            </div>
+
+            <div class="agreement-section">
+                <p class="agreement-text"><strong>I understand that dentistry is not an exact science and
+                        that no dentist can properly guarantee accurate results all the time.</strong></p>
+                <p>I hereby authorize any of the doctors/dental auxiliaries to proceed with & perform the
+                    dental restorations & treatments as explained to me. I understand that these are subject
+                    to modification depending on undiagnosable circumstances that may arise during the
+                    course of treatment. I understand that regardless of any dental insurance coverage I may
+                    have, I am responsible for payment of dental fees. I agree to pay any attorney's fees,
+                    collection fees, or court costs that may be incurred to satisfy any obligation to this
+                    office. All treatment was properly explained to me & any untoward circumstances that may
+                    arise during the procedure, the attending dentist will not be held liable since it is my
+                    free will, with full trust & confidence in him/her, to undergo dental treatment under
+                    his/her care.</p>
+
+                <div class="signature-container">
+                    <div class="signature-line">Patient / Parent / Guardian Signature:
+                        ______________________</div>
+                    <div class="signature-line">Dentist Signature: ______________________</div>
+                    <div class="signature-line">Date: ______________________</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--+ END INFORMED CONSENT FRAME-->
+
+
+    <!--+ TREATMENT RECORD FRAME-->
+    <div class="frame-4">
+        <div class="header treatment-record-text" id="treatment-record">| TREATMENT RECORD</div>
+
+
+        <!-- `LIST OF CATEGORY -->
+        <div class="treatment-category-group">
+
+            <div class="date-elements">
+                <div class="category-text">Date</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+            <div class="tooth-num-elements">
+                <div class="category-text">Tooth No./s</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+            <div class="procedure-elements">
+                <div class="category-text">Procedure</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+            <div class="dentist-elements">
+                <div class="category-text">Dentist</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+            <div class="amount-charged-elements">
+                <div class="category-text">Amount Charged</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+
+            <div class="amount-paid-elements">
+                <div class="category-text">Amount Paid</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+
+            <div class="balance-elements">
+                <div class="category-text">Balance</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+
+            <div class="next-appointment-elements">
+                <div class="category-text">Next Appointment</div>
+                <img class="icon-updown" src="/img/icon-updown.svg" />
+            </div>
+        </div>
+        <!-- `END LIST OF CATEGORY -->
+
+
+        <!-- `PATIENT LIST-->
+
+                    <div class="patient-list-group">
+                        <div class="patient-information-group">
+
+
+                            <div class="patient-details">
+                                <div class="patient-text">March 1,2000</div>
+                                <div class="patient-text">56, 57</div>
+                                <div class="patient-text">teeth whitening</div>
+                                <div class="patient-text">Dr. John</div>
+
+                                <div class="patient-text">1,000</div>
+                                <div class="patient-text">2,000</div>
+                                <div class="patient-text">3,0000</div>
+
+                                <div class="patient-text">March 15,2000</div>
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- `END PATIENT LIST-->
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- +END TREATMENT RECORD FRAME-->
+
+</div>
+<!-- +END FRAME 3-->
+</div>
+<!--+END MAIN CONTENT-->
+</div>

@@ -17,8 +17,9 @@ router.use(express.json());
 
 
 router.get("/", (req, res) => {
-
+    
     /*
+<<<<<<< Updated upstream
     res.render("B_PatientInformation_page", {
         title: "B_PatientInformation_page",
     });
@@ -34,8 +35,31 @@ router.get("/", (req, res) => {
     
 res.render("D_Todo", {
         title: "D_Todo",
+=======
+    res.render("B_Todo_test", {
+           title: "B_Todo_test",
+       });
+   */
+   
+   
+   
+   
+    
+    res.render("C_PatientInformation", {
+        title: "C_PatientInformation",
     });
-*/
+     
+   
+    /*
+   res.render("D_Treatment", {
+       title: "D_Treatment",
+>>>>>>> Stashed changes
+    });
+      */
+    
+    
+    
+
 
 });
 

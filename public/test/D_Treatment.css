@@ -1,0 +1,276 @@
+/* `SCHEDULE GROUP*/
+.treatment-file .treatment-group {
+    display: flex;
+    flex-direction: row; /* Keep elements in a row */
+    width: 100%;
+    height: 4rem; /* Height of the group */
+    padding: 10px; /* Padding around the group */
+
+    margin-right: 2rem; /* Left margin */
+   
+    align-items: center; /* Center align items vertically */
+    gap: 1;
+  justify-content: space-between; /* Distribute space evenly */
+    
+}
+
+.treatment-file .treatment-number-elements {
+    display: flex; /* Use flextreatment-category-group for layout */
+    align-items: center; /* Align items vertically in the center */
+}
+
+.treatment-file .icon-stethoscope {
+    width: 2.5rem; /* Set a fixed width for the icon */
+    height: 2.5rem; /* Set a fixed height for the icon */
+    margin-right: 0.5rem; /* Space between icon and number */
+     color: #6b84ea; /* Text color */
+}
+
+.treatment-file .treatment-number {
+    font-weight: 700; /* Bold text */
+    font-size: 24px; /* Font size */
+    color: #6b84ea; /* Text color */
+    margin: 0; /* Reset margin */
+}
+
+.treatment-file .total-treatment-text {
+    font-size: 20px; /* Font size for the text below the number */
+    color: #333; /* Text color for contrast */
+    margin-left: 8px;
+    
+}
+
+.treatment-file .date-elements{
+    display: flex; /* Use flexappointment-category-group for layout */
+    align-items: center; /* Align items vertically in the center */
+
+
+}
+
+.treatment-file .date-text{
+  font-size: 25px; /* Font size for the text below the number */
+    color: #333; /* Text color for contrast */
+  
+}
+
+.treatment-file .buttons-group {
+    display: flex; /* Use flexappointment-category-group for layout */
+    align-items: center; /* Align items vertically in the center */
+}
+
+.treatment-file .divider {
+    width: 1px; /* Width of the divider line */
+    height: 30px; /* Height of the divider line */
+    background-color: #6b84ea; /* Color of the divider line */
+    margin: 0 5px; /* Margin around the divider */
+}
+
+/* Base styles for buttons */
+.treatment-file .button {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Default gap between icon and text */
+    border-radius: 6.85px;
+    position: relative;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 13.7px;
+    color: #ffffff;
+}
+
+/* Specific button styles */
+.treatment-file .create-treatment-elements {
+    width: 165px;
+    height: 41.12px;
+    padding: 11.65px 6.85px;
+    background-color: #485fe7;
+}
+
+.treatment-file .filter-elements {
+    width: 81.55px;
+    height: 41.12px;
+    padding: 9.59px 4.8px;
+    background-color: #485fe796;
+}
+
+.treatment-file .edit-elements {
+    width: 69.9px;
+    height: 41.12px;
+    padding: 8.22px;
+    background-color: #bcbcbc;
+}
+
+.treatment-file .trash-elements {
+    width: 81.55px;
+    height: 41.12px;
+    padding: 8.22px;
+    background-color: #e7484a96;
+}
+
+/* Icon styles */
+.treatment-file .icon-filter {
+    position: relative;
+    width: 20px; /* Default icon width */
+    height: 20px; /* Default icon height */
+}
+
+.treatment-file .icon-add {
+    width: 15.05px;
+    height: 15.49px;
+}
+
+.treatment-file .icon-edit {
+    width: 20.07px;
+    height: 20.07px;
+}
+
+.treatment-file .icon-trash {
+    width: 17.85px;
+    height: 17.13px;
+}
+
+/* Text styles */
+.treatment-file .text-buttons {
+    position: relative;
+    height: 16.45px; /* Use a standard height */
+    margin-right: -2.04px; /* Adjust if necessary */
+}
+
+/* Specific text styles for Create treatment */
+.treatment-file .create-treatment-text {
+    width: 123.35px; /* Specific width for this text */
+}
+
+/* Specific text styles for Filters, Edit, and Delete */
+.treatment-file .text-wrapper {
+    width: 50px; /* Adjust based on your design */
+}
+/* `END SCHEDULE GROUP*/
+
+
+
+/* `LIST OF CATEGORY */
+.treatment-file .treatment-category-group {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60px;
+ background-color: #f9fafb;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: space-between; /* Align items to start */
+  padding: 0 20px;
+  border: transparent;
+}
+
+
+
+.treatment-file .treatment-name-elements,
+.treatment-file .price-elements,
+.treatment-file .estimated-duration-elements,
+.treatment-file .visit-type-elements {
+  display: flex;
+  align-items: flex-start;
+  white-space: nowrap;
+}
+
+
+.treatment-file .icon-updown {
+  width: 11px;
+  height: 14px;
+  margin-left: 8px; /* Space between text and icon */
+}
+
+.treatment-file .category-text {
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 16.4px;
+  line-height: normal;
+}
+
+
+
+
+/* `TREATMENT LIST */
+/* General Styling */
+.treatment-file .treatment-list-group {
+  display: flex;
+  flex-direction: column; /* Stacks each patient entry vertically */
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  gap: 0px; /* Adjusted spacing */
+}
+
+.treatment-file .treatment-information-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  border-bottom: 1px solid #000000; /* Divider */
+}
+
+.treatment-file .treatment-information-group:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+
+
+/* Hide the actual checkbox input */
+.treatment-file .treatment-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.treatment-file .treatment-checkbox input[type="checkbox"]:checked + .treatment-checkbox {
+  background-color: #ffcc00;
+}
+
+/* Patient Details */
+.treatment-file .treatment-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  font-family: "Roboto-Bold", Helvetica;
+  color: #000;
+  font-size: 14px;
+  flex-grow: 1; /* Allows details to expand to fit the row */
+  padding: 0 10px;
+}
+
+/* Patient Name */
+.treatment-file .text-treatment {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+
+.treatment-file .visit-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+}
+
+.treatment-file .multiple-visit {
+    background-color: #E0D1F7; /* Light purple background */
+    color: #6A1B9A; /* Purple text */
+}
+
+.treatment-file .single-visit {
+    background-color: #E0F7FA; /* Light cyan background */
+    color: #26A69A; /* Cyan text */
+}
+
+
+
