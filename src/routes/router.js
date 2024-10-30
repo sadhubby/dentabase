@@ -11,30 +11,16 @@ const Router = require('express');
 const Patient = require('../models/patient');
 const Treatment = require('../models/treatment');
 const Account = require('../models/accounts');
+const MedicalHistory = require('../models/medicalHistory');
 
 const router = Router();
 router.use(express.json());
 
 // start of patient information 
-router.get("/", (req, res) => {
-    
-    /*
-    res.render("B_Todo_test", {
-        title: "B_Todo_test",
-    });
-   */
-
-    
+router.get("/patient-information", (req, res) => {
     res.render("C_PatientInformation", {
-        title: "C_PatientInformation",
+        title: "patient-information",
     });
-
-    /*
-res.render("D_Treatment", {
-    title: "D_Treatment",
-    });
-      */
-    
 });
 
 // getting patient information, thought C_PatientInformation is getting it lmfaoo
@@ -67,24 +53,5 @@ res.render("D_Treatment", {
 
 
 // end of patient information
-router.get("/patient-list", (req, res) =>{
-    res.render("B_PatientList_page",{
-        title: "Patient List"
-    })
-});
-router.get("/patient-information", (req, res) =>{
-    res.render("B_PatientInformation_page",{
-        title: "Patient Information"
-    })
-});
-
-
-router.get("/B_Todo", (req, res) =>{
-    res.render("B_ToDo",{
-        title: "To Do"
-    })
-});
-
-
 
 module.exports = router;
