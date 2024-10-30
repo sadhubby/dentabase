@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/test/O_MainTemplate.css">
+  <link rel="stylesheet" href="/test/B_Todo.css">
+  <link rel="stylesheet" href="/test/C_PatientInformation.css">
+  <link rel="stylesheet" href="/test/C_PatientList.css">
+  <link rel="stylesheet" href="/test/D_Treatment.css">
 
-
-  <link rel="stylesheet" href="/css/O_MainTemplate.css" />
-    <link rel="stylesheet" href="/css/sidebar_animation.css" />
 </head>
 
 <body>
-<!-- Sidebar will always show-->
-{{>sidebar}} 
+  {{>O_MainTemplate}}
+  {{>D_Treatment}}
 
 
 
-    {{>D_Todo}}   
-
-
-    
-  </body>
+</body>
 
 </html>

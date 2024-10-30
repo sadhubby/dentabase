@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="C_PatientList.css">
   <link rel="stylesheet" href="D_todo_test.css">
+  <link rel="stylesheet" href="O_MainTemplate.css">
 
 </head>
 
@@ -30,7 +31,7 @@
 
 
         <ul>
-          <div class=clinic-text"> CLINIC</div>
+          <div class="clinic-text"> CLINIC</div>
           <li><a href="/D_Todo">
               <img src="/public/img/icon-todo.svg" alt="To Do" class="sidebar-icon">
               <span class="sidebar-text">To Do</span></a></li>
@@ -76,9 +77,9 @@
         <div class="title-divider"></div>
 
         <div class="title-group">
-          <div class="title-element">Sample</div>
+          <div class="title-element">Patient List</div>
           <img class="icon-solid-right-arrow" src="/public/img/icon-solid-right-arrow.svg" />
-          <div class="title-element-2">Sample</div>
+          <div class="title-element-2">Patient Detail</div>
         </div>
         <div class="title-divider-2"></div>
         <div class="indicator-line"></div>
@@ -94,17 +95,12 @@
         <div class="schedule-group">
 
           <div class="appointment-number-elements">
-            <img class="icon-calendar" src="/public/img/icon-calendar.svg" />
+            <img class="icon-calendar" src="/public/img/icon-appointment-user.svg" />
             <div class="appointment-number">100</div>
-            <div class="total-appointment-text">Total Appointment</div>
+            <div class="total-appointment-text">Total Patients</div>
           </div>
 
-          <div class="date-elements">
-            <img class="vector" src="/public/img/icon-arrow_drop_left.svg" />
-            <div class="date-text">Thurs, Sept. 28, 2024</div>
-            <img class="img" src="/public/img/icon-arrow_drop_right.svg" />
-
-          </div>
+       
 
           <div class="buttons-group">
             <div class="button create-appointment-elements">
@@ -121,11 +117,7 @@
               <img class="icon icon-edit" src="/public/img/icon-edit.svg" />
               <div class="text-buttons text-wrapper">Edit</div>
             </div>
-            <div class="divider"></div> <!-- Divider between buttons -->
-            <div class="button trash-elements">
-              <img class="icon icon-trash" src="/public/img/icon-trash.svg" />
-              <div class="text-buttons text-wrapper">Delete</div>
-            </div>
+           
           </div>
 
         </div>
@@ -134,9 +126,7 @@
 
         <!-- `LIST OF CATEGORY -->
         <div class="appointment-category-group">
-          <label class="appointment-checkbox-category">
-            <input type="checkbox" />
-          </label>
+          
           <div class="patient-name-elements">
             <div class="category-text">PATIENT NAME</div>
             <img class="icon-updown" src="/public/img/icon-updown.svg" />
@@ -149,12 +139,21 @@
             <div class="category-text">EMAIL</div>
             <img class="icon-updown" src="/public/img/icon-updown.svg" />
           </div>
-          <div class="time-elements">
-            <div class="category-text">TIME</div>
+          <div class="address-elements">
+            <div class="category-text">ADDRESS</div>
             <img class="icon-updown" src="/public/img/icon-updown.svg" />
           </div>
-          <div class="treatment-elements">
-            <div class="category-text">TREATMENT</div>
+          <div class="registered-elements">
+            <div class="category-text">REGISTERED</div>
+            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+          </div>
+          
+          <div class="last-visit-elements">
+            <div class="category-text">LAST VISIT</div>
+            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+          </div>
+          <div class="last-treatment-elements">
+            <div class="category-text">LAST TREATMENT</div>
             <img class="icon-updown" src="/public/img/icon-updown.svg" />
           </div>
 
@@ -167,9 +166,6 @@
         <div class="patient-list-group">
           <div class="patient-information-group">
 
-            <label class="appointment-checkbox">
-              <input type="checkbox" />
-            </label>
 
             <div class="patient-details">
               <div class="text-name">Kai Padilla</div>
