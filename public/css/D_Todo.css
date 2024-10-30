@@ -1,5 +1,5 @@
 .treatment {
-    background-color: #ffffff;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1158,11 +1158,11 @@
 
   
   .treatment .group-18 {
-    position: absolute;
+    position: relative;
     width: 115px;
     height: 41px;
     top: 0;
-    left: 110px;
+    right: 223px;
   }
   
   .treatment .group-19 {
@@ -1176,7 +1176,6 @@
     height: 41px;
     background-color: #485fe7;
     border-radius: 6.84px;
-    transform: translate(-333px, 0px);
   }
   
   .treatment .icon-17 {
@@ -1380,5 +1379,16 @@
     font-size: 15.9px;   
     letter-spacing: 0;   
     line-height: normal; 
+  }
+
+  .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black with transparency */
+    z-index: 99999; /* Make sure it's above other content */
+    display: none;
   }
 

@@ -1,0 +1,17 @@
+.cancel-frame:hover{
+    background-color: #e7484b;
+}
+
+.cancel-frame:active{
+    opacity: 0.5;
+}
+
+.done-frame:hover{
+    background-color: #485fe7;
+}
+
+.done-frame:active{
+    opacity: 0.5;
+}
+
+

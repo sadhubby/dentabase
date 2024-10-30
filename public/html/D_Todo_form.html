@@ -2,7 +2,10 @@
 <html>   
     <head>     
         <meta charset="utf-8" />     
-        <link rel="stylesheet" href="/public/css/style.css" />   
+        <link rel="stylesheet" href="\public\css\D_Todo_form.css" />
+        <link rel="stylesheet" href="\public\css\D_Todo_form_animation.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="/src/scripts/D_Todo_form.js"></script>
     </head>   
     <body>     
         <div class="field">                
@@ -41,8 +44,8 @@
                                                     
                                                 </div>
                                             </div>
-                                            <div class="dropdown-box">                         
-                                                <div class="text-wrapper-10">Treatment</div>                         
+                                            <div class="Treatment-Group">                         
+                                                <div class="Treatment-input">Treatment</div>                         
                                                 <img class="chevron" src="\public\img\icon-arrow-down.svg" />                       
                                             </div>          
                                             <input type="text" class="Textbox" id="Phone-Number-Textbox" placeholder="Phone Number">             
@@ -59,9 +62,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-input">
-                            <div class="input">
-                              <div class="text-wrapper-10">12.12.2022</div>
+                        <div class="Date-Group">
+                            <div class="Date-Input">
+                              <div class="Date-Text">12.12.2022</div>
                               <img class="calendar" src="\public\img\icon-calendar.png" />
                             </div>
                             <div class="box2"><img class="line2" src="\public\img\icon-line.svg" /></div>
@@ -70,6 +73,7 @@
                         
                     </div>
                 </div>
+            <div class="black-screen"></div>
     </body>
 </html>
     

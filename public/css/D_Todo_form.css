@@ -1,16 +1,27 @@
 .field {
-    background-color: #ffffff;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
   }
+  .field .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black with transparency */
+    z-index: 1000; /* Ensure it's above other content */
+    display: none; /* Hidden by default */
+}
   .field .form-container {
     position: relative;
     width: 538px;
     height: 753px;
     top: 68px;
     left: 650px;
+    z-index: 1010;
   }
   .field .form-overlap {
     position: relative;
@@ -33,12 +44,12 @@
   }
   .field .form-overlap-2 {
     position: relative;
-    width: 550px;
+    width: 538px;
     height: 753px;
   }
   .field .form-overlap-group-wrapper {
     position: absolute;
-    width: 550px;
+    width: 538px;
     height: 753px;
     top: 0;
     left: 0;
@@ -106,7 +117,7 @@
     position: absolute;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
-    color: #fffffffa;
+    color: white;
     font-size: 20px;
     letter-spacing: 0;
     line-height: normal;
@@ -146,7 +157,7 @@
     margin-top: -1.50px;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
-    color: #fffffffa;
+    color: white;
     font-size: 20px;
     letter-spacing: 0;
     line-height: normal;
@@ -168,7 +179,7 @@
   .field .Form-Header {
     position: absolute;
     width: 240px;
-    top: 25px;
+    top: 21px;
     left: 29px;
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
@@ -267,7 +278,17 @@
   .field #Patient-Textbox{
     top: 240px;
   }
-  .field .text-wrapper-10 {
+  .field .Treatment-input {
+    position: relative;
+    flex: 1;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    color: rgb(153, 153, 153);
+  }
+  .field .Date-Text {
     position: relative;
     flex: 1;
     font-family: "Roboto-Regular", Helvetica;
@@ -293,7 +314,7 @@
     color: rgb(153, 153, 153);
     line-height: normal;
 }
-  .field .dropdown-box {
+  .field .Treatment-Group {
     display: flex;
     width: 468px;
     height: 40px;
@@ -330,7 +351,7 @@
   .field #Email-Textbox{
     top: 350px;
   }
-  .field .text-input {
+  .field .Date-Group {
     display: flex;
     flex-direction: column;
     width: 253px;
@@ -341,7 +362,7 @@
     left: 37px;
     border-radius: 50px;
   }
-  .field .input {
+  .field .Date-Input {
     display: flex;
     height: 30px;
     align-items: center;
