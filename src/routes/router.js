@@ -17,10 +17,20 @@ const router = Router();
 router.use(express.json());
 
 // start of patient information 
-router.get("/patient-information", (req, res) => {
+router.get("/patient-information/:id", async (req, res) => {
+    try{
+    const patient = await Patient.findById(req.params.id);
+    const full_name = `${patient.firstName} ${patient.middleName} ${patient.lastName}`;
     res.render("C_PatientInformation", {
-        title: "patient-information",
+        full_name: full_name,
+        age: patient.age,
+        sex: patient.sex
     });
+    }
+    catch (error) {
+        console.error("Error getting data", error);
+        res.status(500).send("Error retrieving patient data");
+    }
 });
 
 // getting patient information, thought C_PatientInformation is getting it lmfaoo
