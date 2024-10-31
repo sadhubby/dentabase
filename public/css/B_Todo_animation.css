@@ -1,0 +1,7 @@
+.create-appointment-elements:active{
+    opacity: 0.75;
+}
+
+.create-appointment-elements:hover{
+    cursor: pointer;
+}

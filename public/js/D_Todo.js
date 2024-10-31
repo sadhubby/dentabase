@@ -5,7 +5,7 @@ $(document).ready(function(){
         $('.overlay').hide();
     });
 
-    $('.group-18').click(function() {
+    $('.create-appointment-elements').click(function() {
         console.log("Create Appointment clicked");
         $('#form-container').show();
         $('.overlay').show();

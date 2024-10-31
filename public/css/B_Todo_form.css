@@ -1,9 +1,12 @@
-.field {
-    background-color: white;
+.field  {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    position: fixed; /* Makes it stay in one place while scrolling */
+    top: 10%; /* Adjusts its position on the Y-axis */
+    right: 5%;
+    z-index: 1;
   }
   .field .overlay {
     position: fixed;
@@ -19,9 +22,10 @@
     position: relative;
     width: 538px;
     height: 753px;
-    top: 68px;
-    left: 650px;
+    top: 0px;
+    left: 738px;
     z-index: 1010;
+    display: none;
   }
   .field .form-overlap {
     position: relative;
