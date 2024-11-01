@@ -209,8 +209,43 @@ async function run(){
         new Date('2023-12-12'),
         'ongoing'
     )
-
-
+    await functions.createPatient(
+        "Triple",             // firstName
+        "H",           // lastName
+        "Paul Levesque",         // middleName
+        "The Game",              // nickname
+        "456 Another St",    // homeAddress
+        new Date('1992-05-20'), // birthdate
+        32,                  // age
+        'M',                 // sex
+        "Buddhist",          // religion
+        "American",        // nationality
+        "triple.h@example.com", // email
+        "9998887777",       // homeNo
+        "Artist",            // occupation
+        "Art Insure Co.",    // dentalInsurance
+        "1112223333",       // officeNo
+        "12345",            // faxNo
+        "9123456789",       // contact
+        new Date('2024-12-01'), // effectiveDate
+        "Tom Johnson",      // guardianName
+        "Artist",            // guardianOccupation
+        "Dr. Alice",        // referralName
+        "Cavity Check",      // consultationReason
+        "third_picture"     // pic
+    );
+    await functions.createTreatment(
+        9,
+        new Date('1990-01-01'),
+        [4,5],
+        'Sweeping the floor',
+        'dr dentist',
+        1000,
+        1000,
+        0,
+        new Date('2024-02-02'),
+        'ongoing'
+    );
     let treatment = await functions.readTreatment(1);
     console.log(treatment);
 }
