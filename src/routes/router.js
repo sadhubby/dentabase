@@ -93,7 +93,9 @@ router.get("/to-do", async (req, res) =>{
     }
 });
 
-
+router.get("/treatment", (req,res) =>{
+    res.render("D_Treatment");
+})
 // end of patient information
 
 module.exports = router;
