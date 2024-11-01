@@ -254,3 +254,9 @@ module.exports = {
     updateTreatment,
     readTreatment
 };
+
+async function uniqueProcedures() {
+    const treatment = treatmentModel.findOne({}, 'procedure');
+    const uniqueProcedures = [...new Set(treatments.map(treatment => treatment.procedure))];
+    return uniqueProcedures;
+}

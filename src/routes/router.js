@@ -5,6 +5,7 @@ const express = require('express');
 const Router = require('express');
 
 // other libraries to be added based on necessity / user stories.
+const session = require('express-session');
 
 // mongoose models, add based on user stories
 
