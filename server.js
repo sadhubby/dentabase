@@ -247,6 +247,6 @@ async function run(){
         'ongoing'
     );
     let treatment = await functions.readTreatment(1);
-    console.log(treatment);
+   // console.log(treatment);
 }
 

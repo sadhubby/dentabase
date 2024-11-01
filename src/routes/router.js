@@ -46,11 +46,44 @@ router.get("/patient-information/:id", async (req, res) => {
         const patient = await Patient.findOne({id: req.params.id}); //unique id after the thing
         const fullName = `${patient.firstName} ${patient.middleName} ${patient.lastName}`;
         
+        let birthdate = patient.birthdate;
+        const birthyear = birthdate.getFullYear();
+        let birthmonth = birthdate.getMonth() + 1;
+
+        if(birthmonth < 10){
+            birthmonth = "0" + birthmonth;
+        }
+
+        let birthday = birthdate.getDate();
+        
+        if(birthday < 10){
+            birthday = "0" + birthday;
+        }
+
+
+        birthdate = birthmonth + "/" + birthday + "/" + birthyear; 
+
+        let fullSex = patient.sex;
+
+        if(fullSex = "M"){
+            fullSex = "Male";
+        } else {
+            fullSex = "Female";
+        }
+
         res.render("C_PatientInformation", {
             title: fullName.trim(),
             full_name: fullName,
             age: patient.age,
-            sex: patient.sex
+            sex: patient.sex,
+            birthdate: birthdate,
+            nickname: patient.nickname || "N/A",
+            fullSex: fullSex,
+            home_address: patient.homeAddress || "N/A",
+            occupation: patient.occupation || "N/A",
+            religion: patient.religion || "N/A", 
+            nationality: patient.nationality || "N/A",
+            dental_insurance: patient.dentalInsurance || "N/A",
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);

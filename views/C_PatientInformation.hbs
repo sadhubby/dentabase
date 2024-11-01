@@ -78,8 +78,9 @@
                     <label for="birthdate">Birthdate:</label>
                     <div class="input-wrapper">
                         <input type="text" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
-                            value="{{birth_month}}{{birth_date}}{{birth_year}}"
+                            value="{{birthdate}}"
                             title="Please enter your birthdate in MM/DD/YYYY format">
+                            </input>
                     </div>
 
 
@@ -105,7 +106,7 @@
                     <label for="sex">Sex:</label>
                     <div class="input-wrapper">
                         <select id="sex" class="input-field" name="sex" title="Please select your sex">
-                            <option value="" disabled selected>Select your sex</option>
+                            <option value="" disabled selected>{{fullSex}}</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
@@ -117,7 +118,7 @@
                     <label for="occupation">Occupation:</label>
                     <div class="input-wrapper">
                         <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
-                            value="{{personal_occupation}}">
+                            value="{{occupation}}">
                     </div>
                 </div>
 
