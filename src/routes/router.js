@@ -92,7 +92,6 @@ router.get("/to-do", async (req, res) =>{
             select: "procedure"
         });
 
-        // const full_name = `${patient.firstName} ${patient.lastName}`
         patients.forEach(patient => {
             if (patient.effectiveDate) {
                 const date = new Date(patient.effectiveDate);
@@ -104,16 +103,15 @@ router.get("/to-do", async (req, res) =>{
                 const minutes = String(date.getMinutes()).padStart(2, '0');
 
                 patient.formattedEffectiveDate = `${month}/${day}/${year} ${hours}:${minutes}`;
+                // patient.formattedEffectiveDate = Functions.convertToDate
             } else {
                 patient.formattedEffectiveDate = "N/A";
             }
         });
-        await Patient.find({isActive: true}).then(function(patients){
-            res.render("B_Todo", {
-                patients,
-                appointmentCount: patients.length
-            });
-            });
+        res.render("B_Todo", {
+            patients,
+            appointmentCount: patients.length
+        });
     }
     catch(error){
         console.log("Error getting data", error);
@@ -177,7 +175,6 @@ router.get("/", async (req, res) =>{
             select: "procedure"
         });
 
-        // const full_name = `${patient.firstName} ${patient.lastName}`
         patients.forEach(patient => {
             if (patient.effectiveDate) {
                 const date = new Date(patient.effectiveDate);
@@ -189,16 +186,15 @@ router.get("/", async (req, res) =>{
                 const minutes = String(date.getMinutes()).padStart(2, '0');
 
                 patient.formattedEffectiveDate = `${month}/${day}/${year} ${hours}:${minutes}`;
+                // patient.formattedEffectiveDate = Functions.convertToDate
             } else {
                 patient.formattedEffectiveDate = "N/A";
             }
         });
-        await Patient.find({isActive: true}).then(function(patients){
-            res.render("B_Todo", {
-                patients,
-                appointmentCount: patients.length
-            });
-            });
+        res.render("B_Todo", {
+            patients,
+            appointmentCount: patients.length
+        });
     }
     catch(error){
         console.log("Error getting data", error);
