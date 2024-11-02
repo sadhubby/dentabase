@@ -234,7 +234,8 @@
   overflow: auto;
   width: 100%;
   height: 100%;
-  gap: 0px; /* Adjusted spacing */
+  /* EVAN EDITED; NOTE: added a gap for each entry */
+  gap: 10px; /* Adjusted spacing */
 }
 
 .patient-list-file .patient-information-group {
@@ -243,15 +244,16 @@
   align-items: center;
   width: 100%;
   height: auto;
-  gap: 10px; /* Adjust spacing inside each group as needed */
+  gap: 10px;
   padding: 15px;
   border-radius: 8px;
   border-bottom: 1px solid #bdbdbd; /* Divider */
 }
 
-.patient-information-group:last-child {
-  border-bottom: none; /* Remove border for the last item */
-}
+/* EVAN EDITED; NOTE: turned off so last input in patients has a border */
+/* .patient-information-group:last-child {
+  border-bottom: none
+} */
 
 /* Checkbox Styling */
 .patient-list-file .patient-checkbox {
