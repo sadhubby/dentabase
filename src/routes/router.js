@@ -118,17 +118,28 @@ router.get("/to-do", async (req, res) =>{
         });
         res.render("B_ToDo", {
             patients
-        })
+        });
     }
     catch(error){
         console.log("Error getting data", error);
-        res.status(500).end("Error retrieving patient data")
+        res.status(500).end("Error retrieving patient data");
     }
 });
 
 router.get("/treatment", (req,res) =>{
     res.render("D_Treatment");
-})
+});
 // end of patient information
+
+router.get("/patient_list", (req, res) =>{
+    try{
+        Patient.find().then(function(patients){
+        res.render("C_PatientList", {patients: patients});
+        });
+    } catch(error){
+        console.log("Error getting data", error);
+        res.status(500).end("Error retrieving patient data");
+    }
+});
 
 module.exports = router;
