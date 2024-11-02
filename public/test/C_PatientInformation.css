@@ -742,33 +742,13 @@ z-index: 1;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* +INFORMED CONSENT*/
-.informed-consent-text {
+.patient-info-file .informed-consent-text {
     margin-left: 1rem;
 }
 
 /* Container for the informed consent form */
-.consent-container {
+.patient-info-file .consent-container {
     display: flex; /* Use flexbox for layout */
     flex-direction: row; /* Arrange items in a row */
     justify-content: space-between; /* Space items evenly */
@@ -777,7 +757,7 @@ z-index: 1;
 }
 
 /* Styling for each consent section */
-.consent-section {
+.patient-info-file .consent-section {
     flex: 1; /* Each section takes equal width */
     min-width: 100%; /* Minimum width for responsiveness */
     padding: 15px; /* Add padding */
@@ -787,7 +767,7 @@ z-index: 1;
 }
 
 /* Styling for the header */
-.header-consent {
+.patient-info-file .header-consent {
     font-size: 24px; /* Adjust font size */
     font-weight: bold; /* Make the text bold */
     text-align: center; /* Center align the header */
@@ -796,12 +776,12 @@ z-index: 1;
 }
 
 /* Styling for the section titles */
-h3 {
+.patient-info-file h3 {
     font-size: 15px; /* Font size for titles */
     margin-bottom: 10px; /* Space below titles */
 }
 
-.initials {
+.patient-info-file .initials {
     display: flex;
     margin-top: 15px; /* Space above the initials line */
     font-size: 16px; /* Font size for initials line */
@@ -811,7 +791,7 @@ h3 {
     align-items: end;
 }
 /* Container for the agreement section */
-.agreement-section {
+.patient-info-file .agreement-section {
     margin-top: 0px; /* Space above the agreement section */
     padding: 15px; /* Padding around the agreement section */
     border: 1px solid #ffffff; /* Border around the section */
@@ -820,14 +800,14 @@ h3 {
 }
 
 /* Styling for the agreement text */
-.agreement-text {
+.patient-info-file .agreement-text {
     font-size: 16px; /* Font size for agreement text */
     margin-bottom: 15px; /* Space below the agreement text */
     text-align: center; /* Center the text */
 }
 
 /* Container for signature lines */
-.signature-container {
+.patient-info-file .signature-container {
     display: flex; /* Use flexbox for layout */
     flex-direction: row; /* Stack signature lines in a column */
     margin-top: 20px; /* Space above the signature section */
@@ -835,7 +815,7 @@ h3 {
 }
 
 /* Styling for each signature line */
-.signature-line {
+.patient-info-file .signature-line {
     font-size: 16px; /* Font size for signature line */
     margin: 10px 0; /* Space between signature lines */
     font-weight: bold; /* Make the text bold */
@@ -843,7 +823,7 @@ h3 {
 }
 
 /* Styling for name lines */
-.name-line {
+.patient-info-file .name-line {
     font-size: 16px; /* Font size for name line */
     margin: 0 0 10px 0; /* Space below the name line */
     color: #555; /* Change text color */
@@ -852,12 +832,12 @@ h3 {
 
 /* + TREATMENT RECORD*/
 
-.treatment-record-text{
+.patient-info-file.treatment-record-text{
     margin-left: 1rem;
 }
 
 
-.treatment-category-group {
+.patient-info-file .treatment-category-group {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -873,31 +853,31 @@ h3 {
 
 
 
-.date-elements,
-.tooth-num-elements,
-.procedure-elements,
-.dentist-elements,
-.amount-charged-elements,
-.amount-paid-elements,
-.balance-elements,
-.next-appointment-elements {
+.patient-info-file .date-elements,
+.patient-info-file .tooth-num-elements,
+.patient-info-file .procedure-elements,
+.patient-info-file .dentist-elements,
+.patient-info-file .amount-charged-elements,
+.patient-info-file .amount-paid-elements,
+.patient-info-file .balance-elements,
+.patient-info-file .next-appointment-elements {
   display: flex;
   align-items: center;
   white-space: nowrap;
   flex: 1; /* Allow elements to grow evenly */
 }
 
-.patient-name-elements {
+.patient-info-file .patient-name-elements {
   margin-left: -6rem; /* Bring it closer to the checkbox */
 }
 
-.icon-updown {
+.patient-info-file .icon-updown {
   width: 11px;
   height: 14px;
   margin-left: 8px; /* Space between text and icon */
 }
 
-.category-text {
+.patient-info-file .category-text {
   font-family: "Roboto-Bold", Helvetica;
   font-weight: 700;
   color: #00000080;
@@ -908,7 +888,7 @@ h3 {
 
 /* `PATIENT LIST */
 /* General Styling */
-.patient-list-group {
+.patient-info-file .patient-list-group {
   display: flex;
   flex-direction: column; /* Stacks each patient entry vertically */
   overflow: auto;
@@ -918,7 +898,7 @@ h3 {
   gap: 15px; /* Adds spacing between each patient entry */
 }
 
-.patient-information-group {
+.patient-info-file .patient-information-group {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -931,12 +911,12 @@ h3 {
   border-bottom: 1px solid #000000; /* Divider */
 }
 
-.patient-information-group:last-child {
+.patient-info-file .patient-information-group:last-child {
   border-bottom: none; /* Remove border for the last item */
 }
 
 /* Patient Details */
-.patient-details {
+.patient-info-file .patient-details {
   display: flex;
   flex-direction: row;
   align-items: flex-start;

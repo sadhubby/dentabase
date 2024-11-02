@@ -175,17 +175,17 @@
   margin-left: -9.5rem;
 }
 
-.patient-name-elements,
-.phone-elements,
-.email-elements,
-.time-elements,
-.treatment-elements {
+.todo-file .patient-name-elements,
+.todo-file .phone-elements,
+.todo-file .email-elements,
+.todo-file .time-elements,
+.todo-file .treatment-elements {
   display: flex;
   align-items: center;
   white-space: nowrap;
 }
 
-.patient-name-elements {
+.todo-file .patient-name-elements {
   margin-left: -6rem; /* Bring it closer to the checkbox */
 }
 
