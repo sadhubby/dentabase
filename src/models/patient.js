@@ -88,6 +88,12 @@ const patientSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    lastDentist:{
+        type: String
+    },
+    lastDentalVisit:{
+        type: Date
+    },
     
     
     pic:{

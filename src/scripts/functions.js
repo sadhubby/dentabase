@@ -30,7 +30,7 @@ async function readPatient(patientID) {
 async function createPatient(firstName, lastName, middleName, nickname, 
     homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, 
     occupation, dentalInsurance, officeNo, faxNo, contact, effectiveDate, 
-    guardianName, guardianOccupation, referralName, consultationReason, pic) {
+    guardianName, guardianOccupation, referralName, consultationReason, lastDentist, lastDentalVisit, pic) {
     var patientID = 1;
     let lastPatient = await patientModel.findOne().sort({ id: -1 });
     // console.log(await patientModel.countDocuments());
@@ -66,6 +66,8 @@ async function createPatient(firstName, lastName, middleName, nickname,
         guardianOccupation: guardianOccupation,
         referralName: referralName,
         consultationReason: consultationReason,
+        lastDentist: lastDentist,
+        lastDentalVisit: lastDentalVisit,
         pic: pic,
     });
 
@@ -91,7 +93,7 @@ async function searchPatientName(patientName){
 async function updatePatientInfo(patientID, firstName, lastName, middleName, nickname, 
     homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, 
     occupation, dentalInsurance, officeNo, faxNo, contact, effectiveDate, 
-    guardianName, guardianOccupation, referralName, consultationReason, pic){
+    guardianName, guardianOccupation, referralName, consultationReason, lastDentist, lastDentalVisit, pic){
         
         patientModel.findOne({id: patientID}).then(function(patient){
 
@@ -117,6 +119,8 @@ async function updatePatientInfo(patientID, firstName, lastName, middleName, nic
             patient.guardianOccupaton = guardianOccupation;
             patient.referralName = referralName;
             patient.consultationReason = consultationReason;
+            patient.lastDentist = lastDentist;
+            patient.lastDentalVisit = lastDentalVisit;
             patient.pic = pic
 
             patient.save().then(function(){

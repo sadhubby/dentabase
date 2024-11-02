@@ -84,6 +84,8 @@ async function run(){
         "Doctor",            // guardianOccupation
         "Dr. Smith",         // referralName
         "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
         "another_picture"    // pic
     );
     await functions.createPatient(
@@ -109,6 +111,8 @@ async function run(){
         "Artist",            // guardianOccupation
         "Dr. Alice",        // referralName
         "Cavity Check",      // consultationReason
+        "Dr. Tooth Fairy", 
+        new Date('2020-02-04'), 
         "third_picture"     // pic
     );
 
@@ -141,6 +145,8 @@ async function run(){
         "Nurse",             // guardianOccupation
         "Dr. Alice",         // referralName
         "Follow-up Appointment", // consultationReason
+        "Dr. Cavity", 
+        new Date('2021-12-02'), 
         "new_picture"        // pic
     );
 
@@ -232,6 +238,8 @@ async function run(){
         "Artist",            // guardianOccupation
         "Dr. Alice",        // referralName
         "Cavity Check",      // consultationReason
+        "Dr. Tooth Wrestler",
+        new Date('2019-01-01'),
         "third_picture"     // pic
     );
     await functions.createTreatment(

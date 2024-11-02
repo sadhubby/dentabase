@@ -66,6 +66,17 @@ router.get("/patient-information/:id", async (req, res) => {
             religion: patient.religion || "N/A", 
             nationality: patient.nationality || "N/A",
             dental_insurance: patient.dentalInsurance || "N/A",
+            lastDentist: patient.lastDentist || "N/A",
+            lastDentalVisit: Functions.convertToDate(patient.lastDentalVisit) || "N/A",
+            email: patient.email || "N/A",
+            home_number: patient.homeNo || "N/A",
+            mobile_number: patient.contact || "N/A",
+            office_number: patient.officeNo || "N/A",
+            fax_number: patient.faxNo || "N/A",
+            guardian_name: patient.guardianName || "N/A",
+            guardian_occupation: patient.guardianOccupation || "N/A",
+            minor_referral_question: patient.referralName || "N/A",
+            consultation: patient.consultationReason || "N/A"
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);

@@ -32,6 +32,8 @@ const samplePatients = [
         guardianOccupation: "Builder",
         referralName: "Dr. John",
         consultationReason: "Teeth Fixing",
+        lastDentist: "Dr. White Tooth",
+        lastDentalVisit: new Date('1800-09-02'),
         pic: "picture",
         treatments: []
     }
