@@ -84,6 +84,8 @@ async function run(){
         "Doctor",            // guardianOccupation
         "Dr. Smith",         // referralName
         "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
         "another_picture"    // pic
     );
     await functions.createPatient(
@@ -103,12 +105,14 @@ async function run(){
         "Art Insure Co.",    // dentalInsurance
         "1112223333",       // officeNo
         "12345",            // faxNo
-        "9123456789",       // contact
+        "09123456789",       // contact
         new Date('2024-12-01'), // effectiveDate
         "Tom Johnson",      // guardianName
         "Artist",            // guardianOccupation
         "Dr. Alice",        // referralName
         "Cavity Check",      // consultationReason
+        "Dr. Tooth Fairy", 
+        new Date('2020-02-04'), 
         "third_picture"     // pic
     );
 
@@ -141,6 +145,8 @@ async function run(){
         "Nurse",             // guardianOccupation
         "Dr. Alice",         // referralName
         "Follow-up Appointment", // consultationReason
+        "Dr. Cavity", 
+        new Date('2021-12-02'), 
         "new_picture"        // pic
     );
 
@@ -226,12 +232,41 @@ async function run(){
         "Art Insure Co.",    // dentalInsurance
         "1112223333",       // officeNo
         "12345",            // faxNo
-        "9123456789",       // contact
+        "09123456789",       // contact
         new Date('2024-12-01'), // effectiveDate
         "Tom Johnson",      // guardianName
         "Artist",            // guardianOccupation
         "Dr. Alice",        // referralName
         "Cavity Check",      // consultationReason
+        "Dr. Tooth Wrestler",
+        new Date('2019-01-01'),
+        "third_picture"     // pic
+    );
+    await functions.createPatient(
+        "R",             // firstName
+        "Truth",           // lastName
+        "John Cena's fan",         // middleName
+        "The Game",              // nickname
+        "456 Another St",    // homeAddress
+        new Date('1992-05-20'), // birthdate
+        32,                  // age
+        'M',                 // sex
+        "Buddhist",          // religion
+        "American",        // nationality
+        "the.truth@example.com", // email
+        "9998887777",       // homeNo
+        "Artist",            // occupation
+        "Art Insure Co.",    // dentalInsurance
+        "1112223333",       // officeNo
+        "12345",            // faxNo
+        "09123456789",       // contact
+        new Date('2024-11-02'), // effectiveDate
+        "Tom Johnson",      // guardianName
+        "Artist",            // guardianOccupation
+        "Dr. Alice",        // referralName
+        "Cavity Check",      // consultationReason
+        "Dr. Tooth Wrestler",
+        new Date('2019-01-01'),
         "third_picture"     // pic
     );
     await functions.createTreatment(
@@ -239,6 +274,45 @@ async function run(){
         new Date('1990-01-01'),
         [4,5],
         'Sweeping the floor',
+        'dr dentist',
+        1000,
+        1000,
+        0,
+        new Date('2024-02-02'),
+        'ongoing'
+    );
+    await functions.createPatient(
+        "SETH",              // firstName
+        "ROLLINS",               // lastName
+        "FREAKING",           // middleName
+        "The Architect",            // nickname
+        "123 Main St",       // homeAddress
+        new Date('1985-02-15'), // birthdate
+        39,                  // age
+        'M',                 // sex
+        "Protestant",        // religion
+        "Canadian",          // nationality
+        "john.doe@example.com", // email
+        "5555555555",       // homeNo
+        "Engineer",          // occupation
+        "Best Dental Ins.",  // dentalInsurance
+        "5556667777",       // officeNo
+        "54321",             // faxNo
+        "4161234567",       // contact
+        new Date('2024-11-03'), // effectiveDate
+        "Jane Doe",         // guardianName
+        "Doctor",            // guardianOccupation
+        "Dr. Smith",         // referralName
+        "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
+        "another_picture"    // pic
+    );
+    await functions.createTreatment(
+        10,
+        new Date('1990-01-01'),
+        [4,5],
+        'Become 24/7 48/7 7/11 I95 South European Champion',
         'dr dentist',
         1000,
         1000,

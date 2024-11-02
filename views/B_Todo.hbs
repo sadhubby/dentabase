@@ -1,9 +1,14 @@
 <!-- `NAME PAGE, SEARCH BOX-->
 <div class="frame-1">
   <div class="name-page"> To Do</div>
+  
   <div class="search-settings-group">
-    <img class="icon-search" src="/img/icon-search.svg" />
-    <input type="text" class="search-box" placeholder="Search for a Patient" />
+    <form action ="/patient_list" method="GET">
+      <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
+        <img class="icon-search" src="/img/icon-search.svg" />
+      </button>
+      <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
+    </form>
   </div>
 
 </div>
@@ -39,9 +44,9 @@
     </div>
 
     <div class="date-elements">
-      <img class="vector" src="/img/icon-arrow_drop_left.svg" />
-      <div class="date-text">Thurs, Sept. 28, 2024</div>
-      <img class="img" src="/img/icon-arrow_drop_right.svg" />
+      <img class="vector" id = "prev-date-btn" src="/img/icon-arrow_drop_left.svg" />
+      <div class="date-text" id = "date-display">Thurs, Sept. 28, 2024</div>
+      <img class="img" id = "next-date-btn" src="/img/icon-arrow_drop_right.svg" />
 
     </div>
 
@@ -102,7 +107,7 @@
 
 
   <!-- `PATIENT LIST-->
-
+<div id = "appointments-container">
   <div class="patient-list-group">
     {{#each patients}}
     <div class="patient-information-group">
@@ -127,7 +132,7 @@
 
         <div class="additional-info">
           <div class="text-address">{{homeAddress}}</div>
-          <div class="text-appointment-date">{{formattedEffectiveDate}}</div>
+          <div class="text-appointment-date">{{formattedTime}}</div>
           <div class="text-next-visit">{{nextAppointment}}</div>
           <div class="text-treatment">
             {{#each treatments}}
@@ -140,7 +145,9 @@
       </div>
     {{/each}}
     </div>
-  
+</div>
   
 
 </div>
+
+<script src = "../public/js/B_Todo.js"></script>

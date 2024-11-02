@@ -2,6 +2,25 @@ const patientModel = require('../models/patient.js');
 const medicalHistoryModel = require('../models/medicalHistory.js');
 const treatmentModel = require('../models/treatment.js');
 
+function convertToDate(birthdate){
+    let birthyear = birthdate.getFullYear();
+    let birthmonth = birthdate.getMonth() + 1;
+    
+    if(birthmonth < 10){
+        birthmonth = "0" + birthmonth;
+    }
+
+    let birthday = birthdate.getDate();
+
+    if(birthday < 10){
+        birthday = "0" + birthday;
+    }
+
+    birthdate = birthmonth + "/" + birthday + "/" + birthyear;
+
+    return birthdate;
+}
+
 async function readPatient(patientID) {
     let patient = await patientModel.findOne({id: patientID});
 
@@ -11,7 +30,7 @@ async function readPatient(patientID) {
 async function createPatient(firstName, lastName, middleName, nickname, 
     homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, 
     occupation, dentalInsurance, officeNo, faxNo, contact, effectiveDate, 
-    guardianName, guardianOccupation, referralName, consultationReason, pic) {
+    guardianName, guardianOccupation, referralName, consultationReason, lastDentist, lastDentalVisit, pic) {
     var patientID = 1;
     let lastPatient = await patientModel.findOne().sort({ id: -1 });
     // console.log(await patientModel.countDocuments());
@@ -47,6 +66,8 @@ async function createPatient(firstName, lastName, middleName, nickname,
         guardianOccupation: guardianOccupation,
         referralName: referralName,
         consultationReason: consultationReason,
+        lastDentist: lastDentist,
+        lastDentalVisit: lastDentalVisit,
         pic: pic,
     });
 
@@ -72,7 +93,7 @@ async function searchPatientName(patientName){
 async function updatePatientInfo(patientID, firstName, lastName, middleName, nickname, 
     homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, 
     occupation, dentalInsurance, officeNo, faxNo, contact, effectiveDate, 
-    guardianName, guardianOccupation, referralName, consultationReason, pic){
+    guardianName, guardianOccupation, referralName, consultationReason, lastDentist, lastDentalVisit, pic){
         
         patientModel.findOne({id: patientID}).then(function(patient){
 
@@ -98,6 +119,8 @@ async function updatePatientInfo(patientID, firstName, lastName, middleName, nic
             patient.guardianOccupaton = guardianOccupation;
             patient.referralName = referralName;
             patient.consultationReason = consultationReason;
+            patient.lastDentist = lastDentist;
+            patient.lastDentalVisit = lastDentalVisit;
             patient.pic = pic
 
             patient.save().then(function(){
@@ -252,7 +275,8 @@ module.exports = {
     readMedicalHistory,
     createTreatment,
     updateTreatment,
-    readTreatment
+    readTreatment,
+    convertToDate
 };
 
 async function uniqueProcedures() {
