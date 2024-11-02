@@ -129,7 +129,8 @@ router.get("/", async (req, res) =>{
         const patients = await Patient.find({isActive: true}).populate({
             path: "treatments",
             select: "procedure"
-        }); 
+        });
+
         // const full_name = `${patient.firstName} ${patient.lastName}`
         patients.forEach(patient => {
             if (patient.effectiveDate) {
@@ -146,9 +147,12 @@ router.get("/", async (req, res) =>{
                 patient.formattedEffectiveDate = "N/A";
             }
         });
-        res.render("B_ToDo", {
-            patients
-        });
+        await Patient.find({isActive: true}).then(function(patients){
+            res.render("B_Todo", {
+                patients,
+                appointmentCount: patients.length
+            });
+            });
     }
     catch(error){
         console.log("Error getting data", error);
