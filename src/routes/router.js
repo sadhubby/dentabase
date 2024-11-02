@@ -220,11 +220,9 @@ router.get("/", async (req, res) =>{
         
         const targetDate = req.query.date ? new Date(req.query.date) : new Date();
         console.log("Target date from query:", targetDate); 
-
     
         targetDate.setHours(0, 0, 0, 0);
 
-    
         const patients = await Patient.find({
             isActive: true,
             effectiveDate: {
