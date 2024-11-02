@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: "Roboto-Regular", Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+ img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.frame-1 {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.493);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+   width: 40%; /* Set width to 40% for left positioning */
+  height: 30%;
+  padding: 20px;
+  
+}
+
+
+
+/* `BRAND GROUP*/
+.brand-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+.logo {
+  width: 70%;
+  height: 100%;
+  object-fit: contain;
+
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.name h2 {
+  color: #0f93b5;
+  font-size: 40px;
+}
+
+.name h3 {
+  color: gray;
+  font-size: 30px;
+}
+
+.name p {
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+}
+
+
+
+
+/* `PASSWORD GROUP*/
+.password-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.password-group label {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.icon-lock {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.password-group input {
+  width: 70%;
+  padding: 10px;
+  padding-left: 35px; /* Space for lock icon */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.password-group input:focus {
+  border-color: #0f93b5; /* Color on focus */
+}
