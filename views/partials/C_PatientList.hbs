@@ -121,33 +121,34 @@
     <!-- `PATIENT LIST-->
     <tbody>
 
-     <tr>
+{{#each patients}}
+      <tr>
 
-     <td>
-         <div class="name">{{full_name}}Kai Padilla</div>
-     </td>
-     <td>
-         <div class="phone">{{{contact}}}+63901234576</div>
-     </td>
-     <td>
-         <div class="email">{{{email}}}kaipadilla@google.com</div>
-     </td>
+        <td>
+          <div class="name">{{full_name}}Kai Padilla</div>
+        </td>
+        <td>
+          <div class="phone">{{{contact}}}+63901234576</div>
+        </td>
+        <td>
+          <div class="email">{{{email}}}kaipadilla@google.com</div>
+        </td>
 
-     <td>
-         <div class="address">{{{homeAddress}}}2401 Taft Ave, Malate, Manila, 1004 Metro Manila</div>
-     </td>
-     <td>
-         <div class="registered-date">{{registered_date}}Sept 10, 2024</div>
-     </td>
-     <td>
-         <div class="next-visit">{{{latestTreatmentDate}}}Sept 18, 2024</div>
-     </td>
-     <td>
-         <div class="treatment">{{{latestProcedure}}}Wisdom Tooth Removal</div>
-     </td>
+        <td>
+          <div class="address">{{{homeAddress}}}2401 Taft Ave, Malate, Manila, 1004 Metro Manila</div>
+        </td>
+        <td>
+          <div class="registered-date">{{registered_date}}Sept 10, 2024</div>
+        </td>
+        <td>
+          <div class="next-visit">{{{latestTreatmentDate}}}Sept 18, 2024</div>
+        </td>
+        <td>
+          <div class="treatment">{{{latestProcedure}}}Wisdom Tooth Removal</div>
+        </td>
 
- </tr>
-
+      </tr>
+{{/each}}
 
     </tbody>
   </table>
