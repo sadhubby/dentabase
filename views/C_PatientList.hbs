@@ -36,7 +36,7 @@
 
     <div class="patient-number-elements">
       <img class="icon-calendar" src="/img/icon-appointment-user.svg" />
-      <div class="patient-number">100</div>
+      <div class="patient-number">{{patientCount}}</div>
       <div class="total-patient-text">Total Patients</div>
     </div>
 
@@ -122,29 +122,30 @@
     <tbody>
 
 {{#each patients}}
+
       <tr>
 
         <td>
-          <div class="name">{{full_name}}Kai Padilla</div>
+          <div class="name" onclick = "window.location.href='/patient-information/{{{id}}}'" style = "cursor: pointer;">{{firstName}} {{lastName}}</div>
         </td>
         <td>
-          <div class="phone">{{{contact}}}+63901234576</div>
+          <div class="phone">{{{contact}}}</div>
         </td>
         <td>
-          <div class="email">{{{email}}}kaipadilla@google.com</div>
+          <div class="email">{{{email}}}</div>
         </td>
 
         <td>
-          <div class="address">{{{homeAddress}}}2401 Taft Ave, Malate, Manila, 1004 Metro Manila</div>
+          <div class="address">{{{homeAddress}}}</div>
         </td>
         <td>
-          <div class="registered-date">{{registered_date}}Sept 10, 2024</div>
+          <div class="registered-date">{{registered_date}}</div>
         </td>
         <td>
-          <div class="next-visit">{{{latestTreatmentDate}}}Sept 18, 2024</div>
+          <div class="next-visit">{{{latestTreatmentDate}}}</div>
         </td>
         <td>
-          <div class="treatment">{{{latestProcedure}}}Wisdom Tooth Removal</div>
+          <div class="treatment">{{{latestProcedure}}}</div>
         </td>
 
       </tr>
