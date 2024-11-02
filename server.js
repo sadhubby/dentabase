@@ -103,7 +103,7 @@ async function run(){
         "Art Insure Co.",    // dentalInsurance
         "1112223333",       // officeNo
         "12345",            // faxNo
-        "9123456789",       // contact
+        "09123456789",       // contact
         new Date('2024-12-01'), // effectiveDate
         "Tom Johnson",      // guardianName
         "Artist",            // guardianOccupation
@@ -226,7 +226,7 @@ async function run(){
         "Art Insure Co.",    // dentalInsurance
         "1112223333",       // officeNo
         "12345",            // faxNo
-        "9123456789",       // contact
+        "09123456789",       // contact
         new Date('2024-12-01'), // effectiveDate
         "Tom Johnson",      // guardianName
         "Artist",            // guardianOccupation

@@ -26,7 +26,7 @@ const samplePatients = [
         dentalInsurance: "Teeth Company",
         officeNo: 7,
         faxNo: 98765,
-        contact: 9173272156,
+        contact: "09173272156",
         effectiveDate: new Date('2024-10-01'),
         guardianName: "Bob the Builder",
         guardianOccupation: "Builder",

@@ -16,6 +16,8 @@ const MedicalHistory = require('../models/medicalHistory');
 const { TopologyDescription } = require('mongodb');
 const sampleTreatments = require('../scripts/sampleData/treatmentData');
 
+const Functions = require('../scripts/functions');
+
 const router = Router();
 router.use(express.json());
 
@@ -112,16 +114,36 @@ router.get("/treatment", (req,res) =>{
     res.render("D_Treatment");
 });
 
-// PATIENT LIST 
-router.get("/patient_list", (req, res) =>{
-    try{
-        Patient.find({isActive: true}).then(function(patients){
+router.get("/patient_list", async (req, res) => {
+    try {
+        const patients = await Patient.find({ isActive: true });
+
+        const updatedPatients = await Promise.all(patients.map(async (patient) => {
+            const populatedPatient = await patient.populate({
+                path: "treatments",
+                options: { sort: { date: -1 }, limit: 1 }
+            });
+
+            if (populatedPatient.treatments.length > 0) {
+                const latestTreatment = populatedPatient.treatments[0];
+                const latestDate = Functions.convertToDate(latestTreatment.date); 
+                const latestProcedure = latestTreatment.procedure;
+
+                populatedPatient.latestTreatmentDate = latestDate;
+                populatedPatient.latestProcedure = latestProcedure;
+            } else {
+                populatedPatient.latestTreatmentDate = "N/A";
+                populatedPatient.latestProcedure = "N/A";
+            }
+
+            return populatedPatient;
+        }));
+
         res.render("C_PatientList", {
-            patients: patients,
-            patientCount: patients.length
+            patients: updatedPatients,
+            patientCount: updatedPatients.length
         });
-        });
-    } catch(error){
+    } catch (error) {
         console.log("Error getting data", error);
         res.status(500).end("Error retrieving patient data");
     }

@@ -2,6 +2,25 @@ const patientModel = require('../models/patient.js');
 const medicalHistoryModel = require('../models/medicalHistory.js');
 const treatmentModel = require('../models/treatment.js');
 
+function convertToDate(birthdate){
+    let birthyear = birthdate.getFullYear();
+    let birthmonth = birthdate.getMonth() + 1;
+    
+    if(birthmonth < 10){
+        birthmonth = "0" + birthmonth;
+    }
+
+    let birthday = birthdate.getDate();
+
+    if(birthday < 10){
+        birthday = "0" + birthday;
+    }
+
+    birthdate = birthmonth + "/" + birthday + "/" + birthyear;
+
+    return birthdate;
+}
+
 async function readPatient(patientID) {
     let patient = await patientModel.findOne({id: patientID});
 
@@ -252,7 +271,8 @@ module.exports = {
     readMedicalHistory,
     createTreatment,
     updateTreatment,
-    readTreatment
+    readTreatment,
+    convertToDate
 };
 
 async function uniqueProcedures() {

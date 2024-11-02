@@ -65,7 +65,7 @@ const patientSchema = new mongoose.Schema({
         type: Number
     },
     contact:{
-        type: Number,
+        type: String,
         required: true
     },
     effectiveDate:{ //idk what this means
