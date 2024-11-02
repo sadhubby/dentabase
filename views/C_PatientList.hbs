@@ -70,49 +70,54 @@
     <thead>
       <tr>
         <th>
-
-
           <div class="patient-name-elements">
-            <div class="category-text">PATIENT NAME</div>
+            <div class="category-text">NAME</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
         </th>
+       
         <th>
           <div class="phone-elements">
             <div class="category-text">PHONE</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
         </th>
+       
         <th>
           <div class="email-elements">
             <div class="category-text">EMAIL</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
         </th>
+      
         <th>
           <div class="address-elements">
             <div class="category-text">ADDRESS</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
         </th>
+      
         <th>
           <div class="registered-elements">
             <div class="category-text">REGISTERED</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
         </th>
+      
         <th>
           <div class="last-visit-elements">
             <div class="category-text">LAST VISIT</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
         </th>
+      
         <th>
           <div class="last-treatment-elements">
             <div class="category-text">LAST TREATMENT</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
         </th>
+     
       </tr>
     </thead>
     <!-- `END LIST OF CATEGORY -->
@@ -129,27 +134,33 @@
           <div class="name" onclick = "window.location.href='/patient-information/{{{id}}}'" style = "cursor: pointer;">{{firstName}} {{lastName}}</div>
         </td>
         <td>
+          
           <div class="phone">{{{contact}}}</div>
         </td>
         <td>
+         
           <div class="email">{{{email}}}</div>
         </td>
 
         <td>
+         
           <div class="address">{{{homeAddress}}}</div>
         </td>
         <td>
+          
           <div class="registered-date">{{registered_date}}</div>
         </td>
         <td>
+          
           <div class="next-visit">{{{latestTreatmentDate}}}</div>
         </td>
         <td>
           <div class="treatment">{{{latestProcedure}}}</div>
+      
         </td>
 
       </tr>
-{{/each}}
+      {{/each}}
 
     </tbody>
   </table>

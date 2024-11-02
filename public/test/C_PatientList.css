@@ -182,8 +182,7 @@
 
 
 /* `LIST OF CATEGORY & PATIENT LIST*/
-
-table {
+.patient-list-file table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
@@ -191,25 +190,33 @@ table {
     overflow: hidden; /* Ensures rounded corners are clipped properly */
 }
 
-th, td {
+.patient-list-file th,
+.patient-list-file td {
     border: 1px solid #dddddd;
     padding: 10px;
-    text-align: center;
+    text-align: center; /* Center text in header and data cells */
     vertical-align: middle;
 }
 
-th {
+.patient-list-file th {
     background-color: #f2f2f2;
+    padding: 12px; /* Increase padding slightly for better readability */
 }
 
-.patient-name-elements, .phone-elements, .email-elements, .address-elements,
-.registered-elements, .last-visit-elements, .last-treatment-elements {
+.patient-list-file .patient-name-elements,
+.patient-list-file .phone-elements,
+.patient-list-file .email-elements,
+.patient-list-file .address-elements,
+.patient-list-file .registered-elements,
+.patient-list-file .last-visit-elements,
+.patient-list-file .last-treatment-elements {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center content */
+    flex-wrap: wrap;
 }
 
-td {
+.patient-list-file td {
     position: relative;
     overflow: hidden;
 }
@@ -238,12 +245,13 @@ td {
     white-space: normal; /* Allows text to wrap */
     overflow: visible; /* Shows hidden overflow text */
     z-index: 1;
-    background-color: #f0f0f0; /* Optional: gives a background to hovered text */
+    background-color: #e9e9e9; /* Optional: gives a background to hovered text */
     padding: 5px;
     max-width: none; /* Removes width limit to show full text */
+    border-radius: 20px;
 }
 
-.icon {
+.patient-list-file .icon {
     margin-right: 5px;
 }
 
