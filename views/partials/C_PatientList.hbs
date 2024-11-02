@@ -1,68 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="C_PatientList.css">
-  <link rel="stylesheet" href="B_Todo.css">
-  <link rel="stylesheet" href="O_MainTemplate.css">
-
-</head>
-
-<body>
-  <div class="container">
-    <!-- +Sidebar Wrapper with Toggle Button -->
-    <div class="sidebar-wrapper">
-      <input type="checkbox" id="sidebar-toggle" hidden>
-      <label for="sidebar-toggle" class="toggle-btn">
-        <img src="/public/img/icon-solid-left-arrow.svg" alt="Toggle Sidebar" class="toggle-icon">
-      </label>
-
-      <div class="sidebar">
-        <div class="brand-logo">
-          <img src="/public/img/logo-better-smiles.svg" alt="Brand Logo">
-        </div>
-        <div class="brand-name">
-          <h2>BETTER SMILES</h2>
-          <h3>DENTAL CLINIC</h3>
-          <p>General Dentistry ● Orthodontist ● Surgery</p>
-        </div>
-
-
-        <ul>
-          <div class="clinic-text"> CLINIC</div>
-          <li><a href="/D_Todo">
-              <img src="/public/img/icon-todo.svg" alt="To Do" class="sidebar-icon">
-              <span class="sidebar-text">To Do</span></a></li>
-          <li><a href="/B_PatientList_page">
-              <img src="/public/img/icon-sidemenu-user.svg" alt="Patients" class="sidebar-icon">
-              <span class="sidebar-text">Patients</span> </a></li>
-          <li><a href="/C_Treatment">
-              <img src="/public/img/icon-stethoscope.svg" alt="Treatment" class="sidebar-icon"><span
-                class="sidebar-text">Treatment</span></a></li>
-          <li><a href="/E_Report">
-              <img src="/public/img/icon-piechart.svg" alt="Report" class="sidebar-icon">
-              <span class="sidebar-text">Report</span></a></li>
-          <li><a href="/F_Settings">
-              <img src="/public/img/icon-settings.svg" alt="Settings" class="sidebar-icon">
-              <span class="sidebar-text">Settings</span></a></li>
-          <li><a href="/A_LoginPage">
-              <img src="/public/img/icon-logout.svg" alt="Logout" class="sidebar-icon">
-              <span class="sidebar-text">Logout</span></a></li>
-        </ul>
-      </div>
-    </div>
-    <!-- +END SIDEBAR DESIGN-->
-
-    <!-- +Main content -->
-    <div class="main-content">
 
       <!-- +NAME PAGE, SEARCH BOX-->
       <div class="frame-1">
         <div class="name-page"> Patients</div>
         <div class="search-settings-group">
-          <img class="icon-search" src="/public/img/icon-search.svg" />
+          <img class="icon-search" src="/img/icon-search.svg" />
           <input type="text" class="search-box" placeholder="Search for a Patient" />
         </div>
 
@@ -78,7 +19,7 @@
 
         <div class="title-group">
           <div class="title-element">Patient List</div>
-          <img class="icon-solid-right-arrow" src="/public/img/icon-solid-right-arrow.svg" />
+          <img class="icon-solid-right-arrow" src="/img/icon-solid-right-arrow.svg" />
           <div class="title-element-2">Patient Detail</div>
         </div>
         <div class="title-divider-2"></div>
@@ -95,7 +36,7 @@
         <div class="schedule-group">
 
           <div class="patient-number-elements">
-            <img class="icon-calendar" src="/public/img/icon-appointment-user.svg" />
+            <img class="icon-calendar" src="/img/icon-appointment-user.svg" />
             <div class="patient-number">100</div>
             <div class="total-patient-text">Total Patients</div>
           </div>
@@ -104,17 +45,17 @@
 
           <div class="buttons-group">
             <div class="button create-patient-elements">
-              <img class="icon icon-add" src="/public/img/icon-add.svg" />
+              <img class="icon icon-add" src="/img/icon-add.svg" />
               <div class="text-buttons create-patient-text">Create patient</div>
             </div>
             <div class="divider"></div> <!-- Divider between buttons -->
             <div class="button filter-elements">
-              <img class="icon-filter" src="/public/img/icon-filter.svg" />
+              <img class="icon-filter" src="/img/icon-filter.svg" />
               <div class="text-buttons text-wrapper">Filters</div>
             </div>
             <div class="divider"></div> <!-- Divider between buttons -->
             <div class="button edit-elements">
-              <img class="icon icon-edit" src="/public/img/icon-edit.svg" />
+              <img class="icon icon-edit" src="/img/icon-edit.svg" />
               <div class="text-buttons text-wrapper">Edit</div>
             </div>
            
@@ -129,32 +70,32 @@
           
           <div class="patient-name-elements">
             <div class="category-text">PATIENT NAME</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
           <div class="phone-elements">
             <div class="category-text">PHONE</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
           <div class="email-elements">
             <div class="category-text">EMAIL</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
           <div class="address-elements">
             <div class="category-text">ADDRESS</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
           <div class="registered-elements">
             <div class="category-text">REGISTERED</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
           
           <div class="last-visit-elements">
             <div class="category-text">LAST VISIT</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
           <div class="last-treatment-elements">
             <div class="category-text">LAST TREATMENT</div>
-            <img class="icon-updown" src="/public/img/icon-updown.svg" />
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
 
         </div>
@@ -172,11 +113,11 @@
 
               <div class="contact-info">
                 <div class="contact-item">
-                  <img class="icon-phone" src="/public/img/icon-phone.svg" alt="Phone Icon" />
+                  <img class="icon-phone" src="/img/icon-phone.svg" alt="Phone Icon" />
                   <div class="text-phone">+63901234576</div>
                 </div>
                 <div class="contact-item">
-                  <img class="icon-mail" src="/public/img/icon-mail.svg" alt="Email Icon" />
+                  <img class="icon-mail" src="/img/icon-mail.svg" alt="Email Icon" />
                   <div class="text-email">kaipadilla@google.com</div>
                 </div>
               </div>
@@ -200,11 +141,11 @@
 
               <div class="contact-info">
                 <div class="contact-item">
-                  <img class="icon-phone" src="/public/img/icon-phone.svg" alt="Phone Icon" />
+                  <img class="icon-phone" src="/img/icon-phone.svg" alt="Phone Icon" />
                   <div class="text-phone">+63901234576</div>
                 </div>
                 <div class="contact-item">
-                  <img class="icon-mail" src="/public/img/icon-mail.svg" alt="Email Icon" />
+                  <img class="icon-mail" src="/img/icon-mail.svg" alt="Email Icon" />
                   <div class="text-email">kaipadilla@google.com</div>
                 </div>
               </div>
@@ -227,7 +168,3 @@
     </div>
   </div>
   <!--+END MAIN CONTENT-->
-
-</body>
-
-</html>
