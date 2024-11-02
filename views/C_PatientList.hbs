@@ -1,149 +1,161 @@
-
-      <!-- +NAME PAGE, SEARCH BOX-->
-      <div class="frame-1">
-        <div class="name-page"> Patients</div>
+<!-- +NAME PAGE, SEARCH BOX-->
+<div class="frame-1">
+  <div class="name-page"> Patients</div>
   <div class="search-settings-group">
-    <form action ="/patient_list" method="GET">
-      <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
-        <img class="icon-search" src="/img/icon-search.svg" />
-      </button>
-      <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
-    </form>
+    <img class="icon-search" src="/img/icon-search.svg" />
+    <input type="text" class="search-box" placeholder="Search for a Patient" />
   </div>
 
+</div>
+<!--`END NAME PAGE-->
+
+
+<!-- `TITLES -->
+
+<div class="frame-2">
+
+  <div class="title-divider"></div>
+
+  <div class="title-group">
+    <div class="title-element">Patient List</div>
+    <img class="icon-solid-right-arrow" src="/img/icon-solid-right-arrow.svg" />
+    <div class="title-element-2">Patient Detail</div>
+  </div>
+  <div class="title-divider-2"></div>
+  <div class="indicator-line"></div>
+
+</div>
+<!-- `END TITLES-->
+
+<!-- +PATIENT DETAILS-->
+<div class="frame-3 patient-list-file">
+
+
+  <!-- `NUM patientS , DATE, BUTTONS-->
+  <div class="schedule-group">
+
+    <div class="patient-number-elements">
+      <img class="icon-calendar" src="/img/icon-appointment-user.svg" />
+      <div class="patient-number">100</div>
+      <div class="total-patient-text">Total Patients</div>
+    </div>
+
+
+
+    <div class="buttons-group">
+      <div class="button create-patient-elements">
+        <img class="icon icon-add" src="/img/icon-add.svg" />
+        <div class="text-buttons create-patient-text">Create patient</div>
       </div>
-      <!--`END NAME PAGE-->
-
-
-      <!-- `TITLES -->
-
-      <div class="frame-2">
-
-        <div class="title-divider"></div>
-
-        <div class="title-group">
-          <div class="title-element">Patient List</div>
-          <img class="icon-solid-right-arrow" src="/img/icon-solid-right-arrow.svg" />
-          <div class="title-element-2">Patient Detail</div>
-        </div>
-        <div class="title-divider-2"></div>
-        <div class="indicator-line"></div>
-
+      <div class="divider"></div> <!-- Divider between buttons -->
+      <div class="button filter-elements">
+        <img class="icon-filter" src="/img/icon-filter.svg" />
+        <div class="text-buttons text-wrapper">Filters</div>
       </div>
-      <!-- `END TITLES-->
+      <div class="divider"></div> <!-- Divider between buttons -->
+      <div class="button edit-elements">
+        <img class="icon icon-edit" src="/img/icon-edit.svg" />
+        <div class="text-buttons text-wrapper">Edit</div>
+      </div>
 
-      <!-- +PATIENT DETAILS-->
-      <div class="frame-3 patient-list-file">
+    </div>
 
-
-        <!-- `NUM patientS , DATE, BUTTONS-->
-        <div class="schedule-group">
-
-          <div class="patient-number-elements">
-            <img class="icon-calendar" src="/img/icon-appointment-user.svg" />
-            <div class="patient-number">{{patientCount}}</div>
-            <div class="total-patient-text">Total Patients</div>
-          </div>
-
-       
-
-          <div class="buttons-group">
-            <div class="button create-patient-elements">
-              <img class="icon icon-add" src="/img/icon-add.svg" />
-              <div class="text-buttons create-patient-text">Create patient</div>
-            </div>
-            <div class="divider"></div> <!-- Divider between buttons -->
-            <div class="button filter-elements">
-              <img class="icon-filter" src="/img/icon-filter.svg" />
-              <div class="text-buttons text-wrapper">Filters</div>
-            </div>
-            <div class="divider"></div> <!-- Divider between buttons -->
-            <div class="button edit-elements">
-              <img class="icon icon-edit" src="/img/icon-edit.svg" />
-              <div class="text-buttons text-wrapper">Edit</div>
-            </div>
-           
-          </div>
-
-        </div>
-        <!--`END SCHEDULE GROUP-->
+  </div>
+  <!--`END SCHEDULE GROUP-->
 
 
-        <!-- `LIST OF CATEGORY -->
-        <div class="patient-category-group">
-          
+  <!-- `LIST OF CATEGORY -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>
+
+
           <div class="patient-name-elements">
             <div class="category-text">PATIENT NAME</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
+        </th>
+        <th>
           <div class="phone-elements">
             <div class="category-text">PHONE</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
+        </th>
+        <th>
           <div class="email-elements">
             <div class="category-text">EMAIL</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
+        </th>
+        <th>
           <div class="address-elements">
             <div class="category-text">ADDRESS</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
+        </th>
+        <th>
           <div class="registered-elements">
             <div class="category-text">REGISTERED</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
-          
+        </th>
+        <th>
           <div class="last-visit-elements">
             <div class="category-text">LAST VISIT</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
+        </th>
+        <th>
           <div class="last-treatment-elements">
             <div class="category-text">LAST TREATMENT</div>
             <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
-
-        </div>
-        <!-- `END LIST OF CATEGORY -->
-
-
-        <!-- `PATIENT LIST-->
-
-        <div class="patient-list-group">
-          {{#each patients}}
-          <div class="patient-information-group" onclick="window.location.href='http://localhost:3000/patient-information/{{{id}}}'" style="cursor: pointer;">
+        </th>
+      </tr>
+    </thead>
+    <!-- `END LIST OF CATEGORY -->
 
 
-            <div class="patient-details">
-              <div class="text-name">{{{firstName}}} {{{middleName}}} {{{lastName}}}</div>
+    <!-- `PATIENT LIST-->
+    <tbody>
 
-              <div class="contact-info">
-                <div class="contact-item">
-                  <img class="icon-phone" src="/img/icon-phone.svg" alt="Phone Icon" />
-                  <div class="text-phone">{{{contact}}}</div>
-                </div>
-                <div class="contact-item">
-                  <img class="icon-mail" src="/img/icon-mail.svg" alt="Email Icon" />
-                  <div class="text-email">{{{email}}}</div>
-                </div>
-              </div>
+{{#each patients}}
+      <tr>
 
-              <div class="additional-info">
-                <div class="text-address">{{{homeAddress}}}</div>
-                <div class="text-patient-date">Sept 10, 2024</div>
-                <div class="text-next-visit">{{{latestTreatmentDate}}}</div>
-                <div class="text-treatment">{{{latestProcedure}}}</div>
-              </div>
-            </div>
+        <td>
+          <div class="name">{{full_name}}Kai Padilla</div>
+        </td>
+        <td>
+          <div class="phone">{{{contact}}}+63901234576</div>
+        </td>
+        <td>
+          <div class="email">{{{email}}}kaipadilla@google.com</div>
+        </td>
 
-          </div>
-          {{/each}}
+        <td>
+          <div class="address">{{{homeAddress}}}2401 Taft Ave, Malate, Manila, 1004 Metro Manila</div>
+        </td>
+        <td>
+          <div class="registered-date">{{registered_date}}Sept 10, 2024</div>
+        </td>
+        <td>
+          <div class="next-visit">{{{latestTreatmentDate}}}Sept 18, 2024</div>
+        </td>
+        <td>
+          <div class="treatment">{{{latestProcedure}}}Wisdom Tooth Removal</div>
+        </td>
+
+      </tr>
+{{/each}}
+
+    </tbody>
+  </table>
+  <!-- `END PATIENT LIST-->
 
 
-        </div>
-        <!-- `END PATIENT LIST-->
-
-
-      </div>
-    </div>
-  </div>
-  <!--+END MAIN CONTENT-->
+</div>
+</div>
+</div>
+<!--+END MAIN CONTENT-->
