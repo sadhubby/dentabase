@@ -19,13 +19,12 @@ $(document).ready(function(){
 });
 
 
-// JavaScript code to manage date navigation
 document.addEventListener('DOMContentLoaded', () => {
     const dateDisplay = document.getElementById('date-display');
     const prevDateBtn = document.getElementById('prev-date-btn');
     const nextDateBtn = document.getElementById('next-date-btn');
 
-    let currentDate = new Date(dateDisplay.dataset.date || new Date()); // Initialize date from data attribute or default to today
+    let currentDate = new Date(dateDisplay.dataset.date || new Date()); 
 
     function updateDateDisplay() {
         const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
@@ -33,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function fetchAppointments(date) {
-        const formattedDate = date.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
-        console.log("Fetching appointments for date:", formattedDate); // Debugging output
+        const formattedDate = date.toISOString().split('T')[0]; 
+        console.log("Fetching appointments for date:", formattedDate); 
     
         try {
             const response = await fetch(`/to-do?date=${formattedDate}`, {cache: no-cache});
             const html = await response.text();
-            document.getElementById('appointments-container').innerHTML = html; // Update container with new data
+            document.getElementById('appointments-container').innerHTML = html; 
         } catch (error) {
             console.error("Error fetching appointments:", error);
         }
