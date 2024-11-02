@@ -133,8 +133,11 @@ router.get("/treatment", (req,res) =>{
 
 router.get("/patient_list", (req, res) =>{
     try{
-        Patient.find().then(function(patients){
-        res.render("C_PatientList", {patients: patients});
+        Patient.find({isActive: true}).then(function(patients){
+        res.render("C_PatientList", {
+            patients: patients,
+            patientCount: patients.length
+        });
         });
     } catch(error){
         console.log("Error getting data", error);
