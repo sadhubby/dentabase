@@ -126,8 +126,17 @@ router.get("/treatment", (req,res) =>{
 });
 
 router.get("/patient_list", async (req, res) => {
+
     try {
-        const patients = await Patient.find({ isActive: true });
+        const searchQuery = req.query.search || "";
+        const patients = await Patient.find({ isActive: true ,
+            $or:[
+                { firstName: { $regex: searchQuery, $options: 'i' } },  
+                { lastName: { $regex: searchQuery, $options: 'i' } }, 
+                { middleName: { $regex: searchQuery, $options: 'i' } }, 
+                { nickname: { $regex: searchQuery, $options: 'i' } } 
+            ]
+        });
 
         const updatedPatients = await Promise.all(patients.map(async (patient) => {
             const populatedPatient = await patient.populate({
