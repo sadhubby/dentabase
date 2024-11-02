@@ -72,7 +72,7 @@ router.get("/patient-information/:id", async (req, res) => {
 });
 
 // To-DO
-router.get("/", async (req, res) =>{
+router.get("/to-do", async (req, res) =>{
     try{
         const patients = await Patient.find({isActive: true}).populate({
             path: "treatments",
