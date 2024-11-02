@@ -19,10 +19,8 @@ const sampleTreatments = require('../scripts/sampleData/treatmentData');
 const router = Router();
 router.use(express.json());
 
-// start of patient information 
 
-// getting patient information, thought C_PatientInformation is getting it lmfaoo
-
+//PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {
     try {
         const patient = await Patient.findOne({id: req.params.id}); //unique id after the thing
@@ -73,9 +71,7 @@ router.get("/patient-information/:id", async (req, res) => {
     }
 });
 
-
-
-
+// To-DO
 router.get("/to-do", async (req, res) =>{
     try{
         const patients = await Patient.find({isActive: true}).populate({
@@ -111,8 +107,8 @@ router.get("/to-do", async (req, res) =>{
 router.get("/treatment", (req,res) =>{
     res.render("D_Treatment");
 });
-// end of patient information
 
+// PATIENT LIST 
 router.get("/patient_list", (req, res) =>{
     try{
         Patient.find({isActive: true}).then(function(patients){
@@ -122,6 +118,39 @@ router.get("/patient_list", (req, res) =>{
         });
         });
     } catch(error){
+        console.log("Error getting data", error);
+        res.status(500).end("Error retrieving patient data");
+    }
+});
+
+//DEFAULT PAGE
+router.get("/", async (req, res) =>{
+    try{
+        const patients = await Patient.find({isActive: true}).populate({
+            path: "treatments",
+            select: "procedure"
+        }); 
+        // const full_name = `${patient.firstName} ${patient.lastName}`
+        patients.forEach(patient => {
+            if (patient.effectiveDate) {
+                const date = new Date(patient.effectiveDate);
+                
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const year = String(date.getFullYear()).slice(-2); 
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+
+                patient.formattedEffectiveDate = `${month}/${day}/${year} ${hours}:${minutes}`;
+            } else {
+                patient.formattedEffectiveDate = "N/A";
+            }
+        });
+        res.render("B_ToDo", {
+            patients
+        });
+    }
+    catch(error){
         console.log("Error getting data", error);
         res.status(500).end("Error retrieving patient data");
     }
