@@ -1,73 +1,101 @@
 /* `SCHEDULE GROUP*/
 .patient-list-file .schedule-group {
     display: flex;
-    flex-direction: row; /* Keep elements in a row */
+    flex-direction: row;
+    /* Keep elements in a row */
     width: 100%;
-    height: 4rem; /* Height of the group */
-    padding: 10px; /* Padding around the group */
+    height: 4rem;
+    /* Height of the group */
+    padding: 10px;
+    /* Padding around the group */
 
-    margin-right: 2rem; /* Left margin */
-    
-    align-items: center; /* Center align items vertically */
+    margin-right: 2rem;
+    /* Left margin */
+
+    align-items: center;
+    /* Center align items vertically */
     gap: 1;
-  justify-content: space-between; /* Distribute space evenly */
-    
+    justify-content: space-between;
+    /* Distribute space evenly */
+
 }
 
 .patient-list-file .patient-number-elements {
-    display: flex; /* Use flex patient category-group for layout */
-    align-items: center; /* Align items vertically in the center */
+    display: flex;
+    /* Use flex patient category-group for layout */
+    align-items: center;
+    /* Align items vertically in the center */
 }
 
 .patient-list-file .icon-calendar {
-    width: 3rem; /* Set a fixed width for the icon */
-    height: 3rem; /* Set a fixed height for the icon */
-    margin-right: 0.5rem; /* Space between icon and number */
+    width: 3rem;
+    /* Set a fixed width for the icon */
+    height: 3rem;
+    /* Set a fixed height for the icon */
+    margin-right: 0.5rem;
+    /* Space between icon and number */
 }
 
 .patient-list-file .patient-number {
-    font-weight: 700; /* Bold text */
-    font-size: 24px; /* Font size */
-    color: #6b84ea; /* Text color */
-    margin: 0; /* Reset margin */
+    font-weight: 700;
+    /* Bold text */
+    font-size: 24px;
+    /* Font size */
+    color: #6b84ea;
+    /* Text color */
+    margin: 0;
+    /* Reset margin */
 }
 
 .patient-list-file .total-patient-text {
-    font-size: 20px; /* Font size for the text below the number */
-    color: #333; /* Text color for contrast */
+    font-size: 20px;
+    /* Font size for the text below the number */
+    color: #333;
+    /* Text color for contrast */
     margin-left: 8px;
-    
+
 }
 
-.patient-list-file .date-elements{
-    display: flex; /* Use flexpatient-category-group for layout */
-    align-items: center; /* Align items vertically in the center */
+.patient-list-file .date-elements {
+    display: flex;
+    /* Use flexpatient-category-group for layout */
+    align-items: center;
+    /* Align items vertically in the center */
     justify-content: center;
 }
 
-.patient-list-file .date-text{
-  font-size: 25px; /* Font size for the text below the number */
-    color: #333; /* Text color for contrast */
-  
+.patient-list-file .date-text {
+    font-size: 25px;
+    /* Font size for the text below the number */
+    color: #333;
+    /* Text color for contrast */
+
 }
 
 .patient-list-file .buttons-group {
-    display: flex; /* Use flexpatient-category-group for layout */
-    align-items: center; /* Align items vertically in the center */
+    display: flex;
+    /* Use flexpatient-category-group for layout */
+    align-items: center;
+    /* Align items vertically in the center */
 }
 
 .patient-list-file .divider {
-    width: 1px; /* Width of the divider line */
-    height: 30px; /* Height of the divider line */
-    background-color: #6b84ea; /* Color of the divider line */
-    margin: 0 5px; /* Margin around the divider */
+    width: 1px;
+    /* Width of the divider line */
+    height: 30px;
+    /* Height of the divider line */
+    background-color: #6b84ea;
+    /* Color of the divider line */
+    margin: 0 5px;
+    /* Margin around the divider */
 }
 
 /* Base styles for buttons */
 .patient-list-file .button {
     display: flex;
     align-items: center;
-    gap: 4px; /* Default gap between icon and text */
+    gap: 4px;
+    /* Default gap between icon and text */
     border-radius: 6.85px;
     position: relative;
     font-family: "Roboto-Regular", Helvetica;
@@ -108,8 +136,10 @@
 /* Icon styles */
 .patient-list-file .icon-filter {
     position: relative;
-    width: 20px; /* Default icon width */
-    height: 20px; /* Default icon height */
+    width: 20px;
+    /* Default icon width */
+    height: 20px;
+    /* Default icon height */
 }
 
 .patient-list-file .icon-add {
@@ -130,206 +160,103 @@
 /* Text styles */
 .text-buttons {
     position: relative;
-    height: 16.45px; /* Use a standard height */
-    margin-right: -2.04px; /* Adjust if necessary */
+    height: 16.45px;
+    /* Use a standard height */
+    margin-right: -2.04px;
+    /* Adjust if necessary */
 }
 
 /* Specific text styles for Create patient */
 .create-patient-text {
-    width: 123.35px; /* Specific width for this text */
+    width: 123.35px;
+    /* Specific width for this text */
 }
 
 /* Specific text styles for Filters, Edit, and Delete */
 .text-wrapper {
-    width: 50px; /* Adjust based on your design */
+    width: 50px;
+    /* Adjust based on your design */
 }
+
 /* `END SCHEDULE GROUP*/
 
 
+/* `LIST OF CATEGORY & PATIENT LIST*/
 
-/* `LIST OF CATEGORY */
-.patient-list-file .patient-category-group {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 60px;
-  background-color: #ffffff;
-  border-radius: 14.66px;
-  align-items: center;
-  justify-content: space-evenly; /* Align items to start */
-  padding: 0 20px;
-  gap: 10px; /* Add even spacing between items */
-  border: transparent ;
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px; /* Adds rounded corners */
+    overflow: hidden; /* Ensures rounded corners are clipped properly */
 }
 
-.patient-list-file .patient-checkbox-category {
-  cursor: pointer;
-  width: 25px;
-  height: 20px;
-  background-color: #ffffff;
-  border-radius: 14px;
-  border: 1px solid #e6e5e5;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-left: -9.5rem;
+th, td {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
 }
 
-.patient-name-elements,
-.phone-elements,
-.email-elements,
-.address-elements,
-.registered-elements,
-.last-visit-elements,
-.last-treatment-elements {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-
+th {
+    background-color: #f2f2f2;
 }
 
-.patient-name-elements {
-  margin-left: -6rem; /* Bring it closer to the checkbox */
+.patient-name-elements, .phone-elements, .email-elements, .address-elements,
+.registered-elements, .last-visit-elements, .last-treatment-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td {
+    position: relative;
+    overflow: hidden;
+}
+
+.patient-list-file .name,
+.patient-list-file .phone,
+.patient-list-file .email,
+.patient-list-file .address,
+.patient-list-file .registered-date,
+.patient-list-file .next-visit,
+.patient-list-file .treatment {
+    display: inline-block;
+    max-width: 15rem; /* Limits the width of text previews */
+    white-space: nowrap; /* Keeps text on one line */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds ellipsis to overflow */
+}
+
+.patient-list-file td:hover .name,
+.patient-list-file td:hover .phone,
+.patient-list-file td:hover .email,
+.patient-list-file td:hover .address,
+.patient-list-file td:hover .registered-date,
+.patient-list-file td:hover .next-visit,
+.patient-list-file td:hover .treatment {
+    white-space: normal; /* Allows text to wrap */
+    overflow: visible; /* Shows hidden overflow text */
+    z-index: 1;
+    background-color: #f0f0f0; /* Optional: gives a background to hovered text */
+    padding: 5px;
+    max-width: none; /* Removes width limit to show full text */
+}
+
+.icon {
+    margin-right: 5px;
 }
 
 .patient-list-file .icon-updown {
-  width: 11px;
-  height: 14px;
-  margin-left: 8px; /* Space between text and icon */
+    width: 11px;
+    height: 14px;
+    margin-left: 8px; /* Space between text and icon */
 }
 
 .patient-list-file .category-text {
-  font-family: "Roboto-Bold", Helvetica;
-  font-weight: 700;
-  color: #00000080;
-  font-size: 16.4px;
-  line-height: normal;
-}
-
-/* Hide checkbox input */
-.patient-list-file .patient-checkbox-category input[type="checkbox"] {
-  display: none;
-}
-
-/* Change background color when checkbox is checked */
-.patient-list-file .patient-checkbox-category input[type="checkbox"]:checked + .patient-checkbox-category {
-  background-color: #ffcc00;
-}
-
-.patient-list-file .patient-checkbox-category::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 8.21px;
-  border: 0.21px solid #000000;
-}
-
-
-/* `PATIENT LIST */
-/* General Styling */
-.patient-list-file .patient-list-group {
-  display: flex;
-  flex-direction: column; /* Stacks each patient entry vertically */
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  /* EVAN EDITED; NOTE: added a gap for each entry */
-  gap: 10px; /* Adjusted spacing */
-}
-
-.patient-list-file .patient-information-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  gap: 10px;
-  padding: 15px;
-  border-radius: 8px;
-  border-bottom: 1px solid #bdbdbd; /* Divider */
-}
-
-/* EVAN EDITED; NOTE: turned off so last input in patients has a border */
-/* .patient-information-group:last-child {
-  border-bottom: none
-} */
-
-/* Checkbox Styling */
-.patient-list-file .patient-checkbox {
-  cursor: pointer;
-  width: 25px;
-  height: 25px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #919191;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Hide the actual checkbox input */
-.patient-list-file .patient-checkbox input[type="checkbox"] {
-  display: none;
-}
-
-.patient-list-file .patient-checkbox input[type="checkbox"]:checked + .patient-list-file .patient-checkbox {
-  background-color: #ffcc00;
-}
-
-/* Patient Details */
-.patient-list-file .patient-details {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
-  font-family: "Roboto-Bold", Helvetica;
-  color: #000;
-  font-size: 14px;
-  flex-grow: 1; /* Allows details to expand to fit the row */
-}
-
-/* Patient Name */
-.patient-list-file .text-name {
-  font-weight: 700;
-  font-size: 16px;
-}
-
-/* Contact Info */
-.patient-list-file .contact-info {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  align-items: center;
-}
-
-.patient-list-file .contact-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.patient-list-file .icon-phone,
-.patient-list-file .icon-mail {
-  width: 13px;
-  height: 13px;
-}
-
-/* Additional Information */
-.patient-list-file .additional-info {
-  display: flex;
-  flex-direction: row;
-
-  gap: 15px;
-  color: #000;
-  font-size: 14px;
-}
-
-.patient-list-file .text-patient-date,
-.patient-list-file .text-next-visit,
-.patient-list-file .text-address,
-.patient-list-file .text-treatment {
-  display: flex;
-  white-space: nowrap;
-  justify-content: space-between;
+    font-family: "Roboto-Bold", Helvetica;
+    font-weight: 700;
+    color: #00000080;
+    font-size: 16.4px;
+    line-height: normal;
 }
