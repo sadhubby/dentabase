@@ -102,7 +102,7 @@
 
 
   <!-- `PATIENT LIST-->
-
+<div id = "appointments-container">
   <div class="patient-list-group">
     {{#each patients}}
     <div class="patient-information-group">
@@ -127,7 +127,7 @@
 
         <div class="additional-info">
           <div class="text-address">{{homeAddress}}</div>
-          <div class="text-appointment-date">{{formattedEffectiveDate}}</div>
+          <div class="text-appointment-date">{{formattedTime}}</div>
           <div class="text-next-visit">{{nextAppointment}}</div>
           <div class="text-treatment">
             {{#each treatments}}
@@ -140,7 +140,7 @@
       </div>
     {{/each}}
     </div>
-  
+</div>
   
 
 </div>

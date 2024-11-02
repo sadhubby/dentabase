@@ -25,27 +25,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevDateBtn = document.getElementById('prev-date-btn');
     const nextDateBtn = document.getElementById('next-date-btn');
 
-    // Initialize the date
-    let currentDate = new Date();
+    let currentDate = new Date(dateDisplay.dataset.date || new Date()); // Initialize date from data attribute or default to today
 
-    // Function to update the displayed date
     function updateDateDisplay() {
         const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
         dateDisplay.textContent = currentDate.toLocaleDateString('en-US', options);
     }
+
+    async function fetchAppointments(date) {
+        const formattedDate = date.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+        console.log("Fetching appointments for date:", formattedDate); // Debugging output
     
-    // Event listener for previous date button
+        try {
+            const response = await fetch(`/to-do?date=${formattedDate}`, {cache: no-cache});
+            const html = await response.text();
+            document.getElementById('appointments-container').innerHTML = html; // Update container with new data
+        } catch (error) {
+            console.error("Error fetching appointments:", error);
+        }
+    }
+    
+
     prevDateBtn.addEventListener('click', () => {
         currentDate.setDate(currentDate.getDate() - 1);
         updateDateDisplay();
+        fetchAppointments(currentDate);
     });
-    
-    // Event listener for next date button
+
     nextDateBtn.addEventListener('click', () => {
         currentDate.setDate(currentDate.getDate() + 1);
         updateDateDisplay();
+        fetchAppointments(currentDate);
     });
-    
-    // Initial date display update
+
+    // Initialize display on page load
     updateDateDisplay();
-    });
+    fetchAppointments(currentDate);
+});
