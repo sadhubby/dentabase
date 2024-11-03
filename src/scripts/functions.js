@@ -263,6 +263,12 @@ async function updateTreatment(treatmentID, date, teethAffected, procedure, dent
     return treatment;
  }
 
+ async function uniqueProcedures() {
+    const treatment = treatmentModel.findOne({}, 'procedure');
+    const uniqueProcedures = [...new Set(treatment.map(treatment => treatment.procedure))];
+    return uniqueProcedures;
+}
+
 
 module.exports = {
     readPatient,
@@ -276,11 +282,7 @@ module.exports = {
     createTreatment,
     updateTreatment,
     readTreatment,
-    convertToDate
+    convertToDate,
+    uniqueProcedures
 };
 
-async function uniqueProcedures() {
-    const treatment = treatmentModel.findOne({}, 'procedure');
-    const uniqueProcedures = [...new Set(treatments.map(treatment => treatment.procedure))];
-    return uniqueProcedures;
-}

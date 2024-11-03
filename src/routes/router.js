@@ -259,4 +259,15 @@ router.get("/", async (req, res) =>{
     }
 });
 
+router.get('/patient-list', async (req, res) => {
+    try {
+        const uniqueProcedures = await Functions.uniqueProcedures();
+        res.render('C_PatientList', { uniqueProcedures });
+    } catch (error) {
+        console.error('Error fetching unique procedures:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
 module.exports = router;
