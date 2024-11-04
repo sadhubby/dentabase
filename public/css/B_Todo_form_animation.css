@@ -1,17 +1,23 @@
-.cancel-frame:hover{
+.create-appointment-elements:active {
+    opacity: 0.75;
+}
+
+.create-appointment-elements:hover {
+    cursor: pointer;
+}
+
+.cancel-button:hover { /* Changed to .cancel-button */
     background-color: #e7484b;
 }
 
-.cancel-frame:active{
+.cancel-button:active { /* Changed to .cancel-button */
     opacity: 0.5;
 }
 
-.done-frame:hover{
+.done-button:hover { /* Changed to .done-button */
     background-color: #485fe7;
 }
 
-.done-frame:active{
+.done-button:active { /* Changed to .done-button */
     opacity: 0.5;
 }
-
-
