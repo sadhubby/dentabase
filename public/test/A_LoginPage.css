@@ -1,16 +1,16 @@
-* {
+.container-login-page * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+.container-login-page html,.container-login-page body {
   height: 100%;
   overflow: hidden;
   font-family: "Roboto-Regular", Helvetica, sans-serif;
 }
 
-.container {
+.container-login-page {
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -20,14 +20,14 @@ html, body {
   align-items: center;
 }
 
- img {
+ .container-login-page img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 
-.frame-1 {
+.container-login-page .frame-1 {
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -46,21 +46,21 @@ html, body {
 
 
 /* `BRAND GROUP*/
-.brand-group {
+.container-login-page .brand-group {
   display: flex;
   align-items: center;
   width: 100%;
   height: 50%;
 }
 
-.logo {
+.container-login-page .logo {
   width: 70%;
   height: 100%;
   object-fit: contain;
 
 }
 
-.name {
+.container-login-page .name {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -69,17 +69,17 @@ html, body {
   height: 100%;
 }
 
-.name h2 {
+.container-login-page .name h2 {
   color: #0f93b5;
   font-size: 40px;
 }
 
-.name h3 {
+.container-login-page .name h3 {
   color: gray;
   font-size: 30px;
 }
 
-.name p {
+.container-login-page .name p {
   color: rgb(0, 0, 0);
   font-size: 18px;
 }

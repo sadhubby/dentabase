@@ -84,6 +84,7 @@
     background-color: #485fe7;
 }
 
+
 .todo-file .filter-elements {
     width: 81.55px;
     height: 41.12px;
@@ -224,108 +225,107 @@
 
 
 /* `PATIENT LIST */
-/* General Styling */
-.todo-file .patient-list-group {
-  display: flex;
-  flex-direction: column; /* Stacks each patient entry vertically */
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  /* EVAN EDITED; NOTE: added a gap */
-  gap: 10px; /* Adjusted spacing */
-}
-
-.todo-file .patient-information-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  gap: 10px; /* Adjust spacing inside each group as needed */
-  padding: 15px;
-  border-radius: 8px;
-  border-bottom: 1px solid #bdbdbd; /* Divider */
+/* `LIST OF CATEGORY & PATIENT LIST*/
+.todo-file table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px; /* Adds rounded corners */
+    overflow: hidden; /* Ensures rounded corners are clipped properly */
 }
 
 
-/* EVAN EDITED; NOTE: last item to get a bottom border */
-/* .patient-information-group:last-child {
-  border-bottom: none;
-} */
 
-/* Checkbox Styling */
-.todo-file .appointment-checkbox {
-  cursor: pointer;
-  width: 25px;
-  height: 25px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #919191;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.todo-file th,
+.todo-file td {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    text-align: center; /* Center text in header and data cells */
+    vertical-align: middle;
 }
 
-/* Hide the actual checkbox input */
-.todo-file .appointment-checkbox input[type="checkbox"] {
-  display: none;
+.todo-file th {
+    background-color: #f2f2f2;
+    padding: 12px; /* Increase padding slightly for better readability */
+    white-space: normal; /* Allows text to wrap */
 }
 
-.todo-file .appointment-checkbox input[type="checkbox"]:checked + .todo-file .appointment-checkbox {
-  background-color: #ffcc00;
+.todo-file .appointment-checkbox,
+.todo-file .patient-name-elements,
+.todo-file .phone-elements,
+.todo-file .email-elements,
+.todo-file .time-elements,
+.todo-file .last-treatment-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    flex-wrap: wrap; /* Allow wrapping */
+    text-align: center; /* Center text */
 }
 
-/* Patient Details */
-.todo-file .patient-details {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
-  font-family: "Roboto-Bold", Helvetica;
-  color: #000;
-  font-size: 14px;
-  flex-grow: 1; /* Allows details to expand to fit the row */
+
+
+
+
+.todo-file td {
+    position: relative;
+    overflow: hidden;
 }
 
-/* Patient Name */
-.todo-file .text-name {
-  font-weight: 700;
-  font-size: 16px;
+.todo-file td .appointment-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc; /* Defines checkbox border */
+    box-sizing: border-box;
+    display: inline-block;
 }
 
-/* Contact Info */
-.todo-file .contact-info {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  align-items: center;
+
+.todo-file .name,
+.todo-file .phone,
+.todo-file .email,
+.todo-file .time,
+.todo-file .treatment {
+    display: inline-block;
+    max-width: 15rem; /* Limits the width of text previews */
+    white-space: nowrap; /* Keeps text on one line */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds ellipsis to overflow */
 }
 
-.todo-file .contact-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+
+.todo-file td:hover .name,
+.todo-file td:hover .phone,
+.todo-file td:hover .email,
+.todo-file td:hover .time,
+.todo-file td:hover .registered-date,
+.todo-file td:hover .next-visit,
+.todo-file td:hover .treatment {
+    white-space: normal; /* Allows text to wrap */
+    overflow: visible; /* Shows hidden overflow text */
+    z-index: 1;
+    background-color: #e9e9e9; /* Optional: gives a background to hovered text */
+    padding: 5px;
+    max-width: none; /* Removes width limit to show full text */
+    border-radius: 20px;
 }
 
-.todo-file .icon-phone,
-.todo-file .icon-mail {
-  width: 13px;
-  height: 13px;
+.todo-file .icon {
+    margin-right: 5px;
 }
 
-/* Additional Information */
-.todo-file .additional-info {
-  display: flex;
-  flex-direction: row;
-
-  gap: 15px;
-  color: #000;
-  font-size: 14px;
+.todo-file .icon-updown {
+    width: 11px;
+    height: 14px;
+    margin-left: 8px; /* Space between text and icon */
 }
 
-.todo-file .text-appointment-date,
-.todo-file .text-next-visit,
-.todo-file .text-address,
-.todo-file .text-treatment {
-  white-space: nowrap;
+.todo-file .category-text {
+    font-family: "Roboto-Bold", Helvetica;
+    font-weight: 700;
+    color: #00000080;
+    font-size: 16.4px;
+    line-height: normal;
 }

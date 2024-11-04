@@ -1,0 +1,125 @@
+.todo-form-file.overlay {
+    display: none;
+    /* Hide both by default */
+}
+
+/* Container for the overlay */
+.todo-form-file .container {
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    align-items: center;       /* Center vertically */
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+   
+    z-index: 1000;
+}
+
+/* Main content box styling */
+.todo-form-file .main-content {
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    background: #fff;
+    width: 100%;
+    
+    max-width: 500px; /* Set a max width for better appearance */
+    
+    /* Remove margins to keep it aligned to the right */
+    padding: 20px;
+    border-radius: 15px;
+     margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* Heading styling */
+.todo-form-file .main-content h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Label styling */
+.todo-form-file label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Input and select styling */
+.todo-form-file input,
+.todo-form-file select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Disabled input and select styling */
+.todo-form-file input[disabled],
+.todo-form-file select[disabled] {
+    background-color: #f2f2f2;
+    color: #999;
+}
+
+/* Date and time inputs */
+.todo-form-file .date-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.todo-form-file .date-time input[type="time"] {
+    width: 45%;
+}
+
+/* Button container */
+.todo-form-file .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Cancel and Done button styling */
+.todo-form-file .cancel-button,
+.todo-form-file .done-button {
+    width: 45%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Cancel button */
+.todo-form-file .cancel-button {
+    background-color: #e0e0e0;
+    color: #777;
+}
+
+/* Hover effect for Cancel button */
+.todo-form-file .cancel-button:hover {
+    background-color: #d0d0d0;
+    color: #fff;
+}
+
+/* Done button */
+.todo-form-file .done-button {
+    background-color: #e0e0e0;
+    color: #777;
+}
+
+/* Hover effect for Done button */
+.todo-form-file .done-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}

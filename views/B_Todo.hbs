@@ -1,19 +1,15 @@
 <!-- `NAME PAGE, SEARCH BOX-->
 <div class="frame-1">
   <div class="name-page"> To Do</div>
-  
   <div class="search-settings-group">
-    <form action ="/patient_list" method="GET">
-      <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
-        <img class="icon-search" src="/img/icon-search.svg" />
-      </button>
-      <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
+    <form action="/patient_list" method="GET">
+      <img class="icon-search" src="/img/icon-search.svg" />
+      <input type="text" class="search-box" placeholder="Search for a Patient" />
     </form>
   </div>
 
 </div>
 <!--`END -->
-
 
 <!-- `TITLES -->
 
@@ -39,14 +35,14 @@
 
     <div class="appointment-number-elements">
       <img class="icon-calendar" src="/img/icon-calendar.svg" />
-      <div class="appointment-number">{{appointmentCount}}</div>
-      <div class="total-appointment-text">Total Appointments</div>
+      <div class="appointment-number">100</div>
+      <div class="total-appointment-text">Total Appointment</div>
     </div>
 
     <div class="date-elements">
-      <img class="vector" id = "prev-date-btn" src="/img/icon-arrow_drop_left.svg" />
-      <div class="date-text" id = "date-display">Thurs, Sept. 28, 2024</div>
-      <img class="img" id = "next-date-btn" src="/img/icon-arrow_drop_right.svg" />
+      <img class="vector" src="/img/icon-arrow_drop_left.svg" />
+      <div class="date-text">Thurs, Sept. 28, 2024</div>
+      <img class="img" src="/img/icon-arrow_drop_right.svg" />
 
     </div>
 
@@ -55,6 +51,11 @@
         <img class="icon icon-add" src="/img/icon-add.svg" />
         <div class="text-buttons create-appointment-text">Create Appointment</div>
       </div>
+
+      {{>B_Todo_form}}
+
+
+
       <div class="divider"></div> <!-- Divider between buttons -->
       <div class="button filter-elements">
         <img class="icon-filter" src="/img/icon-filter.svg" />
@@ -76,78 +77,115 @@
   <!--`END SCHEDULE GROUP-->
 
 
+
   <!-- `LIST OF CATEGORY -->
-  <div class="appointment-category-group">
-    <label class="appointment-checkbox-category">
-      <input type="checkbox" />
+
+  <table>
+    <thead>
+      <tr>
+       <th>
+    <label class="appointment-checkbox">
+        <input type="checkbox" value="{{check_patient}}" onclick="toggleRowHighlight(this)" />
+        <span class="custom-checkbox"></span>
     </label>
-    <div class="patient-name-elements">
-      <div class="category-text">PATIENT NAME</div>
-      <img class="icon-updown" src="/img/icon-updown.svg" />
-    </div>
-    <div class="phone-elements">
-      <div class="category-text">PHONE</div>
-      <img class="icon-updown" src="/img/icon-updown.svg" />
-    </div>
-    <div class="email-elements">
-      <div class="category-text">EMAIL</div>
-      <img class="icon-updown" src="/img/icon-updown.svg" />
-    </div>
-    <div class="time-elements">
-      <div class="category-text">TIME</div>
-      <img class="icon-updown" src="/img/icon-updown.svg" />
-    </div>
-    <div class="treatment-elements">
-      <div class="category-text">TREATMENT</div>
-      <img class="icon-updown" src="/img/icon-updown.svg" />
-    </div>
+</th>
 
-  </div>
-  <!-- `END LIST OF CATEGORY -->
-
-
-  <!-- `PATIENT LIST-->
-<div id = "appointments-container">
-  <div class="patient-list-group">
-    {{#each patients}}
-    <div class="patient-information-group">
-
-      <label class="appointment-checkbox">
-        <input type="checkbox" />
-      </label>
-
-      <div class="patient-details">
-        <div class="text-name">{{{firstName}}} {{{lastName}}}</div>
-
-        <div class="contact-info">
-          <div class="contact-item">
-            <img class="icon-phone" src="/img/icon-phone.svg" alt="Phone Icon" />
-            <div class="text-phone">{{{contact}}}</div>
+        <th>
+          <div class="patient-name-elements">
+            <div class="category-text">NAME</div>
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
-          <div class="contact-item">
-            <img class="icon-mail" src="/img/icon-mail.svg" alt="Email Icon" />
-            <div class="text-email">{{email}}</div>
-          </div>
-        </div>
+        </th>
 
-        <div class="additional-info">
-          <div class="text-address">{{homeAddress}}</div>
-          <div class="text-appointment-date">{{formattedTime}}</div>
-          <div class="text-next-visit">{{nextAppointment}}</div>
-          <div class="text-treatment">
-            {{#each treatments}}
-              <div>{{this.procedure}}</div>
-            {{/each}}
+        <th>
+          <div class="phone-elements">
+            <div class="category-text">PHONE</div>
+            <img class="icon-updown" src="/img/icon-updown.svg" />
           </div>
-        </div>
-      </div>
+        </th>
 
-      </div>
-    {{/each}}
-    </div>
+        <th>
+          <div class="email-elements">
+            <div class="category-text">EMAIL</div>
+            <img class="icon-updown" src="/img/icon-updown.svg" />
+          </div>
+        </th>
+
+
+
+
+        <th>
+          <div class="time-elements">
+            <div class="category-text">TIME</div>
+            <img class="icon-updown" src="/img/icon-updown.svg" />
+          </div>
+        </th>
+
+        <th>
+          <div class="last-treatment-elements">
+            <div class="category-text">TREATMENT</div>
+            <img class="icon-updown" src="/img/icon-updown.svg" />
+          </div>
+        </th>
+
+      </tr>
+    </thead>
+    <!-- `END LIST OF CATEGORY -->
+
+
+    <!-- `PATIENT LIST-->
+    <tbody>
+
+      {{#each patients}}
+
+      <tr>
+
+
+       <td>
+    <label class="appointment-checkbox">
+        <input type="checkbox" value="{{check_patient}}" onclick="toggleRowHighlight(this)" />
+        <span class="custom-checkbox"></span>
+    </label>
+</td>
+
+
+
+        <td>
+          <div class="name" onclick="window.location.href='/patient-information/{{{id}}}'" style="cursor: pointer;">
+            {{firstName}} {{lastName}}</div>
+        </td>
+        <td>
+
+          <div class="phone">{{{contact}}}</div>
+        </td>
+        <td>
+
+          <div class="email">{{{email}}}</div>
+        </td>
+
+        <div class="time">{{{apointment_time}}}</div>
+        </td>
+        <td>
+          <div class="treatment">{{{latestProcedure}}}</div>
+
+        </td>
+
+      </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+  <!-- `END PATIENT LIST-->
+
+
+
+
+
+
+
+
+
+
+
 </div>
-  
-
 </div>
-
-<script src = "../public/js/B_Todo.js"></script>
