@@ -2,15 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto-Regular", Helvetica, sans-serif;
 }
 
 .container-login-page html,.container-login-page body {
   height: 100%;
   overflow: hidden;
-  font-family: "Roboto-Regular", Helvetica, sans-serif;
+
 }
 
 .container-login-page {
+  
   display: flex;
   height: 100vh;
   width: 100vw;
