@@ -2,8 +2,12 @@
 <div class="frame-1">
   <div class="name-page"> Patients</div>
   <div class="search-settings-group">
-    <img class="icon-search" src="/img/icon-search.svg" />
-    <input type="text" class="search-box" placeholder="Search for a Patient" />
+    <form action ="/patient_list" method="GET">
+      <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
+        <img class="icon-search" src="/img/icon-search.svg" />
+      </button>
+      <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
+    </form>
   </div>
 
 </div>
@@ -45,7 +49,7 @@
     <div class="buttons-group">
       <div class="button create-patient-elements">
         <img class="icon icon-add" src="/img/icon-add.svg" />
-        <div class="text-buttons create-patient-text">Create patient</div>
+        <div class="text-buttons create-patient-text" onclick="createPatient()" >Create patient</div>
       </div>
       <div class="divider"></div> <!-- Divider between buttons -->
       <div class="button filter-elements">

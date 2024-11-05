@@ -36,7 +36,7 @@ server.engine('hbs', handlebars.engine({
     }
 }));
 
-
+//"C:\Users\joaqu\Pictures\kk.jpg"
 
 server.use(router);
 
@@ -61,6 +61,7 @@ server.listen(port, async function(){
 
 
 async function run(){
+
     await functions.createPatient(
         "John",              // firstName
         "Doe",               // lastName

@@ -213,3 +213,24 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         });
 
     }
+
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData();
+        const imageFile = document.getElementById('imageInput').files[0];
+        formData.append('file', imageFile);
+
+        fetch('/upload-pic', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert('Successfully uploaded file.');
+        })
+        .catch(error => {
+            alert('Error uploading file');
+        });
+
+    });

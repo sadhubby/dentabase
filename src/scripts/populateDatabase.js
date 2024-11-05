@@ -5,12 +5,14 @@ const Account = require('../models/accounts.js');
 const Patient = require('../models/patient.js');
 const Treatment = require('../models/treatment.js');
 const MedicalHistory = require('../models/medicalHistory.js');
+const Picture = require('../models/pictures.js');
 
 
 const sampleAccounts = require('./sampleData/accountData.js');
 const samplePatients = require('./sampleData/patientData.js');
 const sampleTreatments = require('./sampleData/treatmentData.js');
 const sampleMedicalHistory = require('./sampleData/medicalHistoryData.js');
+const samplePictures = require('./sampleData/pictureData.js');
 
 const bycrypt = require('bcrypt');
 const accounts = require('../models/accounts.js');
@@ -65,6 +67,11 @@ async function populateDatabase(){
         for (const medicalHistoryData of sampleMedicalHistory){
             const medicalHistory = new MedicalHistory(medicalHistoryData);
             await medicalHistory.save();
+        }
+        
+        for (const pictureData of samplePictures){
+            const picture = new Picture(pictureData);
+            await picture.save();
         }
 
     }

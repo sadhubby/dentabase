@@ -25,3 +25,7 @@ function displayPatients(patients) {
         patientTable.appendChild(row);
     });
 }
+
+function createPatient(){
+    
+}

@@ -23,6 +23,45 @@ router.use(express.json());
 
 const app = express();
 
+//file transfers
+const path = require('path');
+const multer = require('multer');
+
+// function copyFile(src){
+//     let destDir = path.join(__dirname, '../../public/patientPic');
+//     let fileName = path.basename(src);
+
+//     let dest = path.join(destDir, fileName);
+
+//     fs.copyFile(src, dest, (err) => {
+//         if (err) {
+//             console.error("Error copying file:", err);
+//         } else {
+//             console.log("File copied from ${src} to ${dest}");
+//         }
+//     });
+// }
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../../public/patientPic'));
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    },
+});
+
+const upload = multer({ storage });
+
+//upload picture
+router.post('/upload-pic', upload.single('file'), (req,res) => {
+    if (req.file){
+        return res.json({message: 'File uploaded successfully', file: req.file});
+    } else {
+        return res.status(400).json({ message: 'File upload failed.' });
+    }
+});
+
 
 //PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {
