@@ -577,6 +577,10 @@
   border: 0px solid #6b84ea;
 }
 
+.create-patient-elements:hover{
+  cursor: pointer;
+}
+
 .patients .line-4 {
   position: absolute;
   width: 1609px;
