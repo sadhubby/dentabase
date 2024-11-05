@@ -132,6 +132,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
             });
         }
 
+
         healthProblems.forEach(function(problem){
             switch(problem){
                 case "High Blood Pressure":
