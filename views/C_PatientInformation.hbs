@@ -1,69 +1,34 @@
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-        const physicianName = "{{{physician_name}}}";
-        const physicianOfficeAddress = "{{{physicianOfficeAddress}}}";
-        const physicianSpecialty = "{{{physicianSpecialty}}}";
-        const physicianOfficeNumber = "{{{physicianOfficeNumber}}}";
-        const prescription = "{{{prescription}}}";
-        const illnessOrSurgery = "{{{illnessOrSurgery}}}";
-        const condition = "{{{condition}}}";
-        const isUsingTobacco = "{{{isUsingTobacco}}}";
-        const isAlcoholOrDrugs = "{{{isAlcoholOrDrugs}}}";
-        const isPregnant = "{{{isPregnant}}}";
-        const isNursing = "{{{isNursing}}}";
-        const isBirthControlPills = "{{{isBirthControlPills}}}";
-
-        let allergies = [];
-
-        {{#each allergies}}
-        allergies.push("{{{this}}}");
-        {{/each}}
-
-        let healthProblems = [];
-
-        {{#each healthProblems}}
-        healthProblems.push("{{{this}}}");
-        {{/each}};
-
-        
-
-        fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty, physicianOfficeNumber, prescription
-                    , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills
-                    , allergies, healthProblems);
-    })
-</script>
-
 <!-- `NAME PAGE, SEARCH BOX-->
-    <div class="frame-1">
-      <div class="name-page"> Patients</div>
-  <div class="search-settings-group">
-    <form action ="/patient_list" method="GET">
-      <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
-        <img class="icon-search" src="/img/icon-search.svg" />
-      </button>
-      <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
-    </form>
-  </div>
-
+<div class="frame-1">
+    <div class="name-page"> Patients</div>
+    <div class="search-settings-group">
+        <form action="/patient_list" method="GET">
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
+                <img class="icon-search" src="/img/icon-search.svg" />
+            </button>
+            <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
+        </form>
     </div>
-    <!--`END -->
 
- <!-- `TITLES -->
+</div>
+<!--`END -->
 
-      <div class="frame-2">
+<!-- `TITLES -->
 
-        <div class="title-divider"></div>
+<div class="frame-2">
 
-        <div class="title-group">
-          <div class="title-element">Patient List</div>
-          <img class="icon-solid-right-arrow" src="/img/icon-solid-right-arrow.svg" />
-          <div class="title-element-2">Patient Details</div>
-        </div>
-        <div class="title-divider-2"></div>
-        <div class="indicator-line"></div>
+    <div class="title-divider"></div>
 
-      </div>
-      <!-- `END TITLES-->
+    <div class="title-group">
+        <div class="title-element">Patient List</div>
+        <img class="icon-solid-right-arrow" src="/img/icon-solid-right-arrow.svg" />
+        <div class="title-element-2">Patient Details</div>
+    </div>
+    <div class="title-divider-2"></div>
+    <div class="indicator-line"></div>
+
+</div>
+<!-- `END TITLES-->
 
 <!-- +PATIENT DETAILS-->
 <div class="frame-3 patient-info-file">
@@ -78,19 +43,12 @@
             <div class="buttons-group">
                 <div class="button patient-info-elements">
                     <img class="icon icon-add" src="/img/icon-add.svg" />
-                    <div class="text-buttons create-appointment-text">Create Appointment</div>
-                </div>
-                <div class="divider"></div> <!-- Divider between buttons -->
-                <div class="button edit-elements">
-                    <img class="icon icon-edit" src="/img/icon-edit.svg" />
-                    <div class="text-buttons text-wrapper">Edit</div>
+                    <div class="text-buttons create-appointment-text">Add To Do</div>
                 </div>
 
-                <div class="divider"></div> <!-- Divider between buttons -->
-                <div class="button done-elements">
-                    <img class="icon-filter" src="/img/icon-check.svg" />
-                    <div class="text-buttons text-wrapper">Done</div>
-                </div>
+
+
+
             </div>
 
         </div>
@@ -100,8 +58,8 @@
             <a href="#patient-data" class="nav-item">Patient Information</a>
             <a href="#medical-history" class="nav-item">Medical History</a>
             <a href="#dental-record-chart" class="nav-item">Dental Record Chart</a>
-            <a href="#informed-consent" class="nav-item">Informed Consent</a>
             <a href="#treatment-record" class="nav-item">Treatment Record</a>
+            <a href="#informed-consent" class="nav-item">Informed Consent</a>
         </div>
     </div>
 
@@ -171,21 +129,24 @@
                 <div class="info-box">
                     <label for="religion">Religion:</label>
                     <div class="input-wrapper">
-                        <input type="text" id="religion" class="input-field" placeholder="Enter your religion" value="{{religion}}">
+                        <input type="text" id="religion" class="input-field" placeholder="Enter your religion"
+                            value="{{religion}}">
                     </div>
                 </div>
 
                 <div class="info-box">
                     <label for="nationality">Nationality:</label>
                     <div class="input-wrapper">
-                        <input type="text" id="nationality" class="input-field" placeholder="Enter your nationality"  value="{{nationality}}">
+                        <input type="text" id="nationality" class="input-field" placeholder="Enter your nationality"
+                            value="{{nationality}}">
                     </div>
                 </div>
 
                 <div class="info-box">
                     <label for="insurance">Dental Insurance:</label>
                     <div class="input-wrapper">
-                        <input type="text" id="insurance" class="input-field" placeholder="Enter your dental insurance"  value="{{dental_insurance}}">
+                        <input type="text" id="insurance" class="input-field" placeholder="Enter your dental insurance"
+                            value="{{dental_insurance}}">
                     </div>
                 </div>
             </div>
@@ -202,12 +163,13 @@
                     <div class="info-box">
                         <label for="previous-dentist">Previous Dentist:</label>
                         <input type="text" id="previous-dentist" class="input-field"
-                            placeholder="Enter name of previous dentist"  value="{{previous_dentist}}">
+                            placeholder="Enter name of previous dentist" value="{{previous_dentist}}">
                     </div>
                     <div class="info-box">
                         <label for="last-visit">Last Dental Visit:</label>
                         <input type="text" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
-                            title="Enter last dental visit date in MM/DD/YYYY format"  value="{{LDV_month}} {{LDV_date}}  {{LDV_year}}">
+                            title="Enter last dental visit date in MM/DD/YYYY format"
+                            value="{{LDV_month}} {{LDV_date}}  {{LDV_year}}">
                     </div>
                 </div>
             </div>
@@ -219,23 +181,28 @@
                 <div class="info-grid">
                     <div class="info-box full-width">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" class="input-field" placeholder="Enter your email"  value="{{email_address}}">
+                        <input type="email" id="email" class="input-field" placeholder="Enter your email"
+                            value="{{email_address}}">
                     </div>
                     <div class="info-box">
                         <label for="home-no">Home No:</label>
-                        <input type="text" id="home-no" class="input-field" placeholder="Enter home number"  value="{{home_number}}">
+                        <input type="text" id="home-no" class="input-field" placeholder="Enter home number"
+                            value="{{home_number}}">
                     </div>
                     <div class="info-box">
                         <label for="mobile-no">Cell/Mobile No:</label>
-                        <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"  value="{{mobil_number}}">
+                        <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"
+                            value="{{mobil_number}}">
                     </div>
                     <div class="info-box">
                         <label for="office-no">Office No:</label>
-                        <input type="text" id="office-no" class="input-field" placeholder="Enter office number"  value="{{office_number}}">
+                        <input type="text" id="office-no" class="input-field" placeholder="Enter office number"
+                            value="{{office_number}}">
                     </div>
                     <div class="info-box">
                         <label for="fax-no">Fax No:</label>
-                        <input type="text" id="fax-no" class="input-field" placeholder="Enter fax number"  value="{{fax_number}}">
+                        <input type="text" id="fax-no" class="input-field" placeholder="Enter fax number"
+                            value="{{fax_number}}">
                     </div>
                 </div>
             </div>
@@ -249,21 +216,23 @@
                     <div class="info-box full-width">
                         <label for="guardian-name">Parent/Guardian's Name:</label>
                         <input type="text" id="guardian-name" class="input-field"
-                            placeholder="Enter name of parent/guardian"  value="{{guardian_name}}">
+                            placeholder="Enter name of parent/guardian" value="{{guardian_name}}">
                     </div>
                     <div class="info-box">
                         <label for="guardian-occupation">Occupation:</label>
-                        <input type="text" id="guardian-occupation" class="input-field" placeholder="Enter occupation"  value="{{guardian_occupation}}">
+                        <input type="text" id="guardian-occupation" class="input-field" placeholder="Enter occupation"
+                            value="{{guardian_occupation}}">
                     </div>
                     <div class="info-box">
                         <label for="referral-source">Whom may we thank for referring you?</label>
-                        <input type="text" id="referral-source" class="input-field" placeholder="Enter referral source"  value="{{minor_referral_question}}">
+                        <input type="text" id="referral-source" class="input-field" placeholder="Enter referral source"
+                            value="{{minor_referral_question}}">
                     </div>
                     <div class="info-box">
                         <label for="consultation-reason">What is your reason for dental
                             consultation?</label>
                         <input type="text" id="consultation-reason" class="input-field"
-                            placeholder="Enter reason for consultation"  value="{{minor_reason_consulation_question}}">
+                            placeholder="Enter reason for consultation" value="{{minor_reason_consulation_question}}">
                     </div>
                 </div>
             </div>
@@ -284,19 +253,23 @@
         <div class="medical-history-grid">
             <div class="medical-box">
                 <label for="physician-name">Name of Physician:</label>
-                <input type="text" id="physician-name" class="input-field" placeholder="Enter physician's name"  >
+                <input type="text" id="physician-name" class="input-field" placeholder="Enter physician's name"
+                    value="{{physician_name}}">
             </div>
             <div class="medical-box">
                 <label for="specialty">Specialty,If Applicable:</label>
-                <input type="text" id="specialty" class="input-field" placeholder="Enter specialty"  value="{{physician_specialty}}">
+                <input type="text" id="specialty" class="input-field" placeholder="Enter specialty"
+                    value="{{physician_specialty}}">
             </div>
             <div class="medical-box">
                 <label for="office-address">Office Address:</label>
-                <input type="text" id="office-address" class="input-field" placeholder="Enter office address" value="{{physician_office_number}}">
+                <input type="text" id="office-address" class="input-field" placeholder="Enter office address"
+                    value="{{physician_office_number}}">
             </div>
             <div class="medical-box">
                 <label for="office-number">Office Number:</label>
-                <input type="text" id="office-number" class="input-field" placeholder="Enter office number" value="{{physician_address}}">
+                <input type="text" id="office-number" class="input-field" placeholder="Enter office number"
+                    value="{{physician_address}}">
             </div>
         </div>
         <!-- `END  DOCTOR INFO-->
@@ -311,13 +284,13 @@
                     <div class="radio-group">
                         <input type="radio" name="medical-treatment" id="medical-treatment-yes" class="input-radio" />
                         <label for="medical-treatment-yes" class="radio-label">Yes</label>
-                       
+
                         <input type="radio" name="medical-treatment" id="medical-treatment-no" class="input-radio" />
                         <label for="medical-treatment-no" class="radio-label">No</label>
-                        
+
                         <div class="additional-options" id="options-1">
                             <label for="allergy-details" class="others-label">Others:</label>
-                            <input type="text" id="condition-details" class="input-field"
+                            <input type="text" id="allergy-details" class="input-field"
                                 placeholder="If yes, what is the condition being treated:" />
                         </div>
                     </div>
@@ -399,18 +372,18 @@
                 <div class="allergy-list" id="allergy-list">
                     <p>Please select any allergies:</p>
                     <div class="allergy-options">
-                        <label><input type="checkbox" id="lidocaine" name="allergy-options" value="Local Anesthetic (ex. Lidocaine)">
+                        <label><input type="checkbox" name="allergy-options" value="Local Anesthetic (ex. Lidocaine)">
                             Local Anesthetic (ex.
                             Lidocaine)</label>
-                        <label><input type="checkbox" id="penicillin" name="allergy-options" value="Penicillin">
+                        <label><input type="checkbox" name="allergy-options" value="Penicillin">
                             Penicillin</label>
-                        <label><input type="checkbox" id="antibiotics" name="allergy-options" value="Antibiotics">
+                        <label><input type="checkbox" name="allergy-options" value="Antibiotics">
                             Antibiotics</label>
-                        <label><input type="checkbox" id="sulfa-drugs" name="allergy-options" value="Sulfa Drugs"> Sulfa
+                        <label><input type="checkbox" name="allergy-options" value="Sulfa Drugs"> Sulfa
                             Drugs</label>
-                        <label><input type="checkbox" id="aspirin" name="allergy-options" value="Aspirin">
+                        <label><input type="checkbox" name="allergy-options" value="Aspirin">
                             Aspirin</label>
-                        <label><input type="checkbox" id="latex" name="allergy-options" value="Latex"> Latex</label>
+                        <label><input type="checkbox" name="allergy-options" value="Latex"> Latex</label>
                     </div>
                 </div>
             </div>
@@ -457,57 +430,57 @@
 
                 <div class="checkbox-group">
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="high-blood-pressure" id="high-blood-pressure"> High
+                        <label><input type="checkbox" name="conditions" value="high-blood-pressure"> High
                             Blood Pressure</label><br>
-                        <label><input type="checkbox" name="conditions" value="low-blood-pressure" id="low-blood-pressure"> Low
+                        <label><input type="checkbox" name="conditions" value="low-blood-pressure"> Low
                             Blood Pressure</label><br>
-                        <label><input type="checkbox" name="conditions" value="epilepsy" id="epilepsy"> Epilepsy /
+                        <label><input type="checkbox" name="conditions" value="epilepsy"> Epilepsy /
                             Convulsions</label><br>
-                        <label><input type="checkbox" name="conditions" value="aids-hiv" id="aids-hiv"> AIDS or HIV
+                        <label><input type="checkbox" name="conditions" value="aids-hiv"> AIDS or HIV
                             Infection</label><br>
-                        <label><input type="checkbox" name="conditions" value="std" id="std"> Sexually Transmitted
+                        <label><input type="checkbox" name="conditions" value="std"> Sexually Transmitted
                             Disease</label><br>
-                        <label><input type="checkbox" name="conditions" value="stomach-troubles" id="stomach-troubles"> Stomach
+                        <label><input type="checkbox" name="conditions" value="stomach-troubles"> Stomach
                             Troubles / Ulcers</label><br>
-                        <label><input type="checkbox" name="conditions" value="fainting-seizure" id="fainting-seizure"> Fainting
+                        <label><input type="checkbox" name="conditions" value="fainting-seizure"> Fainting
                             Seizure</label><br>
-                        <label><input type="checkbox" name="conditions" value="rapid-weight-loss" id="rapid-weight-loss"> Rapid
+                        <label><input type="checkbox" name="conditions" value="rapid-weight-loss"> Rapid
                             Weight Loss</label><br>
                     </div>
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="radiation-therapy" id="radiation-therapy"> Radiation
+                        <label><input type="checkbox" name="conditions" value="radiation-therapy"> Radiation
                             Therapy</label><br>
-                        <label><input type="checkbox" name="conditions" value="joint-replacement" id="joint-replacement"> Joint
+                        <label><input type="checkbox" name="conditions" value="joint-replacement"> Joint
                             Replacement / Implant</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-surgery" id="heart-surgery"> Heart
+                        <label><input type="checkbox" name="conditions" value="heart-surgery"> Heart
                             Surgery</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-attack" id="heart-attack"> Heart
+                        <label><input type="checkbox" name="conditions" value="heart-attack"> Heart
                             Attack</label><br>
-                        <label><input type="checkbox" name="conditions" value="thyroid-problem" id="thyroid-problem"> Thyroid
+                        <label><input type="checkbox" name="conditions" value="thyroid-problem"> Thyroid
                             Problem</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-disease" id="heart-disease"> Heart
+                        <label><input type="checkbox" name="conditions" value="heart-disease"> Heart
                             Disease</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-murmur" id="heart-murmur"> Heart
+                        <label><input type="checkbox" name="conditions" value="heart-murmur"> Heart
                             Murmur</label><br>
-                        <label><input type="checkbox" name="conditions" value="hepatitis-liver" id="hepatitis-liver"> Hepatitis /
+                        <label><input type="checkbox" name="conditions" value="hepatitis-liver"> Hepatitis /
                             Liver Disease</label><br>
                     </div>
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="rheumatic-fever" id="rheumatic-fever"> Rheumatic
+                        <label><input type="checkbox" name="conditions" value="rheumatic-fever"> Rheumatic
                             Fever</label><br>
-                        <label><input type="checkbox" name="conditions" value="hay-fever" id="hay-fever"> Hay Fever /
+                        <label><input type="checkbox" name="conditions" value="hay-fever"> Hay Fever /
                             Allergies</label><br>
-                        <label><input type="checkbox" name="conditions" value="respiratory-problem" id="respiratory-problem">
+                        <label><input type="checkbox" name="conditions" value="respiratory-problem">
                             Respiratory Problem</label><br>
-                        <label><input type="checkbox" name="conditions" value="hepatitis-jaundice" id="hepatitis-jaundice">
+                        <label><input type="checkbox" name="conditions" value="hepatitis-jaundice">
                             Hepatitis / Jaundice</label><br>
-                        <label><input type="checkbox" name="conditions" value="tuberculosis" id="tuberculosis">
+                        <label><input type="checkbox" name="conditions" value="tuberculosis">
                             Tuberculosis</label><br>
-                        <label><input type="checkbox" name="conditions" value="swollen-ankles" id="swollen-ankles"> Swollen
+                        <label><input type="checkbox" name="conditions" value="swollen-ankles"> Swollen
                             Ankles</label><br>
-                        <label><input type="checkbox" name="conditions" value="kidney-disease" id="kidney-disease"> Kidney
+                        <label><input type="checkbox" name="conditions" value="kidney-disease"> Kidney
                             Disease</label><br>
-                        <label><input type="checkbox" name="conditions" value="diabetes" id="diabetes">
+                        <label><input type="checkbox" name="conditions" value="diabetes">
                             Diabetes</label><br>
                     </div>
                 </div>
@@ -533,9 +506,9 @@
         <div class="dental-chart-box-container">
             <div class="dental-chart-box">upload pics here
 
-                
 
-                
+
+
             </div>
 
 
@@ -559,7 +532,7 @@
 
 
 
-           
+
         </div>
     </div>
 
@@ -568,6 +541,146 @@
 
 
 
+
+
+
+
+
+
+
+    <!--+ TREATMENT RECORD FRAME-->
+    <div class="frame-4 ">
+        <div class="header treatment-history-title" id="treatment-record">| TREATMENT HISTORY</div>
+
+        <div class="buttons-group">
+
+            <div class="button add-elements">
+                <img class="icon icon-add" src="/img/icon-add.svg" />
+                <div class="text-buttons text-wrapper">Add Record</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="button edit-elements">
+                <img class="icon icon-edit" src="/img/icon-edit.svg" />
+                <div class="text-buttons text-wrapper">Edit</div>
+            </div>
+
+
+
+        </div>
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+
+                        <div class="category-text">Date</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+
+                    </th>
+
+                    <th>
+                        <div class="category-text">Tooth No./s</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+                    </th>
+
+                    <th>
+                        <div class="category-text">Procedure</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+                    </th>
+
+                    <th>
+                        <div class="dentist-elements">
+                            <div class="category-text">Dentist</div>
+                            <img class="icon-updown" src="/img/icon-updown.svg" />
+                        </div>
+                    </th>
+
+                    <th>
+                        <div class="amount-charged-elements">
+                            <div class="category-text">Amount Charged</div>
+                            <img class="icon-updown" src="/img/icon-updown.svg" />
+                        </div>
+                    </th>
+
+                    <th>
+                        <div class="amount-paid-elements">
+                            <div class="category-text">Amount Paid</div>
+                            <img class="icon-updown" src="/img/icon-updown.svg" />
+                        </div>
+                    </th>
+
+                    <th>
+                        <div class="balance-elements">
+                            <div class="category-text">Balance</div>
+                            <img class="icon-updown" src="/img/icon-updown.svg" />
+                        </div>
+                    </th>
+
+                </tr>
+            </thead>
+            <!-- `END LIST OF CATEGORY -->
+
+
+            <!-- `PATIENT LIST-->
+            <tbody>
+
+                <!-- each treatment_history_bar-->
+
+                <tr>
+
+                    <td>
+                        <div class="treatment-history-text">{{{done_procedure_date}}}December 10,2024</div>
+                    </td>
+
+                    <td>
+                        <div class="treatment-history-text">{{{tooth_number}}}sdfsdfds</div>
+                    </td>
+
+                    <td>
+                        <div class="treatment-history-text">{{{procedure}}}teeth whitening, canal removal</div>
+                    </td>
+
+                    <td>
+                        <div class="treatment-history-text">{{dentist}}Dr. John Doe </div>
+                    </td>
+
+                    <td>
+                        <div class="treatment-history-text">{{{amount_charged}}}100000</div>
+                    </td>
+
+                    <td>
+                        <div class="treatment-history-text">{{{amount_paid}}}</div>
+                    </td>
+
+                    <td>
+                        <div class="treatment-history-text">{{{balance}}}300000</div>
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- +END TREATMENT RECORD FRAME-->
 
 
 
@@ -737,93 +850,16 @@
     <!--+ END INFORMED CONSENT FRAME-->
 
 
-    <!--+ TREATMENT RECORD FRAME-->
-    <div class="frame-4">
-        <div class="header treatment-record-text" id="treatment-record">| TREATMENT RECORD</div>
-
-
-        <!-- `LIST OF CATEGORY -->
-        <div class="treatment-category-group">
-
-            <div class="date-elements">
-                <div class="category-text">Date</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-            <div class="tooth-num-elements">
-                <div class="category-text">Tooth No./s</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-            <div class="procedure-elements">
-                <div class="category-text">Procedure</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-            <div class="dentist-elements">
-                <div class="category-text">Dentist</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-            <div class="amount-charged-elements">
-                <div class="category-text">Amount Charged</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-
-            <div class="amount-paid-elements">
-                <div class="category-text">Amount Paid</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-
-            <div class="balance-elements">
-                <div class="category-text">Balance</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-
-            <div class="next-appointment-elements">
-                <div class="category-text">Next Appointment</div>
-                <img class="icon-updown" src="/img/icon-updown.svg" />
-            </div>
-        </div>
-        <!-- `END LIST OF CATEGORY -->
-
-
-        <!-- `PATIENT LIST-->
-
-                    <div class="patient-list-group">
-                        <div class="patient-information-group">
-
-
-                            <div class="patient-details">
-                                <div class="patient-text">March 1,2000</div>
-                                <div class="patient-text">56, 57</div>
-                                <div class="patient-text">teeth whitening</div>
-                                <div class="patient-text">Dr. John</div>
-
-                                <div class="patient-text">1,000</div>
-                                <div class="patient-text">2,000</div>
-                                <div class="patient-text">3,0000</div>
-
-                                <div class="patient-text">March 15,2000</div>
-
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- `END PATIENT LIST-->
 
 
 
 
 
-
-
-
-
-    </div>
-    <!-- +END TREATMENT RECORD FRAME-->
 
 </div>
 <!-- +END FRAME 3-->
 </div>
 <!--+END MAIN CONTENT-->
 </div>
+
+<script src="/js/C_PatientInformation.js"></script>
