@@ -21,6 +21,8 @@ const Functions = require('../scripts/functions');
 const router = Router();
 router.use(express.json());
 
+const app = express();
+
 
 //PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {
@@ -53,6 +55,14 @@ router.get("/patient-information/:id", async (req, res) => {
             fullSex = "Female";
         }
 
+        const medicalHistory = await MedicalHistory.findOne({patientID: req.params.id});
+
+        if(medicalHistory){
+            console.log('Medical history found.');
+        } else {
+            console.log('Medical history not found.');
+        }
+
         res.render("C_PatientInformation", {
             title: fullName.trim(),
             full_name: fullName,
@@ -76,7 +86,24 @@ router.get("/patient-information/:id", async (req, res) => {
             guardian_name: patient.guardianName || "N/A",
             guardian_occupation: patient.guardianOccupation || "N/A",
             minor_referral_question: patient.referralName || "N/A",
-            consultation: patient.consultationReason || "N/A"
+            consultation: patient.consultationReason || "N/A",
+
+
+            //medicalHistory
+            physician_name: medicalHistory ? medicalHistory.physicianName : "N/A",
+            physicianOfficeAddress: medicalHistory ? medicalHistory.physicianOfficeAddress : "N/A",
+            physicianSpecialty: medicalHistory ? medicalHistory.physicianSpecialty : "N/A",
+            physicianOfficeNumber: medicalHistory ? medicalHistory.physicianOfficeNumber : "N/A",
+            prescription: medicalHistory ? medicalHistory.prescription : "N/A",
+            illnessOrSurgery: medicalHistory ? medicalHistory.illnessOrSurgery : "N/A",
+            condition: medicalHistory ? medicalHistory.condition : "N/A",
+            isUsingTobacco: medicalHistory ? medicalHistory.isUsingTobacco : "N/A",
+            isAlcoholOrDrugs: medicalHistory ? medicalHistory.isAlcoholOrDrugs : "N/A",
+            allergies: medicalHistory ? medicalHistory.allergies : "N/A",
+            isPregnant: medicalHistory ? medicalHistory.isPregnant : "N/A",
+            isNursing: medicalHistory ? medicalHistory.isNursing : "N/A",
+            isBirthControlPills: medicalHistory ? medicalHistory.isBirthControlPills : "N/A",
+            healthProblems: medicalHistory ? medicalHistory.healthProblems : "N/A"
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);
