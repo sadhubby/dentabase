@@ -1,0 +1,7 @@
+.create-patient-elements:hover { 
+    cursor: pointer;
+}
+
+.create-patient-elements:active { 
+    opacity: 0.5;
+}

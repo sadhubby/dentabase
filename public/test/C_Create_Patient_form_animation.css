@@ -1,0 +1,8 @@
+#doneBtn:hover { 
+    background-color: #007bff;
+    color: #fff;
+}
+
+#doneBtn:active { 
+    opacity: 0.5;
+}

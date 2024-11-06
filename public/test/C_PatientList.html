@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="O_MainTemplate.css">
     <link rel="stylesheet" href="C_PatientList.css">
-
+    <link rel="stylesheet" href="C_PatientList_animation.css">
+    <link rel="stylesheet" href="\public\test\C_Create_Patient_form.css">
+    <link rel="stylesheet" href="\public\test\C_Create_Patient_form_animation.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/public/js/C_Create_Patient_form.js" defer></script>
 </head>
 
 <body>
@@ -106,6 +110,8 @@
                             <img class="icon icon-add" src="/public/img/icon-add.svg" />
                             <div class="text-buttons create-patient-text">Create patient</div>
                         </div>
+
+                        
                         <div class="divider"></div> <!-- Divider between buttons -->
                         <div class="button filter-elements">
                             <img class="icon-filter" src="/public/img/icon-filter.svg" />
@@ -211,9 +217,139 @@
                 </table>
                 <!-- `END PATIENT LIST-->
 
-
+                <!-- Modal -->
+<div id="patientFormModal" class="modal">
+    <div class="modal-content">
+        
+        <!-- Form Sections -->
+        <div class="form-section">
+            <h3>Patient Data</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="middleName">Middle Name:</label>
+                    <input type="text" id="middleName" name="middleName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="birthdate">Birthdate:</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age">
+                </div>
+                <div class="form-group">
+                    <label for="nickname">Nickname:</label>
+                    <input type="text" id="nickname" name="nickname">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <select id="sex" name="sex">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Occupation:</label>
+                    <input type="text" id="occupation" name="occupation">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="religion">Religion:</label>
+                    <input type="text" id="religion" name="religion">
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" id="nationality" name="nationality">
+                </div>
+                <div class="form-group">
+                    <label for="insurance">Dental Insurance:</label>
+                    <input type="text" id="insurance" name="insurance">
+                </div>
             </div>
         </div>
+
+        <div class="form-section">
+            <h3>Dental History</h3>
+            <div class="form-group">
+                <label for="previousDentist">Previous Dentist:</label>
+                <input type="text" id="previousDentist" name="previousDentist">
+            </div>
+            <div class="form-group">
+                <label for="lastVisit">Last Dental Visit:</label>
+                <input type="date" id="lastVisit" name="lastVisit">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Contact Information</h3>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="homeNo">Home No:</label>
+                    <input type="text" id="homeNo" name="homeNo">
+                </div>
+                <div class="form-group">
+                    <label for="cellNo">Cell/Mobile No:</label>
+                    <input type="text" id="cellNo" name="cellNo">
+                </div>
+                <div class="form-group">
+                    <label for="officeNo">Office No:</label>
+                    <input type="text" id="officeNo" name="officeNo">
+                </div>
+                <div class="form-group">
+                    <label for="faxNo">Fax No:</label>
+                    <input type="text" id="faxNo" name="faxNo">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>For Minors</h3>
+            <div class="form-group">
+                <label for="guardianName">Parent/Guardian's Name:</label>
+                <input type="text" id="guardianName" name="guardianName">
+            </div>
+            <div class="form-group">
+                <label for="guardianOccupation">Occupation:</label>
+                <input type="text" id="guardianOccupation" name="guardianOccupation">
+            </div>
+            <div class="form-group">
+                <label for="referral">Whom may we thank for referring you?</label>
+                <input type="text" id="referral" name="referral">
+            </div>
+            <div class="form-group">
+                <label for="consultationReason">What is your reason for dental consultation?</label>
+                <input type="text" id="consultationReason" name="consultationReason">
+            </div>
+        </div>
+        
+        <!-- Buttons at the Bottom -->
+        <div class="modal-buttons">
+            <button id="cancelBtn">Cancel</button>
+            <button id="doneBtn">Done</button>
+        </div>
+    </div>
+            </div>
+        </div>
+        
     </div>
     <!--+END MAIN CONTENT-->
 
