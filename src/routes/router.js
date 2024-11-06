@@ -18,6 +18,7 @@ const { TopologyDescription } = require('mongodb');
 const sampleTreatments = require('../scripts/sampleData/treatmentData');
 
 const Functions = require('../scripts/functions');
+const { uniqueProcedures } = require('../scripts/functions');
 
 const router = Router();
 router.use(express.json());
@@ -423,13 +424,13 @@ router.get("/", async (req, res) =>{
     }
 });
 
-router.get('/patient-list', async (req, res) => {
+router.get('/api/unique-procedures', async (req, res) => {
     try {
-        const uniqueProcedures = await Functions.uniqueProcedures();
-        res.render('C_PatientList', { uniqueProcedures });
+        const procedures = await uniqueProcedures();
+        res.json(procedures);
     } catch (error) {
-        console.error('Error fetching unique procedures:', error);
-        res.status(500).send('Internal Server Error');
+        console.error("Error in /api/unique-procedures:", error);
+        res.status(500).send("Internal Server Error");
     }
 });
 

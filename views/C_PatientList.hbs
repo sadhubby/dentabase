@@ -55,8 +55,8 @@
       <div class="button filter-elements">
         <img class="icon-filter" src="/img/icon-filter.svg" />
         <div class="text-buttons text-wrapper">Filters</div>
-        <select id="procedure-filter" onchange="filterPatients()">
-          <option value="">Select a Procedure</option>
+        <select id="procedureDropdown" onchange="filterPatientsByProcedure()">
+          <option value="all">All Procedures</option>
         </select>
       </div>
       <div class="divider"></div> <!-- Divider between buttons -->
@@ -174,6 +174,7 @@
   </table>
   <!-- `END PATIENT LIST-->
 
+  {{> C_Patient_form}}
 
 </div>
 </div>
