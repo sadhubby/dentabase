@@ -142,7 +142,7 @@ router.get("/patient-information/:id", async (req, res) => {
             religion: patient.religion || "N/A", 
             nationality: patient.nationality || "N/A",
             dental_insurance: patient.dentalInsurance || "N/A",
-            lastDentist: patient.lastDentist || "N/A",
+            previous_dentist: patient.lastDentist || "N/A",
             lastDentalVisit: Functions.convertToDate(patient.lastDentalVisit) || "N/A",
             email: patient.email || "N/A",
             home_number: patient.homeNo || "N/A",

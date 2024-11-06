@@ -33,21 +33,7 @@
     })
 </script>
 
-{{!-- Popup for adding picture --}}
-<div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
-        <input type="date" id="imageDate" required>
-        <label>Date of Picture</label>
-        <input class="image-caption" type="text" id="imageCaption">
-        <label>Picture caption/description</label>
-        <button type="submit">Upload</button>
-    </form>
-    <button id="close-upload-picture">Close</button>
-</div>
 
-{{!-- Button for adding picture --}}
-<button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
 
 
 <!-- `NAME PAGE, SEARCH BOX-->
@@ -127,7 +113,7 @@
                     <label for="birthdate">Birthdate:</label>
                     <div class="input-wrapper">
                         <input type="text" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
-                            value="{{birth_month}}{{birth_date}}{{birth_year}}"
+                            value="{{birthdate}}"
                             title="Please enter your birthdate in MM/DD/YYYY format">
                     </div>
 
@@ -166,7 +152,7 @@
                     <label for="occupation">Occupation:</label>
                     <div class="input-wrapper">
                         <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
-                            value="{{personal_occupation}}">
+                            value="{{occupation}}">
                     </div>
                 </div>
 
@@ -221,7 +207,7 @@
                         <label for="last-visit">Last Dental Visit:</label>
                         <input type="text" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
                             title="Enter last dental visit date in MM/DD/YYYY format"
-                            value="{{LDV_month}} {{LDV_date}}  {{LDV_year}}">
+                            value="{{lastDentalVisit}}">
                     </div>
                 </div>
             </div>
@@ -244,7 +230,7 @@
                     <div class="info-box">
                         <label for="mobile-no">Cell/Mobile No:</label>
                         <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"
-                            value="{{mobil_number}}">
+                            value="{{mobile_number}}">
                     </div>
                     <div class="info-box">
                         <label for="office-no">Office No:</label>
@@ -556,7 +542,21 @@
 
         <div class="dental-chart-box-container">
             <div class="dental-chart-box">upload pics here
+{{!-- Popup for adding picture --}}
+<div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
+        <input type="date" id="imageDate" required>
+        <label>Date of Picture</label>
+        <input class="image-caption" type="text" id="imageCaption">
+        <label>Picture caption/description</label>
+        <button type="submit">Upload</button>
+    </form>
+    <button id="close-upload-picture">Close</button>
+</div>
 
+{{!-- Button for adding picture --}}
+<button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
 
 
 
