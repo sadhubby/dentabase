@@ -12,6 +12,7 @@ const session = require('express-session');
 const Patient = require('../models/patient');
 const Treatment = require('../models/treatment');
 const Account = require('../models/accounts');
+const Picture = require('../models/pictures')
 const MedicalHistory = require('../models/medicalHistory');
 const { TopologyDescription } = require('mongodb');
 const sampleTreatments = require('../scripts/sampleData/treatmentData');
@@ -52,14 +53,39 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+app.use(express.urlencoded({ extended: true }));
 
 //upload picture
 router.post('/upload-pic', upload.single('file'), (req,res) => {
-    if (req.file){
-        return res.json({message: 'File uploaded successfully', file: req.file});
-    } else {
-        return res.status(400).json({ message: 'File upload failed.' });
+    try{
+        const fileName = req.file.originalname;
+        const fileDate = req.body.date;
+        const fileCaption = req.body.caption;
+        const patientID = req.body.patientID;
+
+        const picture = new Picture({
+            fileName: fileName,
+            date: fileDate,
+            caption: fileCaption,
+            patientID: patientID
+        });
+
+        
+        picture.save().then(function(){
+            if (req.file){
+                return res.json({message: 'File uploaded successfully', file: req.file});
+            } else {
+                return res.status(400).json({ message: 'File upload failed.' });
+            }
+        });
+
+        
+    } catch(error){
+        console.error("Error uploading picture:", error);
+        res.status(500).send("Server error");
     }
+
+    
 });
 
 
@@ -103,6 +129,7 @@ router.get("/patient-information/:id", async (req, res) => {
         }
 
         res.render("C_PatientInformation", {
+            id: patient.id,
             title: fullName.trim(),
             full_name: fullName,
             age: patient.age,

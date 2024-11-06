@@ -1,3 +1,6 @@
+const closeUploadPictureBtn = document.getElementById('close-upload-picture');
+const addPicBtn = document.getElementById('open-upload-popup');
+
 async function submitData(){
     const birthdate_string = document.getElementById('birthdate');
     const[month, day, year] = birthdate_string.split('/');
@@ -10,6 +13,15 @@ async function submitData(){
 
     }
 }
+
+closeUploadPictureBtn.addEventListener('click', function(){
+    $('#upload-picture-popup').hide();
+})
+
+addPicBtn.addEventListener('click', function(){
+    $('#upload-picture-popup').show();
+})
+
 
 function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty, physicianOfficeNumber, prescription
     , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills, allergies, healthProblems){
@@ -220,8 +232,19 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         
         const formData = new FormData();
         const imageFile = document.getElementById('imageInput').files[0];
-        formData.append('file', imageFile);
+        const imageDate = document.getElementById('imageDate').value;
+        const imageCaption = document.getElementById('imageCaption').value;
+        const patientID = $('#upload-picture-popup').data('id');
 
+        formData.append('file', imageFile);
+        formData.append('date', imageDate);
+        formData.append('caption', imageCaption); //case when empty
+        formData.append('patientID', patientID);
+
+        console.log(imageDate);
+        console.log(imageCaption);
+
+        $('#upload-picture-popup').hide();
         fetch('/upload-pic', {
             method: 'POST',
             body: formData

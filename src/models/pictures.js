@@ -11,6 +11,10 @@ const pictureSchema = new mongoose.Schema({
     },
     caption:{
         type: String
+    },
+    patientID:{
+        type: Number,
+        required: true
     }
 })
 
