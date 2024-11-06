@@ -88,6 +88,38 @@ router.post('/upload-pic', upload.single('file'), (req,res) => {
     
 });
 
+router.post('/create-treatment', function(req, res){
+    try{
+        let patientID = req.body.patientID;
+        let procedureDate = req.body.procedureDate;
+        let procedureName = req.body.procedureName;
+        let dentistName = req.body.dentistName;
+        let amountCharged = req.body.amountCharged;
+        let amountPaid = req.body.amountPaid;
+        let nextAppointmentDate = new Date(req.body.nextAppointmentDate);
+        let teethAffected = req.body.teethAffected;
+
+        Functions.createTreatment(
+            patientID,
+            procedureDate,
+            teethAffected,
+            procedureName,
+            dentistName,
+            amountCharged,
+            amountPaid,
+            5000, //change balance
+            nextAppointmentDate,
+            'ongoing'
+        ).then(function(){
+            console.log('Treatment record created successfully.');
+            return res.status(200).send("Treatment created successfully.");
+        })
+    } catch(error){
+        console.error("Error creating treatment record.", error);
+        res.status(500).send("Server error");
+    }
+});
+
 
 //PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {
