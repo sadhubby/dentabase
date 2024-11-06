@@ -24,17 +24,15 @@
 //     });
 // });
 
-// public/js/A_LoginPage.js
+
 $(document).ready(function () {
     $('#login-button').click(function (event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
 
         const password = $('#password').val(); // Get the password from input
 
-        // Check if password is captured correctly
         console.log("Password entered:", password); // Debugging log
 
-        // Send an AJAX request to the /login route
         $.ajax({
             url: '/login', // Ensure this matches the server route
             type: 'POST',
