@@ -177,6 +177,45 @@ router.get("/patient-information/:id", async (req, res) => {
     }
 });
 
+router.post("/update-patient", async function(req, resp){
+try{
+    let patientSex;
+    if(req.body.sex == "Male"){
+        patientSex = 'M';
+    } else {
+        patientSex = 'F';
+    }
+
+    await Functions.updatePatientInfo(
+            req.body.patientID,
+            req.body.nickname,
+            req.body.address,
+            new Date(req.body.birthdate),
+            req.body.age,
+            patientSex,
+            req.body.religion,
+            req.body.nationality,
+            req.body.email,
+            req.body.homeNo,
+            req.body.occupation,
+            req.body.dentalInsurance,
+            req.body.officeNo,
+            req.body.faxNo,
+            req.body.mobileNo,
+            req.body.guardianName,
+            req.body.guardianOccupation,
+            req.body.referral,
+            req.body.consultationReason,
+            req.body.lastDentist,
+            new Date(req.body.lastDentalVisit),
+        );
+        resp.status(200).send('Patient information updated successfully');
+} catch(error){
+    console.error("Error updating patient info.", error);
+}
+    
+});
+
 // To-DO
 // router.get("/to-do", async (req, res) =>{
 //     try{

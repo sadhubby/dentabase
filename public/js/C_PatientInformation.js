@@ -227,6 +227,46 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
 
     }
 
+    //check for empty/null
+    $('#update-patient-form').on('submit', function(event){
+        event.preventDefault();
+
+        $.post(
+            '/update-patient',
+            {
+                 patientID : $(this).data('id'),
+                 birthdate : $('#birthdate').val(),
+                 age : $('#age').val(),
+                 nickname : $('#nickname').val(),
+                 sex : $('#sex').val(),
+                 occupation : $('#occupation').val(),
+                 address : $('#address').val(),
+                 religion : $('#occupation').val(),
+                 nationality : $('#nationality').val(),
+                 dentalInsurance : $('#insurance').val(),
+
+                 lastDentist : $('#previous-dentist').val(),
+                 lastDentalVisit : $('#last-visit').val(),
+
+                 email : $('#email').val(),
+                 homeNo : $('#home-no').val(),
+                 mobileNo : $('#mobile-no').val(),
+                 officeNo : $('#office-no').val(),
+                 faxNo : $('#fax-no').val(),
+
+                 guardianName : $('#guardian-name').val(),
+                 guardianOccupation : $('#guardian-occupation').val(),
+                 referral : $('#referral-source').val(),
+                 consultationReason : $('#consultation-reason').val()
+            },
+            function(status){
+                alert(status);
+            }
+        )
+
+
+    })
+
     document.getElementById('uploadForm').addEventListener('submit', function(event) {
         event.preventDefault();
         

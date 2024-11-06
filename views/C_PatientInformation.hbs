@@ -102,7 +102,7 @@
     </div>
 
     <!-- +PATIENT DATA-->
-    <form id="form">
+    <form id="update-patient-form" data-id="{{id}}">
         <div class="frame-4">
         <button type="submit"> Save Changes</button>
 
@@ -116,7 +116,7 @@
                     <div class="input-wrapper">
                         <input type="date" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
                             value="{{birthdate}}"
-                            title="Please enter your birthdate in MM/DD/YYYY format">
+                            title="Please enter your birthdate in MM/DD/YYYY format" required>
                     </div>
 
 
@@ -126,7 +126,7 @@
                     <label for="age">Age:</label>
                     <div class="input-wrapper">
                         <input type="number" id="age" class="input-field" min="0" placeholder="Enter your age"
-                            value="{{age}}">
+                            value="{{age}}" required>
                     </div>
                 </div>
 
@@ -141,10 +141,10 @@
                 <div class="info-box">
                     <label for="sex">Sex:</label>
                     <div class="input-wrapper">
-                        <select id="sex" class="input-field" name="sex" title="Please select your sex">
-                            <option value="" disabled selected>Select your sex</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                        <select id="sex" class="input-field" name="sex" title="Please select your sex" required>
+                            <option value="{{fullSex}}" disabled selected>{{fullSex}}</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
 
@@ -154,7 +154,7 @@
                     <label for="occupation">Occupation:</label>
                     <div class="input-wrapper">
                         <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
-                            value="{{occupation}}">
+                            value="{{occupation}}" required>
                     </div>
                 </div>
 
@@ -162,7 +162,7 @@
                     <label for="address">Address:</label>
                     <div class="input-wrapper">
                         <input type="text" id="address" class="input-field" placeholder="Enter your address"
-                            value="{{home_address}}">
+                            value="{{home_address}}" required>
                     </div>
                 </div>
 
@@ -178,7 +178,7 @@
                     <label for="nationality">Nationality:</label>
                     <div class="input-wrapper">
                         <input type="text" id="nationality" class="input-field" placeholder="Enter your nationality"
-                            value="{{nationality}}">
+                            value="{{nationality}}" required>
                     </div>
                 </div>
 
