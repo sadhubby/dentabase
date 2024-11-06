@@ -760,39 +760,39 @@
             <tbody>
 
                 <!-- each treatment_history_bar-->
-
+                {{#each treatments}}
                 <tr>
 
                     <td>
-                        <div class="treatment-history-text">{{{done_procedure_date}}}December 10,2024</div>
+                        <div class="treatment-history-text">{{{dateString}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{tooth_number}}}sdfsdfds</div>
+                        <div class="treatment-history-text">{{{teethAffected}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{procedure}}}teeth whitening, canal removal</div>
+                        <div class="treatment-history-text">{{{procedure}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{dentist}}Dr. John Doe </div>
+                        <div class="treatment-history-text">{{{dentist}}} </div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{amount_charged}}}100000</div>
+                        <div class="treatment-history-text">{{{amountCharged}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{amount_paid}}}</div>
+                        <div class="treatment-history-text">{{{amountPaid}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{balance}}}300000</div>
+                        <div class="treatment-history-text">{{{balance}}}</div>
                     </td>
 
                 </tr>
-
+                {{/each}}
 
             </tbody>
         </table>

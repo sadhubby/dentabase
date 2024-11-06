@@ -125,7 +125,7 @@ router.post('/create-treatment', function(req, res){
 //PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {
     try {
-        const patient = await Patient.findOne({id: req.params.id}); //unique id after the thing
+        const patient = await Patient.findOne({id: req.params.id}).populate('treatments'); //unique id after the thing
         const fullName = `${patient.firstName} ${patient.middleName} ${patient.lastName}`;
         
         let birthdate = patient.birthdate;
@@ -160,6 +160,15 @@ router.get("/patient-information/:id", async (req, res) => {
         } else {
             console.log('Medical history not found.');
         }
+
+        const patientTreatments = patient.treatments;
+        
+        patientTreatments.forEach(treatment => {
+            treatment.teethAffected = treatment.teethAffected.join(', ');
+            treatment.dateString = Functions.convertToDate(treatment.date);
+        })
+
+        
 
         res.render("C_PatientInformation", {
             id: patient.id,
@@ -202,7 +211,11 @@ router.get("/patient-information/:id", async (req, res) => {
             isPregnant: medicalHistory ? medicalHistory.isPregnant : "N/A",
             isNursing: medicalHistory ? medicalHistory.isNursing : "N/A",
             isBirthControlPills: medicalHistory ? medicalHistory.isBirthControlPills : "N/A",
-            healthProblems: medicalHistory ? medicalHistory.healthProblems : "N/A"
+            healthProblems: medicalHistory ? medicalHistory.healthProblems : "N/A",
+
+
+            //treatments
+            treatments: patientTreatments
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);
