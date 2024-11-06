@@ -265,7 +265,7 @@ async function updateTreatment(treatmentID, date, teethAffected, procedure, dent
 
  async function uniqueProcedures() {
     try {
-        const procedures = await Treatment.distinct("procedure");
+        const procedures = await treatmentModel.distinct("procedure");
         return procedures;
     } catch (error) {
         console.error("Error fetching unique procedures:", error);
