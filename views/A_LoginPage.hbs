@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,14 +10,14 @@
 <body>
 
     <div class="container">
-        <img src="/img/dentist-pic.png" />
+        {{!-- <img src="/img/dentist-pic.png" /> --}}
         <!-- +LOGIN SIDE-->
         <div class="frame-1">
 
             <!-- `BRAND GROUP-->
             <div class="brand-group">
 
-                <img class="logo" src="/img/logo-better-smiles.svg" />
+                {{!-- <img class="logo" src="/img/logo-better-smiles.svg" /> --}}
 
                 <div class="name">
                     <h2>BETTER SMILES</h2>
@@ -31,14 +29,14 @@
             <div class="password-group">
 
                 </label>
-                <input type="password" id="password" placeholder="Enter your password" />
-
+                <input type="password" id="password" placeholder="Enter your password"/>
+                <button id="login-button">Login</button>
             </div>
+
+            <div id="login-message" style="margin-top: 10px;"></div>
 
         </div>
 
     </div>
 
-</body>
-
-</html>
+<script src = "/js/A_LoginPage.js"></script>

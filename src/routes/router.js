@@ -6,7 +6,7 @@ const Router = require('express');
 const mongoose = require('mongoose');
 // other libraries to be added based on necessity / user stories.
 const session = require('express-session');
-
+const bcrypt = require('bcrypt');
 // mongoose models, add based on user stories
 
 const Patient = require('../models/patient');
@@ -18,11 +18,13 @@ const { TopologyDescription } = require('mongodb');
 const sampleTreatments = require('../scripts/sampleData/treatmentData');
 
 const Functions = require('../scripts/functions');
+const { uniqueProcedures } = require('../scripts/functions');
 
 const router = Router();
 router.use(express.json());
 
 const app = express();
+app.use(express.static('public'));
 
 //file transfers
 const path = require('path');
@@ -88,11 +90,43 @@ router.post('/upload-pic', upload.single('file'), (req,res) => {
     
 });
 
+router.post('/create-treatment', function(req, res){
+    try{
+        let patientID = req.body.patientID;
+        let procedureDate = req.body.procedureDate;
+        let procedureName = req.body.procedureName;
+        let dentistName = req.body.dentistName;
+        let amountCharged = req.body.amountCharged;
+        let amountPaid = req.body.amountPaid;
+        let nextAppointmentDate = new Date(req.body.nextAppointmentDate);
+        let teethAffected = req.body.teethAffected;
+
+        Functions.createTreatment(
+            patientID,
+            procedureDate,
+            teethAffected,
+            procedureName,
+            dentistName,
+            amountCharged,
+            amountPaid,
+            5000, //change balance
+            nextAppointmentDate,
+            'ongoing'
+        ).then(function(){
+            console.log('Treatment record created successfully.');
+            return res.status(200).send("Treatment created successfully.");
+        })
+    } catch(error){
+        console.error("Error creating treatment record.", error);
+        res.status(500).send("Server error");
+    }
+});
+
 
 //PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {
     try {
-        const patient = await Patient.findOne({id: req.params.id}); //unique id after the thing
+        const patient = await Patient.findOne({id: req.params.id}).populate('treatments'); //unique id after the thing
         const fullName = `${patient.firstName} ${patient.middleName} ${patient.lastName}`;
         
         let birthdate = patient.birthdate;
@@ -127,6 +161,21 @@ router.get("/patient-information/:id", async (req, res) => {
         } else {
             console.log('Medical history not found.');
         }
+
+        const patientTreatments = patient.treatments;
+        
+        patientTreatments.forEach(treatment => {
+            treatment.teethAffected = treatment.teethAffected.join(', ');
+            treatment.dateString = Functions.convertToDate(treatment.date);
+        })
+
+        const pictures = await Picture.find({patientID: req.params.id});
+
+        pictures.forEach(picture => {
+            picture.dateString = Functions.convertToDate(picture.date);
+        })
+
+        
 
         res.render("C_PatientInformation", {
             id: patient.id,
@@ -169,7 +218,14 @@ router.get("/patient-information/:id", async (req, res) => {
             isPregnant: medicalHistory ? medicalHistory.isPregnant : "N/A",
             isNursing: medicalHistory ? medicalHistory.isNursing : "N/A",
             isBirthControlPills: medicalHistory ? medicalHistory.isBirthControlPills : "N/A",
-            healthProblems: medicalHistory ? medicalHistory.healthProblems : "N/A"
+            healthProblems: medicalHistory ? medicalHistory.healthProblems : "N/A",
+
+
+            //treatments
+            treatments: patientTreatments,
+
+            //pictures
+            pictures : pictures
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);
@@ -391,15 +447,99 @@ router.get("/", async (req, res) =>{
     }
 });
 
-router.get('/patient-list', async (req, res) => {
+router.get('/api/unique-procedures', async (req, res) => {
     try {
-        const uniqueProcedures = await Functions.uniqueProcedures();
-        res.render('C_PatientList', { uniqueProcedures });
+        const procedures = await uniqueProcedures();
+        res.json(procedures);
     } catch (error) {
-        console.error('Error fetching unique procedures:', error);
-        res.status(500).send('Internal Server Error');
+        console.error("Error in /api/unique-procedures:", error);
+        res.status(500).send("Internal Server Error");
     }
 });
 
+router.post("/appointments", async (req, res) => {
+    try {
+        const { patientID, date, startTime, endTime, procedure, dentist } = req.body;
+
+        // Combine date with start and end times to create Date objects for the appointment times
+        const appointmentDate = new Date(date);
+        const startDateTime = new Date(appointmentDate.setHours(...startTime.split(':')));
+        const endDateTime = new Date(appointmentDate.setHours(...endTime.split(':')));
+
+        // Call createAppointment function
+        await createAppointment(patientID, startDateTime, endDateTime, procedure, dentist);
+
+        res.status(201).json({ message: "Appointment created successfully" });
+    } catch (error) {
+        console.error("Error creating appointment:", error);
+        res.status(500).json({ message: "Error creating appointment" });
+    }
+});
+// router.get('/appointments', async (req, res) => {
+//     try {
+//         const targetDate = req.query.date ? new Date(req.query.date) : new Date();
+//         targetDate.setHours(0, 0, 0, 0);
+
+//         const appointments = await Patient.find({
+//             isActive: true,
+//             effectiveDate: {
+//                 $gte: targetDate,
+//                 $lt: new Date(targetDate.getTime() + 24 * 60 * 60 * 1000)
+//             }
+//         }).populate('treatments', 'procedure');
+
+//         // Send JSON data for AJAX to process
+//         res.json(appointments);
+//     } catch (error) {
+//         console.error('Error fetching appointments:', error);
+//         res.status(500).json({ error: 'Error retrieving patient data' });
+//     }
+// });
+
+// router.post("/create-appointment", async (req, res) => {
+//     try {
+//         const { treatment, patientName, email, phone, date, startTime, endTime, nextAppointmentDate } = req.body;
+
+//         const appointmentDate = new Date(`${date}T${startTime}`);
+
+//         const newTreatment = new Treatment({
+//             id: /* generate or provide an ID */,
+//             date: appointmentDate,
+//             procedure: treatment,
+//             dentist: "Your Dentist Name", // Fetch or set as needed
+//             nextAppointmentDate: appointmentDate, // Using the calculated date-time
+//             status: "ongoing"
+//             // Add other fields as necessary
+//         });
+
+//         await newTreatment.save();
+//         res.status(201).json({ message: "Appointment created successfully" });
+//     } catch (error) {
+//         console.error("Error creating appointment:", error);
+//         res.status(500).json({ message: "Failed to create appointment" });
+//     }
+// });
+router.get('/login', (req, res) => {
+    res.render('A_LoginPage'); // Render the A_LoginPage.hbs view
+});
+
+router.post('/login', async (req, res) => {
+    const { password } = req.body;
+    console.log("Received password:", password); // Debugging log
+
+    try {
+        // Compare the entered password with the shared hashed password
+        const match = await bcrypt.compare(password, process.env.SHARED_PASSWORD_HASH);
+        
+        if (match) {
+            res.status(200).send("Login successful!");
+        } else {
+            res.status(400).send("Invalid password");
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).send("An error occurred");
+    }
+});
 
 module.exports = router;

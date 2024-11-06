@@ -264,9 +264,13 @@ async function updateTreatment(treatmentID, date, teethAffected, procedure, dent
  }
 
  async function uniqueProcedures() {
-    const treatment = treatmentModel.findOne({}, 'procedure');
-    const uniqueProcedures = [...new Set(treatment.map(treatment => treatment.procedure))];
-    return uniqueProcedures;
+    try {
+        const procedures = await treatmentModel.distinct("procedure");
+        return procedures;
+    } catch (error) {
+        console.error("Error fetching unique procedures:", error);
+        return [];
+    }
 }
 
 

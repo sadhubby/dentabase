@@ -33,7 +33,84 @@
     })
 </script>
 
-<style>
+<div id="create-treatment-popup" class="create-treatment-popup">
+    <form id="treatment-form" data-id="{{id}}">
+        <!-- Date of Procedure -->
+        <div class="form-group">
+            <label for="procedureDate">Date of Treatment:</label>
+            <input type="date" id="procedureDate" name="procedureDate" required>
+        </div>
+
+        <!-- Procedure Description -->
+        <div class="form-group">
+            <label for="procedureName">Procedure:</label>
+            <input type="text" id="procedureName" name="procedureName" placeholder="Enter procedure name" required>
+        </div>
+
+        <!-- Dentist Performing Procedure -->
+        <div class="form-group">
+            <label for="dentistName">Dentist:</label>
+            <input type="text" id="dentistName" name="dentistName" placeholder="Enter dentist's name" required>
+        </div>
+
+        <!-- Amount Charged -->
+        <div class="form-group">
+            <label for="amountCharged">Amount Charged:</label>
+            <input type="number" id="amountCharged" name="amountCharged" placeholder="Enter amount charged" step="0.01" min="0" required>
+        </div>
+
+        <!-- Amount Paid -->
+        <div class="form-group">
+            <label for="amountPaid">Amount Paid:</label>
+            <input type="number" id="amountPaid" name="amountPaid" placeholder="Enter amount paid" step="0.01" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nextAppointment">Date of Next Appointment:</label>
+            <input type="date" id="nextAppointment" name="nextAppointment" required>
+        </div>
+
+        <div>Teeth affected: </div>
+        <label><input type="checkbox" name="teeth" id="tooth1" value="tooth1">1</label> 
+        <label><input type="checkbox" name="teeth" id="tooth2" value="tooth2">2</label>
+        <label><input type="checkbox" name="teeth" id="tooth3" value="tooth3">3</label>
+        <label><input type="checkbox" name="teeth" id="tooth4" value="tooth4">4</label>
+        <label><input type="checkbox" name="teeth" id="tooth5" value="tooth5">5</label>
+        <label><input type="checkbox" name="teeth" id="tooth6" value="tooth6">6</label>
+        <label><input type="checkbox" name="teeth" id="tooth7" value="tooth7">7</label>
+        <label><input type="checkbox" name="teeth" id="tooth8" value="tooth8">8</label>
+        <label><input type="checkbox" name="teeth" id="tooth9" value="tooth9">9</label>
+        <label><input type="checkbox" name="teeth" id="tooth10" value="tooth10">10</label> </br>
+        <label><input type="checkbox" name="teeth" id="tooth11" value="tooth11">11</label>
+        <label><input type="checkbox" name="teeth" id="tooth12" value="tooth12">12</label>
+        <label><input type="checkbox" name="teeth" id="tooth13" value="tooth13">13</label>
+        <label><input type="checkbox" name="teeth" id="tooth14" value="tooth14">14</label>
+        <label><input type="checkbox" name="teeth" id="tooth15" value="tooth15">15</label>
+        <label><input type="checkbox" name="teeth" id="tooth16" value="tooth16">16</label>
+        <label><input type="checkbox" name="teeth" id="tooth17" value="tooth17">17</label>
+        <label><input type="checkbox" name="teeth" id="tooth18" value="tooth18">18</label>
+        <label><input type="checkbox" name="teeth" id="tooth19" value="tooth19">19</label>
+        <label><input type="checkbox" name="teeth" id="tooth20" value="tooth20">20</label> </br>
+        <label><input type="checkbox" name="teeth" id="tooth21" value="tooth21">21</label>
+        <label><input type="checkbox" name="teeth" id="tooth22" value="tooth22">22</label>
+        <label><input type="checkbox" name="teeth" id="tooth23" value="tooth23">23</label>
+        <label><input type="checkbox" name="teeth" id="tooth24" value="tooth24">24</label>
+        <label><input type="checkbox" name="teeth" id="tooth25" value="tooth25">25</label>
+        <label><input type="checkbox" name="teeth" id="tooth26" value="tooth26">26</label>
+        <label><input type="checkbox" name="teeth" id="tooth27" value="tooth27">27</label>
+        <label><input type="checkbox" name="teeth" id="tooth28" value="tooth28">28</label>
+        <label><input type="checkbox" name="teeth" id="tooth29" value="tooth29">29</label>
+        <label><input type="checkbox" name="teeth" id="tooth30" value="tooth30">30</label>
+        <label><input type="checkbox" name="teeth" id="tooth31" value="tooth31">31</label>
+        <label><input type="checkbox" name="teeth" id="tooth32" value="tooth32">32</label> </br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button> </br>
+        <button id="close-create-treatment">Close</button>
+    </form>
+</div>
+
+<!-- Add more as needed --><style>
     <style>
     .dental-chart-box-container {
         padding: 20px;
@@ -606,13 +683,6 @@
     </div>
     <!--+END MEDICAL HISTORY FRAME-->
 
-
-    <!--+DENTAL CHART FRAME-->
-    <div class="frame-4">
-        <div class="header dental-chart-text" id="dental-record-chart">| DENTAL RECORD CHART</div>
-
-        <div class="dental-chart-box-container">
-            <div class="dental-chart-box">upload pics here
 {{!-- Popup for adding picture --}}
 <div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
     <form id="uploadForm" enctype="multipart/form-data">
@@ -626,10 +696,25 @@
     <button id="close-upload-picture">Close</button>
 </div>
 
-{{!-- Button for adding picture --}}
-<button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
+    <!--+DENTAL CHART FRAME-->
+    <div class="frame-4">
+        <div class="header dental-chart-text" id="dental-record-chart">| DENTAL RECORD CHART</div>
+
+        {{!-- Button for adding picture --}}
+        <button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
+
+        <div class="dental-chart-box-container">
+            <div class="dental-chart-box">upload pics here
+                {{#each pictures}}
+
+                <div class="image-item">
+                    <img src="/patientPic/{{{fileName}}}" alt="Image">
+                    <div class="image-date">Date: {{{dateString}}}</div> <br>
+                    <div class="image-caption">Caption: {{{caption}}}</div>
+                </div>
 
 
+                {{/each}}
 
             </div>
 
@@ -751,39 +836,39 @@
             <tbody>
 
                 <!-- each treatment_history_bar-->
-
+                {{#each treatments}}
                 <tr>
 
                     <td>
-                        <div class="treatment-history-text">{{{done_procedure_date}}}December 10,2024</div>
+                        <div class="treatment-history-text">{{{dateString}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{tooth_number}}}sdfsdfds</div>
+                        <div class="treatment-history-text">{{{teethAffected}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{procedure}}}teeth whitening, canal removal</div>
+                        <div class="treatment-history-text">{{{procedure}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{dentist}}Dr. John Doe </div>
+                        <div class="treatment-history-text">{{{dentist}}} </div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{amount_charged}}}100000</div>
+                        <div class="treatment-history-text">{{{amountCharged}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{amount_paid}}}</div>
+                        <div class="treatment-history-text">{{{amountPaid}}}</div>
                     </td>
 
                     <td>
-                        <div class="treatment-history-text">{{{balance}}}300000</div>
+                        <div class="treatment-history-text">{{{balance}}}</div>
                     </td>
 
                 </tr>
-
+                {{/each}}
 
             </tbody>
         </table>
