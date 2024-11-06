@@ -505,10 +505,6 @@ router.post('/login', async (req, res) => {
     console.log("Received password:", password_body); // Debugging log
 
     const password = password_body; // Replace with the plain-text password you want
-    bcrypt.hash(password, 10, (err, hash) => {
-        if (err) throw err;
-    console.log("Hashed password:", hash);
-    });
     try {
         // Compare the entered password with the shared hashed password
         const match = await bcrypt.compare(password, process.env.SHARED_PASSWORD_HASH);
