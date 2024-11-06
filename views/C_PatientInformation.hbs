@@ -615,13 +615,6 @@
     </div>
     <!--+END MEDICAL HISTORY FRAME-->
 
-
-    <!--+DENTAL CHART FRAME-->
-    <div class="frame-4">
-        <div class="header dental-chart-text" id="dental-record-chart">| DENTAL RECORD CHART</div>
-
-        <div class="dental-chart-box-container">
-            <div class="dental-chart-box">upload pics here
 {{!-- Popup for adding picture --}}
 <div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
     <form id="uploadForm" enctype="multipart/form-data">
@@ -635,10 +628,25 @@
     <button id="close-upload-picture">Close</button>
 </div>
 
-{{!-- Button for adding picture --}}
-<button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
+    <!--+DENTAL CHART FRAME-->
+    <div class="frame-4">
+        <div class="header dental-chart-text" id="dental-record-chart">| DENTAL RECORD CHART</div>
+
+        {{!-- Button for adding picture --}}
+        <button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
+
+        <div class="dental-chart-box-container">
+            <div class="dental-chart-box">upload pics here
+                {{#each pictures}}
+
+                <div class="image-item">
+                    <img src="/patientPic/{{{fileName}}}" alt="Image">
+                    <div class="image-date">Date: {{{dateString}}}</div> <br>
+                    <div class="image-caption">Caption: {{{caption}}}</div>
+                </div>
 
 
+                {{/each}}
 
             </div>
 

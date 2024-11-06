@@ -24,6 +24,7 @@ const router = Router();
 router.use(express.json());
 
 const app = express();
+app.use(express.static('public'));
 
 //file transfers
 const path = require('path');
@@ -168,6 +169,12 @@ router.get("/patient-information/:id", async (req, res) => {
             treatment.dateString = Functions.convertToDate(treatment.date);
         })
 
+        const pictures = await Picture.find({patientID: req.params.id});
+
+        pictures.forEach(picture => {
+            picture.dateString = Functions.convertToDate(picture.date);
+        })
+
         
 
         res.render("C_PatientInformation", {
@@ -215,7 +222,10 @@ router.get("/patient-information/:id", async (req, res) => {
 
 
             //treatments
-            treatments: patientTreatments
+            treatments: patientTreatments,
+
+            //pictures
+            pictures : pictures
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);

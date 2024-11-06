@@ -1,6 +1,6 @@
 const samplePictures = [
     {
-        fileName: 'google.jpg',
+        fileName: 'google.png',
         date: new Date('1990-01-01'),
         caption: 'Picture of google',
         patientID: 6
