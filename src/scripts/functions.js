@@ -16,7 +16,7 @@ function convertToDate(birthdate){
         birthday = "0" + birthday;
     }
 
-    birthdate = birthmonth + "/" + birthday + "/" + birthyear;
+    birthdate = birthyear + '-' + birthmonth + '-' + birthday; 
 
     return birthdate;
 }
@@ -90,16 +90,16 @@ async function searchPatientName(patientName){
     return patient;
 }
 
-async function updatePatientInfo(patientID, firstName, lastName, middleName, nickname, 
+async function updatePatientInfo(patientID, nickname, 
     homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, 
-    occupation, dentalInsurance, officeNo, faxNo, contact, effectiveDate, 
-    guardianName, guardianOccupation, referralName, consultationReason, lastDentist, lastDentalVisit, pic){
+    occupation, dentalInsurance, officeNo, faxNo, contact, 
+    guardianName, guardianOccupation, referralName, consultationReason, lastDentist, lastDentalVisit){
         
         patientModel.findOne({id: patientID}).then(function(patient){
 
-            patient.firstName = firstName;
-            patient.lastName = lastName;
-            patient.middleName = middleName;
+            // patient.firstName = firstName;
+            // patient.lastName = lastName;
+            // patient.middleName = middleName;
             patient.nickname = nickname;
             patient.homeAddress = homeAddress;
             patient.birthdate = birthdate;
@@ -114,14 +114,14 @@ async function updatePatientInfo(patientID, firstName, lastName, middleName, nic
             patient.officeNo = officeNo;
             patient.faxNo = faxNo;
             patient.contact = contact;
-            patient.effectiveDate = effectiveDate;
+           // patient.effectiveDate = effectiveDate;
             patient.guardianName = guardianName;
             patient.guardianOccupaton = guardianOccupation;
             patient.referralName = referralName;
             patient.consultationReason = consultationReason;
             patient.lastDentist = lastDentist;
             patient.lastDentalVisit = lastDentalVisit;
-            patient.pic = pic
+            //patient.pic = pic
 
             patient.save().then(function(){
                 console.log("patient updated");

@@ -1,3 +1,15 @@
+.upload-picture-popup {
+    background-color:yellow;
+    /* display: none; */
+    width: 600px;
+    height: 302px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display:none;
+  }
+
 /* Frame styling */
 .patient-info-file .frame-4 {
     height: auto;

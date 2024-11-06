@@ -1,3 +1,6 @@
+const closeUploadPictureBtn = document.getElementById('close-upload-picture');
+const addPicBtn = document.getElementById('open-upload-popup');
+
 async function submitData(){
     const birthdate_string = document.getElementById('birthdate');
     const[month, day, year] = birthdate_string.split('/');
@@ -10,6 +13,15 @@ async function submitData(){
 
     }
 }
+
+closeUploadPictureBtn.addEventListener('click', function(){
+    $('#upload-picture-popup').hide();
+})
+
+addPicBtn.addEventListener('click', function(){
+    $('#upload-picture-popup').show();
+})
+
 
 function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty, physicianOfficeNumber, prescription
     , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills, allergies, healthProblems){
@@ -132,6 +144,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
             });
         }
 
+
         healthProblems.forEach(function(problem){
             switch(problem){
                 case "High Blood Pressure":
@@ -213,3 +226,75 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         });
 
     }
+
+    //check for empty/null
+    $('#update-patient-form').on('submit', function(event){
+        event.preventDefault();
+
+        $.post(
+            '/update-patient',
+            {
+                 patientID : $(this).data('id'),
+                 birthdate : $('#birthdate').val(),
+                 age : $('#age').val(),
+                 nickname : $('#nickname').val(),
+                 sex : $('#sex').val(),
+                 occupation : $('#occupation').val(),
+                 address : $('#address').val(),
+                 religion : $('#occupation').val(),
+                 nationality : $('#nationality').val(),
+                 dentalInsurance : $('#insurance').val(),
+
+                 lastDentist : $('#previous-dentist').val(),
+                 lastDentalVisit : $('#last-visit').val(),
+
+                 email : $('#email').val(),
+                 homeNo : $('#home-no').val(),
+                 mobileNo : $('#mobile-no').val(),
+                 officeNo : $('#office-no').val(),
+                 faxNo : $('#fax-no').val(),
+
+                 guardianName : $('#guardian-name').val(),
+                 guardianOccupation : $('#guardian-occupation').val(),
+                 referral : $('#referral-source').val(),
+                 consultationReason : $('#consultation-reason').val()
+            },
+            function(status){
+                alert(status);
+            }
+        )
+
+
+    })
+
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData();
+        const imageFile = document.getElementById('imageInput').files[0];
+        const imageDate = document.getElementById('imageDate').value;
+        const imageCaption = document.getElementById('imageCaption').value;
+        const patientID = $('#upload-picture-popup').data('id');
+
+        formData.append('file', imageFile);
+        formData.append('date', imageDate);
+        formData.append('caption', imageCaption); //case when empty
+        formData.append('patientID', patientID);
+
+        console.log(imageDate);
+        console.log(imageCaption);
+
+        $('#upload-picture-popup').hide();
+        fetch('/upload-pic', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert('Successfully uploaded file.');
+        })
+        .catch(error => {
+            alert('Error uploading file');
+        });
+
+    });

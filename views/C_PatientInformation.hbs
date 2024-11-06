@@ -1,3 +1,41 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const physicianName = "{{{physician_name}}}";
+        const physicianOfficeAddress = "{{{physicianOfficeAddress}}}";
+        const physicianSpecialty = "{{{physicianSpecialty}}}";
+        const physicianOfficeNumber = "{{{physicianOfficeNumber}}}";
+        const prescription = "{{{prescription}}}";
+        const illnessOrSurgery = "{{{illnessOrSurgery}}}";
+        const condition = "{{{condition}}}";
+        const isUsingTobacco = "{{{isUsingTobacco}}}";
+        const isAlcoholOrDrugs = "{{{isAlcoholOrDrugs}}}";
+        const isPregnant = "{{{isPregnant}}}";
+        const isNursing = "{{{isNursing}}}";
+        const isBirthControlPills = "{{{isBirthControlPills}}}";
+
+        let allergies = [];
+
+        {{#each allergies}}
+        allergies.push("{{{this}}}");
+        {{/each}}
+
+        let healthProblems = [];
+
+        {{#each healthProblems}}
+        healthProblems.push("{{{this}}}");
+        {{/each}};
+
+        
+
+        fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty, physicianOfficeNumber, prescription
+                    , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills
+                    , allergies, healthProblems);
+    })
+</script>
+
+
+
+
 <!-- `NAME PAGE, SEARCH BOX-->
 <div class="frame-1">
     <div class="name-page"> Patients</div>
@@ -64,7 +102,9 @@
     </div>
 
     <!-- +PATIENT DATA-->
-    <div class="frame-4">
+    <form id="update-patient-form" data-id="{{id}}">
+        <div class="frame-4">
+        <button type="submit"> Save Changes</button>
 
         <!-- `PATIENT DATA-->
         <div class="box top-box">
@@ -74,9 +114,9 @@
                 <div class="info-box">
                     <label for="birthdate">Birthdate:</label>
                     <div class="input-wrapper">
-                        <input type="text" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
-                            value="{{birth_month}}{{birth_date}}{{birth_year}}"
-                            title="Please enter your birthdate in MM/DD/YYYY format">
+                        <input type="date" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
+                            value="{{birthdate}}"
+                            title="Please enter your birthdate in MM/DD/YYYY format" required>
                     </div>
 
 
@@ -86,7 +126,7 @@
                     <label for="age">Age:</label>
                     <div class="input-wrapper">
                         <input type="number" id="age" class="input-field" min="0" placeholder="Enter your age"
-                            value="{{age}}">
+                            value="{{age}}" required>
                     </div>
                 </div>
 
@@ -101,10 +141,10 @@
                 <div class="info-box">
                     <label for="sex">Sex:</label>
                     <div class="input-wrapper">
-                        <select id="sex" class="input-field" name="sex" title="Please select your sex">
-                            <option value="" disabled selected>Select your sex</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                        <select id="sex" class="input-field" name="sex" title="Please select your sex" required>
+                            <option value="{{fullSex}}" disabled selected>{{fullSex}}</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
 
@@ -114,7 +154,7 @@
                     <label for="occupation">Occupation:</label>
                     <div class="input-wrapper">
                         <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
-                            value="{{personal_occupation}}">
+                            value="{{occupation}}" required>
                     </div>
                 </div>
 
@@ -122,7 +162,7 @@
                     <label for="address">Address:</label>
                     <div class="input-wrapper">
                         <input type="text" id="address" class="input-field" placeholder="Enter your address"
-                            value="{{home_address}}">
+                            value="{{home_address}}" required>
                     </div>
                 </div>
 
@@ -138,7 +178,7 @@
                     <label for="nationality">Nationality:</label>
                     <div class="input-wrapper">
                         <input type="text" id="nationality" class="input-field" placeholder="Enter your nationality"
-                            value="{{nationality}}">
+                            value="{{nationality}}" required>
                     </div>
                 </div>
 
@@ -167,9 +207,9 @@
                     </div>
                     <div class="info-box">
                         <label for="last-visit">Last Dental Visit:</label>
-                        <input type="text" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
+                        <input type="date" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
                             title="Enter last dental visit date in MM/DD/YYYY format"
-                            value="{{LDV_month}} {{LDV_date}}  {{LDV_year}}">
+                            value="{{lastDentalVisit}}">
                     </div>
                 </div>
             </div>
@@ -182,7 +222,7 @@
                     <div class="info-box full-width">
                         <label for="email">Email:</label>
                         <input type="email" id="email" class="input-field" placeholder="Enter your email"
-                            value="{{email_address}}">
+                            value="{{email}}">
                     </div>
                     <div class="info-box">
                         <label for="home-no">Home No:</label>
@@ -192,7 +232,7 @@
                     <div class="info-box">
                         <label for="mobile-no">Cell/Mobile No:</label>
                         <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"
-                            value="{{mobil_number}}">
+                            value="{{mobile_number}}">
                     </div>
                     <div class="info-box">
                         <label for="office-no">Office No:</label>
@@ -232,13 +272,14 @@
                         <label for="consultation-reason">What is your reason for dental
                             consultation?</label>
                         <input type="text" id="consultation-reason" class="input-field"
-                            placeholder="Enter reason for consultation" value="{{minor_reason_consulation_question}}">
+                            placeholder="Enter reason for consultation" value="{{consultation}}">
                     </div>
                 </div>
             </div>
             <!-- ? END FOR MINORS GROUP-->
         </div>
     </div>
+    </form>
 
     <!-- + END PATIENT DATA-->
 
@@ -504,7 +545,21 @@
 
         <div class="dental-chart-box-container">
             <div class="dental-chart-box">upload pics here
+{{!-- Popup for adding picture --}}
+<div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
+        <input type="date" id="imageDate" required>
+        <label>Date of Picture</label>
+        <input class="image-caption" type="text" id="imageCaption">
+        <label>Picture caption/description</label>
+        <button type="submit">Upload</button>
+    </form>
+    <button id="close-upload-picture">Close</button>
+</div>
 
+{{!-- Button for adding picture --}}
+<button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
 
 
 
@@ -539,7 +594,7 @@
 
 
 
-
+{{!-- Create treatment record pop-up --}}
 
 
 
@@ -553,7 +608,7 @@
 
         <div class="buttons-group">
 
-            <div class="button add-elements">
+            <div class="button add-elements" id="create-treatment-record">
                 <img class="icon icon-add" src="/img/icon-add.svg" />
                 <div class="text-buttons text-wrapper">Add Record</div>
             </div>
