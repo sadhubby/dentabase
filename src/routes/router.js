@@ -6,7 +6,7 @@ const Router = require('express');
 const mongoose = require('mongoose');
 // other libraries to be added based on necessity / user stories.
 const session = require('express-session');
-
+const bcrypt = require('bcrypt');
 // mongoose models, add based on user stories
 
 const Patient = require('../models/patient');
@@ -402,5 +402,94 @@ router.get('/api/unique-procedures', async (req, res) => {
     }
 });
 
+router.post("/appointments", async (req, res) => {
+    try {
+        const { patientID, date, startTime, endTime, procedure, dentist } = req.body;
+
+        // Combine date with start and end times to create Date objects for the appointment times
+        const appointmentDate = new Date(date);
+        const startDateTime = new Date(appointmentDate.setHours(...startTime.split(':')));
+        const endDateTime = new Date(appointmentDate.setHours(...endTime.split(':')));
+
+        // Call createAppointment function
+        await createAppointment(patientID, startDateTime, endDateTime, procedure, dentist);
+
+        res.status(201).json({ message: "Appointment created successfully" });
+    } catch (error) {
+        console.error("Error creating appointment:", error);
+        res.status(500).json({ message: "Error creating appointment" });
+    }
+});
+// router.get('/appointments', async (req, res) => {
+//     try {
+//         const targetDate = req.query.date ? new Date(req.query.date) : new Date();
+//         targetDate.setHours(0, 0, 0, 0);
+
+//         const appointments = await Patient.find({
+//             isActive: true,
+//             effectiveDate: {
+//                 $gte: targetDate,
+//                 $lt: new Date(targetDate.getTime() + 24 * 60 * 60 * 1000)
+//             }
+//         }).populate('treatments', 'procedure');
+
+//         // Send JSON data for AJAX to process
+//         res.json(appointments);
+//     } catch (error) {
+//         console.error('Error fetching appointments:', error);
+//         res.status(500).json({ error: 'Error retrieving patient data' });
+//     }
+// });
+
+// router.post("/create-appointment", async (req, res) => {
+//     try {
+//         const { treatment, patientName, email, phone, date, startTime, endTime, nextAppointmentDate } = req.body;
+
+//         const appointmentDate = new Date(`${date}T${startTime}`);
+
+//         const newTreatment = new Treatment({
+//             id: /* generate or provide an ID */,
+//             date: appointmentDate,
+//             procedure: treatment,
+//             dentist: "Your Dentist Name", // Fetch or set as needed
+//             nextAppointmentDate: appointmentDate, // Using the calculated date-time
+//             status: "ongoing"
+//             // Add other fields as necessary
+//         });
+
+//         await newTreatment.save();
+//         res.status(201).json({ message: "Appointment created successfully" });
+//     } catch (error) {
+//         console.error("Error creating appointment:", error);
+//         res.status(500).json({ message: "Failed to create appointment" });
+//     }
+// });
+router.get('/login', (req, res) => {
+    res.render('A_LoginPage'); // Render the A_LoginPage.hbs view
+});
+
+router.post('/login', async (req, res) => {
+    const { password_body } = req.body;
+    console.log("Received password:", password_body); // Debugging log
+
+    const password = password_body; // Replace with the plain-text password you want
+    bcrypt.hash(password, 10, (err, hash) => {
+        if (err) throw err;
+    console.log("Hashed password:", hash);
+    });
+    try {
+        // Compare the entered password with the shared hashed password
+        const match = await bcrypt.compare(password, process.env.SHARED_PASSWORD_HASH);
+        
+        if (match) {
+            res.status(200).send("Login successful!");
+        } else {
+            res.status(400).send("Invalid password");
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).send("An error occurred");
+    }
+});
 
 module.exports = router;
