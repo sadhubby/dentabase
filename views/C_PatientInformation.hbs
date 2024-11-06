@@ -1,3 +1,55 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const physicianName = "{{{physician_name}}}";
+        const physicianOfficeAddress = "{{{physicianOfficeAddress}}}";
+        const physicianSpecialty = "{{{physicianSpecialty}}}";
+        const physicianOfficeNumber = "{{{physicianOfficeNumber}}}";
+        const prescription = "{{{prescription}}}";
+        const illnessOrSurgery = "{{{illnessOrSurgery}}}";
+        const condition = "{{{condition}}}";
+        const isUsingTobacco = "{{{isUsingTobacco}}}";
+        const isAlcoholOrDrugs = "{{{isAlcoholOrDrugs}}}";
+        const isPregnant = "{{{isPregnant}}}";
+        const isNursing = "{{{isNursing}}}";
+        const isBirthControlPills = "{{{isBirthControlPills}}}";
+
+        let allergies = [];
+
+        {{#each allergies}}
+        allergies.push("{{{this}}}");
+        {{/each}}
+
+        let healthProblems = [];
+
+        {{#each healthProblems}}
+        healthProblems.push("{{{this}}}");
+        {{/each}};
+
+        
+
+        fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty, physicianOfficeNumber, prescription
+                    , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills
+                    , allergies, healthProblems);
+    })
+</script>
+
+{{!-- Popup for adding picture --}}
+<div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
+        <input type="date" id="imageDate" required>
+        <label>Date of Picture</label>
+        <input class="image-caption" type="text" id="imageCaption">
+        <label>Picture caption/description</label>
+        <button type="submit">Upload</button>
+    </form>
+    <button id="close-upload-picture">Close</button>
+</div>
+
+{{!-- Button for adding picture --}}
+<button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
+
+
 <!-- `NAME PAGE, SEARCH BOX-->
 <div class="frame-1">
     <div class="name-page"> Patients</div>

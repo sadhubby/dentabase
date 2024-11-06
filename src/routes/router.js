@@ -12,6 +12,7 @@ const session = require('express-session');
 const Patient = require('../models/patient');
 const Treatment = require('../models/treatment');
 const Account = require('../models/accounts');
+const Picture = require('../models/pictures')
 const MedicalHistory = require('../models/medicalHistory');
 const { TopologyDescription } = require('mongodb');
 const sampleTreatments = require('../scripts/sampleData/treatmentData');
@@ -22,6 +23,70 @@ const router = Router();
 router.use(express.json());
 
 const app = express();
+
+//file transfers
+const path = require('path');
+const multer = require('multer');
+
+// function copyFile(src){
+//     let destDir = path.join(__dirname, '../../public/patientPic');
+//     let fileName = path.basename(src);
+
+//     let dest = path.join(destDir, fileName);
+
+//     fs.copyFile(src, dest, (err) => {
+//         if (err) {
+//             console.error("Error copying file:", err);
+//         } else {
+//             console.log("File copied from ${src} to ${dest}");
+//         }
+//     });
+// }
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../../public/patientPic'));
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    },
+});
+
+const upload = multer({ storage });
+app.use(express.urlencoded({ extended: true }));
+
+//upload picture
+router.post('/upload-pic', upload.single('file'), (req,res) => {
+    try{
+        const fileName = req.file.originalname;
+        const fileDate = req.body.date;
+        const fileCaption = req.body.caption;
+        const patientID = req.body.patientID;
+
+        const picture = new Picture({
+            fileName: fileName,
+            date: fileDate,
+            caption: fileCaption,
+            patientID: patientID
+        });
+
+        
+        picture.save().then(function(){
+            if (req.file){
+                return res.json({message: 'File uploaded successfully', file: req.file});
+            } else {
+                return res.status(400).json({ message: 'File upload failed.' });
+            }
+        });
+
+        
+    } catch(error){
+        console.error("Error uploading picture:", error);
+        res.status(500).send("Server error");
+    }
+
+    
+});
 
 
 //PATIENT-INFORMATION
@@ -64,6 +129,7 @@ router.get("/patient-information/:id", async (req, res) => {
         }
 
         res.render("C_PatientInformation", {
+            id: patient.id,
             title: fullName.trim(),
             full_name: fullName,
             age: patient.age,
