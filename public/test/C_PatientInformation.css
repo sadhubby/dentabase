@@ -1,6 +1,16 @@
+.create-treatment-popup{
+    background-color: yellow;
+    width: 600px;
+    height: 302px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display:none;
+}
+
 .upload-picture-popup {
     background-color:yellow;
-    /* display: none; */
     width: 600px;
     height: 302px;
     position: fixed;
@@ -16,7 +26,6 @@
     background-color: #fff;
 
     padding: 20px 0;
-
 }
 
 /* Header for section titles */

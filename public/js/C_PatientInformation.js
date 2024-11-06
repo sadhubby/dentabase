@@ -262,11 +262,57 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
             function(status){
                 alert(status);
             }
-        )
+        );
 
 
     })
 
+    $('#create-treatment-record').on('click', function(){
+        $('#create-treatment-popup').show();
+    });
+
+    $('#close-create-treatment').on('click', function(){
+        $('#create-treatment-popup').hide();
+    });
+
+    document.getElementById('treatment-form').addEventListener('submit', function(event){
+        event.preventDefault();
+
+        const procedureDate = $('#procedureDate').val();
+        const procedureName = $('#procedureName').val();
+        const dentistName = $('#dentistName').val();
+        const amountCharged = $('#amountCharged').val();
+        const amountPaid = $('#amountPaid').val();
+        const nextAppointmentDate = $('#nextAppointment').val();
+
+        let teethAffected = [];
+
+        for(ctr = 1; ctr <= 32; ctr++){
+            if($('#tooth' + ctr).is(':checked')){
+                teethAffected.push(ctr);
+            }
+        }
+
+        $('#create-treatment-popup').hide();
+        $.post(
+            '/create-treatment',
+            {
+                patientID : $('#treatment-form').data('id'),
+                procedureDate : procedureDate,
+                procedureName: procedureName,
+                dentistName : dentistName,
+                amountCharged : amountCharged,
+                amountPaid : amountPaid,
+                nextAppointmentDate : nextAppointmentDate,
+                teethAffected : teethAffected
+            },
+            function(){ //include status, success or fail
+                alert('Treatment recorded successfully.');
+            }
+        );
+    });
+
+    
     document.getElementById('uploadForm').addEventListener('submit', function(event) {
         event.preventDefault();
         
