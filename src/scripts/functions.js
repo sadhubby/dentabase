@@ -16,7 +16,7 @@ function convertToDate(birthdate){
         birthday = "0" + birthday;
     }
 
-    birthdate = birthmonth + "/" + birthday + "/" + birthyear;
+    birthdate = birthyear + '-' + birthmonth + '-' + birthday; 
 
     return birthdate;
 }

@@ -110,7 +110,7 @@ router.get("/patient-information/:id", async (req, res) => {
         }
 
 
-        birthdate = birthmonth + "/" + birthday + "/" + birthyear; 
+        birthdate = birthyear + '-' + birthmonth + '-' + birthday; 
 
         let fullSex = patient.sex;
 

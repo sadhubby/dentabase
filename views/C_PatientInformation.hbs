@@ -102,7 +102,9 @@
     </div>
 
     <!-- +PATIENT DATA-->
-    <div class="frame-4">
+    <form id="form">
+        <div class="frame-4">
+        <button type="submit"> Save Changes</button>
 
         <!-- `PATIENT DATA-->
         <div class="box top-box">
@@ -112,7 +114,7 @@
                 <div class="info-box">
                     <label for="birthdate">Birthdate:</label>
                     <div class="input-wrapper">
-                        <input type="text" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
+                        <input type="date" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
                             value="{{birthdate}}"
                             title="Please enter your birthdate in MM/DD/YYYY format">
                     </div>
@@ -205,7 +207,7 @@
                     </div>
                     <div class="info-box">
                         <label for="last-visit">Last Dental Visit:</label>
-                        <input type="text" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
+                        <input type="date" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
                             title="Enter last dental visit date in MM/DD/YYYY format"
                             value="{{lastDentalVisit}}">
                     </div>
@@ -220,7 +222,7 @@
                     <div class="info-box full-width">
                         <label for="email">Email:</label>
                         <input type="email" id="email" class="input-field" placeholder="Enter your email"
-                            value="{{email_address}}">
+                            value="{{email}}">
                     </div>
                     <div class="info-box">
                         <label for="home-no">Home No:</label>
@@ -270,13 +272,14 @@
                         <label for="consultation-reason">What is your reason for dental
                             consultation?</label>
                         <input type="text" id="consultation-reason" class="input-field"
-                            placeholder="Enter reason for consultation" value="{{minor_reason_consulation_question}}">
+                            placeholder="Enter reason for consultation" value="{{consultation}}">
                     </div>
                 </div>
             </div>
             <!-- ? END FOR MINORS GROUP-->
         </div>
     </div>
+    </form>
 
     <!-- + END PATIENT DATA-->
 
@@ -591,7 +594,7 @@
 
 
 
-
+{{!-- Create treatment record pop-up --}}
 
 
 
@@ -605,7 +608,7 @@
 
         <div class="buttons-group">
 
-            <div class="button add-elements">
+            <div class="button add-elements" id="create-treatment-record">
                 <img class="icon icon-add" src="/img/icon-add.svg" />
                 <div class="text-buttons text-wrapper">Add Record</div>
             </div>
