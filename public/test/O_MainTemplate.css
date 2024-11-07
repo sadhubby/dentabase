@@ -172,7 +172,7 @@ body {
   flex: 1;
   background-color: #ffffff;
   padding: 2rem; /* Using rem for scalable padding */
-  overflow: hidden;
+  overflow: clip;
 }
 
 /* `NAME PAGE, SEARCH BAR*/
