@@ -1,135 +1,153 @@
 <!-- `NAME PAGE, SEARCH BOX-->
-    <div class="frame-1">
-      <div class="name-page"> Treatments</div>
-  <div class="search-settings-group">
-    <form action ="/patient_list" method="GET">
-      <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
-        <img class="icon-search" src="/img/icon-search.svg" />
-      </button>
-      <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
-    </form>
-  </div>
-
+<div class="frame-1">
+    <div class="name-page"> Treatments</div>
+    <div class="search-settings-group">
+        <form action="/patient_list" method="GET">
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
+                <img class="icon-search" src="/img/icon-search.svg" />
+            </button>
+            <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
+        </form>
     </div>
-    <!--`END -->
 
- <!-- `TITLES -->
+</div>
+<!--`END -->
 
-      <div class="frame-2">
+<!-- `TITLES -->
 
-        <div class="title-divider"></div>
+<div class="frame-2">
 
-        <div class="title-group">
-          <div class="title-element">Active Treatments</div>
-          <img class="icon-solid-right-arrow" src="/img/icon-solid-right-arrow.svg" />
-          <div class="title-element-2">Inactive Treatments</div>
+    <div class="title-divider"></div>
+
+    <div class="title-group">
+        <div class="title-element">Active Treatments</div>
+    </div>
+    <div class="title-divider-2"></div>
+    <div class="indicator-line"></div>
+
+</div>
+<!-- `END TITLES-->
+
+
+<div class="frame-3 treatment-file">
+
+
+    <!-- `NUM treatments , DATE, BUTTONS-->
+    <div class="treatment-group">
+
+        <div class="treatment-number-elements">
+            <img class="icon-stethoscope" src="/img/icon-stethoscope.svg" />
+            <div class="treatment-number">{{recent_treatment_number}}100</div>
+            <div class="total-treatment-text">Recent Treatments</div>
         </div>
-        <div class="title-divider-2"></div>
-        <div class="indicator-line"></div>
 
-      </div>
-      <!-- `END TITLES-->
-
-
-            <div class="frame-3 treatment-file">
-
-
-                <!-- `NUM treatments , DATE, BUTTONS-->
-                <div class="treatment-group">
-
-                    <div class="treatment-number-elements">
-                        <img class="icon-stethoscope" src="/img/icon-stethoscope.svg" />
-                        <div class="treatment-number">100</div>
-                        <div class="total-treatment-text">Treatments</div>
-                    </div>
-
-                    <div class="buttons-group">
-                        <div class="button create-treatment-elements">
-                            <img class="icon icon-add" src="/img/icon-add.svg" />
-                            <div class="text-buttons add-treatment-text">Add Treatment</div>
-                        </div>
-                        <div class="divider"></div> <!-- Divider between buttons -->
-                        <div class="button filter-elements">
-                            <img class="icon-filter" src="/img/icon-filter.svg" />
-                            <div class="text-buttons text-wrapper">Filters</div>
-                        </div>
-                        <div class="divider"></div> <!-- Divider between buttons -->
-                        <div class="button edit-elements">
-                            <img class="icon icon-edit" src="/img/icon-edit.svg" />
-                            <div class="text-buttons text-wrapper">Edit</div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!--`END SCHEDULE GROUP-->
-
-
-                <!-- `LIST OF CATEGORY -->
-                <div class="treatment-category-group">
-
-                    <div class="treatment-name-elements">
-                        <div class="category-text">TREATMENT NAME</div>
-                        <img class="icon-updown" src="/img/icon-updown.svg" />
-                    </div>
-                    <div class="price-elements">
-                        <div class="category-text">PRICE</div>
-                        <img class="icon-updown" src="/img/icon-updown.svg" />
-                    </div>
-                    <div class="estimated-duration-elements">
-                        <div class="category-text">ESTIMATED DURATION</div>
-                        <img class="icon-updown" src="/img/icon-updown.svg" />
-                    </div>
-                    <div class="visit-type-elements">
-                        <div class="category-text">TYPE OF VISIT</div>
-                        <img class="icon-updown" src="/img/icon-updown.svg" />
-                    </div>
-
-
-                </div>
-                <!-- `END LIST OF CATEGORY -->
-
-
-                <!-- `treatment LIST-->
-
-                <div class="treatment-list-group">
-                   
-                   
-                   {{>D_Treatment_bar}}
-                   
-                   
-                    <div class="treatment-information-group">
-
-                        <div class="treatment-details">
-                            <div class="text-treatment">Tooth Whitening</div>
-
-                            <div class="text-price">1000</div>
-                            <div class="text-estimated-duration">3hrs</div>
-                            <div class="visit-button single-visit">SINGLE VISIT</div>
-                            <div class="visit-button multiple-visit">MULTIPLE VISIT</div>
-
-                        </div>
-
-                    </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                </div>
-                <!-- `END PATIENT LIST-->
-
-
+        <div class="buttons-group">
+           
+            <div class="button filter-elements">
+                <img class="icon-filter" src="/img/icon-filter.svg" />
+                <div class="text-buttons text-wrapper">Filters</div>
             </div>
-        </div>
-    </div>
-    <!--+END MAIN CONTENT-->
 
+        </div>
+
+    </div>
+    <!--`END SCHEDULE GROUP-->
+
+
+
+
+
+    <!-- `LIST OF CATEGORY -->
+
+    <table>
+        <thead>
+            <tr>
+
+
+                <th>
+                    <div class="patient-name-elements">
+                        <div class="category-text">NAME</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+                    </div>
+                </th>
+
+                <th>
+                    <div class="phone-elements">
+                        <div class="category-text">PHONE</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+                    </div>
+                </th>
+
+                <th>
+                    <div class="email-elements">
+                        <div class="category-text">EMAIL</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+                    </div>
+                </th>
+
+                <th>
+                    <div class="last-visit-elements">
+                        <div class="category-text">LAST VISIT</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+                    </div>
+                </th>
+
+                <th>
+                    <div class="last-treatment-elements">
+                        <div class="category-text">RECENT TREATMENT</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
+                    </div>
+                </th>
+
+            </tr>
+        </thead>
+        <!-- `END LIST OF CATEGORY -->
+
+
+        <!-- `TREATMENT LIST-->
+        <tbody>
+
+            <!-- #each treatment_patient -->
+
+            <tr>
+
+                <td>
+                    <div class="name" onclick="window.location.href='/patient-information/{{{id}}}'"
+                        style="cursor: pointer;">
+                        {{firstName}} {{lastName}}ASASAS</div>
+                </td>
+                <td>
+
+                    <div class="phone">{{{contact}}}ASASASA</div>
+                </td>
+                <td>
+
+                    <div class="email">{{{email}}}SDDD</div>
+                </td>
+
+                <td>
+                    <div class="next-visit">{{{latestTreatmentDate}}}</div>
+                </td>
+
+                <td>
+                    <div class="treatment">{{{latestProcedure}}}SDSDSDS</div>
+                </td>
+
+            </tr>
+            <!--  /each -->
+
+        </tbody>
+    </table>
+    <!-- `END TREATMENT LIST-->
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+<!--+END MAIN CONTENT-->
