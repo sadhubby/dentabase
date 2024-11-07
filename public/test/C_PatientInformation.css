@@ -160,7 +160,9 @@
     height: 15.49px;
 }
 
-
+#patient-data, #medical-history, #dental-record-chart, #informed-consent, #treatment-record {
+    scroll-margin-top: 80px; 
+}
 
 /* ` END NAME-buttom-GROUP*/
 
