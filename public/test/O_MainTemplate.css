@@ -269,7 +269,7 @@ left: 37px
 
 .title-element{
  
-  color: #485fe7;;
+  color: #485fe7;
 }
 
 .icon-solid-right-arrow{
@@ -286,9 +286,6 @@ left: 37px
   transition: background-color 0.3s ease; /* Optional: smooth transition for hover effects */
 }
 
-.indicator-line:hover {
-  background-color: #485fe7;; /* Darker color on hover (optional) */
-}
 
 
 /* `DETAILS OF PATIENT */
