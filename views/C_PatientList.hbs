@@ -2,7 +2,7 @@
 <div class="frame-1">
   <div class="name-page"> Patients</div>
   <div class="search-settings-group">
-    <form action ="/patient_list" method="GET">
+    <form action="/patient_list" method="GET">
       <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
         <img class="icon-search" src="/img/icon-search.svg" />
       </button>
@@ -49,21 +49,25 @@
     <div class="buttons-group">
       <div class="button create-patient-elements">
         <img class="icon icon-add" src="/img/icon-add.svg" />
-        <div class="text-buttons create-patient-text" onclick="createPatient()" >Create patient</div>
+        <div class="text-buttons create-patient-text" onclick="createPatient()">Create patient</div>
       </div>
       <div class="divider"></div> <!-- Divider between buttons -->
-    
-      <div class="button filter-elements">
-        <img class="icon-filter" src="/img/icon-filter.svg" />
-        <div class="text-buttons text-wrapper">Filters
 
-          <select id="procedure-filter" onchange="filterPatients()">
-            <option value="">Select a Procedure</option>
-          </select>
+   
+
+
+      <div class="button filter-elements" id="procedure-filter">
+         <img class="icon-filter" src="/img/icon-filter.svg" />
+        <button class="filter-text">Filter</button>
+        <div class="dropdown-content">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+          <a href="#">Option 4</a>
         </div>
       </div>
-    
-    
+
+
       <div class="divider"></div> <!-- Divider between buttons -->
       <div class="button edit-elements">
         <img class="icon icon-edit" src="/img/icon-edit.svg" />
@@ -163,11 +167,11 @@
 
           <div class="registered-date">{{registered_date}}</div>
         </td>
-        
+
         <td>
           <div class="next-visit">{{{latestTreatmentDate}}}</div>
         </td>
-        
+
         <td>
           <div class="treatment">{{{latestProcedure}}}</div>
 
