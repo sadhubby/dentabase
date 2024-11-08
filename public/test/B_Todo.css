@@ -51,25 +51,27 @@
   
 }
 
+/*  ?BUTTONS GROUP */
 .todo-file .buttons-group {
-    display: flex; /* Use flexappointment-category-group for layout */
-    align-items: center; /* Align items vertically in the center */
+    display: flex;
+    align-items: center;
+    margin-right: 1%;
 }
 
 .todo-file .divider {
-    width: 1px; /* Width of the divider line */
-    height: 30px; /* Height of the divider line */
-    background-color: #6b84ea; /* Color of the divider line */
-    margin: 0 5px; /* Margin around the divider */
+    width: 1px;
+    height: 30px;
+    background-color: #6b84ea;
+    margin: 0 5px;
 }
 
 /* Base styles for buttons */
 .todo-file .button {
     display: flex;
     align-items: center;
-    gap: 4px; /* Default gap between icon and text */
+    gap: 4px;
     border-radius: 6.85px;
-    position: relative;
+    
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
     font-size: 13.7px;
@@ -78,19 +80,97 @@
 
 /* Specific button styles */
 .todo-file .create-appointment-elements {
-    width: 165px;
+    width: 160px;
     height: 41.12px;
     padding: 11.65px 6.85px;
     background-color: #485fe7;
+    cursor: pointer;
+}
+
+/* Specific button styles */
+.todo-file .create-appointment-elements:hover {
+  
+    background-color: #2843da;
+
 }
 
 
+
+/* Wrapper for the filter button and dropdown */
 .todo-file .filter-elements {
-    width: 81.55px;
-    height: 41.12px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
     padding: 9.59px 4.8px;
+    
     background-color: #485fe796;
+    height: 41.12px;
+    cursor: pointer;
+    border-radius: 5px;
 }
+
+/* Hover effect for filter button */
+.todo-file .filter-elements:hover {
+    background-color: #0d229b96;
+}
+
+/* Filter button styling */
+.todo-file .filter-text {
+    background-color: transparent;
+    color: white;
+    padding: 0px 10px 0px 0px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Icon styles */
+.todo-file .icon-filter {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+}
+
+/* Dropdown content (hidden by default) */
+.todo-file .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Place dropdown below the button */
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+/* Dropdown items */
+.todo-file .dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+/* Last item without border */
+.todo-file .dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Change color on hover */
+.todo-file .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on button click */
+.todo-file .filter-elements:focus-within .dropdown-content {
+    display: block;
+}
+
+
 
 .todo-file .edit-elements {
     width: 69.9px;
