@@ -172,7 +172,7 @@ body {
   flex: 1;
   background-color: #ffffff;
   padding: 2rem; /* Using rem for scalable padding */
-  overflow: hidden;
+  overflow: clip;
 }
 
 /* `NAME PAGE, SEARCH BAR*/
@@ -205,10 +205,13 @@ body {
  left: 10%;
   width: 50rem;
   scale: 0.8;
+  margin-top: -1.7rem; 
+  margin-left: -30rem;
 }
 
 .search-box {
-  width: 40%;
+  width: 400px;
+  margin-top: -1rem;
   height: 2.8rem; /* Using rem for scalable height */
   background-color: #f5f6fa;
   border-radius: 22px; /* Slight adjustment for consistency */
@@ -230,7 +233,8 @@ body {
   position: relative;
   width: 1.5rem; /* Using rem for scalable icon size */
   height: 1.5rem; /* Using rem for scalable icon size */
-left: 37px
+  left: 45px;
+  top: 3px;
 }
 
 /* `END  NAME PAGE, SEARCH BOX*/
