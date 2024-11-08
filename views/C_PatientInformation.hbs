@@ -1,3 +1,4 @@
+
 <script>
     document.addEventListener("DOMContentLoaded", function(){
         const physicianName = "{{{physician_name}}}";
@@ -31,154 +32,11 @@
                     , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills
                     , allergies, healthProblems);
     })
+
+
+
+
 </script>
-
-<div id="create-treatment-popup" class="create-treatment-popup">
-    <form id="treatment-form" data-id="{{id}}">
-        <!-- Date of Procedure -->
-        <div class="form-group">
-            <label for="procedureDate">Date of Treatment:</label>
-            <input type="date" id="procedureDate" name="procedureDate" required>
-        </div>
-
-        <!-- Procedure Description -->
-        <div class="form-group">
-            <label for="procedureName">Procedure:</label>
-            <input type="text" id="procedureName" name="procedureName" placeholder="Enter procedure name" required>
-        </div>
-
-        <!-- Dentist Performing Procedure -->
-        <div class="form-group">
-            <label for="dentistName">Dentist:</label>
-            <input type="text" id="dentistName" name="dentistName" placeholder="Enter dentist's name" required>
-        </div>
-
-        <!-- Amount Charged -->
-        <div class="form-group">
-            <label for="amountCharged">Amount Charged:</label>
-            <input type="number" id="amountCharged" name="amountCharged" placeholder="Enter amount charged" step="0.01" min="0" required>
-        </div>
-
-        <!-- Amount Paid -->
-        <div class="form-group">
-            <label for="amountPaid">Amount Paid:</label>
-            <input type="number" id="amountPaid" name="amountPaid" placeholder="Enter amount paid" step="0.01" min="0" required>
-        </div>
-
-        <div class="form-group">
-            <label for="nextAppointment">Date of Next Appointment:</label>
-            <input type="date" id="nextAppointment" name="nextAppointment" required>
-        </div>
-
-        <div>Teeth affected: </div>
-        <label><input type="checkbox" name="teeth" id="tooth1" value="tooth1">1</label> 
-        <label><input type="checkbox" name="teeth" id="tooth2" value="tooth2">2</label>
-        <label><input type="checkbox" name="teeth" id="tooth3" value="tooth3">3</label>
-        <label><input type="checkbox" name="teeth" id="tooth4" value="tooth4">4</label>
-        <label><input type="checkbox" name="teeth" id="tooth5" value="tooth5">5</label>
-        <label><input type="checkbox" name="teeth" id="tooth6" value="tooth6">6</label>
-        <label><input type="checkbox" name="teeth" id="tooth7" value="tooth7">7</label>
-        <label><input type="checkbox" name="teeth" id="tooth8" value="tooth8">8</label>
-        <label><input type="checkbox" name="teeth" id="tooth9" value="tooth9">9</label>
-        <label><input type="checkbox" name="teeth" id="tooth10" value="tooth10">10</label> </br>
-        <label><input type="checkbox" name="teeth" id="tooth11" value="tooth11">11</label>
-        <label><input type="checkbox" name="teeth" id="tooth12" value="tooth12">12</label>
-        <label><input type="checkbox" name="teeth" id="tooth13" value="tooth13">13</label>
-        <label><input type="checkbox" name="teeth" id="tooth14" value="tooth14">14</label>
-        <label><input type="checkbox" name="teeth" id="tooth15" value="tooth15">15</label>
-        <label><input type="checkbox" name="teeth" id="tooth16" value="tooth16">16</label>
-        <label><input type="checkbox" name="teeth" id="tooth17" value="tooth17">17</label>
-        <label><input type="checkbox" name="teeth" id="tooth18" value="tooth18">18</label>
-        <label><input type="checkbox" name="teeth" id="tooth19" value="tooth19">19</label>
-        <label><input type="checkbox" name="teeth" id="tooth20" value="tooth20">20</label> </br>
-        <label><input type="checkbox" name="teeth" id="tooth21" value="tooth21">21</label>
-        <label><input type="checkbox" name="teeth" id="tooth22" value="tooth22">22</label>
-        <label><input type="checkbox" name="teeth" id="tooth23" value="tooth23">23</label>
-        <label><input type="checkbox" name="teeth" id="tooth24" value="tooth24">24</label>
-        <label><input type="checkbox" name="teeth" id="tooth25" value="tooth25">25</label>
-        <label><input type="checkbox" name="teeth" id="tooth26" value="tooth26">26</label>
-        <label><input type="checkbox" name="teeth" id="tooth27" value="tooth27">27</label>
-        <label><input type="checkbox" name="teeth" id="tooth28" value="tooth28">28</label>
-        <label><input type="checkbox" name="teeth" id="tooth29" value="tooth29">29</label>
-        <label><input type="checkbox" name="teeth" id="tooth30" value="tooth30">30</label>
-        <label><input type="checkbox" name="teeth" id="tooth31" value="tooth31">31</label>
-        <label><input type="checkbox" name="teeth" id="tooth32" value="tooth32">32</label> </br>
-
-        <!-- Submit Button -->
-        <button type="submit">Submit</button> </br>
-        <button id="close-create-treatment">Close</button>
-    </form>
-</div>
-
-<!-- Add more as needed --><style>
-    <style>
-    .dental-chart-box-container {
-        padding: 20px;
-        background-color: #f5f5f5;
-        border-radius: 10px;
-        border: 1px solid #ddd;
-    }
-    .dental-chart-box {
-        margin-top: 10px;
-        text-align: center;
-        padding: 15px;
-        border: 2px dashed #ddd;
-        background-color: #fff;
-        border-radius: 10px;
-        font-family: Arial, sans-serif;
-    }
-    .upload-picture-popup {
-        background-color: rgba(0, 0, 0, 0.6);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        border-radius: 10px;
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .input-label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-        font-size: 14px;
-    }
-    .input-field, .file-input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    .upload-button, .close-button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 10px;
-        width: 100%;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-    .upload-button:hover, .close-button:hover {
-        background-color: #0056b3;
-    }
-    .open-upload-popup {
-        background-color: #28a745;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-    .open-upload-popup:hover {
-        background-color: #218838;
-    }
-</style>
-</style>
 
 
 <!-- `NAME PAGE, SEARCH BOX-->
@@ -249,181 +107,179 @@
     <!-- +PATIENT DATA-->
     <form id="update-patient-form" data-id="{{id}}">
         <div class="frame-4">
-        <button type="submit"> Save Changes</button>
+            <button type="submit"> Save Changes</button>
 
-        <!-- `PATIENT DATA-->
-        <div class="box top-box">
-            <div class="header patient-data-group" id="patient-data">| PATIENT DATA</div>
+            <!-- `PATIENT DATA-->
+            <div class="box top-box">
+                <div class="header patient-data-group" id="patient-data">| PATIENT DATA</div>
 
-            <div class="info-grid">
-                <div class="info-box">
-                    <label for="birthdate">Birthdate:</label>
-                    <div class="input-wrapper">
-                        <input type="date" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
-                            value="{{birthdate}}"
-                            title="Please enter your birthdate in MM/DD/YYYY format" required>
+                <div class="info-grid">
+                    <div class="info-box">
+                        <label for="birthdate">Birthdate:</label>
+                        <div class="input-wrapper">
+                            <input type="date" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
+                                value="{{birthdate}}" title="Please enter your birthdate in MM/DD/YYYY format" required>
+                        </div>
+
+
                     </div>
 
+                    <div class="info-box">
+                        <label for="age">Age:</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="age" class="input-field" min="0" placeholder="Enter your age"
+                                value="{{age}}" required>
+                        </div>
+                    </div>
 
+                    <div class="info-box">
+                        <label for="nickname">Nickname:</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="nickname" class="input-field" placeholder="Enter your nickname"
+                                value="{{nickname}}">
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <label for="sex">Sex:</label>
+                        <div class="input-wrapper">
+                            <select id="sex" class="input-field" name="sex" title="Please select your sex" required>
+                                <option value="{{fullSex}}" disabled selected>{{fullSex}}</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="info-box">
+                        <label for="occupation">Occupation:</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
+                                value="{{occupation}}" required>
+                        </div>
+                    </div>
+
+                    <div class="info-box full-width">
+                        <label for="address">Address:</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="address" class="input-field" placeholder="Enter your address"
+                                value="{{home_address}}" required>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <label for="religion">Religion:</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="religion" class="input-field" placeholder="Enter your religion"
+                                value="{{religion}}">
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <label for="nationality">Nationality:</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="nationality" class="input-field" placeholder="Enter your nationality"
+                                value="{{nationality}}" required>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <label for="insurance">Dental Insurance:</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="insurance" class="input-field"
+                                placeholder="Enter your dental insurance" value="{{dental_insurance}}">
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="info-box">
-                    <label for="age">Age:</label>
-                    <div class="input-wrapper">
-                        <input type="number" id="age" class="input-field" min="0" placeholder="Enter your age"
-                            value="{{age}}" required>
+            <!-- `END PATIENT DATA-->
+
+
+            <!-- ?DENTAL GROUP-->
+            <div class="box-container">
+                <div class="box bottom-box dental-history-group">
+                    <div class="header">| DENTAL HISTORY</div>
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <label for="previous-dentist">Previous Dentist:</label>
+                            <input type="text" id="previous-dentist" class="input-field"
+                                placeholder="Enter name of previous dentist" value="{{previous_dentist}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="last-visit">Last Dental Visit:</label>
+                            <input type="date" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
+                                title="Enter last dental visit date in MM/DD/YYYY format" value="{{lastDentalVisit}}">
+                        </div>
+                    </div>
+                </div>
+                <!-- ?end DENTAL GROUP-->
+
+                <!-- ?CONTACT INFO GROUP -->
+                <div class="box bottom-box contact-information">
+                    <div class="header">| CONTACT INFORMATION</div>
+                    <div class="info-grid">
+                        <div class="info-box full-width">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" class="input-field" placeholder="Enter your email"
+                                value="{{email}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="home-no">Home No:</label>
+                            <input type="text" id="home-no" class="input-field" placeholder="Enter home number"
+                                value="{{home_number}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="mobile-no">Cell/Mobile No:</label>
+                            <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"
+                                value="{{mobile_number}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="office-no">Office No:</label>
+                            <input type="text" id="office-no" class="input-field" placeholder="Enter office number"
+                                value="{{office_number}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="fax-no">Fax No:</label>
+                            <input type="text" id="fax-no" class="input-field" placeholder="Enter fax number"
+                                value="{{fax_number}}">
+                        </div>
                     </div>
                 </div>
 
-                <div class="info-box">
-                    <label for="nickname">Nickname:</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="nickname" class="input-field" placeholder="Enter your nickname"
-                            value="{{nickname}}">
+                <!-- ? END CONTACT INFO GROUP-->
+
+                <!-- ? FOR MINORS GROUP-->
+                <div class="box bottom-box for-minors-group">
+                    <div class="header">| FOR MINORS</div>
+                    <div class="info-grid">
+                        <div class="info-box full-width">
+                            <label for="guardian-name">Parent/Guardian's Name:</label>
+                            <input type="text" id="guardian-name" class="input-field"
+                                placeholder="Enter name of parent/guardian" value="{{guardian_name}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="guardian-occupation">Occupation:</label>
+                            <input type="text" id="guardian-occupation" class="input-field"
+                                placeholder="Enter occupation" value="{{guardian_occupation}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="referral-source">Whom may we thank for referring you?</label>
+                            <input type="text" id="referral-source" class="input-field"
+                                placeholder="Enter referral source" value="{{minor_referral_question}}">
+                        </div>
+                        <div class="info-box">
+                            <label for="consultation-reason">What is your reason for dental
+                                consultation?</label>
+                            <input type="text" id="consultation-reason" class="input-field"
+                                placeholder="Enter reason for consultation" value="{{consultation}}">
+                        </div>
                     </div>
                 </div>
-
-                <div class="info-box">
-                    <label for="sex">Sex:</label>
-                    <div class="input-wrapper">
-                        <select id="sex" class="input-field" name="sex" title="Please select your sex" required>
-                            <option value="{{fullSex}}" disabled selected>{{fullSex}}</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="info-box">
-                    <label for="occupation">Occupation:</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
-                            value="{{occupation}}" required>
-                    </div>
-                </div>
-
-                <div class="info-box full-width">
-                    <label for="address">Address:</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="address" class="input-field" placeholder="Enter your address"
-                            value="{{home_address}}" required>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <label for="religion">Religion:</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="religion" class="input-field" placeholder="Enter your religion"
-                            value="{{religion}}">
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <label for="nationality">Nationality:</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="nationality" class="input-field" placeholder="Enter your nationality"
-                            value="{{nationality}}" required>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <label for="insurance">Dental Insurance:</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="insurance" class="input-field" placeholder="Enter your dental insurance"
-                            value="{{dental_insurance}}">
-                    </div>
-                </div>
+                <!-- ? END FOR MINORS GROUP-->
             </div>
         </div>
-
-        <!-- `END PATIENT DATA-->
-
-
-        <!-- ?DENTAL GROUP-->
-        <div class="box-container">
-            <div class="box bottom-box dental-history-group">
-                <div class="header">| DENTAL HISTORY</div>
-                <div class="info-grid">
-                    <div class="info-box">
-                        <label for="previous-dentist">Previous Dentist:</label>
-                        <input type="text" id="previous-dentist" class="input-field"
-                            placeholder="Enter name of previous dentist" value="{{previous_dentist}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="last-visit">Last Dental Visit:</label>
-                        <input type="date" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
-                            title="Enter last dental visit date in MM/DD/YYYY format"
-                            value="{{lastDentalVisit}}">
-                    </div>
-                </div>
-            </div>
-            <!-- ?end DENTAL GROUP-->
-
-            <!-- ?CONTACT INFO GROUP -->
-            <div class="box bottom-box contact-information">
-                <div class="header">| CONTACT INFORMATION</div>
-                <div class="info-grid">
-                    <div class="info-box full-width">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" class="input-field" placeholder="Enter your email"
-                            value="{{email}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="home-no">Home No:</label>
-                        <input type="text" id="home-no" class="input-field" placeholder="Enter home number"
-                            value="{{home_number}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="mobile-no">Cell/Mobile No:</label>
-                        <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"
-                            value="{{mobile_number}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="office-no">Office No:</label>
-                        <input type="text" id="office-no" class="input-field" placeholder="Enter office number"
-                            value="{{office_number}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="fax-no">Fax No:</label>
-                        <input type="text" id="fax-no" class="input-field" placeholder="Enter fax number"
-                            value="{{fax_number}}">
-                    </div>
-                </div>
-            </div>
-
-            <!-- ? END CONTACT INFO GROUP-->
-
-            <!-- ? FOR MINORS GROUP-->
-            <div class="box bottom-box for-minors-group">
-                <div class="header">| FOR MINORS</div>
-                <div class="info-grid">
-                    <div class="info-box full-width">
-                        <label for="guardian-name">Parent/Guardian's Name:</label>
-                        <input type="text" id="guardian-name" class="input-field"
-                            placeholder="Enter name of parent/guardian" value="{{guardian_name}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="guardian-occupation">Occupation:</label>
-                        <input type="text" id="guardian-occupation" class="input-field" placeholder="Enter occupation"
-                            value="{{guardian_occupation}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="referral-source">Whom may we thank for referring you?</label>
-                        <input type="text" id="referral-source" class="input-field" placeholder="Enter referral source"
-                            value="{{minor_referral_question}}">
-                    </div>
-                    <div class="info-box">
-                        <label for="consultation-reason">What is your reason for dental
-                            consultation?</label>
-                        <input type="text" id="consultation-reason" class="input-field"
-                            placeholder="Enter reason for consultation" value="{{consultation}}">
-                    </div>
-                </div>
-            </div>
-            <!-- ? END FOR MINORS GROUP-->
-        </div>
-    </div>
     </form>
 
     <!-- + END PATIENT DATA-->
@@ -439,7 +295,7 @@
         <div class="medical-history-grid">
             <div class="medical-box">
                 <label for="physician-name">Name of Physician:</label>
-                <input type="text" id="physician-name" class="input-field" placeholder="Enter physician's name"  >
+                <input type="text" id="physician-name" class="input-field" placeholder="Enter physician's name">
             </div>
             <div class="medical-box">
                 <label for="specialty">Specialty,If Applicable:</label>
@@ -557,7 +413,8 @@
                 <div class="allergy-list" id="allergy-list">
                     <p>Please select any allergies:</p>
                     <div class="allergy-options">
-                        <label><input type="checkbox" id="lidocaine" name="allergy-options" value="Local Anesthetic (ex. Lidocaine)">
+                        <label><input type="checkbox" id="lidocaine" name="allergy-options"
+                                value="Local Anesthetic (ex. Lidocaine)">
                             Local Anesthetic (ex.
                             Lidocaine)</label>
                         <label><input type="checkbox" id="penicillin" name="allergy-options" value="Penicillin">
@@ -613,11 +470,13 @@
                     that apply:</label>
 
 
-               <div class="checkbox-group">
+                <div class="checkbox-group">
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="high-blood-pressure" id="high-blood-pressure"> High
+                        <label><input type="checkbox" name="conditions" value="high-blood-pressure"
+                                id="high-blood-pressure"> High
                             Blood Pressure</label><br>
-                        <label><input type="checkbox" name="conditions" value="low-blood-pressure" id="low-blood-pressure"> Low
+                        <label><input type="checkbox" name="conditions" value="low-blood-pressure"
+                                id="low-blood-pressure"> Low
                             Blood Pressure</label><br>
                         <label><input type="checkbox" name="conditions" value="epilepsy" id="epilepsy"> Epilepsy /
                             Convulsions</label><br>
@@ -625,45 +484,57 @@
                             Infection</label><br>
                         <label><input type="checkbox" name="conditions" value="std" id="std"> Sexually Transmitted
                             Disease</label><br>
-                        <label><input type="checkbox" name="conditions" value="stomach-troubles" id="stomach-troubles"> Stomach
+                        <label><input type="checkbox" name="conditions" value="stomach-troubles" id="stomach-troubles">
+                            Stomach
                             Troubles / Ulcers</label><br>
-                        <label><input type="checkbox" name="conditions" value="fainting-seizure" id="fainting-seizure"> Fainting
+                        <label><input type="checkbox" name="conditions" value="fainting-seizure" id="fainting-seizure">
+                            Fainting
                             Seizure</label><br>
-                        <label><input type="checkbox" name="conditions" value="rapid-weight-loss" id="rapid-weight-loss"> Rapid
+                        <label><input type="checkbox" name="conditions" value="rapid-weight-loss"
+                                id="rapid-weight-loss"> Rapid
                             Weight Loss</label><br>
                     </div>
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="radiation-therapy" id="radiation-therapy"> Radiation
+                        <label><input type="checkbox" name="conditions" value="radiation-therapy"
+                                id="radiation-therapy"> Radiation
                             Therapy</label><br>
-                        <label><input type="checkbox" name="conditions" value="joint-replacement" id="joint-replacement"> Joint
+                        <label><input type="checkbox" name="conditions" value="joint-replacement"
+                                id="joint-replacement"> Joint
                             Replacement / Implant</label><br>
                         <label><input type="checkbox" name="conditions" value="heart-surgery" id="heart-surgery"> Heart
                             Surgery</label><br>
                         <label><input type="checkbox" name="conditions" value="heart-attack" id="heart-attack"> Heart
                             Attack</label><br>
-                        <label><input type="checkbox" name="conditions" value="thyroid-problem" id="thyroid-problem"> Thyroid
+                        <label><input type="checkbox" name="conditions" value="thyroid-problem" id="thyroid-problem">
+                            Thyroid
                             Problem</label><br>
                         <label><input type="checkbox" name="conditions" value="heart-disease" id="heart-disease"> Heart
                             Disease</label><br>
                         <label><input type="checkbox" name="conditions" value="heart-murmur" id="heart-murmur"> Heart
                             Murmur</label><br>
-                        <label><input type="checkbox" name="conditions" value="hepatitis-liver" id="hepatitis-liver"> Hepatitis /
+                        <label><input type="checkbox" name="conditions" value="hepatitis-liver" id="hepatitis-liver">
+                            Hepatitis /
                             Liver Disease</label><br>
                     </div>
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="rheumatic-fever" id="rheumatic-fever"> Rheumatic
+                        <label><input type="checkbox" name="conditions" value="rheumatic-fever" id="rheumatic-fever">
+                            Rheumatic
                             Fever</label><br>
                         <label><input type="checkbox" name="conditions" value="hay-fever" id="hay-fever"> Hay Fever /
                             Allergies</label><br>
-                        <label><input type="checkbox" name="conditions" value="respiratory-problem" id="respiratory-problem">
+                        <label><input type="checkbox" name="conditions" value="respiratory-problem"
+                                id="respiratory-problem">
                             Respiratory Problem</label><br>
-                        <label><input type="checkbox" name="conditions" value="hepatitis-jaundice" id="hepatitis-jaundice">
+                        <label><input type="checkbox" name="conditions" value="hepatitis-jaundice"
+                                id="hepatitis-jaundice">
                             Hepatitis / Jaundice</label><br>
                         <label><input type="checkbox" name="conditions" value="tuberculosis" id="tuberculosis">
                             Tuberculosis</label><br>
-                        <label><input type="checkbox" name="conditions" value="swollen-ankles" id="swollen-ankles"> Swollen
+                        <label><input type="checkbox" name="conditions" value="swollen-ankles" id="swollen-ankles">
+                            Swollen
                             Ankles</label><br>
-                        <label><input type="checkbox" name="conditions" value="kidney-disease" id="kidney-disease"> Kidney
+                        <label><input type="checkbox" name="conditions" value="kidney-disease" id="kidney-disease">
+                            Kidney
                             Disease</label><br>
                         <label><input type="checkbox" name="conditions" value="diabetes" id="diabetes">
                             Diabetes</label><br>
@@ -683,18 +554,18 @@
     </div>
     <!--+END MEDICAL HISTORY FRAME-->
 
-{{!-- Popup for adding picture --}}
-<div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
-        <input type="date" id="imageDate" required>
-        <label>Date of Picture</label>
-        <input class="image-caption" type="text" id="imageCaption">
-        <label>Picture caption/description</label>
-        <button type="submit">Upload</button>
-    </form>
-    <button id="close-upload-picture">Close</button>
-</div>
+    {{!-- Popup for adding picture --}}
+    <div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
+            <input type="date" id="imageDate" required>
+            <label>Date of Picture</label>
+            <input class="image-caption" type="text" id="imageCaption">
+            <label>Picture caption/description</label>
+            <button type="submit">Upload</button>
+        </form>
+        <button id="close-upload-picture">Close</button>
+    </div>
 
     <!--+DENTAL CHART FRAME-->
     <div class="frame-4">
@@ -747,7 +618,7 @@
 
 
 
-{{!-- Create treatment record pop-up --}}
+    {{!-- Create treatment record pop-up --}}
 
 
 
@@ -756,7 +627,7 @@
 
 
     <!--+ TREATMENT RECORD FRAME-->
-    <div class="frame-4 ">
+    <div class="frame-4">
         <div class="header treatment-history-title" id="treatment-record">| TREATMENT HISTORY</div>
 
         <div class="buttons-group">
@@ -875,6 +746,133 @@
 
 
 
+        <!--  `ADD TODO FORM  -->
+        <div id="create-treatment-popup" class="create-treatment-popup">
+            <div class="add-record-text">Add A Record</div>
+
+
+
+            <form id="treatment-form" data-id="{{id}}">
+                <!-- Date of Procedure -->
+                <div class="form-group">
+                    <label for="procedureDate">Date of Treatment:</label>
+                    <input type="date" id="procedureDate" name="procedureDate" required>
+                </div>
+
+                <!-- Procedure Description -->
+                <div class="form-group">
+                    <label for="procedureName">Procedure:</label>
+                    <input type="text" id="procedureName" name="procedureName" placeholder="Enter procedure name"
+                        required>
+                </div>
+
+                <!-- Dentist Performing Procedure -->
+                <div class="form-group">
+                    <label for="dentistName">Dentist:</label>
+                    <input type="text" id="dentistName" name="dentistName" placeholder="Enter dentist's name" required>
+                </div>
+
+                <!-- Amount Charged -->
+                <div class="form-group">
+                    <label for="amountCharged">Amount Charged:</label>
+                    <input type="number" id="amountCharged" name="amountCharged" placeholder="Enter amount charged"
+                        step="0.01" min="0" required>
+                </div>
+
+                <!-- Amount Paid -->
+                <div class="form-group">
+                    <label for="amountPaid">Amount Paid:</label>
+                    <input type="number" id="amountPaid" name="amountPaid" placeholder="Enter amount paid" step="0.01"
+                        min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nextAppointment">Date of Next Appointment:</label>
+                    <input type="date" id="nextAppointment" name="nextAppointment" required>
+                </div>
+
+
+                <div>Teeth affected:</div>
+                <div class="teeth-grid">
+                    <!-- Row 1: Teeth 1-10 -->
+                    <input type="checkbox" name="teeth" id="tooth1" value="1">
+                    <label for="tooth1">1</label>
+                    <input type="checkbox" name="teeth" id="tooth2" value="2">
+                    <label for="tooth2">2</label>
+                    <input type="checkbox" name="teeth" id="tooth3" value="3">
+                    <label for="tooth3">3</label>
+                    <input type="checkbox" name="teeth" id="tooth4" value="4">
+                    <label for="tooth4">4</label>
+                    <input type="checkbox" name="teeth" id="tooth5" value="5">
+                    <label for="tooth5">5</label>
+                    <input type="checkbox" name="teeth" id="tooth6" value="6">
+                    <label for="tooth6">6</label>
+                    <input type="checkbox" name="teeth" id="tooth7" value="7">
+                    <label for="tooth7">7</label>
+                    <input type="checkbox" name="teeth" id="tooth8" value="8">
+                    <label for="tooth8">8</label>
+                    <input type="checkbox" name="teeth" id="tooth9" value="9">
+                    <label for="tooth9">9</label>
+                    <input type="checkbox" name="teeth" id="tooth10" value="10">
+                    <label for="tooth10">10</label>
+
+                    <!-- Row 2: Teeth 11-20 -->
+                    <input type="checkbox" name="teeth" id="tooth11" value="11">
+                    <label for="tooth11">11</label>
+                    <input type="checkbox" name="teeth" id="tooth12" value="12">
+                    <label for="tooth12">12</label>
+                    <input type="checkbox" name="teeth" id="tooth13" value="13">
+                    <label for="tooth13">13</label>
+                    <input type="checkbox" name="teeth" id="tooth14" value="14">
+                    <label for="tooth14">14</label>
+                    <input type="checkbox" name="teeth" id="tooth15" value="15">
+                    <label for="tooth15">15</label>
+                    <input type="checkbox" name="teeth" id="tooth16" value="16">
+                    <label for="tooth16">16</label>
+                    <input type="checkbox" name="teeth" id="tooth17" value="17">
+                    <label for="tooth17">17</label>
+                    <input type="checkbox" name="teeth" id="tooth18" value="18">
+                    <label for="tooth18">18</label>
+                    <input type="checkbox" name="teeth" id="tooth19" value="19">
+                    <label for="tooth19">19</label>
+                    <input type="checkbox" name="teeth" id="tooth20" value="20">
+                    <label for="tooth20">20</label>
+
+                    <!-- Row 3: Teeth 21-32 -->
+                    <input type="checkbox" name="teeth" id="tooth21" value="21">
+                    <label for="tooth21">21</label>
+                    <input type="checkbox" name="teeth" id="tooth22" value="22">
+                    <label for="tooth22">22</label>
+                    <input type="checkbox" name="teeth" id="tooth23" value="23">
+                    <label for="tooth23">23</label>
+                    <input type="checkbox" name="teeth" id="tooth24" value="24">
+                    <label for="tooth24">24</label>
+                    <input type="checkbox" name="teeth" id="tooth25" value="25">
+                    <label for="tooth25">25</label>
+                    <input type="checkbox" name="teeth" id="tooth26" value="26">
+                    <label for="tooth26">26</label>
+                    <input type="checkbox" name="teeth" id="tooth27" value="27">
+                    <label for="tooth27">27</label>
+                    <input type="checkbox" name="teeth" id="tooth28" value="28">
+                    <label for="tooth28">28</label>
+                    <input type="checkbox" name="teeth" id="tooth29" value="29">
+                    <label for="tooth29">29</label>
+                    <input type="checkbox" name="teeth" id="tooth30" value="30">
+                    <label for="tooth30">30</label>
+                    <input type="checkbox" name="teeth" id="tooth31" value="31">
+                    <label for="tooth31">31</label>
+                    <input type="checkbox" name="teeth" id="tooth32" value="32">
+                    <label for="tooth32">32</label>
+                </div>
+
+
+                <!-- ?Submit Button -->
+                <div class="form-buttons">
+                    <button id="close-create-treatment" class="close-button">Close</button>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
 
 
 
@@ -883,10 +881,7 @@
 
 
 
-
-
-
-    </div>
+  </div>
     <!-- +END TREATMENT RECORD FRAME-->
 
 

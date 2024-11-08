@@ -1,25 +1,4 @@
-.create-treatment-popup{
-    background-color: yellow;
-    width: 600px;
-    height: 500px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display:none;
-    z-index: 9999; /* Very high value to ensure it's in front */
-}
 
-.upload-picture-popup {
-    background-color:yellow;
-    width: 600px;
-    height: 302px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display:none;
-  }
 
 /* Frame styling */
 .patient-info-file .frame-4 {
@@ -136,18 +115,19 @@
     font-weight: 400;
     font-size: 13.7px;
     color: #ffffff;
+    cursor: pointer;
 }
 
 /* Specific button styles */
 .patient-info-file .patient-info-elements {
     display: inline-flex;
-   width: 65%;
+    width: 65%;
     align-items: center;
-   
+
     padding: 11.65px 6.85px;
     background-color: #485fe7;
     border-radius: 5px;
-   
+
     color: #ffffff;
 
 
@@ -160,8 +140,12 @@
     height: 15.49px;
 }
 
-#patient-data, #medical-history, #dental-record-chart, #informed-consent, #treatment-record {
-    scroll-margin-top: 80px; 
+#patient-data,
+#medical-history,
+#dental-record-chart,
+#informed-consent,
+#treatment-record {
+    scroll-margin-top: 80px;
 }
 
 /* ` END NAME-buttom-GROUP*/
@@ -577,7 +561,7 @@
 /* Style for checked state */
 .patient-info-file .medical-questions-section input[type="radio"]:checked+.radio-label::before {
     background-color: #485fe7;
-    ;
+    
     /* Color when checked */
 }
 
@@ -871,7 +855,187 @@
     line-height: normal;
 }
 
+
+
+/* `ADD TODO FORM*/
+
+
+
+
+.create-treatment-popup .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+.create-treatment-popup {
+    background-color: #fff;
+    width: 550px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Header text */
+.create-treatment-popup .add-record-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form styling */
+.create-treatment-popup .form-group {
+    margin-bottom: 15px;
+}
+
+.create-treatment-popup label {
+    font-weight: 600;
+    color: #555;
+}
+
+.create-treatment-popup input[type="text"],
+.create-treatment-popup input[type="date"],
+.create-treatment-popup input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Checkbox styling for teeth section */
+.create-treatment-popup .teeth-grid {
+    display: grid;
+    grid-template-columns: repeat(10, auto); /* 10 columns */
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.create-treatment-popup .teeth-grid input[type="checkbox"] {
+    display: none; /* Hide default checkbox */
+}
+
+.create-treatment-popup .teeth-grid label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.create-treatment-popup .teeth-grid input[type="checkbox"]:checked + label {
+    background-color: #485fe7;
+    color: white;
+}
+/* ?SUBMIT BUTTONS*/
+
+/* Button styling */
+.create-treatment-popup .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.create-treatment-popup .submit-button, .close-button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.create-treatment-popup .close-button {
+    background-color: #d6d6d6;;
+    color: #fff;
+}
+.create-treatment-popup .close-button:hover {
+    background-color: #7777;
+
+}
+
+.create-treatment-popup .submit-button {
+    background-color: #485fe7;
+    color: #fff;
+}
+.create-treatment-popup .submit-button:hover {
+    background-color: #2b3eac;
+}
+
+/* `END OF ADD TODO FORM */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* + END TREATMENT RECORD*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
