@@ -71,109 +71,113 @@
     /* Text color for contrast */
 
 }
-   .patient-list-file .buttons-group {
-      display: flex;
-      align-items: center;
-    }
 
-    .patient-list-file .divider {
-      width: 1px;
-      height: 30px;
-      background-color: #6b84ea;
-      margin: 0 5px;
-    }
+/* ? BUTTONS*/
 
-    /* Base styles for buttons */
-    .patient-list-file .button {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      border-radius: 6.85px;
-      font-family: "Roboto-Regular", Helvetica;
-      font-weight: 400;
-      font-size: 13.7px;
-      color: #ffffff;
-    }
+.patient-list-file .buttons-group {
+    display: flex;
+    align-items: center;
+}
 
-    /* Specific button styles */
-    .patient-list-file .create-patient-elements {
-      width: 8rem;
-      height: 41.12px;
-      padding: 11.65px 6.85px;
-      background-color: #485fe7;
-    }
+.patient-list-file .divider {
+    width: 1px;
+    height: 30px;
+    background-color: #6b84ea;
+    margin: 0 5px;
+}
 
-    /* Wrapper for the filter button and dropdown */
-    .patient-list-file .filter-elements {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      padding: 9.59px 4.8px;
-      background-color: #485fe796;
-      height: 41.12px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+/* Base styles for buttons */
+.patient-list-file .button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 6.85px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 13.7px;
+    color: #ffffff;
+}
 
-    /* Hover effect for filter button */
-    .patient-list-file .filter-elements:hover {
-      background-color: #7789f396;
-    }
+/* Specific button styles */
+.patient-list-file .create-patient-elements {
+    width: 8rem;
+    height: 41.12px;
+    padding: 11.65px 6.85px;
+    background-color: #485fe7;
+}
 
-    /* Filter button styling */
-    .patient-list-file .filter-text {
-      background-color: transparent;
-      color: white;
- padding: 0px 10px 0px 0px;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+/* Wrapper for the filter button and dropdown */
+.patient-list-file .filter-elements {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 9.59px 4.8px;
+    background-color: #485fe796;
+    height: 41.12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-    /* Icon styles */
-    .patient-list-file .icon-filter {
-      width: 18px;
-      height: 18px;
-      margin-left: 5px;
-    }
+/* Hover effect for filter button */
+.patient-list-file .filter-elements:hover {
+    background-color: #7789f396;
+}
 
-    /* Dropdown content (hidden by default) */
-    .patient-list-file .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%; /* Place dropdown below the button */
-      left: 0;
-      background-color: white;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-      z-index: 1;
-    }
+/* Filter button styling */
+.patient-list-file .filter-text {
+    background-color: transparent;
+    color: white;
+    padding: 0px 10px 0px 0px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-    /* Dropdown items */
-    .patient-list-file .dropdown-content a {
-      color: black;
-      padding: 10px 16px;
-      text-decoration: none;
-      display: block;
-      border-bottom: 1px solid #f3f3f3;
-    }
+/* Icon styles */
+.patient-list-file .icon-filter {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+}
 
-    /* Last item without border */
-    .patient-list-file .dropdown-content a:last-child {
-      border-bottom: none;
-    }
+/* Dropdown content (hidden by default) */
+.patient-list-file .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Place dropdown below the button */
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
 
-    /* Change color on hover */
-    .patient-list-file .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
+/* Dropdown items */
+.patient-list-file .dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #f3f3f3;
+}
 
-    /* Show the dropdown menu on button click */
-    .patient-list-file .filter-elements:focus-within .dropdown-content {
-      display: block;
-    }
+/* Last item without border */
+.patient-list-file .dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Change color on hover */
+.patient-list-file .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on button click */
+.patient-list-file .filter-elements:focus-within .dropdown-content {
+    display: block;
+}
 
 .patient-list-file .edit-elements {
     width: 69.9px;

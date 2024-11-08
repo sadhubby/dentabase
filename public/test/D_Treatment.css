@@ -53,25 +53,28 @@
   
 }
 
+
+/*  ?BUTTONS GROUP */
 .treatment-file .buttons-group {
-    display: flex; /* Use flexappointment-category-group for layout */
-    align-items: center; /* Align items vertically in the center */
+    display: flex;
+    align-items: center;
+    margin-right: 1%;
 }
 
 .treatment-file .divider {
-    width: 1px; /* Width of the divider line */
-    height: 30px; /* Height of the divider line */
-    background-color: #6b84ea; /* Color of the divider line */
-    margin: 0 5px; /* Margin around the divider */
+    width: 1px;
+    height: 30px;
+    background-color: #6b84ea;
+    margin: 0 5px;
 }
 
 /* Base styles for buttons */
 .treatment-file .button {
     display: flex;
     align-items: center;
-    gap: 4px; /* Default gap between icon and text */
+    gap: 4px;
     border-radius: 6.85px;
-    position: relative;
+    
     font-family: "Roboto-Regular", Helvetica;
     font-weight: 400;
     font-size: 13.7px;
@@ -79,19 +82,87 @@
 }
 
 /* Specific button styles */
-.treatment-file .create-treatment-elements {
-    width: 165px;
+.treatment-file .create-patient-elements {
+    width: 8rem;
     height: 41.12px;
     padding: 11.65px 6.85px;
     background-color: #485fe7;
 }
 
+/* Wrapper for the filter button and dropdown */
 .treatment-file .filter-elements {
-    width: 81.55px;
-    height: 41.12px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
     padding: 9.59px 4.8px;
+    
     background-color: #485fe796;
+    height: 41.12px;
+    cursor: pointer;
+    border-radius: 5px;
 }
+
+/* Hover effect for filter button */
+.treatment-file .filter-elements:hover {
+    background-color: #7789f396;
+}
+
+/* Filter button styling */
+.treatment-file .filter-text {
+    background-color: transparent;
+    color: white;
+    padding: 0px 10px 0px 0px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Icon styles */
+.treatment-file .icon-filter {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+}
+
+/* Dropdown content (hidden by default) */
+.treatment-file .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Place dropdown below the button */
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+/* Dropdown items */
+.treatment-file .dropdown-content a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+/* Last item without border */
+.treatment-file .dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Change color on hover */
+.treatment-file .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on button click */
+.treatment-file .filter-elements:focus-within .dropdown-content {
+    display: block;
+}
+
 
 .treatment-file .edit-elements {
     width: 69.9px;
@@ -193,83 +264,97 @@
 
 
 /* `TREATMENT LIST */
-/* General Styling */
-.treatment-file .treatment-list-group {
-  display: flex;
-  flex-direction: column; /* Stacks each patient entry vertically */
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  gap: 0px; /* Adjusted spacing */
-}
 
-.treatment-file .treatment-information-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  padding: 15px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-  border-bottom: 1px solid #000000; /* Divider */
-}
-
-.treatment-file .treatment-information-group:last-child {
-  border-bottom: none; /* Remove border for the last item */
+/* `LIST OF CATEGORY & PATIENT LIST*/
+.treatment-file table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px; /* Adds rounded corners */
+    overflow: hidden; /* Ensures rounded corners are clipped properly */
 }
 
 
 
-/* Hide the actual checkbox input */
-.treatment-file .treatment-checkbox input[type="checkbox"] {
-  display: none;
+.treatment-file th,
+.treatment-file td {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    text-align: center; /* Center text in header and data cells */
+    vertical-align: middle;
 }
 
-.treatment-file .treatment-checkbox input[type="checkbox"]:checked + .treatment-checkbox {
-  background-color: #ffcc00;
+.treatment-file th {
+    background-color: #f2f2f2;
+    padding: 12px; /* Increase padding slightly for better readability */
+    white-space: normal; /* Allows text to wrap */
 }
 
-/* Patient Details */
-.treatment-file .treatment-details {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  font-family: "Roboto-Bold", Helvetica;
-  color: #000;
-  font-size: 14px;
-  flex-grow: 1; /* Allows details to expand to fit the row */
-  padding: 0 10px;
+.treatment-file .patient-name-elements,
+.treatment-file .phone-elements,
+.treatment-file .email-elements,
+.treatment-file .address-elements,
+.treatment-file .registered-elements,
+.treatment-file .last-visit-elements,
+.treatment-file .last-treatment-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    flex-wrap: wrap; /* Allow wrapping */
+    text-align: center; /* Center text */
 }
 
-/* Patient Name */
-.treatment-file .text-treatment {
-  font-weight: 700;
-  font-size: 16px;
+.treatment-file td {
+    position: relative;
+    overflow: hidden;
 }
 
-
-.treatment-file .visit-button {
+.treatment-file .name,
+.treatment-file .phone,
+.treatment-file .email,
+.treatment-file .address,
+.treatment-file .registered-date,
+.treatment-file .next-visit,
+.treatment-file .treatment {
     display: inline-block;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
+    max-width: 15rem; /* Limits the width of text previews */
+    white-space: nowrap; /* Keeps text on one line */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds ellipsis to overflow */
 }
 
-.treatment-file .multiple-visit {
-    background-color: #E0D1F7; /* Light purple background */
-    color: #6A1B9A; /* Purple text */
+.treatment-file td:hover .name,
+.treatment-file td:hover .phone,
+.treatment-file td:hover .email,
+.treatment-file td:hover .address,
+.treatment-file td:hover .registered-date,
+.treatment-file td:hover .next-visit,
+.treatment-file td:hover .treatment {
+    white-space: normal; /* Allows text to wrap */
+    overflow: visible; /* Shows hidden overflow text */
+    z-index: 1;
+    background-color: #e9e9e9; /* Optional: gives a background to hovered text */
+    padding: 5px;
+    max-width: none; /* Removes width limit to show full text */
+    border-radius: 20px;
 }
 
-.treatment-file .single-visit {
-    background-color: #E0F7FA; /* Light cyan background */
-    color: #26A69A; /* Cyan text */
+.treatment-file .icon {
+    margin-right: 5px;
+}
+
+.treatment-file .icon-updown {
+    width: 11px;
+    height: 14px;
+    margin-left: 8px; /* Space between text and icon */
+}
+
+.treatment-file .category-text {
+    font-family: "Roboto-Bold", Helvetica;
+    font-weight: 700;
+    color: #00000080;
+    font-size: 16.4px;
+    line-height: normal;
 }
 
 
