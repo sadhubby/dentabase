@@ -71,53 +71,109 @@
     /* Text color for contrast */
 
 }
+   .patient-list-file .buttons-group {
+      display: flex;
+      align-items: center;
+    }
 
-.patient-list-file .buttons-group {
-    display: flex;
-    /* Use flexpatient-category-group for layout */
-    align-items: center;
-    /* Align items vertically in the center */
-}
+    .patient-list-file .divider {
+      width: 1px;
+      height: 30px;
+      background-color: #6b84ea;
+      margin: 0 5px;
+    }
 
-.patient-list-file .divider {
-    width: 1px;
-    /* Width of the divider line */
-    height: 30px;
-    /* Height of the divider line */
-    background-color: #6b84ea;
-    /* Color of the divider line */
-    margin: 0 5px;
-    /* Margin around the divider */
-}
+    /* Base styles for buttons */
+    .patient-list-file .button {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 6.85px;
+      font-family: "Roboto-Regular", Helvetica;
+      font-weight: 400;
+      font-size: 13.7px;
+      color: #ffffff;
+    }
 
-/* Base styles for buttons */
-.patient-list-file .button {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    /* Default gap between icon and text */
-    border-radius: 6.85px;
-    position: relative;
-    font-family: "Roboto-Regular", Helvetica;
-    font-weight: 400;
-    font-size: 13.7px;
-    color: #ffffff;
-}
+    /* Specific button styles */
+    .patient-list-file .create-patient-elements {
+      width: 8rem;
+      height: 41.12px;
+      padding: 11.65px 6.85px;
+      background-color: #485fe7;
+    }
 
-/* Specific button styles */
-.patient-list-file .create-patient-elements {
-    width: 8rem;
-    height: 41.12px;
-    padding: 11.65px 6.85px;
-    background-color: #485fe7;
-}
+    /* Wrapper for the filter button and dropdown */
+    .patient-list-file .filter-elements {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 9.59px 4.8px;
+      background-color: #485fe796;
+      height: 41.12px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
 
-.patient-list-file .filter-elements {
-    width: 81.55px;
-    height: 41.12px;
-    padding: 9.59px 4.8px;
-    background-color: #485fe796;
-}
+    /* Hover effect for filter button */
+    .patient-list-file .filter-elements:hover {
+      background-color: #7789f396;
+    }
+
+    /* Filter button styling */
+    .patient-list-file .filter-text {
+      background-color: transparent;
+      color: white;
+ padding: 0px 10px 0px 0px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Icon styles */
+    .patient-list-file .icon-filter {
+      width: 18px;
+      height: 18px;
+      margin-left: 5px;
+    }
+
+    /* Dropdown content (hidden by default) */
+    .patient-list-file .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; /* Place dropdown below the button */
+      left: 0;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    /* Dropdown items */
+    .patient-list-file .dropdown-content a {
+      color: black;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #f3f3f3;
+    }
+
+    /* Last item without border */
+    .patient-list-file .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    /* Change color on hover */
+    .patient-list-file .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Show the dropdown menu on button click */
+    .patient-list-file .filter-elements:focus-within .dropdown-content {
+      display: block;
+    }
 
 .patient-list-file .edit-elements {
     width: 69.9px;
@@ -136,10 +192,11 @@
 /* Icon styles */
 .patient-list-file .icon-filter {
     position: relative;
-    width: 20px;
+    width: 18px;
     /* Default icon width */
-    height: 20px;
+    height: 18px;
     /* Default icon height */
+    margin-left: 5px;
 }
 
 .patient-list-file .icon-add {
@@ -186,8 +243,10 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 20px; /* Adds rounded corners */
-    overflow: hidden; /* Ensures rounded corners are clipped properly */
+    border-radius: 20px;
+    /* Adds rounded corners */
+    overflow: hidden;
+    /* Ensures rounded corners are clipped properly */
 }
 
 
@@ -196,14 +255,17 @@
 .patient-list-file td {
     border: 1px solid #dddddd;
     padding: 10px;
-    text-align: center; /* Center text in header and data cells */
+    text-align: center;
+    /* Center text in header and data cells */
     vertical-align: middle;
 }
 
 .patient-list-file th {
     background-color: #f2f2f2;
-    padding: 12px; /* Increase padding slightly for better readability */
-    white-space: normal; /* Allows text to wrap */
+    padding: 12px;
+    /* Increase padding slightly for better readability */
+    white-space: normal;
+    /* Allows text to wrap */
 }
 
 .patient-list-file .patient-name-elements,
@@ -215,9 +277,12 @@
 .patient-list-file .last-treatment-elements {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content */
-    flex-wrap: wrap; /* Allow wrapping */
-    text-align: center; /* Center text */
+    justify-content: center;
+    /* Center content */
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    text-align: center;
+    /* Center text */
 }
 
 .patient-list-file td {
@@ -233,10 +298,14 @@
 .patient-list-file .next-visit,
 .patient-list-file .treatment {
     display: inline-block;
-    max-width: 15rem; /* Limits the width of text previews */
-    white-space: nowrap; /* Keeps text on one line */
-    overflow: hidden; /* Hides overflowing text */
-    text-overflow: ellipsis; /* Adds ellipsis to overflow */
+    max-width: 15rem;
+    /* Limits the width of text previews */
+    white-space: nowrap;
+    /* Keeps text on one line */
+    overflow: hidden;
+    /* Hides overflowing text */
+    text-overflow: ellipsis;
+    /* Adds ellipsis to overflow */
 }
 
 .patient-list-file td:hover .name,
@@ -246,12 +315,16 @@
 .patient-list-file td:hover .registered-date,
 .patient-list-file td:hover .next-visit,
 .patient-list-file td:hover .treatment {
-    white-space: normal; /* Allows text to wrap */
-    overflow: visible; /* Shows hidden overflow text */
+    white-space: normal;
+    /* Allows text to wrap */
+    overflow: visible;
+    /* Shows hidden overflow text */
     z-index: 1;
-    background-color: #e9e9e9; /* Optional: gives a background to hovered text */
+    background-color: #e9e9e9;
+    /* Optional: gives a background to hovered text */
     padding: 5px;
-    max-width: none; /* Removes width limit to show full text */
+    max-width: none;
+    /* Removes width limit to show full text */
     border-radius: 20px;
 }
 
@@ -262,7 +335,8 @@
 .patient-list-file .icon-updown {
     width: 11px;
     height: 14px;
-    margin-left: 8px; /* Space between text and icon */
+    margin-left: 8px;
+    /* Space between text and icon */
 }
 
 .patient-list-file .category-text {

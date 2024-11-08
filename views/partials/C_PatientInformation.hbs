@@ -82,8 +82,9 @@
                     <label for="birthdate">Birthdate:</label>
                     <div class="input-wrapper">
                         <input type="text" id="birthdate" class="input-field" placeholder="MM/DD/YYYY"
-                            value="{{birth_month}}{{birth_date}}{{birth_year}}"
+                            value="{{birthdate}}"
                             title="Please enter your birthdate in MM/DD/YYYY format">
+                            </input>
                     </div>
 
 
@@ -109,7 +110,7 @@
                     <label for="sex">Sex:</label>
                     <div class="input-wrapper">
                         <select id="sex" class="input-field" name="sex" title="Please select your sex">
-                            <option value="" disabled selected>Select your sex</option>
+                            <option value="" disabled selected>{{fullSex}}</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
@@ -121,7 +122,7 @@
                     <label for="occupation">Occupation:</label>
                     <div class="input-wrapper">
                         <input type="text" id="occupation" class="input-field" placeholder="Enter your occupation"
-                            value="{{personal_occupation}}">
+                            value="{{occupation}}">
                     </div>
                 </div>
 
@@ -167,12 +168,12 @@
                     <div class="info-box">
                         <label for="previous-dentist">Previous Dentist:</label>
                         <input type="text" id="previous-dentist" class="input-field"
-                            placeholder="Enter name of previous dentist"  value="{{previous_dentist}}">
+                            placeholder="Enter name of previous dentist"  value="{{lastDentist}}">
                     </div>
                     <div class="info-box">
                         <label for="last-visit">Last Dental Visit:</label>
                         <input type="text" id="last-visit" class="input-field" placeholder="MM/DD/YYYY"
-                            title="Enter last dental visit date in MM/DD/YYYY format"  value="{{LDV_month}} {{LDV_date}}  {{LDV_year}}">
+                            title="Enter last dental visit date in MM/DD/YYYY format"  value="{{lastDentalVisit}} {{LDV_date}}  {{LDV_year}}">
                     </div>
                 </div>
             </div>
@@ -184,7 +185,7 @@
                 <div class="info-grid">
                     <div class="info-box full-width">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" class="input-field" placeholder="Enter your email"  value="{{email_address}}">
+                        <input type="email" id="email" class="input-field" placeholder="Enter your email"  value="{{email}}">
                     </div>
                     <div class="info-box">
                         <label for="home-no">Home No:</label>
@@ -192,7 +193,7 @@
                     </div>
                     <div class="info-box">
                         <label for="mobile-no">Cell/Mobile No:</label>
-                        <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"  value="{{mobil_number}}">
+                        <input type="text" id="mobile-no" class="input-field" placeholder="Enter cell/mobile number"  value="{{mobile_number}}">
                     </div>
                     <div class="info-box">
                         <label for="office-no">Office No:</label>
@@ -228,7 +229,7 @@
                         <label for="consultation-reason">What is your reason for dental
                             consultation?</label>
                         <input type="text" id="consultation-reason" class="input-field"
-                            placeholder="Enter reason for consultation"  value="{{minor_reason_consulation_question}}">
+                            placeholder="Enter reason for consultation"  value="{{consultation}}">
                     </div>
                 </div>
             </div>
@@ -496,11 +497,80 @@
         <div class="header dental-chart-text" id="dental-record-chart">| DENTAL RECORD CHART</div>
 
         <div class="dental-chart-box-container">
-            <div class="dental-chart-box">upload pics here
+            <div class="dental-chart-box">
 
-                
+                <div class="chart-divider">
+                    <div class="divider horizontal"></div>
+                    <div class="divider vertical"></div>
+                </div>
 
-                
+                <!--`TEETH BOXES-->
+
+
+                <div class="teeth-position-box">
+                    <div class="top-boxes">
+                        <!-- Create 20 input boxes at the top -->
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 1"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 2"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 3"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 4"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 5"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 6"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 7"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 8"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 9"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 10"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 11"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 12"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 13"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 14"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 15"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 16"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 17"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 18"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 19"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 20"></div>
+                    </div>
+
+                    <div class="spacer"></div>
+
+                    <div class="bottom-boxes">
+                        <!-- Create 32 input boxes at the bottom -->
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 1"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 2"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 3"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 4"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 5"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 6"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 7"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 8"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 9"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 10"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 11"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 12"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 13"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 14"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 15"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 16"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 17"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 18"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 19"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 20"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 21"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 22"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 23"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 24"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 25"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 26"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 27"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 28"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 29"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 30"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 31"></div>
+                        <div class="tooth-box"><input type="text" placeholder="Enter text 32"></div>
+                    </div>
+                </div>
+                <!--`END TEETH BOXES-->
             </div>
 
 
@@ -516,7 +586,7 @@
 
 
 
-        <div class="dental-chart-box">footer note here
+        <div class="dental-chart-box">Box 2
 
 
 
@@ -524,7 +594,7 @@
 
 
 
-           
+            <div class="dental-chart-box">Box 3</div>
         </div>
     </div>
 
@@ -792,3 +862,5 @@
 </div>
 <!--+END MAIN CONTENT-->
 </div>
+
+<script src = "/js/C_PatientInformation.js"></script>
