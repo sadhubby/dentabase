@@ -1,41 +1,29 @@
-
 <script>
-    document.addEventListener("DOMContentLoaded", function(){
-        const physicianName = "{{{physician_name}}}";
-        const physicianOfficeAddress = "{{{physicianOfficeAddress}}}";
-        const physicianSpecialty = "{{{physicianSpecialty}}}";
-        const physicianOfficeNumber = "{{{physicianOfficeNumber}}}";
-        const prescription = "{{{prescription}}}";
-        const illnessOrSurgery = "{{{illnessOrSurgery}}}";
-        const condition = "{{{condition}}}";
-        const isUsingTobacco = "{{{isUsingTobacco}}}";
-        const isAlcoholOrDrugs = "{{{isAlcoholOrDrugs}}}";
-        const isPregnant = "{{{isPregnant}}}";
-        const isNursing = "{{{isNursing}}}";
-        const isBirthControlPills = "{{{isBirthControlPills}}}";
+    document.addEventListener("DOMContentLoaded", function () {
+                const physicianName = "{{{physician_name}}}";
+                const physicianOfficeAddress = "{{{physicianOfficeAddress}}}";
+                const physicianSpecialty = "{{{physicianSpecialty}}}";
+                const physicianOfficeNumber = "{{{physicianOfficeNumber}}}";
+                const prescription = "{{{prescription}}}";
+                const illnessOrSurgery = "{{{illnessOrSurgery}}}";
+                const condition = "{{{condition}}}";
+                const isUsingTobacco = "{{{isUsingTobacco}}}";
+                const isAlcoholOrDrugs = "{{{isAlcoholOrDrugs}}}";
+                const isPregnant = "{{{isPregnant}}}";
+                const isNursing = "{{{isNursing}}}";
+                const isBirthControlPills = "{{{isBirthControlPills}}}";
 
-        let allergies = [];
-
-        {{#each allergies}}
-        allergies.push("{{{this}}}");
-        {{/each}}
-
-        let healthProblems = [];
-
-        {{#each healthProblems}}
-        healthProblems.push("{{{this}}}");
-        {{/each}};
-
-        
-
-        fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty, physicianOfficeNumber, prescription
-                    , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills
-                    , allergies, healthProblems);
-    })
-
-
-
-
+                let allergies = [];
+                {{#each allergies}}
+                allergies.push("{{{this}}}"); {{/each}}
+                        let healthProblems = [];
+                        {{#each healthProblems}}
+                        healthProblems.push("{{{this}}}"); {{/each}};
+                                fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty,
+                                    physicianOfficeNumber, prescription, illnessOrSurgery, condition,
+                                    isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills,
+                                    allergies, healthProblems);
+                            })
 </script>
 
 
@@ -99,7 +87,7 @@
             <a href="#patient-data" class="nav-item">Patient Information</a>
             <a href="#medical-history" class="nav-item">Medical History</a>
             <a href="#dental-record-chart" class="nav-item">Dental Record Chart</a>
-            <a href="#treatment-record" class="nav-item">Treatment Record</a>
+            <a href="#treatment-record" class="nav-item">Treatment History</a>
             <a href="#informed-consent" class="nav-item">Informed Consent</a>
         </div>
     </div>
@@ -107,7 +95,7 @@
     <!-- +PATIENT DATA-->
     <form id="update-patient-form" data-id="{{id}}">
         <div class="frame-4">
-            <button type="submit"> Save Changes</button>
+
 
             <!-- `PATIENT DATA-->
             <div class="box top-box">
@@ -279,6 +267,11 @@
                 </div>
                 <!-- ? END FOR MINORS GROUP-->
             </div>
+        </div>
+
+        <!--SAVE CHANGE FOR PATIENT DATA-->
+        <div class="buttons-group">
+            <button type="submit" class="save-change-button">Save Patient Data Changes</button>
         </div>
     </form>
 
@@ -551,6 +544,11 @@
         </div>
         <!-- `END MEDICAL QUESTIONS-->
 
+        <!--SAVE CHANGE FOR MEDICAL HISTORY -->
+        <div class="buttons-group">
+            <button type="submit" class="save-change-button">Save Medical History Changes</button>
+        </div>
+
     </div>
     <!--+END MEDICAL HISTORY FRAME-->
 
@@ -612,17 +610,14 @@
 
 
         </div>
+
+        <!--SAVE CHANGE FOR DENTAL RECORD-->
+        <div class="buttons-group">
+            <button type="submit" class="save-change-button">Save Dental Record Changes</button>
+        </div>
     </div>
 
     <!--+end DENTAL CHART FRAME-->
-
-
-
-    {{!-- Create treatment record pop-up --}}
-
-
-
-
 
 
 
@@ -880,9 +875,12 @@
 
 
 
-
-  </div>
-    <!-- +END TREATMENT RECORD FRAME-->
+        <!--SAVE CHANGE FOR TREATMENT HISTORY-->
+        <div class="buttons-group">
+            <button type="submit" class="save-change-button">Save Treatment History Changes</button>
+        </div>
+    </div>
+    <!-- +END TREATMENT HISTORY FRAME-->
 
 
 
@@ -899,7 +897,7 @@
                     not limited to, x-rays, cleanings, periodontal treatments, fillings, crowns, bridges,
                     all types of extraction, root canals, &/or dentures, local anesthetics & surgical cases.
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
             <div class="consent-section">
@@ -907,7 +905,7 @@
                 <p>I understand that antibiotics, analgesics & other medications can cause allergic
                     reactions like redness & swelling of tissues, pain, itching, vomiting, &/or anaphylactic
                     shock.</p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
             <div class="consent-section">
@@ -917,7 +915,7 @@
                     examination. For example, root canal therapy may be needed following routine restorative
                     procedures. I give my permission to the dentist to make any/all changes and additions as
                     necessary with my responsibility to pay all the costs agreed.</p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
             <div class="consent-section">
@@ -928,7 +926,7 @@
                     since all dental treatments are subject to unpredictable complications that later on may
                     lead to sudden change of treatment plan and subject to new charges.
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
             <div class="consent-section">
@@ -945,7 +943,7 @@
                     treatment.
 
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
 
@@ -964,7 +962,7 @@
                     that final opportunity to make changes in my new crown, bridges or cap (including shape,
                     fit, size, & color) will be before permanent cementation.
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
 
@@ -981,7 +979,7 @@
                     understand that a tooth may require removal in spite of all efforts to save it.
 
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
 
@@ -993,7 +991,7 @@
                     tooth extractions with or without replacement. I understand that undertaking any dental
                     procedures may have future adverse effect on my periodontal Conditions.
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
             <div class="consent-section">
@@ -1007,7 +1005,7 @@
                     could require root canal therapy or extractions.
 
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
             <div class="consent-section">
@@ -1023,7 +1021,7 @@
                     adjustment or alterations of any kind after this initial period is subject to charges.
 
                 </p>
-                <div class="initials">Initial: __________</div>
+
             </div>
 
             <div class="agreement-section">
@@ -1040,17 +1038,25 @@
                     free will, with full trust & confidence in him/her, to undergo dental treatment under
                     his/her care.</p>
 
-                <div class="signature-container">
-                    <div class="signature-line">Patient / Parent / Guardian Signature:
-                        ______________________</div>
-                    <div class="signature-line">Dentist Signature: ______________________</div>
-                    <div class="signature-line">Date: ______________________</div>
+                <div class="agreement-confirmation">
+                    <p>I, <input type="text" placeholder="Name of Patient" /> agree to the above terms.</p>
+
+                    <div class="date-elements">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" />
+                    </div>
                 </div>
             </div>
+
+            <!--SAVE CHANGE FOR INFORMED CONSENT-->
+
+        </div>
+
+        <div class="buttons-group">
+            <button type="submit" class="save-change-button">Save Informed Consent</button>
         </div>
     </div>
     <!--+ END INFORMED CONSENT FRAME-->
-
 
 
 

@@ -1,3 +1,26 @@
+/* ? SAVE CHANGE BUTTON*/
+
+.patient-info-file .save-change-button {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #485fe7; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Add padding for size */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
+    
+}
+
+.patient-info-file .save-change-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+   
+}
+
+/* ? END SAVE CHANGE BUTTON*/
+
 
 
 /* Frame styling */
@@ -645,6 +668,14 @@
 .patient-info-file .checkbox-group {
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
+}
+
+.patient-info-file .checkbox-group label {
+  display: flex;
+    gap: 10px;
+  
+   
 }
 
 .patient-info-file .column {
@@ -1109,6 +1140,10 @@
     align-items: end;
 }
 
+
+
+
+
 /* Container for the agreement section */
 .patient-info-file .agreement-section {
     margin-top: 0px;
@@ -1133,37 +1168,42 @@
     /* Center the text */
 }
 
-/* Container for signature lines */
-.patient-info-file .signature-container {
-    display: flex;
-    /* Use flexbox for layout */
-    flex-direction: row;
-    /* Stack signature lines in a column */
+.agreement-confirmation {
     margin-top: 20px;
-    /* Space above the signature section */
-    justify-content: space-evenly;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.agreement-confirmation p{
+    width: 40%;
+    display: flex;
+    align-items: center;
 }
 
-/* Styling for each signature line */
-.patient-info-file .signature-line {
-    font-size: 16px;
-    /* Font size for signature line */
-    margin: 10px 0;
-    /* Space between signature lines */
-    font-weight: bold;
-    /* Make the text bold */
-    color: #555;
-    /* Change text color */
+.agreement-confirmation .date-elements {
+    display: flex; /* Use flexbox for the date elements */
+    align-items: center; /* Center align items vertically */
 }
 
-/* Styling for name lines */
-.patient-info-file .name-line {
+.agreement-confirmation input[type="text"],
+.agreement-confirmation input[type="date"] {
+    margin: 5px 10px;
+    padding: 5px;
+    width: 100%; /* Use full width for better responsiveness */
+    max-width: 350px; /* Set a maximum width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    border: 1px solid #d8d8d8; /* Set border color to blue */
+    border-radius: 10px;
     font-size: 16px;
-    /* Font size for name line */
-    margin: 0 0 10px 0;
-    /* Space below the name line */
-    color: #555;
-    /* Change text color */
 }
+
+
+.agreement-confirmation label {
+    margin-right: 5px; /* Add space between label and input */
+}
+
+
+
 
 /* + END INFORMED CONSENT*/
