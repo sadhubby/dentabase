@@ -70,14 +70,12 @@
             <div class="name-group">{{full_name}} | {{age}} | {{sex}}</div>
 
             <div class="buttons-group">
-                <div class="button patient-info-elements">
-                    <img class="icon icon-add" src="/img/icon-add.svg" />
-                    <div class="text-buttons create-appointment-text">Add To Do</div>
-                </div>
+             <div class="button create-appointment-elements">
+        <img class="icon icon-add" src="/img/icon-add.svg" />
+        <div class="text-buttons create-appointment-text">Add To Do</div>
+      </div>
 
-
-
-
+                {{>B_Todo_form}}
             </div>
 
         </div>
@@ -1051,12 +1049,12 @@
             <!--SAVE CHANGE FOR INFORMED CONSENT-->
 
         </div>
-<form>
+        <form>
 
-        <div class="buttons-group">
-            <button type="submit" class="save-change-button">Save Informed Consent</button>
-        </div>
-</form>
+            <div class="buttons-group">
+                <button type="submit" class="save-change-button">Save Informed Consent</button>
+            </div>
+        </form>
     </div>
     <!--+ END INFORMED CONSENT FRAME-->
 

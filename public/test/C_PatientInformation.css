@@ -142,21 +142,18 @@
 }
 
 /* Specific button styles */
-.patient-info-file .patient-info-elements {
-    display: inline-flex;
-    width: 65%;
-    align-items: center;
-
+.patient-info-file .create-appointment-elements {
+    width: 110px;
+    height: 41.12px;
     padding: 11.65px 6.85px;
     background-color: #485fe7;
-    border-radius: 5px;
-
-    color: #ffffff;
-
-
+    cursor: pointer;
 }
 
-
+/* Specific button styles */
+.patient-info-file .create-appointment-elements:hover {
+    background-color: #2843da;
+}
 
 .patient-info-file .icon-add {
     width: 15.05px;
