@@ -7,8 +7,8 @@
     color: white; /* White text */
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Add padding for size */
-    font-size: 16px; /* Font size */
+    padding: 10px 15px; /* Add padding for size */
+    font-size: 14px; /* Font size */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
     
@@ -888,10 +888,7 @@
 
 
 
-/* `ADD TODO FORM*/
-
-
-
+/* `ADD TODO BUTTON FORM*/
 
 .create-treatment-popup .form-buttons {
     display: flex;
