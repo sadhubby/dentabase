@@ -346,7 +346,6 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-        // Assuming patient details are already rendered on the page, collect them from the DOM
         const patientFullName = document.querySelector(".name-group").textContent.trim().split("|")[0].trim();
         const patientAge = document.querySelector(".name-group").textContent.trim().split("|")[1].trim();
         const patientSex = document.querySelector(".name-group").textContent.trim().split("|")[2].trim();
@@ -358,13 +357,11 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         const toDoForm = document.querySelector(".overlay.todo-form-file");
     
         addToDoButton.addEventListener("click", function () {
-            // Populate the To Do form fields with the patient information when the button is clicked
             if (toDoForm) {
                 const patientNameField = document.getElementById('patient-name');
                 const emailField = document.getElementById('email-todo');
                 const phoneField = document.getElementById('phone-number');
     
-                // Fill in the form fields
                 if (patientNameField) {
                     patientNameField.value = patientFullName;
                 }
@@ -375,7 +372,6 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
                     phoneField.value = phone;
                 }
     
-                // Make the form visible (if it's hidden)
                 toDoForm.style.display = "block";
             }
         });

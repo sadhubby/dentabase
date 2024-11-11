@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Get the container with patient information data attributes
     const formContainer = document.querySelector('.overlay.todo-form-file');
 
-    // Retrieve patient data from data attributes
     const patient = {
         id: formContainer.dataset.patientId,
         firstName: formContainer.dataset.patientFirstname,
@@ -11,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
         phone: formContainer.dataset.patientPhone
     };
 
-    // Populate form with patient information
     const patientNameField = document.getElementById('patient-name');
     const emailField = document.getElementById('email-todo');
     const phoneField = document.getElementById('phone-number');
@@ -21,8 +18,5 @@ document.addEventListener('DOMContentLoaded', function () {
         emailField.value = patient.email;
         phoneField.value = patient.phone;
     }
-
-    console.log("Patient Name:", patientName);
-    console.log("Email Value:", emailElement ? emailElement.value : "Not found");
 
 });
