@@ -488,11 +488,20 @@ router.get("/", async (req, res) =>{
 
 router.get('/api/unique-procedures', async (req, res) => {
     try {
-        const procedures = await uniqueProcedures();
-        res.json(procedures);
+        const uniqueProcedures = await treatmentModel.distinct('procedure');
+        res.json(uniqueProcedures);
     } catch (error) {
-        console.error("Error in /api/unique-procedures:", error);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send('Error fetching unique procedures');
+    }
+});
+
+router.get('/api/patients', async (req, res) => {
+    try {
+        const { procedure } = req.query;
+        const patients = await getPatientsByProcedure(procedure);
+        res.json(patients);
+    } catch (error) {
+        res.status(500).send('Error fetching patients');
     }
 });
 
