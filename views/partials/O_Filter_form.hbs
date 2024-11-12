@@ -1,0 +1,56 @@
+
+    <div class="filter-form-file">
+
+        <div class="filter-form" id="filterForm">
+            <h2>Filter</h2>
+            <form>
+                <!-- Treatment Type -->
+                <div class="form-group">
+                    <label for="treatmentType">Treatment Type:</label>
+                    <select id="treatmentType" name="treatmentType">
+                        <option value="">All</option>
+                        <option value="physicalTherapy">Physical Therapy</option>
+                        <option value="dental">Dental</option>
+                        <option value="orthopedic">Orthopedic</option>
+                    </select>
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                <!-- Patient Name Search -->
+                <div class="form-group">
+                    <label for="patientName">Patient Name:</label>
+                    <input type="text" id="patientName" name="patientName" placeholder="Enter patient name">
+                </div>
+
+                <!-- Patient Name Sorting -->
+                <div class="form-group">
+                    <label for="patientNameSort">Patient Name Sort:</label>
+                    <select id="patientNameSort" name="patientNameSort">
+                        <option value="A-Z">A-Z</option>
+                        <option value="Z-A">Z-A</option>
+                    </select>
+                </div>
+
+                <!-- Last Visit Sorting -->
+                <div class="form-group">
+                    <label for="lastVisitSort">Last Visit:</label>
+                    <select id="lastVisitSort" name="lastVisitSort">
+                        <option value="recent">Recent</option>
+                        <option value="old">Old</option>
+                    </select>
+                </div>
+
+                <!-- Filter and Cancel Buttons -->
+                <div class="form-buttons">
+                    <button type="button" onclick="closeForm()">Cancel</button>
+                    <button type="button" onclick="applyFilters()">Filter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/test/O_Filter_form.js"></script>

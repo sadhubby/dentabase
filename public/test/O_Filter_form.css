@@ -1,0 +1,127 @@
+/* Base styles for the page */
+.filter-form-file {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Button Group */
+.filter-form-file .buttons-group {
+    display: flex;
+    align-items: center;
+    margin-right: 1%;
+}
+
+/* Base styles for buttons */
+.filter-form-file .button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 6.85px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 13.7px;
+    color: #ffffff;
+}
+
+/* Wrapper for the filter button */
+.filter-form-file .filter-elements {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 9.59px 4.8px;
+    background-color: #485fe796;
+    height: 41.12px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1; /* Ensure the filter button is initially below the form */
+}
+
+/* Hover effect for filter button */
+.filter-form-file .filter-elements:hover {
+    background-color: #485fe796;
+}
+
+/* Filter button text styling */
+.filter-form-file .filter-text {
+    background-color: transparent;
+    color: white;
+    padding: 0px 10px 0px 0px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Icon styles */
+.filter-form-file .icon-filter {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+}
+
+/* Filter form styles - general */
+.filter-form-file .filter-form {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    position: absolute;
+    right: 0; /* Align the form to the right of the screen */
+    top: 50%; /* Position the form vertically in the center */
+    transform: translateY(-50%); /* Adjust form to stay vertically centered */
+    z-index: 2; /* Ensure the form is above the button */
+}
+
+/* Form input styles */
+.filter-form-file .form-group {
+    margin-bottom: 15px;
+}
+
+.filter-form-file .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.filter-form-file .form-group select, .filter-form-file .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #b9b9b9;
+    border-radius: 4px;
+}
+
+/* Button styles */
+.filter-form-file .form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.filter-form-file button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-form-file button:hover {
+    background-color: #aaaaaa96;
+}
+
+.filter-form-file button:nth-child(2) {
+    background-color: #007bff;
+}
+
+.filter-form-file button:nth-child(2):hover {
+    background-color: #007bff;
+}
