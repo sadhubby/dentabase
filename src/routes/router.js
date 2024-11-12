@@ -90,6 +90,45 @@ router.post('/upload-pic', upload.single('file'), (req,res) => {
     
 });
 
+router.post('/create-patient', function(req, res){
+    try{
+        Functions.createPatient(
+            req.body.firstName,
+            req.body.lastName,
+            req.body.middleName,
+            req.body.nickname,
+            req.body.address,
+            new Date(req.body.birthdate),
+            req.body.age,
+            req.body.sex,
+            req.body.religion,
+            req.body.nationality,
+            req.body.email,
+            req.body.homeNo,
+            req.body.occupation,
+            req.body.dentalInsurance,
+            req.body.officeNo,
+            req.body.faxNo,
+            req.body.cellNo,
+            req.body.birthdate ? new Date(req.body.birthdate) : null, //temporary for effectiveDate
+            req.body.guardianName,
+            req.body.guardianOccupation,
+            req.body.referral,
+            req.body.consultationReason,
+            req.body.previousDentist,
+            req.body.birthdate ? new Date(req.body.birthdate) : null,
+            "random pic" //placeholder for not sure pic
+        ).then(function(patientID){
+            console.log('Patient record created successfully with ID: ' + patientID);
+            return res.status(200).json({message: "Patient record created successfully.", patientID: patientID});
+        });
+
+    } catch(error){
+        console.error("Error creating patient record.", error);
+        res.status(500).send("Server error");
+    }
+});
+
 router.post('/create-treatment', function(req, res){
     try{
         let patientID = req.body.patientID;
@@ -449,11 +488,20 @@ router.get("/", async (req, res) =>{
 
 router.get('/api/unique-procedures', async (req, res) => {
     try {
-        const procedures = await uniqueProcedures();
-        res.json(procedures);
+        const uniqueProcedures = await treatmentModel.distinct('procedure');
+        res.json(uniqueProcedures);
     } catch (error) {
-        console.error("Error in /api/unique-procedures:", error);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send('Error fetching unique procedures');
+    }
+});
+
+router.get('/api/patients', async (req, res) => {
+    try {
+        const { procedure } = req.query;
+        const patients = await getPatientsByProcedure(procedure);
+        res.json(patients);
+    } catch (error) {
+        res.status(500).send('Error fetching patients');
     }
 });
 

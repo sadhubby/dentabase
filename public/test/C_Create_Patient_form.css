@@ -52,7 +52,31 @@
 }
 
 .form-row .form-group {
-    flex: 1; /* Ensure equal spacing for each form group */
+    flex: 1;
+}
+
+.form-column {
+    margin: 15px 0; 
+}
+
+.form-part {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* Apply the same styling to all form-column inputs */
+.form-column input {
+    width: 22.7%;
+    padding: 10px; 
+    box-sizing: border-box;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    transition: border-color 0.3s; 
+}
+
+.form-column input:focus {
+    border-color: #007bff; 
+    outline: none; 
 }
 
 .form-row .form-group input,

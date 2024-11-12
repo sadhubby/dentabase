@@ -139,6 +139,7 @@
     width: 18px;
     height: 18px;
     margin-left: 5px;
+    vertical-align: middle;
 }
 
 /* Dropdown content (hidden by default) */

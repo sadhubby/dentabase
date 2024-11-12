@@ -11,14 +11,10 @@
                 </select>
 
                 <label for="patient-name">Patient Name</label>
-                <select id="patient" required>
-                    {{#each patients}}
-                        <option value="{{this.id}}">{{this.firstName}} {{this.lastName}}</option>
-                    {{/each}}
-                </select>
+                <input type="text" id="patient-name" value="{{patient.firstName}} {{patient.lastName}}">
 
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Email" value="">
+                <input type="email" id="email-todo" placeholder="Email" value="{{patient.email}}">
 
                 <label for="phone-number">Phone Number</label>
                 <input type="tel" id="phone-number" placeholder="Phone Number" value="">

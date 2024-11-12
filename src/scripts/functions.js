@@ -75,6 +75,8 @@ async function createPatient(firstName, lastName, middleName, nickname,
     await patient.save().then(function () {
         console.log("Patient created.");
     });
+
+    return patientID;
 }
 
 async function searchPatientName(patientName){
@@ -273,6 +275,16 @@ async function updateTreatment(treatmentID, date, teethAffected, procedure, dent
     }
 }
 
+async function getPatientsByProcedure(procedure) {
+    try {
+        const query = procedure ? { procedure } : {};
+        return await patientModel.find(query).exec();
+    } catch (error) {
+        console.error('Error fetching patients by procedure:', error);
+        throw error;
+    }
+}
+
 
 module.exports = {
     readPatient,
@@ -287,6 +299,7 @@ module.exports = {
     updateTreatment,
     readTreatment,
     convertToDate,
-    uniqueProcedures
+    uniqueProcedures,
+    getPatientsByProcedure
 };
 
