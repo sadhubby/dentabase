@@ -269,6 +269,7 @@ body {
   background-color: #ffffff;
   gap: 1rem; /* This adds space between all flex items */
   font-size: 22px;
+  margin-left: -24px;
 }
 
 .title-element{
