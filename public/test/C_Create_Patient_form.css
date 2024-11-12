@@ -59,11 +59,6 @@
     margin: 15px 0; 
 }
 
-.form-part {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 /* Apply the same styling to all form-column inputs */
 .form-column input {
     width: 22.7%;
@@ -102,26 +97,6 @@
     margin-top: 20px;
 }
 
-.modal-buttons button {
-    padding: 12px 24px; /* Consistent padding for buttons */
-    font-size: 16px; /* Consistent font size */
-    border: none;
-    cursor: pointer;
-    background-color: #007bff; /* Primary button color */
-    color: white; /* White text for better contrast */
-    border-radius: 4px; /* Rounded corners for buttons */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
-}
-
-.modal-buttons button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-.modal-buttons button:active {
-    transform: scale(0.95); /* Slight scale effect on click */
-    opacity: 0.9; /* Slight opacity change on click */
-}
-
 /* `ANIMATIONS */
 #doneBtn:hover { 
     background-color: #007bff;
@@ -129,5 +104,41 @@
 }
 
 #doneBtn:active { 
-    opacity: 0.5;
+    transform: scale(0.95); /* Slight scale effect on click */
+    opacity: 0.9; /* Slight opacity change on click */
+   
+}
+#cancelBtn {
+    padding: 12px 24px; /* Consistent padding for buttons */
+    font-size: 16px; /* Consistent font size */
+    border: none;
+    cursor: pointer;
+    background-color: #777; /* Primary button color */
+    color: white;/* White text for better contrast */
+    border-radius: 4px; /* Rounded corners for buttons */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    
+}
+
+#doneBtn {
+    padding: 12px 24px; /* Consistent padding for buttons */
+    font-size: 16px; /* Consistent font size */
+    border: none;
+    cursor: pointer;
+    background-color: #278dfa; /* Primary button color */
+    color: white;/* White text for better contrast */
+    border-radius: 4px; /* Rounded corners for buttons */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    
+}
+
+#cancelBtn:hover { 
+    background-color: #5a6268;
+    color: #fff;
+}
+
+#cancelBtn:active { 
+    transform: scale(0.95); /* Slight scale effect on click */
+    opacity: 0.9; /* Slight opacity change on click */
+   
 }
