@@ -1,4 +1,5 @@
 <!-- Modal -->
+<form id="create-patient-form" name="create-patient-form">
 <div id="patientFormModal" class="modal">
     <div class="modal-content">
         
@@ -8,7 +9,7 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName">
+                    <input type="text" id="firstName" name="firstName" required>
                 </div>
                 <div class="form-group">
                     <label for="middleName">Middle Name:</label>
@@ -16,17 +17,17 @@
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="lastName">
+                    <input type="text" id="lastName" name="lastName" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label for="birthdate">Birthdate:</label>
-                    <input type="date" id="birthdate" name="birthdate">
+                    <input type="date" id="birthdate" name="birthdate" required>
                 </div>
                 <div class="form-group">
                     <label for="age">Age:</label>
-                    <input type="number" id="age" name="age">
+                    <input type="number" id="age" name="age" required>
                 </div>
                 <div class="form-group">
                     <label for="nickname">Nickname:</label>
@@ -34,19 +35,19 @@
                 </div>
                 <div class="form-group">
                     <label for="sex">Sex:</label>
-                    <select id="sex" name="sex">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                    <select id="sex" name="sex" required>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="occupation">Occupation:</label>
-                    <input type="text" id="occupation" name="occupation">
+                    <input type="text" id="occupation" name="occupation" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
-                <input type="text" id="address" name="address">
+                <input type="text" id="address" name="address" required>
             </div>
             <div class="form-row">
                 <div class="form-group">
@@ -55,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="nationality">Nationality:</label>
-                    <input type="text" id="nationality" name="nationality">
+                    <input type="text" id="nationality" name="nationality" required>
                 </div>
                 <div class="form-group">
                     <label for="insurance">Dental Insurance:</label>
@@ -80,7 +81,7 @@
             <h3>Contact Information</h3>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-row">
                 <div class="form-group">
@@ -89,7 +90,7 @@
                 </div>
                 <div class="form-group">
                     <label for="cellNo">Cell/Mobile No:</label>
-                    <input type="text" id="cellNo" name="cellNo">
+                    <input type="text" id="cellNo" name="cellNo" required>
                 </div>
                 <div class="form-group">
                     <label for="officeNo">Office No:</label>
@@ -125,6 +126,8 @@
         <!-- Buttons at the Bottom -->
         <div class="modal-buttons">
             <button id="cancelBtn">Cancel</button>
-            <button id="doneBtn">Done</button>
+            <button id="doneBtn" type="submit">Submit</button>
         </div>
     </div>
+
+    </form>

@@ -75,6 +75,8 @@ async function createPatient(firstName, lastName, middleName, nickname,
     await patient.save().then(function () {
         console.log("Patient created.");
     });
+
+    return patientID;
 }
 
 async function searchPatientName(patientName){
