@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/C_UploadPic.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="/public/js/C_UploadPic.js" defer></script>
+    <title>Patient Data Form</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <button class="open-upload-popup" id="open-upload-popup">Add Picture</button>
+
+    
+    <div class="overlay" id="overlay"></div>
+
+    <div class="upload-picture-popup" id="upload-picture-popup">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="imageInput">Choose File</label>
+            <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
+
+            <label for="imageDate">Date of Picture</label>
+            <input type="date" id="imageDate" required>
+
+            <label for="imageCaption">Picture Caption/Description</label>
+            <input class="image-caption" type="text" id="imageCaption">
+
+            <button type="submit">Upload</button>
+        </form>
+        <button id="close-upload-picture">Close</button>
+    </div>
+</body>
+</html>

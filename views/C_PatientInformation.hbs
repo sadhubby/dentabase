@@ -551,13 +551,19 @@
     <!--+END MEDICAL HISTORY FRAME-->
 
     {{!-- Popup for adding picture --}}
+    <div class="overlay" id="overlay"></div>
+
     <div class="upload-picture-popup" id="upload-picture-popup" data-id="{{{id}}}">
         <form id="uploadForm" enctype="multipart/form-data">
+            <label for="imageInput">Choose File</label>
             <input type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
+
+            <label for="imageDate">Date of Picture</label>
             <input type="date" id="imageDate" required>
-            <label>Date of Picture</label>
+
+            <label for="imageCaption">Picture Caption/Description</label>
             <input class="image-caption" type="text" id="imageCaption">
-            <label>Picture caption/description</label>
+
             <button type="submit">Upload</button>
         </form>
         <button id="close-upload-picture">Close</button>
@@ -568,7 +574,10 @@
         <div class="header dental-chart-text" id="dental-record-chart">| DENTAL RECORD CHART</div>
 
         {{!-- Button for adding picture --}}
-        <button class="open-upload-popup" id="open-upload-popup"> Add Picture</button>
+        <div class="button-container">
+            <button class="open-upload-popup" id="open-upload-popup">Add Picture</button>
+        </div>
+        
 
         <div class="dental-chart-box-container">
             <div class="dental-chart-box">upload pics here
