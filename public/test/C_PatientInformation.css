@@ -1197,7 +1197,20 @@
     margin-right: 5px; /* Add space between label and input */
 }
 
+.image-date{
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 5px;
+}
 
+.image-caption {
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Roboto-Regular, Helvetica, sans-serif;
+    font-size 25px;
+    margin-top: 5px;
+}
 
 
 /* + END INFORMED CONSENT*/
