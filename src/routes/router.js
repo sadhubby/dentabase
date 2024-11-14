@@ -311,6 +311,17 @@ try{
     
 });
 
+router.get("/deactivate-patient", (req, res) => {
+    try{
+        Functions.deactivatePatient(req.body.patientID).then(function(){
+            return res.status(200).json({message: "Patient deactivated successfully."});
+        });
+    } catch (error) {
+        console.error("Error deactivating patient.", error);
+        return res.status(400).json({message: 'Error deactivating patient.'});
+    }
+})
+
 // To-DO
 // router.get("/to-do", async (req, res) =>{
 //     try{
@@ -391,7 +402,6 @@ router.get("/to-do", async (req, res) => {
         res.status(500).end("Error retrieving patient data");
     }
 });
-
 
 router.get("/treatment", (req,res) =>{
     res.render("D_Treatment");
