@@ -295,5 +295,8 @@ async function run(){
     );
     let treatment = await functions.readTreatment(1);
    // console.log(treatment);
+
+   let monthStats = await functions.getMonthlyStats(2023, 6);
+  // console.log("Total Earned for Month: " + monthStats[0] + ", Num of Appointments:  " + monthStats[1]);
 }
 
