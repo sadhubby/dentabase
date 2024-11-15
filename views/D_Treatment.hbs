@@ -42,17 +42,22 @@
         </div>
 
         <div class="buttons-group">
-
-            <div class="button filter-elements" id="procedure-filter">
-                <button class="filter-text"> <img class="icon-filter" src="/img/icon-filter.svg" />
-                    Filter</button>
-                <div class="dropdown-content">
-                    <a href="#">Option 1</a>
-                    <a href="#">Option 2</a>
-                    <a href="#">Option 3</a>
-                    <a href="#">Option 4</a>
-                </div>
+            <div class="button create-treatment-elements">
+                <img class="icon icon-add" src="/img/icon-add.svg" />
+                <div class="text-buttons add-treatment-text">Add Treatment</div>
             </div>
+          
+
+
+            <div class="divider"></div> <!-- Divider between buttons -->
+
+          <div class="buttons-group">
+        <div class="button filter-elements" id="procedure-filter">
+          <button class="filter-text">
+            <img class="icon-filter" src="/img/icon-filter.svg" />Filter</button>
+        </div>
+      </div>
+      {{>O_Filter_form}}
 
         </div>
 
@@ -79,31 +84,19 @@
 
                 <th>
                     <div class="phone-elements">
-                        <div class="category-text">PHONE</div>
+                        <div class="category-text">PRICE</div>
                         <img class="icon-updown" src="/img/icon-updown.svg" />
                     </div>
                 </th>
 
                 <th>
                     <div class="email-elements">
-                        <div class="category-text">EMAIL</div>
+                        <div class="category-text">ESTIMATE DURATION</div>
                         <img class="icon-updown" src="/img/icon-updown.svg" />
                     </div>
                 </th>
 
-                <th>
-                    <div class="last-visit-elements">
-                        <div class="category-text">LAST VISIT</div>
-                        <img class="icon-updown" src="/img/icon-updown.svg" />
-                    </div>
-                </th>
 
-                <th>
-                    <div class="last-treatment-elements">
-                        <div class="category-text">RECENT TREATMENT</div>
-                        <img class="icon-updown" src="/img/icon-updown.svg" />
-                    </div>
-                </th>
 
             </tr>
         </thead>
@@ -124,20 +117,13 @@
                 </td>
                 <td>
 
-                    <div class="phone">{{{contact}}}ASASASA</div>
+                    <div class="phone">{{{price}}}ASASASA</div>
                 </td>
                 <td>
 
-                    <div class="email">{{{email}}}SDDD</div>
+                    <div class="email">{{{treatment_duration}}}SDDD</div>
                 </td>
 
-                <td>
-                    <div class="next-visit">{{{latestTreatmentDate}}}</div>
-                </td>
-
-                <td>
-                    <div class="treatment">{{{latestProcedure}}}SDSDSDS</div>
-                </td>
 
             </tr>
             <!--  /each -->
@@ -157,3 +143,5 @@
 </div>
 </div>
 <!--+END MAIN CONTENT-->
+
+<script src="O_Filter_form.js"></script>
