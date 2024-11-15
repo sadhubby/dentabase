@@ -27,6 +27,33 @@ async function readPatient(patientID) {
     return patient;
 }
 
+async function getMonthlyStats(year, month){
+    try{
+        let totalEarned = 0;
+        let numOfAppointments = 0;
+
+        const treatmentsThisMonth = await treatmentModel.find({
+            $expr: {
+                $and: [
+                    {$eq: [{ $month: "$date"}, month]},
+                    {$eq: [{ $year: "$date"}, year]}
+                ]   
+            }
+        });
+
+        if(treatmentsThisMonth.length != 0){
+            treatmentsThisMonth.forEach(function(treatment){
+                totalEarned += treatment.amountPaid;
+                numOfAppointments++;
+            })
+        }
+
+        return [totalEarned, numOfAppointments];
+    }catch(error){
+        console.error('Error getting monthly stats. ', error);
+    }
+}
+
 async function createPatient(firstName, lastName, middleName, nickname, 
     homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, 
     occupation, dentalInsurance, officeNo, faxNo, contact, effectiveDate, 
@@ -300,6 +327,7 @@ module.exports = {
     readTreatment,
     convertToDate,
     uniqueProcedures,
-    getPatientsByProcedure
+    getPatientsByProcedure,
+    getMonthlyStats
 };
 
