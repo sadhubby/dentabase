@@ -116,7 +116,7 @@ router.post('/create-patient', function(req, res){
             req.body.referral,
             req.body.consultationReason,
             req.body.previousDentist,
-            req.body.birthdate ? new Date(req.body.birthdate) : null,
+            req.body.lastDentalVisit ? new Date(req.body.birthdate) : null,
             "random pic" //placeholder for not sure pic
         ).then(function(patientID){
             console.log('Patient record created successfully with ID: ' + patientID);
