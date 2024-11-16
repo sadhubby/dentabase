@@ -9,7 +9,8 @@ const sampleTreatments = [
         amountPaid: 1000,
         balance: 0,
         nextAppointmentDate: new Date('2025-01-01'),
-        status: 'ongoing'
+        status: 'ongoing',
+        patientID: 1
     }
 ];
 

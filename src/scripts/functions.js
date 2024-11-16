@@ -48,7 +48,7 @@ async function getMonthlyStats(year, month){
             })
         }
 
-        return [totalEarned, numOfAppointments];
+        return [totalEarned, numOfAppointments, treatmentsThisMonth];
     }catch(error){
         console.error('Error getting monthly stats. ', error);
     }
@@ -255,7 +255,8 @@ async function createTreatment(patientID, date, teethAffected, procedure, dentis
         amountPaid: amountPaid,
         balance: balance,
         nextAppointmentDate: nextAppointmentDate,
-        status: status
+        status: status,
+        patientID: patientID
     })
 
     await treatment.save();
