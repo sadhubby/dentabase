@@ -7,29 +7,7 @@ assignees: ''
 
 ---
 
-**----BUG1----**
-First Patient in the database
-
-**Describe the bug**
-The first patient recorded in the database is missing from the application
-
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to MongoDB Compass
-2. Check the patient data in the database
-3. Notice that the first patient does not appear in the application
-
-**Expected behavior**
-All patient records in the database should be visible in the application
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
- - OS: [Windows]
- - Browser [Chrome]
- 
- **----BUG2----**
+ **----BUG1----**
 Last Dental Visit Field
 
 **Describe the bug**
@@ -53,7 +31,7 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
- **----BUG3----**
+ **----BUG2----**
 Medical History Not Saving
 
 **Describe the bug**
