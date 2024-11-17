@@ -3,20 +3,23 @@ const medicalHistoryModel = require('../models/medicalHistory.js');
 const treatmentModel = require('../models/treatment.js');
 
 function convertToDate(birthdate){
-    let birthyear = birthdate.getFullYear();
-    let birthmonth = birthdate.getMonth() + 1;
-    
-    if(birthmonth < 10){
-        birthmonth = "0" + birthmonth;
+    if(birthdate){
+        let birthyear = birthdate.getUTCFullYear();
+        let birthmonth = birthdate.getUTCMonth() + 1;
+        
+        if(birthmonth < 10){
+            birthmonth = "0" + birthmonth;
+        }
+
+        let birthday = birthdate.getUTCDate();
+
+        if(birthday < 10){
+            birthday = "0" + birthday;
+        }
+
+        birthdate = birthyear + '-' + birthmonth + '-' + birthday;         
     }
 
-    let birthday = birthdate.getDate();
-
-    if(birthday < 10){
-        birthday = "0" + birthday;
-    }
-
-    birthdate = birthyear + '-' + birthmonth + '-' + birthday; 
 
     return birthdate;
 }
@@ -123,6 +126,7 @@ async function updatePatientInfo(patientID, nickname,
     homeAddress, birthdate, age, sex, religion, nationality, email, homeNo, 
     occupation, dentalInsurance, officeNo, faxNo, contact, 
     guardianName, guardianOccupation, referralName, consultationReason, lastDentist, lastDentalVisit){
+
         
         patientModel.findOne({id: patientID}).then(function(patient){
 

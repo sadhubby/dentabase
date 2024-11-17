@@ -214,6 +214,7 @@ router.get("/patient-information/:id", async (req, res) => {
             picture.dateString = Functions.convertToDate(picture.date);
         })
 
+
         
 
         res.render("C_PatientInformation", {
@@ -223,24 +224,24 @@ router.get("/patient-information/:id", async (req, res) => {
             age: patient.age,
             sex: patient.sex,
             birthdate: birthdate,
-            nickname: patient.nickname || "N/A",
+            nickname: patient.nickname,
             fullSex: fullSex,
-            home_address: patient.homeAddress || "N/A",
-            occupation: patient.occupation || "N/A",
-            religion: patient.religion || "N/A", 
-            nationality: patient.nationality || "N/A",
-            dental_insurance: patient.dentalInsurance || "N/A",
-            previous_dentist: patient.lastDentist || "N/A",
-            lastDentalVisit: Functions.convertToDate(patient.lastDentalVisit) || "N/A",
-            email: patient.email || "N/A",
-            home_number: patient.homeNo || "N/A",
-            mobile_number: patient.contact || "N/A",
-            office_number: patient.officeNo || "N/A",
-            fax_number: patient.faxNo || "N/A",
-            guardian_name: patient.guardianName || "N/A",
-            guardian_occupation: patient.guardianOccupation || "N/A",
-            minor_referral_question: patient.referralName || "N/A",
-            consultation: patient.consultationReason || "N/A",
+            home_address: patient.homeAddress,
+            occupation: patient.occupation,
+            religion: patient.religion, 
+            nationality: patient.nationality,
+            dental_insurance: patient.dentalInsurance,
+            previous_dentist: patient.lastDentist,
+            lastDentalVisit: Functions.convertToDate(patient.lastDentalVisit),
+            email: patient.email,
+            home_number: patient.homeNo,
+            mobile_number: patient.contact,
+            office_number: patient.officeNo,
+            fax_number: patient.faxNo,
+            guardian_name: patient.guardianName,
+            guardian_occupation: patient.guardianOccupation,
+            minor_referral_question: patient.referralName,
+            consultation: patient.consultationReason,
 
 
             //medicalHistory
@@ -302,7 +303,7 @@ try{
             req.body.referral,
             req.body.consultationReason,
             req.body.lastDentist,
-            new Date(req.body.lastDentalVisit),
+            req.body.lastDentalVisit ? new Date(req.body.lastDentalVisit) : null,
         );
         resp.status(200).send('Patient information updated successfully');
 } catch(error){

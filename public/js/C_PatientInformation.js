@@ -241,7 +241,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
                  sex : $('#sex').val(),
                  occupation : $('#occupation').val(),
                  address : $('#address').val(),
-                 religion : $('#occupation').val(),
+                 religion : $('#religion').val(),
                  nationality : $('#nationality').val(),
                  dentalInsurance : $('#insurance').val(),
 
