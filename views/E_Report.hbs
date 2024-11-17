@@ -1,0 +1,174 @@
+<!-- +NAME PAGE, SEARCH BOX-->
+<div class="frame-1">
+    <div class="name-page"> Treatments</div>
+    <div class="search-settings-group">
+        <form action="/patient_list" method="GET">
+            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer">
+                <img class="icon-search" src="/img/icon-search.svg" />
+            </button>
+            <input name="search" required type="text" class="search-box" placeholder="Search for a Patient" />
+        </form>
+    </div>
+
+</div>
+<!--`END NAME PAGE-->
+
+
+<!-- `TITLES -->
+
+<div class="frame-2">
+
+    <div class="title-divider"></div>
+
+    <div class="title-group">
+        <div class="title-element">Recent Activity</div>
+
+
+    </div>
+    <div class="title-divider-2"></div>
+    <div class="indicator-line"></div>
+
+</div>
+<!-- `END TITLES-->
+
+<!-- +PATIENT DETAILS-->
+<div class="frame-3">
+    <div class="dashboard-group">
+
+        <!-- `Card for Appointments -->
+
+        <div class="card">
+            <h3>Monthly Appointments</h3>
+            <p>Appointments: {{appointmentCount}}20</p>
+            <div class="chart-container">
+                <canvas id="appointmentsChart" class="appointment-chart"></canvas>
+            </div>
+
+
+        </div>
+
+        <!-- `END OF APPOINTMENT CHART-->
+
+
+
+        <!-- Card for Active Orthodontic Patients -->
+        <div class="card">
+            <h3>Active Orthodontic Patients</h3>
+            <div class="patient-filter">
+                <p>Active Patients: {{active_patients}}5</p>
+                <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>
+                <div id="filterDropdown" class="filter-dropdown">
+                    <select id="monthSelect" onchange="filterPatientsByMonth()">
+                        <option value="all">All Months</option>
+                        <option value="january">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                        <option value="april">April</option>
+                        <option value="may">May</option>
+                        <option value="june">June</option>
+                        <option value="july">July</option>
+                        <option value="august">August</option>
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                        <option value="december">December</option>
+                    </select>
+                </div>
+            </div>
+            <table class="patient-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Treatment Type</th>
+                    </tr>
+                </thead>
+
+                <tbody id="patientTableBody">
+                    {{#each patients}}
+                    <tr data-appointment-month="january">
+                        <td>{{firstName}} {{lastName}}</td>
+                        <td>{{latestProcedure}}</td>
+                    </tr>
+                    {{/each}}
+                 
+                 
+                 
+                    <tr data-appointment-month="february">
+                        <td>Jane Smith</td>
+                        <td>Invisalign</td>
+                    </tr>
+                    <tr data-appointment-month="march">
+                        <td>Alex Johnson</td>
+                        <td>Retainers</td>
+                    </tr>
+                    <tr data-appointment-month="april">
+                        <td>Emily Davis</td>
+                        <td>Braces</td>
+                    </tr>
+                    <tr data-appointment-month="may">
+                        <td>Chris Lee</td>
+                        <td>Invisalign</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- `Card for Frequency Distribution -->
+        <!-- Frequency Distribution Card -->
+        <div class="card">
+            <h3>Frequency Distribution</h3>
+            <div class="controls">
+                <!-- Update IDs for buttons -->
+                <button id="toggleFormButton">Add Treatment</button>
+                <button id="removeTreatmentButton">Remove Treatment</button>
+            </div>
+            <div id="add-treatment-form" style="display: none;">
+                <h4>Add Treatment</h4>
+                <form id="treatmentForm">
+                    <label for="treatmentSelect">Select Treatment:</label>
+                    <select id="treatmentSelect" name="treatment">
+                        <option value="Braces">Braces</option>
+                        <option value="Invisalign">Invisalign</option>
+                        <option value="Retainers">Retainers</option>
+                        <option value="Teeth Whitening">Teeth Whitening</option>
+                        <option value="Fillings">Fillings</option>
+                    </select>
+                    <button type="button" id="submitTreatmentButton">Add</button>
+                </form>
+            </div>
+
+
+            <!-- Add Treatment Form (already present) -->
+
+            <div id="remove-treatment-form" style="display: none;">
+                <h4>Remove Treatment</h4>
+                <form id="removeTreatmentForm">
+                    <label for="removeTreatmentSelect">Select Treatment:</label>
+                    <select id="removeTreatmentSelect" name="removeTreatment">
+                        <option value="Braces">Braces</option>
+                        <option value="Invisalign">Invisalign</option>
+                        <option value="Retainers">Retainers</option>
+                        <option value="Teeth Whitening">Teeth Whitening</option>
+                        <option value="Fillings">Fillings</option>
+                    </select>
+                    <button type="button" id="submitRemoveTreatmentButton">Remove</button>
+                </form>
+            </div>
+            <canvas id="frequencyChart"></canvas>
+
+
+
+
+
+        </div>
+
+        <!-- `END DASHBOARD GROUP-->
+
+    </div>
+
+
+
+    <!--To render the charts-->
+    <script src="E_Report.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

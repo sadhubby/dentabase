@@ -1,8 +1,8 @@
 .dashboard-group {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 20px;
-    background-color: rgb(166, 255, 255);
+    gap: 15px;
+
     width: 100%;
     height: 100vh; /* Ensure the group takes the full viewport height */
     padding: 20px;
@@ -14,7 +14,7 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 30px;
+    padding: 20px;
     text-align: flex-start;
     box-sizing: border-box;
     display: flex;
@@ -56,29 +56,98 @@
 /* `Card Appointment */
   
 
+.chart-container {
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Fixed height for consistent hover behavior */
+    position: relative;
+}
 
+.appointment-chart {
+    display: block;
+    width: fit-content; /* Full width within the container */
+    height: fit-content; /* Full height within the container */
+}
 
 /* `ACTIVE PATIENTS */
+
+.patient-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between items */
+    margin-bottom: 20px;
+    position: relative;
+    justify-content: flex-start; /* Ensures items align to the left */
+}
+
+
+.patient-filter p {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.filter-button {
+    background-color: #485fe7;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.filter-button:hover {
+    background-color: #3d4cd2;
+}
+
+.filter-dropdown {
+    display: none;
+    position: static; /* Change position to inline with button */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 5px;
+    width: auto;
+    margin-left: 10px;
+}
+
+.filter-dropdown.show {
+    display: block;
+}
+
+.filter-dropdown select {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: auto; /* Ensure dropdown isn't stretched */
+    background-color: #ffffff;
+}
+
 .patient-table {
-    width: 100%; /* Adjust width as needed */
-    margin: 0 auto; /* Center the table horizontally */
+    width: 100%;
+    margin: 0 auto;
     border-collapse: separate;
     border-spacing: 0;
-    margin-bottom: 15px; /* Space between table and heading */
+    margin-bottom: 15px;
     font-size: 1em;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .patient-table thead th {
     background-color: #485fe7;
     color: #fff;
-    text-align: center; /* Center align the header content */
-    padding: 12px 15px;
+    text-align: center;
+    padding: 14px;
     font-weight: bold;
-    border-bottom: 2px solid #909eee;
+    border-bottom: 3px solid #909eee;
+    font-size: 1.1em;
 }
 
 .patient-table tbody tr:nth-child(odd) {
@@ -90,29 +159,31 @@
 }
 
 .patient-table tbody td {
-    text-align: center; /* Center align the table data content */
-    padding: 12px 15px;
+    text-align: center;
+    padding: 14px 20px;
     color: #333;
+    font-size: 1em;
 }
 
 .patient-table tbody tr:hover {
     background-color: #dfd9ff;
     cursor: pointer;
+    transform: scale(1.02);
+    transition: transform 0.1s ease;
 }
 
 .patient-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-
-
 /* `FREQUENCY DISTRIBUTION BAR GRAPH*/
 
 /* Chart and Controls */
 .controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: 0px;
+    gap: 10px;
 }
 
 .controls button {
@@ -176,7 +247,7 @@ canvas {
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
 }
 
 #add-treatment-form button:hover, #remove-treatment-form button:hover {
