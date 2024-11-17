@@ -578,6 +578,19 @@ router.post("/appointments", async (req, res) => {
 //         res.status(500).json({ message: "Failed to create appointment" });
 //     }
 // });
+
+
+
+
+
+
+router.get("/report", (req,res) =>{
+    res.render("E_Report");
+});
+
+
+
+
 router.get('/login', (req, res) => {
     res.render('A_LoginPage'); // Render the A_LoginPage.hbs view
 });
