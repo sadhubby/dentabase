@@ -74,7 +74,7 @@
                 <div class="title-divider"></div>
 
                 <div class="title-group">
-                    <div class="title-element">Sample</div>
+                    <div class="title-element">Recent Activity</div>
 
 
                 </div>
@@ -93,9 +93,9 @@
                     <div class="card">
                         <h3>Monthly Appointments</h3>
                         <p>Appointments: 20</p>
-
-                        <canvas class="appointment-chart" id="appointmentsChart"></canvas>
-
+ <div class="chart-container">
+        <canvas id="appointmentsChart" class="appointment-chart"></canvas>
+    </div>
 
 
                     </div>
@@ -104,10 +104,30 @@
 
 
 
-                    <!-- `Card for Active Orthodontic Patients -->
+                    <!-- Card for Active Orthodontic Patients -->
                     <div class="card">
                         <h3>Active Orthodontic Patients</h3>
-                        <p>Active Patients: 5</p>
+                        <div class="patient-filter">
+                            <p>Active Patients: 5</p>
+                            <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>
+                            <div id="filterDropdown" class="filter-dropdown">
+                                <select id="monthSelect" onchange="filterPatientsByMonth()">
+                                    <option value="all">All Months</option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                </select>
+                            </div>
+                        </div>
                         <table class="patient-table">
                             <thead>
                                 <tr>
@@ -115,24 +135,24 @@
                                     <th>Treatment Type</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody id="patientTableBody">
+                                <tr data-appointment-month="january">
                                     <td>Johasasasasn Doe</td>
                                     <td>Braces</td>
                                 </tr>
-                                <tr>
+                                <tr data-appointment-month="february">
                                     <td>Jane Smith</td>
                                     <td>Invisalign</td>
                                 </tr>
-                                <tr>
+                                <tr data-appointment-month="march">
                                     <td>Alex Johnson</td>
                                     <td>Retainers</td>
                                 </tr>
-                                <tr>
+                                <tr data-appointment-month="april">
                                     <td>Emily Davis</td>
                                     <td>Braces</td>
                                 </tr>
-                                <tr>
+                                <tr data-appointment-month="may">
                                     <td>Chris Lee</td>
                                     <td>Invisalign</td>
                                 </tr>
@@ -140,14 +160,12 @@
                         </table>
                     </div>
 
+
                     <!-- `Card for Frequency Distribution -->
                     <!-- Frequency Distribution Card -->
                     <div class="card">
                         <h3>Frequency Distribution</h3>
-         
-                        <canvas id="frequencyChart"></canvas>
-
-                        <div class="controls">
+ <div class="controls">
                             <!-- Update IDs for buttons -->
                             <button id="toggleFormButton">Add Treatment</button>
                             <button id="removeTreatmentButton">Remove Treatment</button>
@@ -184,6 +202,9 @@
                                 <button type="button" id="submitRemoveTreatmentButton">Remove</button>
                             </form>
                         </div>
+                        <canvas id="frequencyChart"></canvas>
+
+                       
 
 
 
