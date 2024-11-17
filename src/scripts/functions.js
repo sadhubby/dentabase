@@ -187,10 +187,10 @@ async function createMedicalHistory(patientID, physicianName, physicianOfficeAdd
                 illnessOrSurgery: illnessOrSurgery,
                 condition: condition,
                 isUsingTobacco: isUsingTobacco,
-                isAlcoholOrDrugs: isNursing,
+                isAlcoholOrDrugs: isAlcoholOrDrugs,
                 allergies: allergies,
                 isPregnant: isPregnant,
-                isNursing: isPregnant,
+                isNursing: isNursing,
                 isBirthControlPills: isBirthControlPills,
                 healthProblems: healthProblems,
             }
@@ -210,7 +210,7 @@ async function updateMedicalHistory(patientID, physicianName, physicianOfficeAdd
         console.log("updating med history found.");
         medicalHistory.physicianName = physicianName;
         medicalHistory.physicianOfficeAddress = physicianOfficeAddress;
-        medicalHistory.physicianSpeciality = physicianSpecialty;
+        medicalHistory.physicianSpecialty = physicianSpecialty;
         medicalHistory.physicianOfficeNumber = physicianOfficeNumber;
         medicalHistory.prescription = prescription;
         medicalHistory.illnessOrSurgery = illnessOrSurgery;

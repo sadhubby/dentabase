@@ -523,13 +523,13 @@ router.post("/update-medical-history", async function(req, res){
         let {
             patientID,
             physicianName,
-            physicianSpecialty,
             physicianOfficeAddress,
+            physicianSpecialty,
             physicianOfficeNumber,
             
-            medicalTreatment,
-            illnessOrSurgery,
             prescription,
+            illnessOrSurgery,
+            medicalTreatment,
             isTobacco,
             isAlcohol,
             allergies,
@@ -544,8 +544,9 @@ router.post("/update-medical-history", async function(req, res){
         await Functions.updateMedicalHistory(
             patientID,
             physicianName,
-            physicianSpecialty,
             physicianOfficeAddress,
+            physicianSpecialty,
+
             physicianOfficeNumber,
             
             medicalTreatment,
@@ -562,10 +563,10 @@ router.post("/update-medical-history", async function(req, res){
             healthProblems
         )
 
-        res.status(200).send({message: 'Updating medical history successful'});
+        res.status(200).send('Updating medical history successful');
     } catch(error){
         console.error("Error updating medical history. ", error);
-        res.status(500).send({message: 'Error updating medical history'});
+        res.status(500).send('Error updating medical history');
     }
 });
 

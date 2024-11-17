@@ -295,8 +295,8 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
                 return this.value;
             }).get();
 
-            if($('#allergy-options').val() != ""){
-                checkedAllergies.push($('#allergy-options').val());
+            if($('#allergy-details').val() != ""){
+                checkedAllergies.push($('#allergy-details').val());
             }
         
             if (checkedAllergies.length == 0) {
@@ -334,7 +334,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
 
 
 
-
+        console.log($('#specialty').val());
         
         $.post(
             '/update-medical-history',
@@ -358,8 +358,8 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
 
                 healthProblems : healthProblems
             },
-            function(message){
-                alert(message);
+            function(status){
+                alert(status);
             }
         );
     });
