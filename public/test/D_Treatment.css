@@ -82,7 +82,7 @@
 }
 
 /* Specific button styles */
-.treatment-file .create-patient-elements {
+.treatment-file .create-treatment-elements {
     width: 8rem;
     height: 41.12px;
     padding: 11.65px 6.85px;
@@ -91,11 +91,11 @@
 
 /* Wrapper for the filter button and dropdown */
 .treatment-file .filter-elements {
-    position: relative;
+ position: relative;
     display: inline-flex;
     align-items: center;
     padding: 9.59px 4.8px;
-    
+    width: 80px;
     background-color: #485fe796;
     height: 41.12px;
     cursor: pointer;

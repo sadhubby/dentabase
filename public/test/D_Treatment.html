@@ -121,49 +121,91 @@
                 <!--`END SCHEDULE GROUP-->
 
 
-                <!-- `LIST OF CATEGORY -->
-                <div class="treatment-category-group">
+             
 
-                    <div class="treatment-name-elements">
-                        <div class="category-text">TREATMENT NAME</div>
-                        <img class="icon-updown" src="/public/img/icon-updown.svg" />
+    <!-- `LIST OF CATEGORY -->
+
+    <table>
+        <thead>
+            <tr>
+
+
+                <th>
+                    <div class="patient-name-elements">
+                        <div class="category-text">NAME</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
                     </div>
-                    <div class="price-elements">
-                        <div class="category-text">PRICE</div>
-                        <img class="icon-updown" src="/public/img/icon-updown.svg" />
+                </th>
+
+                <th>
+                    <div class="phone-elements">
+                        <div class="category-text">PHONE</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
                     </div>
-                    <div class="estimated-duration-elements">
-                        <div class="category-text">ESTIMATED DURATION</div>
-                        <img class="icon-updown" src="/public/img/icon-updown.svg" />
+                </th>
+
+                <th>
+                    <div class="email-elements">
+                        <div class="category-text">EMAIL</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
                     </div>
-                    <div class="visit-type-elements">
-                        <div class="category-text">TYPE OF VISIT</div>
-                        <img class="icon-updown" src="/public/img/icon-updown.svg" />
+                </th>
+
+                <th>
+                    <div class="last-visit-elements">
+                        <div class="category-text">LAST VISIT</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
                     </div>
+                </th>
 
-
-                </div>
-                <!-- `END LIST OF CATEGORY -->
-
-
-                <!-- `treatment LIST-->
-
-                <div class="treatment-list-group">
-                    <div class="treatment-information-group">
-
-                        <div class="treatment-details">
-                            <div class="text-treatment">Tooth Whitening</div>
-
-                            <div class="text-price">1000</div>
-                            <div class="text-estimated-duration">3hrs</div>
-                            <div class="visit-button single-visit">SINGLE VISIT</div>
-                            <div class="visit-button multiple-visit">MULTIPLE VISIT</div>
-
-                        </div>
-
+                <th>
+                    <div class="last-treatment-elements">
+                        <div class="category-text">RECENT TREATMENT</div>
+                        <img class="icon-updown" src="/img/icon-updown.svg" />
                     </div>
-                </div>
-                <!-- `END PATIENT LIST-->
+                </th>
+
+            </tr>
+        </thead>
+        <!-- `END LIST OF CATEGORY -->
+
+        <!-- `TREATMENT LIST-->
+        <tbody>
+
+            <!-- #each treatment_patient -->
+
+            <tr>
+
+                <td>
+                    <div class="name" onclick="window.location.href='/patient-information/{{{id}}}'"
+                        style="cursor: pointer;">
+                        {{firstName}} {{lastName}}ASASAS</div>
+                </td>
+                <td>
+
+                    <div class="phone">{{{contact}}}ASASASA</div>
+                </td>
+                <td>
+
+                    <div class="email">{{{email}}}SDDD</div>
+                </td>
+
+                <td>
+                    <div class="next-visit">{{{latestTreatmentDate}}}</div>
+                </td>
+
+                <td>
+                    <div class="treatment">{{{latestProcedure}}}SDSDSDS</div>
+                </td>
+
+            </tr>
+            <!--  /each -->
+
+        </tbody>
+    </table>
+    <!-- `END TREATMENT LIST-->
+
+
 
 
             </div>
