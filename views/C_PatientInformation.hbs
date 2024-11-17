@@ -278,15 +278,15 @@
 
 
     <!-- +MEDICAL HISTORY FRAME-->
-
+<form name="update-medical-history-form" id="update-medical-history-form" data-id="{{id}}">
     <div class="frame-4">
         <div class="header medical-history-text" id="medical-history">| MEDICAL HISTORY</div>
-<form>
+
         <!-- `DOCTOR INFO-->
         <div class="medical-history-grid">
             <div class="medical-box">
                 <label for="physician-name">Name of Physician:</label>
-                <input type="text" id="physician-name" class="input-field" placeholder="Enter physician's name">
+                <input type="text" id="physician-name" class="input-field" placeholder="Enter physician's name" required>
             </div>
             <div class="medical-box">
                 <label for="specialty">Specialty,If Applicable:</label>
@@ -296,12 +296,12 @@
             <div class="medical-box">
                 <label for="office-address">Office Address:</label>
                 <input type="text" id="office-address" class="input-field" placeholder="Enter office address"
-                    value="{{physician_office_number}}">
+                    value="{{physician_office_number}}" required>
             </div>
             <div class="medical-box">
                 <label for="office-number">Office Number:</label>
-                <input type="text" id="office-number" class="input-field" placeholder="Enter office number"
-                    value="{{physician_address}}">
+                <input type="number" id="office-number" class="input-field" placeholder="Enter office number"
+                    value="{{physician_address}}" required>
             </div>
         </div>
         <!-- `END  DOCTOR INFO-->
@@ -314,10 +314,10 @@
                 <div class="info-box">
                     <label for="medical-question-1">1. Are you under medical treatment now? </label>
                     <div class="radio-group">
-                        <input type="radio" name="medical-treatment" id="medical-treatment-yes" class="input-radio" />
+                        <input type="radio" name="medical-treatment" id="medical-treatment-yes" class="input-radio"  />
                         <label for="medical-treatment-yes" class="radio-label">Yes</label>
 
-                        <input type="radio" name="medical-treatment" id="medical-treatment-no" class="input-radio" />
+                        <input type="radio" name="medical-treatment" id="medical-treatment-no" class="input-radio"  />
                         <label for="medical-treatment-no" class="radio-label">No</label>
 
                         <div class="additional-options" id="options-1">
@@ -405,7 +405,7 @@
                     <p>Please select any allergies:</p>
                     <div class="allergy-options">
                         <label><input type="checkbox" id="lidocaine" name="allergy-options"
-                                value="Local Anesthetic (ex. Lidocaine)">
+                                value="Lidocaine">
                             Local Anesthetic (ex.
                             Lidocaine)</label>
                         <label><input type="checkbox" id="penicillin" name="allergy-options" value="Penicillin">
@@ -463,71 +463,71 @@
 
                 <div class="checkbox-group">
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="high-blood-pressure"
+                        <label><input type="checkbox" name="conditions" value="High Blood Pressure"
                                 id="high-blood-pressure"> High
                             Blood Pressure</label><br>
-                        <label><input type="checkbox" name="conditions" value="low-blood-pressure"
+                        <label><input type="checkbox" name="conditions" value="Low Blood Pressure"
                                 id="low-blood-pressure"> Low
                             Blood Pressure</label><br>
-                        <label><input type="checkbox" name="conditions" value="epilepsy" id="epilepsy"> Epilepsy /
+                        <label><input type="checkbox" name="conditions" value="Epilepsy" id="epilepsy"> Epilepsy /
                             Convulsions</label><br>
-                        <label><input type="checkbox" name="conditions" value="aids-hiv" id="aids-hiv"> AIDS or HIV
+                        <label><input type="checkbox" name="conditions" value="AIDS" id="aids-hiv"> AIDS or HIV
                             Infection</label><br>
-                        <label><input type="checkbox" name="conditions" value="std" id="std"> Sexually Transmitted
+                        <label><input type="checkbox" name="conditions" value="STD" id="std"> Sexually Transmitted
                             Disease</label><br>
-                        <label><input type="checkbox" name="conditions" value="stomach-troubles" id="stomach-troubles">
+                        <label><input type="checkbox" name="conditions" value="Stomach Troubles" id="stomach-troubles">
                             Stomach
                             Troubles / Ulcers</label><br>
-                        <label><input type="checkbox" name="conditions" value="fainting-seizure" id="fainting-seizure">
+                        <label><input type="checkbox" name="conditions" value="Fainting Seizure" id="fainting-seizure">
                             Fainting
                             Seizure</label><br>
-                        <label><input type="checkbox" name="conditions" value="rapid-weight-loss"
+                        <label><input type="checkbox" name="conditions" value="Rapid Weight Loss"
                                 id="rapid-weight-loss"> Rapid
                             Weight Loss</label><br>
                     </div>
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="radiation-therapy"
+                        <label><input type="checkbox" name="conditions" value="Radiation Therapy"
                                 id="radiation-therapy"> Radiation
                             Therapy</label><br>
-                        <label><input type="checkbox" name="conditions" value="joint-replacement"
+                        <label><input type="checkbox" name="conditions" value="Joint Replacement"
                                 id="joint-replacement"> Joint
                             Replacement / Implant</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-surgery" id="heart-surgery"> Heart
+                        <label><input type="checkbox" name="conditions" value="Heart Surgery" id="heart-surgery"> Heart
                             Surgery</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-attack" id="heart-attack"> Heart
+                        <label><input type="checkbox" name="conditions" value="Heart Attack" id="heart-attack"> Heart
                             Attack</label><br>
-                        <label><input type="checkbox" name="conditions" value="thyroid-problem" id="thyroid-problem">
+                        <label><input type="checkbox" name="conditions" value="Thyroid Problem" id="thyroid-problem">
                             Thyroid
                             Problem</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-disease" id="heart-disease"> Heart
+                        <label><input type="checkbox" name="conditions" value="Heart Disease" id="heart-disease"> Heart
                             Disease</label><br>
-                        <label><input type="checkbox" name="conditions" value="heart-murmur" id="heart-murmur"> Heart
+                        <label><input type="checkbox" name="conditions" value="Heart Murmur" id="heart-murmur"> Heart
                             Murmur</label><br>
-                        <label><input type="checkbox" name="conditions" value="hepatitis-liver" id="hepatitis-liver">
+                        <label><input type="checkbox" name="conditions" value="Hepatitis / Liver Disease" id="hepatitis-liver">
                             Hepatitis /
                             Liver Disease</label><br>
                     </div>
                     <div class="column">
-                        <label><input type="checkbox" name="conditions" value="rheumatic-fever" id="rheumatic-fever">
+                        <label><input type="checkbox" name="conditions" value="Rheumatic Fever" id="rheumatic-fever">
                             Rheumatic
                             Fever</label><br>
-                        <label><input type="checkbox" name="conditions" value="hay-fever" id="hay-fever"> Hay Fever /
+                        <label><input type="checkbox" name="conditions" value="Hay Fever" id="hay-fever"> Hay Fever /
                             Allergies</label><br>
-                        <label><input type="checkbox" name="conditions" value="respiratory-problem"
+                        <label><input type="checkbox" name="conditions" value="Respiratory Problem"
                                 id="respiratory-problem">
                             Respiratory Problem</label><br>
-                        <label><input type="checkbox" name="conditions" value="hepatitis-jaundice"
+                        <label><input type="checkbox" name="conditions" value="Hepatitis / Jaundice"
                                 id="hepatitis-jaundice">
                             Hepatitis / Jaundice</label><br>
-                        <label><input type="checkbox" name="conditions" value="tuberculosis" id="tuberculosis">
+                        <label><input type="checkbox" name="conditions" value="Tuberculosis" id="tuberculosis">
                             Tuberculosis</label><br>
-                        <label><input type="checkbox" name="conditions" value="swollen-ankles" id="swollen-ankles">
+                        <label><input type="checkbox" name="conditions" value="Swollen Ankles" id="swollen-ankles">
                             Swollen
                             Ankles</label><br>
-                        <label><input type="checkbox" name="conditions" value="kidney-disease" id="kidney-disease">
+                        <label><input type="checkbox" name="conditions" value="Kidney Disease" id="kidney-disease">
                             Kidney
                             Disease</label><br>
-                        <label><input type="checkbox" name="conditions" value="diabetes" id="diabetes">
+                        <label><input type="checkbox" name="conditions" value="Diabetes" id="diabetes">
                             Diabetes</label><br>
                     </div>
                 </div>
@@ -541,11 +541,14 @@
 
         </div>
         <!-- `END MEDICAL QUESTIONS-->
-</form>
-        <!--SAVE CHANGE FOR MEDICAL HISTORY -->
+
         <div class="buttons-group">
             <button type="submit" class="save-change-button">Save Medical History Changes</button>
         </div>
+
+</form>
+        <!--SAVE CHANGE FOR MEDICAL HISTORY -->
+
 
     </div>
     <!--+END MEDICAL HISTORY FRAME-->

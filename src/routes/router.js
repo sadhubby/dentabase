@@ -452,6 +452,8 @@ router.get("/patient_list", async (req, res) => {
     }
 });
 
+
+
 //DEFAULT PAGE
 router.get("/", async (req, res) =>{
     try {
@@ -513,6 +515,57 @@ router.get('/api/patients', async (req, res) => {
         res.json(patients);
     } catch (error) {
         res.status(500).send('Error fetching patients');
+    }
+});
+
+router.post("/update-medical-history", async function(req, res){
+    try{
+        let {
+            patientID,
+            physicianName,
+            physicianSpecialty,
+            physicianOfficeAddress,
+            physicianOfficeNumber,
+            
+            medicalTreatment,
+            illnessOrSurgery,
+            prescription,
+            isTobacco,
+            isAlcohol,
+            allergies,
+
+            isPregnant,
+            isNursing,
+            isBirthControl,
+
+            healthProblems
+        } = req.body;
+
+        await Functions.updateMedicalHistory(
+            patientID,
+            physicianName,
+            physicianSpecialty,
+            physicianOfficeAddress,
+            physicianOfficeNumber,
+            
+            medicalTreatment,
+            illnessOrSurgery,
+            prescription,
+            isTobacco,
+            isAlcohol,
+            allergies,
+
+            isPregnant,
+            isNursing,
+            isBirthControl,
+
+            healthProblems
+        )
+
+        res.status(200).send({message: 'Updating medical history successful'});
+    } catch(error){
+        console.error("Error updating medical history. ", error);
+        res.status(500).send({message: 'Error updating medical history'});
     }
 });
 
