@@ -578,26 +578,27 @@ router.post("/appointments", async (req, res) => {
 //     }
 // });
 router.get('/login', (req, res) => {
-    res.render('A_LoginPage'); // Render the A_LoginPage.hbs view
+    res.render('A_LoginPage'); 
 });
 
 router.post('/login', async (req, res) => {
     const { password } = req.body;
-    console.log("Received password:", password); // Debugging log
 
     try {
-        // Compare the entered password with the shared hashed password
-        const match = await bcrypt.compare(password, process.env.SHARED_PASSWORD_HASH);
-        
-        if (match) {
-            res.status(200).send("Login successful!");
+        const sharedHash = process.env.SHARED_PASSWORD_HASH;
+
+        const isMatch = await bcrypt.compare(password, sharedHash);
+
+        if (isMatch) {
+            res.status(200).send('Login successful!');
         } else {
-            res.status(400).send("Invalid password");
+            res.status(400).send('Invalid password');
         }
     } catch (error) {
-        console.error("Error during login:", error);
-        res.status(500).send("An error occurred");
+        console.error('Error during login:', error);
+        res.status(500).send('An error occurred');
     }
 });
+
 
 module.exports = router;

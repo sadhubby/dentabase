@@ -300,3 +300,15 @@ async function run(){
   // console.log("Total Earned for Month: " + monthStats[0] + ", Num of Appointments:  " + monthStats[1]);
 }
 
+// const bcrypt = require('bcrypt');
+
+// const plainTextPassword = "dentabase"; // Replace with your shared password
+// bcrypt.hash(plainTextPassword, 10, (err, hash) => {
+//     if (err) {
+//         console.error('Error hashing password:', err);
+//     } else {
+//         console.log('Hashed password:', hash);
+//     }
+// });
+
+
