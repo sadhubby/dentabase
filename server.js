@@ -300,6 +300,7 @@ async function run(){
   // console.log("Total Earned for Month: " + monthStats[0] + ", Num of Appointments:  " + monthStats[1]);
 }
 
+// for the password. only ran this one time but saving it just to see. will remove.
 // const bcrypt = require('bcrypt');
 
 // const plainTextPassword = "dentabase"; // Replace with your shared password
