@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="E_Report.css">
+    <link rel="stylesheet" href="O_MainTemplate.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- +Sidebar Wrapper with Toggle Button -->
+        <div class="sidebar-wrapper">
+            <input type="checkbox" id="sidebar-toggle" hidden>
+            <label for="sidebar-toggle" class="toggle-btn">
+                <img src="/public/img/icon-solid-left-arrow.svg" alt="Toggle Sidebar" class="toggle-icon">
+            </label>
+
+            <div class="sidebar">
+                <div class="brand-logo">
+                    <img src="/public/img/logo-better-smiles.svg" alt="Brand Logo">
+                </div>
+                <div class="brand-name">
+                    <h2>BETTER SMILES</h2>
+                    <h3>DENTAL CLINIC</h3>
+                    <p>General Dentistry ● Orthodontist ● Surgery</p>
+                </div>
+
+
+                <ul>
+                    <div class="clinic-text"> CLINIC</div>
+                    <li><a href="/D_Todo">
+                            <img src="/public/img/icon-todo.svg" alt="To Do" class="sidebar-icon">
+                            <span class="sidebar-text">To Do</span></a></li>
+                    <li><a href="/B_PatientList_page">
+                            <img src="/public/img/icon-sidemenu-user.svg" alt="Patients" class="sidebar-icon">
+                            <span class="sidebar-text">Patients</span> </a></li>
+                    <li><a href="/C_Treatment">
+                            <img src="/public/img/icon-stethoscope.svg" alt="Treatment" class="sidebar-icon"><span
+                                class="sidebar-text">Treatment</span></a></li>
+                    <li><a href="/E_Report">
+                            <img src="/public/img/icon-piechart.svg" alt="Report" class="sidebar-icon">
+                            <span class="sidebar-text">Report</span></a></li>
+
+                    <li><a href="/A_LoginPage">
+                            <img src="/public/img/icon-logout.svg" alt="Logout" class="sidebar-icon">
+                            <span class="sidebar-text">Logout</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- +END SIDEBAR DESIGN-->
+
+        <!-- +Main content -->
+        <div class="main-content">
+
+            <!-- +NAME PAGE, SEARCH BOX-->
+            <div class="frame-1">
+                <div class="name-page">Report</div>
+                <div class="search-settings-group">
+                    <img class="icon-search" src="/public/img/icon-search.svg" />
+                    <input type="text" class="search-box" placeholder="Search for a Patient" />
+                </div>
+
+            </div>
+            <!--`END NAME PAGE-->
+
+
+            <!-- `TITLES -->
+
+            <div class="frame-2">
+
+                <div class="title-divider"></div>
+
+                <div class="title-group">
+                    <div class="title-element">Recent Activity</div>
+
+
+                </div>
+                <div class="title-divider-2"></div>
+                <div class="indicator-line"></div>
+
+            </div>
+            <!-- `END TITLES-->
+
+            <!-- +PATIENT DETAILS-->
+            <div class="frame-3">
+                <div class="dashboard-group">
+
+                    <!-- `Card for Appointments -->
+
+                    <div class="card">
+                        <h3>Monthly Appointments</h3>
+                        <p>Appointments: 20</p>
+ <div class="chart-container">
+        <canvas id="appointmentsChart" class="appointment-chart"></canvas>
+    </div>
+
+
+                    </div>
+
+                    <!-- `END OF APPOINTMENT CHART-->
+
+
+
+                    <!-- Card for Active Orthodontic Patients -->
+                    <div class="card">
+                        <h3>Active Orthodontic Patients</h3>
+                        <div class="patient-filter">
+                            <p>Active Patients: 5</p>
+                            <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>
+                            <div id="filterDropdown" class="filter-dropdown">
+                                <select id="monthSelect" onchange="filterPatientsByMonth()">
+                                    <option value="all">All Months</option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                </select>
+                            </div>
+                        </div>
+                        <table class="patient-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Treatment Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patientTableBody">
+                                <tr data-appointment-month="january">
+                                    <td>Johasasasasn Doe</td>
+                                    <td>Braces</td>
+                                </tr>
+                                <tr data-appointment-month="february">
+                                    <td>Jane Smith</td>
+                                    <td>Invisalign</td>
+                                </tr>
+                                <tr data-appointment-month="march">
+                                    <td>Alex Johnson</td>
+                                    <td>Retainers</td>
+                                </tr>
+                                <tr data-appointment-month="april">
+                                    <td>Emily Davis</td>
+                                    <td>Braces</td>
+                                </tr>
+                                <tr data-appointment-month="may">
+                                    <td>Chris Lee</td>
+                                    <td>Invisalign</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <!-- `Card for Frequency Distribution -->
+                    <!-- Frequency Distribution Card -->
+                    <div class="card">
+                        <h3>Frequency Distribution</h3>
+ <div class="controls">
+                            <!-- Update IDs for buttons -->
+                            <button id="toggleFormButton">Add Treatment</button>
+                            <button id="removeTreatmentButton">Remove Treatment</button>
+                        </div>
+                        <div id="add-treatment-form" style="display: none;">
+                            <h4>Add Treatment</h4>
+                            <form id="treatmentForm">
+                                <label for="treatmentSelect">Select Treatment:</label>
+                                <select id="treatmentSelect" name="treatment">
+                                    <option value="Braces">Braces</option>
+                                    <option value="Invisalign">Invisalign</option>
+                                    <option value="Retainers">Retainers</option>
+                                    <option value="Teeth Whitening">Teeth Whitening</option>
+                                    <option value="Fillings">Fillings</option>
+                                </select>
+                                <button type="button" id="submitTreatmentButton">Add</button>
+                            </form>
+                        </div>
+
+
+                        <!-- Add Treatment Form (already present) -->
+
+                        <div id="remove-treatment-form" style="display: none;">
+                            <h4>Remove Treatment</h4>
+                            <form id="removeTreatmentForm">
+                                <label for="removeTreatmentSelect">Select Treatment:</label>
+                                <select id="removeTreatmentSelect" name="removeTreatment">
+                                    <option value="Braces">Braces</option>
+                                    <option value="Invisalign">Invisalign</option>
+                                    <option value="Retainers">Retainers</option>
+                                    <option value="Teeth Whitening">Teeth Whitening</option>
+                                    <option value="Fillings">Fillings</option>
+                                </select>
+                                <button type="button" id="submitRemoveTreatmentButton">Remove</button>
+                            </form>
+                        </div>
+                        <canvas id="frequencyChart"></canvas>
+
+                       
+
+
+
+                    </div>
+
+                    <!-- `END DASHBOARD GROUP-->
+
+                </div>
+            </div>
+        </div>
+        <!--+END MAIN CONTENT-->
+
+</body>
+
+</html>
+
+
+<!--To render the charts-->
+<script src="E_Report.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

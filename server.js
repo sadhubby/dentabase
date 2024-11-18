@@ -174,7 +174,8 @@ async function run(){
         1000,
         0,
         new Date('2024-02-02'),
-        'ongoing'
+        'ongoing',
+        7
     );
     await functions.updateTreatment(
         1,
@@ -252,7 +253,8 @@ async function run(){
         1000,
         0,
         new Date('2024-02-02'),
-        'ongoing'
+        'ongoing',
+        9
     );
     await functions.createPatient(
         "SETH",              // firstName
@@ -291,7 +293,8 @@ async function run(){
         1000,
         0,
         new Date('2024-02-02'),
-        'ongoing'
+        'ongoing',
+        10
     );
     let treatment = await functions.readTreatment(1);
    // console.log(treatment);

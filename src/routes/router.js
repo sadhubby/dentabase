@@ -116,7 +116,7 @@ router.post('/create-patient', function(req, res){
             req.body.referral,
             req.body.consultationReason,
             req.body.previousDentist,
-            req.body.birthdate ? new Date(req.body.birthdate) : null,
+            req.body.lastDentalVisit ? new Date(req.body.birthdate) : null,
             "random pic" //placeholder for not sure pic
         ).then(function(patientID){
             console.log('Patient record created successfully with ID: ' + patientID);
@@ -214,6 +214,7 @@ router.get("/patient-information/:id", async (req, res) => {
             picture.dateString = Functions.convertToDate(picture.date);
         })
 
+
         
 
         res.render("C_PatientInformation", {
@@ -223,24 +224,24 @@ router.get("/patient-information/:id", async (req, res) => {
             age: patient.age,
             sex: patient.sex,
             birthdate: birthdate,
-            nickname: patient.nickname || "N/A",
+            nickname: patient.nickname,
             fullSex: fullSex,
-            home_address: patient.homeAddress || "N/A",
-            occupation: patient.occupation || "N/A",
-            religion: patient.religion || "N/A", 
-            nationality: patient.nationality || "N/A",
-            dental_insurance: patient.dentalInsurance || "N/A",
-            previous_dentist: patient.lastDentist || "N/A",
-            lastDentalVisit: Functions.convertToDate(patient.lastDentalVisit) || "N/A",
-            email: patient.email || "N/A",
-            home_number: patient.homeNo || "N/A",
-            mobile_number: patient.contact || "N/A",
-            office_number: patient.officeNo || "N/A",
-            fax_number: patient.faxNo || "N/A",
-            guardian_name: patient.guardianName || "N/A",
-            guardian_occupation: patient.guardianOccupation || "N/A",
-            minor_referral_question: patient.referralName || "N/A",
-            consultation: patient.consultationReason || "N/A",
+            home_address: patient.homeAddress,
+            occupation: patient.occupation,
+            religion: patient.religion, 
+            nationality: patient.nationality,
+            dental_insurance: patient.dentalInsurance,
+            previous_dentist: patient.lastDentist,
+            lastDentalVisit: Functions.convertToDate(patient.lastDentalVisit),
+            email: patient.email,
+            home_number: patient.homeNo,
+            mobile_number: patient.contact,
+            office_number: patient.officeNo,
+            fax_number: patient.faxNo,
+            guardian_name: patient.guardianName,
+            guardian_occupation: patient.guardianOccupation,
+            minor_referral_question: patient.referralName,
+            consultation: patient.consultationReason,
 
 
             //medicalHistory
@@ -302,7 +303,7 @@ try{
             req.body.referral,
             req.body.consultationReason,
             req.body.lastDentist,
-            new Date(req.body.lastDentalVisit),
+            req.body.lastDentalVisit ? new Date(req.body.lastDentalVisit) : null,
         );
         resp.status(200).send('Patient information updated successfully');
 } catch(error){
@@ -451,6 +452,8 @@ router.get("/patient_list", async (req, res) => {
     }
 });
 
+
+
 //DEFAULT PAGE
 router.get("/", async (req, res) =>{
     try {
@@ -512,6 +515,58 @@ router.get('/api/patients', async (req, res) => {
         res.json(patients);
     } catch (error) {
         res.status(500).send('Error fetching patients');
+    }
+});
+
+router.post("/update-medical-history", async function(req, res){
+    try{
+        let {
+            patientID,
+            physicianName,
+            physicianOfficeAddress,
+            physicianSpecialty,
+            physicianOfficeNumber,
+            
+            prescription,
+            illnessOrSurgery,
+            medicalTreatment,
+            isTobacco,
+            isAlcohol,
+            allergies,
+
+            isPregnant,
+            isNursing,
+            isBirthControl,
+
+            healthProblems
+        } = req.body;
+
+        await Functions.updateMedicalHistory(
+            patientID,
+            physicianName,
+            physicianOfficeAddress,
+            physicianSpecialty,
+
+            physicianOfficeNumber,
+            
+            medicalTreatment,
+            illnessOrSurgery,
+            prescription,
+            isTobacco,
+            isAlcohol,
+            allergies,
+
+            isPregnant,
+            isNursing,
+            isBirthControl,
+
+            healthProblems
+        )
+
+        res.status(200).send('Updating medical history successful');
+    } catch(error){
+        console.error("Error updating medical history. ", error);
+        res.status(500).send('Error updating medical history');
     }
 });
 
@@ -577,6 +632,19 @@ router.post("/appointments", async (req, res) => {
 //         res.status(500).json({ message: "Failed to create appointment" });
 //     }
 // });
+
+
+
+
+
+
+router.get("/report", (req,res) =>{
+    res.render("E_Report");
+});
+
+
+
+
 router.get('/login', (req, res) => {
     res.render('A_LoginPage'); 
 });

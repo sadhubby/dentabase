@@ -34,6 +34,10 @@ const treatmentSchema = new mongoose.Schema({
     status:{
         type: String, 
         enum:['ongoing', 'completed'], default: 'ongoing'
+    },
+    patientID:{
+        type: Number, 
+        required: true
     }
 });
 

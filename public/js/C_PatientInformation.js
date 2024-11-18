@@ -23,6 +23,8 @@ addPicBtn.addEventListener('click', function(){
 })
 
 
+
+
 function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpecialty, physicianOfficeNumber, prescription
     , illnessOrSurgery, condition, isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills, allergies, healthProblems){
 
@@ -227,7 +229,141 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
 
     }
 
-    //check for empty/null
+    $('#update-medical-history-form').on('submit', function(event){
+        event.preventDefault();
+
+        let medicalTreatment;
+        let illnessOrSurgery;
+        let prescription;
+        let isTobacco;
+        let isAlcohol;
+        let checkedAllergies = [];
+
+        let isPregnant = null;
+        let isNursing = null;
+        let isBirthControl = null;
+
+        let healthProblems = [];
+
+        if($('#medical-treatment-yes').prop('checked')){
+            medicalTreatment = $('#prescription-details').val();
+        } else if ($('#medical-treatment-no').prop('checked')){
+            medicalTreatment = "None";
+        } else {
+            alert("Missing info. Please answer all Yes/No questions.");
+            return;
+        }
+
+        if($('#illness-yes').prop('checked')){
+            illnessOrSurgery = $('#illness-details').val();
+        } else if ($('#illness-no').prop('checked')){
+            illnessOrSurgery = "None";
+        } else {
+            alert("Missing info. Please answer all Yes/No questions.");
+            return;
+        }
+
+        if($('#prescription-yes').prop('checked')){
+            prescription = $('#condition-details').val();
+        } else if ($('#prescription-no').prop('checked')){
+            prescription = 'None';
+        } else {
+            alert('Missing info. Please answer all Yes/No questions.');
+            return;
+        }
+
+        if($('#tobacco-yes').prop('checked')){
+            isTobacco = true;
+        } else if($('#tobacco-no').prop('checked')){
+            isTobacco = false;
+        } else {
+            alert('Missing info. Please answer all Yes/No questions.');
+            return;
+        }
+
+        if($('#alcohol-yes').prop('checked')){
+            isAlcohol = true;
+        } else if($('#alcohol-no').prop('checked')){
+            isAlcohol = false;
+        } else {
+            alert('Missing info. Please answer all Yes/No questions.');
+            return;
+        }
+
+        if($('#allergy-yes').prop('checked')){
+            checkedAllergies = $('input[name="allergy-options"]:checked').map(function() {
+                return this.value;
+            }).get();
+
+            if($('#allergy-details').val() != ""){
+                checkedAllergies.push($('#allergy-details').val());
+            }
+        
+            if (checkedAllergies.length == 0) {
+                alert('No allergies selected.');
+                return;
+            }
+        } else if($('#allergy-no').prop('checked')){
+            checkedAllergies.push('None');
+        } else {
+            alert('Missing info. Please answer all Yes/No questions.');
+            return;
+        }
+
+        if($('#pregnant-yes').prop('checked')){
+            isPregnant = true;
+        } else if($('#pregnant-no').prop('checked')){
+            isPregnant = false;
+        }
+
+        if($('#nursing-yes').prop('checked')){
+            isNursing = true;
+        } else if ($('#nursing-no').prop('checked')){
+            isNursing = false;
+        }
+
+        if($('#birth-control-yes').prop('checked')){
+            isBirthControl = true;
+        } else if ($('#birth-control-no').prop('checked')){
+            isBirthControl = false;
+        }
+
+        healthProblems = $('input[name="conditions"]:checked').map(function() {
+            return this.value;
+        }).get();
+
+
+
+        console.log($('#specialty').val());
+        
+        $.post(
+            '/update-medical-history',
+            {
+                patientID : $(this).data('id'),
+                physicianName : $('#physician-name').val(),
+                physicianSpecialty: $('#specialty').val(),
+                physicianOfficeAddress: $('#office-address').val(),
+                physicianOfficeNumber: $('#office-number').val(),
+
+                medicalTreatment : medicalTreatment,
+                illnessOrSurgery : illnessOrSurgery,
+                prescription: prescription,
+                isTobacco : isTobacco,
+                isAlcohol : isAlcohol,
+                allergies : checkedAllergies,
+
+                isPregnant : isPregnant,
+                isNursing : isNursing,
+                isBirthControl : isBirthControl,
+
+                healthProblems : healthProblems
+            },
+            function(status){
+                alert(status);
+            }
+        );
+    });
+
     $('#update-patient-form').on('submit', function(event){
         event.preventDefault();
 
@@ -241,7 +377,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
                  sex : $('#sex').val(),
                  occupation : $('#occupation').val(),
                  address : $('#address').val(),
-                 religion : $('#occupation').val(),
+                 religion : $('#religion').val(),
                  nationality : $('#nationality').val(),
                  dentalInsurance : $('#insurance').val(),
 

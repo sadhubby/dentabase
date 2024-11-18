@@ -1,0 +1,260 @@
+.dashboard-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 15px;
+
+    width: 100%;
+    height: 100vh; /* Ensure the group takes the full viewport height */
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in the height calculation */
+    overflow: auto; /* Prevent scrolling on the parent grid */
+}
+
+.dashboard-group .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: flex-start;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Make the card take full available width */
+    min-height: 300px; /* Ensure a minimum height for the card */
+    max-height: 100%; /* Prevent card from exceeding container height */
+    overflow: auto; /* Enable scrolling inside the card if the content overflows */
+}
+.dashboard-group .card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.dashboard-group .card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+    flex-grow: 0; /* Allows the paragraph to take remaining space if needed */
+}
+
+.dashboard-group .card .content {
+    flex-grow: 1; /* Makes content expand to fill remaining space */
+}
+
+@media (max-width: 768px) {
+    .dashboard-group .card {
+        width: calc(50% - 20px); /* Cards will take up 50% of the container on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-group .card {
+        width: 100%; /* For very small screens, each card will take up full width */
+    }
+}
+
+/* `Card Appointment */
+  
+
+.chart-container {
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Fixed height for consistent hover behavior */
+    position: relative;
+}
+
+.appointment-chart {
+    display: block;
+    width: fit-content; /* Full width within the container */
+    height: fit-content; /* Full height within the container */
+}
+
+/* `ACTIVE PATIENTS */
+
+.patient-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between items */
+    margin-bottom: 20px;
+    position: relative;
+    justify-content: flex-start; /* Ensures items align to the left */
+}
+
+
+.patient-filter p {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.filter-button {
+    background-color: #485fe7;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.filter-button:hover {
+    background-color: #3d4cd2;
+}
+
+.filter-dropdown {
+    display: none;
+    position: static; /* Change position to inline with button */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 5px;
+    width: auto;
+    margin-left: 10px;
+}
+
+.filter-dropdown.show {
+    display: block;
+}
+
+.filter-dropdown select {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: auto; /* Ensure dropdown isn't stretched */
+    background-color: #ffffff;
+}
+
+.patient-table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 15px;
+    font-size: 1em;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.patient-table thead th {
+    background-color: #485fe7;
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    font-weight: bold;
+    border-bottom: 3px solid #909eee;
+    font-size: 1.1em;
+}
+
+.patient-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.patient-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.patient-table tbody td {
+    text-align: center;
+    padding: 14px 20px;
+    color: #333;
+    font-size: 1em;
+}
+
+.patient-table tbody tr:hover {
+    background-color: #dfd9ff;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: transform 0.1s ease;
+}
+
+.patient-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* `FREQUENCY DISTRIBUTION BAR GRAPH*/
+
+/* Chart and Controls */
+.controls {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0px;
+    gap: 10px;
+}
+
+.controls button {
+    background-color: #485fe7; /* Updated color for uniformity */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #3a4dd6; /* Slightly darker shade for hover effect */
+}
+
+/* Responsive Chart Container */
+canvas {
+    margin: 20px 0px 20px;
+    max-width: 100%;
+}
+
+/* Add Treatment Form Styling */
+#add-treatment-form, #remove-treatment-form {
+    margin-top: 20px;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+#add-treatment-form h4, #remove-treatment-form h4 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#add-treatment-form form, #remove-treatment-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#add-treatment-form label, #remove-treatment-form label {
+    font-size: 0.9em;
+    color: #555;
+}
+
+#add-treatment-form select, #remove-treatment-form select,
+#add-treatment-form input, #remove-treatment-form input {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#add-treatment-form button, #remove-treatment-form button {
+    background-color: #485fe7; /* Same background color as "Remove Treatment" button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#add-treatment-form button:hover, #remove-treatment-form button:hover {
+    background-color: #3a4dd6; /* Same hover color */
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
