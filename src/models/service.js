@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const serviceSchema = new mongoose.Schema ({
-    procedure: {
+    service: {
         type: String,
-        required: true
+        required: true,
+        enum: ['Oral Prophylaxis', 'Tooth Filling', 'Braces', 'Tooth Extraction', 'Wisdom Tooth Removal', 'Dentures', 'Jacket Crowns', 'Tooth Whitening']
     },
     price: {
         type: Number,
@@ -12,7 +13,7 @@ const serviceSchema = new mongoose.Schema ({
     type: {
         type: String,
         required: true,
-        enum: ['treatment1', 'treatment2']
+        enum: ['Ortho', 'Non-Ortho']
     }
 
 });
