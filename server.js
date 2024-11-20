@@ -283,6 +283,141 @@ async function run(){
         new Date('2022-12-02'), 
         "another_picture"    // pic
     );
+    await functions.createPatient(
+        "Rhea",              // firstName
+        "Ripley",               // lastName
+        "Custody of Dominik",           // middleName
+        "Mami",            // nickname
+        "123 Main St",       // homeAddress
+        new Date('1985-02-15'), // birthdate
+        39,                  // age
+        'M',                 // sex
+        "Protestant",        // religion
+        "Canadian",          // nationality
+        "john.doe@example.com", // email
+        "5555555555",       // homeNo
+        "Engineer",          // occupation
+        "Best Dental Ins.",  // dentalInsurance
+        "5556667777",       // officeNo
+        "54321",             // faxNo
+        "4161234567",       // contact
+        new Date('2024-11-03'), // effectiveDate
+        "Jane Doe",         // guardianName
+        "Doctor",            // guardianOccupation
+        "Dr. Smith",         // referralName
+        "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
+        "another_picture"    // pic
+    );
+    await functions.createPatient(
+        "Liv",              // firstName
+        "Morgan",               // lastName
+        "2nd Custody of Dominik",           // middleName
+        "Livvy Dune",            // nickname
+        "123 Main St",       // homeAddress
+        new Date('1985-02-15'), // birthdate
+        39,                  // age
+        'M',                 // sex
+        "Protestant",        // religion
+        "Canadian",          // nationality
+        "john.doe@example.com", // email
+        "5555555555",       // homeNo
+        "Engineer",          // occupation
+        "Best Dental Ins.",  // dentalInsurance
+        "5556667777",       // officeNo
+        "54321",             // faxNo
+        "4161234567",       // contact
+        new Date('2024-11-03'), // effectiveDate
+        "Jane Doe",         // guardianName
+        "Doctor",            // guardianOccupation
+        "Dr. Smith",         // referralName
+        "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
+        "another_picture"    // pic
+    );
+    await functions.createPatient(
+        "Dominik",              // firstName
+        "Mysterio",               // lastName
+        "Guerrero",           // middleName
+        "Eddie's son",            // nickname
+        "123 Main St",       // homeAddress
+        new Date('1985-02-15'), // birthdate
+        39,                  // age
+        'M',                 // sex
+        "Protestant",        // religion
+        "Canadian",          // nationality
+        "john.doe@example.com", // email
+        "5555555555",       // homeNo
+        "Engineer",          // occupation
+        "Best Dental Ins.",  // dentalInsurance
+        "5556667777",       // officeNo
+        "54321",             // faxNo
+        "4161234567",       // contact
+        new Date('2024-11-03'), // effectiveDate
+        "Jane Doe",         // guardianName
+        "Doctor",            // guardianOccupation
+        "Dr. Smith",         // referralName
+        "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
+        "another_picture"    // pic
+    );
+    await functions.createPatient(
+        "Dominik",              // firstName
+        "Mysterio",               // lastName
+        "Guerrero",           // middleName
+        "Eddie's son",            // nickname
+        "123 Main St",       // homeAddress
+        new Date('1985-02-15'), // birthdate
+        39,                  // age
+        'M',                 // sex
+        "Protestant",        // religion
+        "Canadian",          // nationality
+        "john.doe@example.com", // email
+        "5555555555",       // homeNo
+        "Engineer",          // occupation
+        "Best Dental Ins.",  // dentalInsurance
+        "5556667777",       // officeNo
+        "54321",             // faxNo
+        "4161234567",       // contact
+        new Date('2024-11-03'), // effectiveDate
+        "Jane Doe",         // guardianName
+        "Doctor",            // guardianOccupation
+        "Dr. Smith",         // referralName
+        "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
+        "another_picture"    // pic
+    );
+    await functions.createPatient(
+        "Caitlyn Kiramman",              // firstName
+        "Mysterio",               // lastName
+        "Guerrero",           // middleName
+        "Eddie's son",            // nickname
+        "123 Main St",       // homeAddress
+        new Date('1985-02-15'), // birthdate
+        39,                  // age
+        'M',                 // sex
+        "Protestant",        // religion
+        "Canadian",          // nationality
+        "john.doe@example.com", // email
+        "5555555555",       // homeNo
+        "Engineer",          // occupation
+        "Best Dental Ins.",  // dentalInsurance
+        "5556667777",       // officeNo
+        "54321",             // faxNo
+        "4161234567",       // contact
+        new Date('2024-11-03'), // effectiveDate
+        "Jane Doe",         // guardianName
+        "Doctor",            // guardianOccupation
+        "Dr. Smith",         // referralName
+        "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
+        "another_picture"    // pic
+    );
     await functions.createTreatment(
         10,
         new Date('1990-01-01'),
