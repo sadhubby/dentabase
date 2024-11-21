@@ -33,6 +33,12 @@ server.engine('hbs', handlebars.engine({
     runtimeOptions:{
         allowProtoPropertiesByDefault: true,
         allowProtoMethodsByDefault: true
+    },
+    helpers: {
+        gt: (a, b) => a > b, // Greater than
+        lt: (a, b) => a < b, // Less than
+        add: (a, b) => a + b, // Addition
+        subtract: (a, b) => a - b // Subtraction
     }
 }));
 
@@ -59,6 +65,14 @@ server.listen(port, async function(){
     console.log(`Server running on: http://localhost:${port}`);
 });
 
+const hbs = handlebars.create({
+    helpers: {
+        gt: (a, b) => a > b, // Greater than
+        lt: (a, b) => a < b, // Less than
+        add: (a, b) => a + b, // Addition
+        subtract: (a, b) => a - b // Subtraction
+    }
+});
 
 async function run(){
 
@@ -365,10 +379,10 @@ async function run(){
         "another_picture"    // pic
     );
     await functions.createPatient(
-        "Dominik",              // firstName
-        "Mysterio",               // lastName
-        "Guerrero",           // middleName
-        "Eddie's son",            // nickname
+        "Shawn",              // firstName
+        "Michaels",               // lastName
+        "",           // middleName
+        "Haertbreak Kid",            // nickname
         "123 Main St",       // homeAddress
         new Date('1985-02-15'), // birthdate
         39,                  // age
@@ -392,10 +406,37 @@ async function run(){
         "another_picture"    // pic
     );
     await functions.createPatient(
-        "Caitlyn Kiramman",              // firstName
-        "Mysterio",               // lastName
-        "Guerrero",           // middleName
-        "Eddie's son",            // nickname
+        "Caitlyn",              // firstName
+        "Kiramman",               // lastName
+        "",           // middleName
+        "Cupcake",            // nickname
+        "123 Main St",       // homeAddress
+        new Date('1985-02-15'), // birthdate
+        39,                  // age
+        'M',                 // sex
+        "Protestant",        // religion
+        "Canadian",          // nationality
+        "john.doe@example.com", // email
+        "5555555555",       // homeNo
+        "Engineer",          // occupation
+        "Best Dental Ins.",  // dentalInsurance
+        "5556667777",       // officeNo
+        "54321",             // faxNo
+        "4161234567",       // contact
+        new Date('2024-11-03'), // effectiveDate
+        "Jane Doe",         // guardianName
+        "Doctor",            // guardianOccupation
+        "Dr. Smith",         // referralName
+        "Routine Checkup",   // consultationReason
+        "Dr. Dentist Person", 
+        new Date('2022-12-02'), 
+        "another_picture"    // pic
+    );
+    await functions.createPatient(
+        "Vi",              // firstName
+        "Child of Zaun",               // lastName
+        "",           // middleName
+        "Cait's Ex",            // nickname
         "123 Main St",       // homeAddress
         new Date('1985-02-15'), // birthdate
         39,                  // age

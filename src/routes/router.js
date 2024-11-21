@@ -408,16 +408,34 @@ router.get("/treatment", (req,res) =>{
     res.render("D_Treatment");
 });
 
-router.get("/patient_list", async (req, res) => {
 
+router.get("/patient_list", async (req, res) => {
     try {
         const searchQuery = req.query.search || "";
-        const patients = await Patient.find({ isActive: true ,
-            $or:[
-                { firstName: { $regex: searchQuery, $options: 'i' } },  
-                { lastName: { $regex: searchQuery, $options: 'i' } }, 
-                { middleName: { $regex: searchQuery, $options: 'i' } }, 
-                { nickname: { $regex: searchQuery, $options: 'i' } } 
+        const page = parseInt(req.query.page) || 1; 
+        const limit = 10; 
+        const skip = (page - 1) * limit; 
+
+        // Query to find patients
+        const patients = await Patient.find({ 
+            isActive: true,
+            $or: [
+                { firstName: { $regex: searchQuery, $options: 'i' } },
+                { lastName: { $regex: searchQuery, $options: 'i' } },
+                { middleName: { $regex: searchQuery, $options: 'i' } },
+                { nickname: { $regex: searchQuery, $options: 'i' } }
+            ]
+        })
+        .skip(skip)
+        .limit(limit);
+
+        const totalPatients = await Patient.countDocuments({
+            isActive: true,
+            $or: [
+                { firstName: { $regex: searchQuery, $options: 'i' } },
+                { lastName: { $regex: searchQuery, $options: 'i' } },
+                { middleName: { $regex: searchQuery, $options: 'i' } },
+                { nickname: { $regex: searchQuery, $options: 'i' } }
             ]
         });
 
@@ -442,17 +460,19 @@ router.get("/patient_list", async (req, res) => {
             return populatedPatient;
         }));
 
+        const totalPages = Math.ceil(totalPatients / limit);
+
         res.render("C_PatientList", {
             patients: updatedPatients,
-            patientCount: updatedPatients.length
+            patientCount: totalPatients,
+            currentPage: page,
+            totalPages: totalPages
         });
     } catch (error) {
         console.log("Error getting data", error);
         res.status(500).end("Error retrieving patient data");
     }
 });
-
-
 
 //DEFAULT PAGE
 router.get("/", async (req, res) =>{
