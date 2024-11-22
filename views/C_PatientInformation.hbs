@@ -422,7 +422,6 @@
             </div>
             <!-- ?end ALLERGY QUESTIONS-->
 
-
             <!-- ?FOR WOMEN QUESTIONS-->
             <div class="info-box">
                 <label for="medical-question-7">7.For Women Only:</label>
@@ -699,7 +698,7 @@
 
 
             <!-- `PATIENT LIST-->
-            <tbody>
+            <tbody id="treatment-table-body">
 
                 <!-- each treatment_history_bar-->
                 {{#each treatments}}
@@ -751,8 +750,14 @@
                 <!-- Procedure Description -->
                 <div class="form-group">
                     <label for="procedureName">Procedure:</label>
-                    <input type="text" id="procedureName" name="procedureName" placeholder="Enter procedure name"
-                        required>
+                    {{!-- <input type="text" id="procedureName" name="procedureName" placeholder="Enter procedure name"
+                        required> --}}
+                        <select id="procedureName" name="procedureName" required>
+                            <option value="" disabled selected>Choose a procedure</option>
+                            {{#each services}}
+                                <option value="{{{service}}}">{{{service}}}</option>
+                            {{/each}}
+                        </select>
                 </div>
 
                 <!-- Dentist Performing Procedure -->

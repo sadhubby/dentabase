@@ -1,6 +1,9 @@
 const patientModel = require('../models/patient.js');
 const medicalHistoryModel = require('../models/medicalHistory.js');
 const treatmentModel = require('../models/treatment.js');
+const orthoModel = require('../models/orthodontics.js');
+const serviceModel = require('../models/service.js');
+
 
 function convertToDate(birthdate){
     if(birthdate){
@@ -22,6 +25,36 @@ function convertToDate(birthdate){
 
 
     return birthdate;
+}
+
+async function createOrtho(patientID, service){
+    try{
+        let ortho = new orthoModel({
+            patientID: patientID,
+            service: service
+        });
+
+        await ortho.save();
+
+            
+        console.log("Orthodontics document successfully created.");
+    } catch (error){
+        console.error("Error creating orthodontics.", error);
+    }
+}
+
+async function setOrthoInactive(patientID, service){
+    try{
+        let orth = await orthoModel.findOne({patientID : patientID, service: service});
+
+        orth.isActive = false;
+
+        await orthModel.save();
+
+        console.log("Successfully inactivated orthodontics.");
+    } catch (error) {
+        console.error("Error setting orthodontics inactive.", error);
+    }
 }
 
 async function readPatient(patientID) {
@@ -265,6 +298,13 @@ async function createTreatment(patientID, date, teethAffected, procedure, dentis
 
     await treatment.save();
 
+    //creates orthodontics document if treatment is orthodontics
+    let serviceOrtho = await serviceModel.findOne({service: treatment.procedure, type:'Ortho'});
+
+    if(serviceOrtho){
+        await createOrtho(patientID, treatment.procedure);
+    }
+
     const patient = await patientModel.findOne({id: patientID});
     await patient.treatments.push(treatment._id);
 
@@ -333,6 +373,8 @@ module.exports = {
     convertToDate,
     uniqueProcedures,
     getPatientsByProcedure,
-    getMonthlyStats
+    getMonthlyStats,
+    createOrtho,
+    setOrthoInactive
 };
 
