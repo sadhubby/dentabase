@@ -1,3 +1,14 @@
+/* +FRAME 2 */
+.todo-frame2 .indicator-line {
+  width: 8rem; /* Full width for the indicator line */
+  height: 2px; /* Adjust height for visibility */
+  background-color: #485fe7;; /* Color for the indicator line (you can change this) */
+  margin-top: -4px; /* Space between the title group and the indicator line */
+  margin-left: -6px; /* Space between the title group and the indicator line */
+  transition: background-color 0.3s ease; /* Optional: smooth transition for hover effects */
+}
+
+
 /* `SCHEDULE GROUP*/
 .todo-file .schedule-group {
     display: flex;

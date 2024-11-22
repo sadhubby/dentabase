@@ -1,53 +1,63 @@
+/* +FRAME 2 */
+.services-frame2 .indicator-line {
+  width: 11rem; /* Full width for the indicator line */
+  height: 2px; /* Adjust height for visibility */
+  background-color: #485fe7;; /* Color for the indicator line (you can change this) */
+  margin-top: -4px; /* Space between the title group and the indicator line */
+  margin-left: -0.5rem; /* Space between the title group and the indicator line */
+  transition: background-color 0.3s ease; /* Optional: smooth transition for hover effects */
+}
+
+
+
 /* `SCHEDULE GROUP*/
-.treatment-file .treatment-group {
+.services-file .treatment-group {
     display: flex;
     flex-direction: row; /* Keep elements in a row */
     width: 100%;
     height: 4rem; /* Height of the group */
     padding: 10px; /* Padding around the group */
-
     margin-right: 2rem; /* Left margin */
-   
     align-items: center; /* Center align items vertically */
     gap: 1;
   justify-content: space-between; /* Distribute space evenly */
     
 }
 
-.treatment-file .treatment-number-elements {
+.services-file .treatment-number-elements {
     display: flex; /* Use flextreatment-category-group for layout */
     align-items: center; /* Align items vertically in the center */
 }
 
-.treatment-file .icon-stethoscope {
+.services-file .icon-stethoscope {
     width: 2.5rem; /* Set a fixed width for the icon */
     height: 2.5rem; /* Set a fixed height for the icon */
     margin-right: 0.5rem; /* Space between icon and number */
      color: #6b84ea; /* Text color */
 }
 
-.treatment-file .treatment-number {
+.services-file .treatment-number {
     font-weight: 700; /* Bold text */
     font-size: 24px; /* Font size */
     color: #6b84ea; /* Text color */
     margin: 0; /* Reset margin */
 }
 
-.treatment-file .total-treatment-text {
+.services-file .total-treatment-text {
     font-size: 20px; /* Font size for the text below the number */
     color: #333; /* Text color for contrast */
     margin-left: 8px;
     
 }
 
-.treatment-file .date-elements{
+.services-file .date-elements{
     display: flex; /* Use flexappointment-category-group for layout */
     align-items: center; /* Align items vertically in the center */
 
 
 }
 
-.treatment-file .date-text{
+.services-file .date-text{
   font-size: 25px; /* Font size for the text below the number */
     color: #333; /* Text color for contrast */
   
@@ -55,13 +65,13 @@
 
 
 /*  ?BUTTONS GROUP */
-.treatment-file .buttons-group {
+.services-file .buttons-group {
     display: flex;
     align-items: center;
     margin-right: 1%;
 }
 
-.treatment-file .divider {
+.services-file .divider {
     width: 1px;
     height: 30px;
     background-color: #6b84ea;
@@ -69,7 +79,7 @@
 }
 
 /* Base styles for buttons */
-.treatment-file .button {
+.services-file .button {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -82,7 +92,7 @@
 }
 
 /* Specific button styles */
-.treatment-file .create-treatment-elements {
+.services-file .create-treatment-elements {
     width: 8rem;
     height: 41.12px;
     padding: 11.65px 6.85px;
@@ -90,7 +100,7 @@
 }
 
 /* Wrapper for the filter button and dropdown */
-.treatment-file .filter-elements {
+.services-file .filter-elements {
  position: relative;
     display: inline-flex;
     align-items: center;
@@ -103,12 +113,12 @@
 }
 
 /* Hover effect for filter button */
-.treatment-file .filter-elements:hover {
+.services-file .filter-elements:hover {
     background-color: #7789f396;
 }
 
 /* Filter button styling */
-.treatment-file .filter-text {
+.services-file .filter-text {
     background-color: transparent;
     color: white;
     padding: 0px 10px 0px 0px;
@@ -119,7 +129,7 @@
 }
 
 /* Icon styles */
-.treatment-file .icon-filter {
+.services-file .icon-filter {
     width: 18px;
     height: 18px;
     margin-left: 5px;
@@ -127,7 +137,7 @@
 }
 
 /* Dropdown content (hidden by default) */
-.treatment-file .dropdown-content {
+.services-file .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
@@ -141,7 +151,7 @@
 }
 
 /* Dropdown items */
-.treatment-file .dropdown-content a {
+.services-file .dropdown-content a {
     color: black;
     padding: 10px 16px;
     text-decoration: none;
@@ -150,29 +160,29 @@
 }
 
 /* Last item without border */
-.treatment-file .dropdown-content a:last-child {
+.services-file .dropdown-content a:last-child {
     border-bottom: none;
 }
 
 /* Change color on hover */
-.treatment-file .dropdown-content a:hover {
+.services-file .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
 /* Show the dropdown menu on button click */
-.treatment-file .filter-elements:focus-within .dropdown-content {
+.services-file .filter-elements:focus-within .dropdown-content {
     display: block;
 }
 
 
-.treatment-file .edit-elements {
+.services-file .edit-elements {
     width: 69.9px;
     height: 41.12px;
     padding: 8.22px;
     background-color: #bcbcbc;
 }
 
-.treatment-file .trash-elements {
+.services-file .trash-elements {
     width: 81.55px;
     height: 41.12px;
     padding: 8.22px;
@@ -180,41 +190,41 @@
 }
 
 /* Icon styles */
-.treatment-file .icon-filter {
+.services-file .icon-filter {
     position: relative;
     width: 20px; /* Default icon width */
     height: 20px; /* Default icon height */
 }
 
-.treatment-file .icon-add {
+.services-file .icon-add {
     width: 15.05px;
     height: 15.49px;
 }
 
-.treatment-file .icon-edit {
+.services-file .icon-edit {
     width: 20.07px;
     height: 20.07px;
 }
 
-.treatment-file .icon-trash {
+.services-file .icon-trash {
     width: 17.85px;
     height: 17.13px;
 }
 
 /* Text styles */
-.treatment-file .text-buttons {
+.services-file .text-buttons {
     position: relative;
     height: 16.45px; /* Use a standard height */
     margin-right: -2.04px; /* Adjust if necessary */
 }
 
 /* Specific text styles for Create treatment */
-.treatment-file .create-treatment-text {
+.services-file .create-treatment-text {
     width: 123.35px; /* Specific width for this text */
 }
 
 /* Specific text styles for Filters, Edit, and Delete */
-.treatment-file .text-wrapper {
+.services-file .text-wrapper {
     width: 50px; /* Adjust based on your design */
 }
 /* `END SCHEDULE GROUP*/
@@ -222,7 +232,7 @@
 
 
 /* `LIST OF CATEGORY */
-.treatment-file .treatment-category-group {
+.services-file .treatment-category-group {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -237,23 +247,23 @@
 
 
 
-.treatment-file .treatment-name-elements,
-.treatment-file .price-elements,
-.treatment-file .estimated-duration-elements,
-.treatment-file .visit-type-elements {
+.services-file .treatment-name-elements,
+.services-file .price-elements,
+.services-file .estimated-duration-elements,
+.services-file .visit-type-elements {
   display: flex;
   align-items: flex-start;
   white-space: nowrap;
 }
 
 
-.treatment-file .icon-updown {
+.services-file .icon-updown {
   width: 11px;
   height: 14px;
   margin-left: 8px; /* Space between text and icon */
 }
 
-.treatment-file .category-text {
+.services-file .category-text {
   font-family: "Roboto-Bold", Helvetica;
   font-weight: 700;
   color: #00000080;
@@ -267,7 +277,7 @@
 /* `TREATMENT LIST */
 
 /* `LIST OF CATEGORY & PATIENT LIST*/
-.treatment-file table {
+.services-file table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
@@ -277,27 +287,27 @@
 
 
 
-.treatment-file th,
-.treatment-file td {
+.services-file th,
+.services-file td {
     border: 1px solid #dddddd;
     padding: 10px;
     text-align: center; /* Center text in header and data cells */
     vertical-align: middle;
 }
 
-.treatment-file th {
+.services-file th {
     background-color: #f2f2f2;
     padding: 12px; /* Increase padding slightly for better readability */
     white-space: normal; /* Allows text to wrap */
 }
 
-.treatment-file .patient-name-elements,
-.treatment-file .phone-elements,
-.treatment-file .email-elements,
-.treatment-file .address-elements,
-.treatment-file .registered-elements,
-.treatment-file .last-visit-elements,
-.treatment-file .last-treatment-elements {
+.services-file .patient-name-elements,
+.services-file .phone-elements,
+.services-file .email-elements,
+.services-file .address-elements,
+.services-file .registered-elements,
+.services-file .last-visit-elements,
+.services-file .last-treatment-elements {
     display: flex;
     align-items: center;
     justify-content: center; /* Center content */
@@ -305,18 +315,18 @@
     text-align: center; /* Center text */
 }
 
-.treatment-file td {
+.services-file td {
     position: relative;
     overflow: hidden;
 }
 
-.treatment-file .name,
-.treatment-file .phone,
-.treatment-file .email,
-.treatment-file .address,
-.treatment-file .registered-date,
-.treatment-file .next-visit,
-.treatment-file .treatment {
+.services-file .name,
+.services-file .phone,
+.services-file .email,
+.services-file .address,
+.services-file .registered-date,
+.services-file .next-visit,
+.services-file .treatment {
     display: inline-block;
     max-width: 15rem; /* Limits the width of text previews */
     white-space: nowrap; /* Keeps text on one line */
@@ -324,13 +334,13 @@
     text-overflow: ellipsis; /* Adds ellipsis to overflow */
 }
 
-.treatment-file td:hover .name,
-.treatment-file td:hover .phone,
-.treatment-file td:hover .email,
-.treatment-file td:hover .address,
-.treatment-file td:hover .registered-date,
-.treatment-file td:hover .next-visit,
-.treatment-file td:hover .treatment {
+.services-file td:hover .name,
+.services-file td:hover .phone,
+.services-file td:hover .email,
+.services-file td:hover .address,
+.services-file td:hover .registered-date,
+.services-file td:hover .next-visit,
+.services-file td:hover .treatment {
     white-space: normal; /* Allows text to wrap */
     overflow: visible; /* Shows hidden overflow text */
     z-index: 1;
@@ -340,17 +350,17 @@
     border-radius: 20px;
 }
 
-.treatment-file .icon {
+.services-file .icon {
     margin-right: 5px;
 }
 
-.treatment-file .icon-updown {
+.services-file .icon-updown {
     width: 11px;
     height: 14px;
     margin-left: 8px; /* Space between text and icon */
 }
 
-.treatment-file .category-text {
+.services-file .category-text {
     font-family: "Roboto-Bold", Helvetica;
     font-weight: 700;
     color: #00000080;
