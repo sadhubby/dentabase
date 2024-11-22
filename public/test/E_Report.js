@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', initializeAppointmentChart);
 
 /*========================================================== */
 // 2ND CARD Toggle the visibility of the filter dropdown
-function toggleFilterDropdown() {
+
+/*function toggleFilterDropdown() {
     const dropdown = document.getElementById('filterDropdown');
     dropdown.classList.toggle('show'); // Toggle 'show' class to display or hide
 }
@@ -106,17 +107,24 @@ function filterPatientsByMonth() {
         }
     });
 }
+*/function initializeServiceChart() {
+    // Sample data for services per month
+    const serviceDataByMonth = {
+        Jan: { labels: ["Braces", "Invisalign", "Retainers"], data: [5, 3, 2] },
+        Feb: { labels: ["Braces", "Invisalign"], data: [7, 4] },
+        Mar: { labels: ["Retainers", "Teeth Whitening"], data: [6, 5] },
+        Apr: { labels: ["Fillings", "Braces"], data: [8, 10] },
+        May: { labels: ["Invisalign", "Teeth Whitening"], data: [3, 7] },
+        All: { labels: ["Braces", "Invisalign", "Retainers", "Teeth Whitening", "Fillings"], data: [20, 15, 10, 8, 5] }
+    };
 
-
-/* 3RD CARD FREQUENCY CHART */
-function initializeTreatmentChart() {
-    // Initial data for the chart
-    const treatmentData = {
-        labels: ["Braces", "Invisalign", "Retainers"], // Treatment Types
+    // Initialize chart data
+    const serviceData = {
+        labels: [...serviceDataByMonth.All.labels], // Clone array to prevent reference issues
         datasets: [{
             label: 'Number of Patients',
-            data: [10, 7, 5], // Corresponding frequencies
-            backgroundColor: ['#000080', '#909eee'], // Bar colors
+            data: [...serviceDataByMonth.All.data],
+            backgroundColor: ['#000080', '#909eee'],
             borderWidth: 1,
         }]
     };
@@ -124,126 +132,154 @@ function initializeTreatmentChart() {
     // Chart configuration
     const config = {
         type: 'bar',
-        data: treatmentData,
+        data: serviceData,
         options: {
             responsive: true,
             plugins: {
-                legend: {
-                    display: false, // Hides the legend box
-                },
-                tooltip: {
-                    enabled: true, // Enables tooltips on hover
-                },
+                legend: { display: false },
+                tooltip: { enabled: true },
             },
-            indexAxis: 'y', // Make the bars horizontal (switch axes)
+            indexAxis: 'y',
             scales: {
                 x: {
                     title: {
                         display: true,
                         text: 'Number of Patients',
-                        font: {
-                            size: 14,
-                            weight: 'bold'
-                        },
+                        font: { size: 14, weight: 'bold' },
                     },
-                    beginAtZero: true, // Starts the x-axis from 0
+                    beginAtZero: true,
                 },
                 y: {
                     title: {
                         display: true,
-                        text: 'Treatment Types',
-                        font: {
-                            size: 14,
-                            weight: 'bold'
-                        },
+                        text: 'Service Types',
+                        font: { size: 14, weight: 'bold' },
                     },
                 }
             }
         }
     };
 
-    // Initialize the chart
+    // Create the chart
     const ctx = document.getElementById('frequencyChart').getContext('2d');
     const frequencyChart = new Chart(ctx, config);
 
-    // Function to update the remove dropdown dynamically
+    // Update Remove Dropdown dynamically
     function updateRemoveDropdown() {
-        const removeDropdown = document.getElementById('removeTreatmentSelect');
+        const removeDropdown = document.getElementById('removeServiceSelect');
         removeDropdown.innerHTML = ''; // Clear existing options
 
-        // Populate the dropdown with current treatments
-        treatmentData.labels.forEach(treatment => {
+        // Populate the dropdown with current services
+        serviceData.labels.forEach(service => {
             const option = document.createElement('option');
-            option.value = treatment;
-            option.textContent = treatment;
+            option.value = service;
+            option.textContent = service;
             removeDropdown.appendChild(option);
         });
     }
 
-    // Initialize the dropdown on page load
+    // Initialize dropdown on page load
     updateRemoveDropdown();
 
-    // Toggle the Add Treatment Form visibility
-    document.getElementById('toggleFormButton').addEventListener('click', function () {
-        const form = document.getElementById('add-treatment-form');
-        form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
-    });
+    // Toggle Filter by Month visibility
+    const toggleFilterButton = document.getElementById('toggleFilterButton');
+    const monthFilterContainer = document.getElementById('monthFilterContainer');
 
-    // Toggle the Remove Treatment Form visibility
-    document.getElementById('removeTreatmentButton').addEventListener('click', function () {
-        const form = document.getElementById('remove-treatment-form');
-        form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
-    });
-
-    // Submit a new treatment to the chart
-    document.getElementById('submitTreatmentButton').addEventListener('click', function () {
-        const treatmentSelect = document.getElementById('treatmentSelect');
-        const selectedTreatment = treatmentSelect.value;
-
-        const treatmentIndex = treatmentData.labels.indexOf(selectedTreatment);
-
-        if (treatmentIndex === -1) {
-            // Add new treatment if it doesn't already exist
-            treatmentData.labels.push(selectedTreatment);
-            treatmentData.datasets[0].data.push(0); // Initialize with 0 patients
-            updateRemoveDropdown(); // Update the dropdown
+    toggleFilterButton.addEventListener('click', () => {
+        if (monthFilterContainer.classList.contains('hidden')) {
+            monthFilterContainer.classList.remove('hidden');
         } else {
-            alert("This treatment already exists!");
+            monthFilterContainer.classList.add('hidden');
+        }
+    });
+
+    // Apply month filter
+    document.getElementById('applyFilterButton').addEventListener('click', () => {
+        const selectedMonth = document.getElementById('monthSelect').value;
+        const filteredData = serviceDataByMonth[selectedMonth] || serviceDataByMonth.All;
+
+        // Update the chart data
+        serviceData.labels = [...filteredData.labels]; // Clone the array to avoid direct reference issues
+        serviceData.datasets[0].data = [...filteredData.data];
+        frequencyChart.update();
+    });
+
+    // Toggle the Add Service Form visibility
+    document.getElementById('toggleFormButton').addEventListener('click', function () {
+        const form = document.getElementById('add-service-form');
+        form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+    });
+
+    // Toggle the Remove Service Form visibility
+    document.getElementById('removeServiceButton').addEventListener('click', function () {
+        const form = document.getElementById('remove-service-form');
+        form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+    });
+
+    // Add a new service
+    document.getElementById('submitServiceButton').addEventListener('click', function () {
+        const serviceSelect = document.getElementById('serviceSelect');
+        const selectedService = serviceSelect.value;
+
+        // Check if service already exists
+        if (!serviceData.labels.includes(selectedService)) {
+            serviceData.labels.push(selectedService);
+            serviceData.datasets[0].data.push(0); // Initialize with 0 patients for All data
+            updateRemoveDropdown(); // Update dropdown
+
+            // Update all month data if required
+            serviceDataByMonth.All.labels.push(selectedService);
+            serviceDataByMonth.All.data.push(0);
+        } else {
+            alert("This service already exists!");
         }
 
-        // Update the chart with new data
+        // Update the chart
         frequencyChart.update();
 
-        // Hide the form after submitting
-        document.getElementById('add-treatment-form').style.display = 'none';
+        // Hide the form
+        document.getElementById('add-service-form').style.display = 'none';
     });
 
-    // Remove a treatment from the chart
-    document.getElementById('submitRemoveTreatmentButton').addEventListener('click', function () {
-        const treatmentSelect = document.getElementById('removeTreatmentSelect');
-        const selectedTreatment = treatmentSelect.value;
+    // Remove a service
+    document.getElementById('submitRemoveServiceButton').addEventListener('click', function () {
+        const serviceSelect = document.getElementById('removeServiceSelect');
+        const selectedService = serviceSelect.value;
 
-        const treatmentIndex = treatmentData.labels.indexOf(selectedTreatment);
+        const serviceIndex = serviceData.labels.indexOf(selectedService);
 
-        if (treatmentIndex !== -1) {
-            // Remove the treatment from the chart
-            treatmentData.labels.splice(treatmentIndex, 1);
-            treatmentData.datasets[0].data.splice(treatmentIndex, 1);
+        if (serviceIndex !== -1) {
+            // Remove from main chart data
+            serviceData.labels.splice(serviceIndex, 1);
+            serviceData.datasets[0].data.splice(serviceIndex, 1);
 
-            // Update the chart and dropdown
-            frequencyChart.update();
+            // Remove from all month data
+            Object.keys(serviceDataByMonth).forEach(month => {
+                const monthIndex = serviceDataByMonth[month].labels.indexOf(selectedService);
+                if (monthIndex !== -1) {
+                    serviceDataByMonth[month].labels.splice(monthIndex, 1);
+                    serviceDataByMonth[month].data.splice(monthIndex, 1);
+                }
+            });
+
+            // Update dropdown
             updateRemoveDropdown();
+
+            // Update the chart
+            frequencyChart.update();
         } else {
-            alert("Treatment not found! Please try again.");
+            alert("Service not found!");
         }
 
-        // Hide the form after submitting
-        document.getElementById('remove-treatment-form').style.display = 'none';
+        // Hide the form
+        document.getElementById('remove-service-form').style.display = 'none';
     });
 }
 
-// Call the function to initialize the chart when the page is loaded
-document.addEventListener('DOMContentLoaded', initializeTreatmentChart);
+// Initialize the chart when the page loads
+document.addEventListener('DOMContentLoaded', initializeServiceChart);
+
+
 
 
 
