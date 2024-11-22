@@ -351,3 +351,14 @@
     font-size: 16.4px;
     line-height: normal;
 }
+
+.patient-list-file .pagination-controls {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+    gap: 7px;
+}
+
+
+

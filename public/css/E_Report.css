@@ -206,8 +206,8 @@ canvas {
     max-width: 100%;
 }
 
-/* Add Treatment Form Styling */
-#add-treatment-form, #remove-treatment-form {
+/* Add Service and Remove Service Form Styling */
+#add-service-form, #remove-service-form {
     margin-top: 20px;
     background-color: #f7f7f7;
     padding: 15px;
@@ -216,32 +216,32 @@ canvas {
     display: none; /* Hidden by default */
 }
 
-#add-treatment-form h4, #remove-treatment-form h4 {
+#add-service-form h4, #remove-service-form h4 {
     margin-bottom: 10px;
     color: #333;
 }
 
-#add-treatment-form form, #remove-treatment-form form {
+#add-service-form form, #remove-service-form form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-#add-treatment-form label, #remove-treatment-form label {
+#add-service-form label, #remove-service-form label {
     font-size: 0.9em;
     color: #555;
 }
 
-#add-treatment-form select, #remove-treatment-form select,
-#add-treatment-form input, #remove-treatment-form input {
+#add-service-form select, #remove-service-form select,
+#add-service-form input, #remove-service-form input {
     padding: 8px;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#add-treatment-form button, #remove-treatment-form button {
-    background-color: #485fe7; /* Same background color as "Remove Treatment" button */
+#add-service-form button, #remove-service-form button {
+    background-color: #485fe7; /* Uniform button background color */
     color: white;
     border: none;
     padding: 8px 12px;
@@ -250,11 +250,56 @@ canvas {
     transition: background-color 0.1s ease;
 }
 
-#add-treatment-form button:hover, #remove-treatment-form button:hover {
-    background-color: #3a4dd6; /* Same hover color */
+#add-service-form button:hover, #remove-service-form button:hover {
+    background-color: #3a4dd6; /* Consistent hover effect */
 }
 
-/* Utility Classes */
-.hidden {
+/* Month Filter Container (hidden by default) */
+#monthFilterContainer.hidden {
     display: none;
+}
+
+.month-filter {
+    margin-top: 20px;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.month-filter label {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.month-filter select {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.month-filter button {
+    background-color: #485fe7; /* Uniform button background color */
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Same padding as other buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.month-filter button:hover {
+    background-color: #3a4dd6; /* Same hover effect as other buttons */
+}
+
+/* Month Indicator Styling */
+#monthIndicator {
+    font-size: 18px;
+    color: #485fe7;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
