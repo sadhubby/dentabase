@@ -405,7 +405,7 @@ router.get("/to-do", async (req, res) => {
 });
 
 router.get("/treatment", (req,res) =>{
-    res.render("D_Treatment");
+    res.render("D_Services");
 });
 
 
