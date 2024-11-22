@@ -110,7 +110,7 @@
           </div>
         </th>
 
-        
+
 
         <th>
           <div class="last-visit-elements">
@@ -155,7 +155,7 @@
 
           <div class="address">{{{homeAddress}}}</div>
         </td>
-       
+
 
         <td>
           <div class="next-visit">{{{latestTreatmentDate}}}</div>
@@ -172,22 +172,25 @@
     </tbody>
   </table>
   <!-- `END PATIENT LIST-->
+
+
   <div class="pagination-controls">
-  {{#if (gt currentPage 1)}}
+    {{#if (gt currentPage 1)}}
     <a href="/patient_list?page={{subtract currentPage 1}}{{#if search}}&search={{search}}{{/if}}" class="prev-button">
-      <img src="/img/icon-prev.svg" alt="Previous" />
-    
+      <img src="/img/icon-solid-left-arrow.svg" alt="Previous" />
+
     </a>
-  {{/if}}
+    {{/if}}
 
-  <span>Page {{currentPage}} of {{totalPages}}</span>
+    <span>Page {{currentPage}} of {{totalPages}}</span>
 
-  {{#if (lt currentPage totalPages)}}
+    {{#if (lt currentPage totalPages)}}
     <a href="/patient_list?page={{add currentPage 1}}{{#if search}}&search={{search}}{{/if}}" class="next-button">
-      <img src="/img/icon-next.svg" alt="Next" />
+      <img src="/img/icon-solid-right-arrow.svg" alt="Next" />
     </a>
-  {{/if}}
-</div>
+    {{/if}}
+  </div>
+
   {{> C_Patient_form}}
 
 </div>
