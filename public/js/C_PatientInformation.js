@@ -443,6 +443,20 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
                 teethAffected : teethAffected
             },
             function(){ //include status, success or fail
+                const teethString = teethAffected.join(', ');
+                const newRow = `
+                <tr>
+                    <td><div class="treatment-history-text">${procedureDate}</div></td>
+                    <td><div class="treatment-history-text">${teethString}</div></td>
+                    <td><div class="treatment-history-text">${procedureName}</div></td>
+                    <td><div class="treatment-history-text">${amountCharged}</div></td>
+                    <td><div class="treatment-history-text">${amountPaid}</div></td>
+                </tr>
+                `;
+
+                $('#treatment-table-body').append(newRow);
+
+
                 alert('Treatment recorded successfully.');
             }
         );

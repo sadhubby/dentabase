@@ -191,6 +191,36 @@ async function run(){
         'ongoing',
         7
     );
+
+    await functions.createTreatment(
+        7,
+        new Date('1980-02-03'),
+        [6],
+        'Teeth Cleaning',
+        'dr dentist',
+        1000,
+        1000,
+        0,
+        new Date('2024-02-02'),
+        'ongoing',
+        7
+    );
+
+    await functions.createTreatment(
+        7,
+        new Date('1980-02-03'),
+        [7, 8],
+        'Braces',
+        'dr dentist',
+        1000,
+        1000,
+        0,
+        new Date('2024-02-02'),
+        'ongoing',
+        7
+    );
+
+    
     await functions.updateTreatment(
         1,
         new Date('2023-06-06'),

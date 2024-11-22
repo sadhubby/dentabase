@@ -55,7 +55,7 @@
         <div class="card">
             <h3>Active Orthodontic Patients</h3>
 
-            <p>Active Patients: {{active_patients}}5</p>
+            <p>Active Patients: {{orthoCount}}</p>
             <!--  <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>-->
 
             <table class="patient-table">
@@ -69,29 +69,11 @@
                 <tbody id="patientTableBody">
                     {{#each patients}}
                     <tr data-appointment-month="january">
-                        <td>{{firstName}} {{lastName}}</td>
-                        <td>{{latestProcedure}}</td>
+                        <td>{{{patientName}}}</td>
+                        <td>{{{service}}}</td>
                     </tr>
                     {{/each}}
 
-
-
-                    <tr data-appointment-month="february">
-                        <td>Jane Smith</td>
-                        <td>Invisalign</td>
-                    </tr>
-                    <tr data-appointment-month="march">
-                        <td>Alex Johnson</td>
-                        <td>Retainers</td>
-                    </tr>
-                    <tr data-appointment-month="april">
-                        <td>Emily Davis</td>
-                        <td>Braces</td>
-                    </tr>
-                    <tr data-appointment-month="may">
-                        <td>Chris Lee</td>
-                        <td>Invisalign</td>
-                    </tr>
                 </tbody>
             </table>
         </div>

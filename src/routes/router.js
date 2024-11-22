@@ -10,7 +10,9 @@ const bcrypt = require('bcrypt');
 // mongoose models, add based on user stories
 
 const Patient = require('../models/patient');
+const Ortho = require('../models/orthodontics.js');
 const Treatment = require('../models/treatment');
+const Service = require('../models/service.js');
 const Account = require('../models/accounts');
 const Picture = require('../models/pictures')
 const MedicalHistory = require('../models/medicalHistory');
@@ -161,6 +163,27 @@ router.post('/create-treatment', function(req, res){
     }
 });
 
+router.get("/report", async (req, res) => {
+    try{
+        let orthodontics = await Ortho.find({isActive: true});
+
+        for(let ortho of orthodontics){
+            let patient = await Patient.findOne({id: ortho.patientID });
+
+            ortho.patientName = patient.firstName +" " +patient.lastName;
+        }
+
+        res.render("E_Report", {
+            patients: orthodontics,
+            orthoCount: orthodontics.length
+        });
+
+
+    } catch (error) {
+        console.error("Error loading report page.", error);
+    }
+});
+
 
 //PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {
@@ -214,7 +237,7 @@ router.get("/patient-information/:id", async (req, res) => {
             picture.dateString = Functions.convertToDate(picture.date);
         })
 
-
+        const services = await Service.find();
         
 
         res.render("C_PatientInformation", {
@@ -265,7 +288,10 @@ router.get("/patient-information/:id", async (req, res) => {
             treatments: patientTreatments,
 
             //pictures
-            pictures : pictures
+            pictures : pictures,
+
+            //services
+            services: services
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);
