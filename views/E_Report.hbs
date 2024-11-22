@@ -54,27 +54,10 @@
         <!-- Card for Active Orthodontic Patients -->
         <div class="card">
             <h3>Active Orthodontic Patients</h3>
-            <div class="patient-filter">
-                <p>Active Patients: {{active_patients}}5</p>
-                <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>
-                <div id="filterDropdown" class="filter-dropdown">
-                    <select id="monthSelect" onchange="filterPatientsByMonth()">
-                        <option value="all">All Months</option>
-                        <option value="january">January</option>
-                        <option value="february">February</option>
-                        <option value="march">March</option>
-                        <option value="april">April</option>
-                        <option value="may">May</option>
-                        <option value="june">June</option>
-                        <option value="july">July</option>
-                        <option value="august">August</option>
-                        <option value="september">September</option>
-                        <option value="october">October</option>
-                        <option value="november">November</option>
-                        <option value="december">December</option>
-                    </select>
-                </div>
-            </div>
+
+            <p>Active Patients: {{active_patients}}5</p>
+            <!--  <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>-->
+
             <table class="patient-table">
                 <thead>
                     <tr>
@@ -90,9 +73,9 @@
                         <td>{{latestProcedure}}</td>
                     </tr>
                     {{/each}}
-                 
-                 
-                 
+
+
+
                     <tr data-appointment-month="february">
                         <td>Jane Smith</td>
                         <td>Invisalign</td>
@@ -115,53 +98,71 @@
 
 
         <!-- `Card for Frequency Distribution -->
-        <!-- Frequency Distribution Card -->
         <div class="card">
             <h3>Frequency Distribution</h3>
             <div class="controls">
-                <!-- Update IDs for buttons -->
-                <button id="toggleFormButton">Add Treatment</button>
-                <button id="removeTreatmentButton">Remove Treatment</button>
+                <!-- Add Service and Remove Service Buttons -->
+                <button class="add-services-form" id="toggleFormButton">Add Service</button>
+                <button class="remove-services-form" id="removeServiceButton">Remove Service</button>
+                <button class="filter-month-form" id="toggleFilterButton">Filter Month</button>
             </div>
-            <div id="add-treatment-form" style="display: none;">
-                <h4>Add Treatment</h4>
-                <form id="treatmentForm">
-                    <label for="treatmentSelect">Select Treatment:</label>
-                    <select id="treatmentSelect" name="treatment">
+
+            <!-- Month Filter -->
+            <div id="monthFilterContainer" class="month-filter hidden">
+                <label for="monthSelect">Filter by Month:</label>
+                <select id="monthSelect">
+                    <option value="All">All</option>
+                    <option value="Jan">January</option>
+                    <option value="Feb">February</option>
+                    <option value="Mar">March</option>
+                    <option value="Apr">April</option>
+                    <option value="May">May</option>
+                    <option value="Jun">June</option>
+                    <option value="Jul">July</option>
+                    <option value="Aug">August</option>
+                    <option value="Sept">September</option>
+                    <option value="Oct">October</option>
+                    <option value="Nov">November</option>
+                    <option value="Dec">December</option>
+                </select>
+                <button id="applyFilterButton">Apply Filter</button>
+            </div>
+
+
+            <!-- Forms for Adding and Removing Services -->
+            <div id="add-service-form" style="display: none;">
+                <h4>Add Service</h4>
+                <form id="serviceForm">
+                    <label for="serviceSelect">Select Service:</label>
+                    <select id="serviceSelect" name="service">
                         <option value="Braces">Braces</option>
                         <option value="Invisalign">Invisalign</option>
                         <option value="Retainers">Retainers</option>
                         <option value="Teeth Whitening">Teeth Whitening</option>
                         <option value="Fillings">Fillings</option>
                     </select>
-                    <button type="button" id="submitTreatmentButton">Add</button>
+                    <button type="button" id="submitServiceButton">Add</button>
                 </form>
             </div>
 
-
-            <!-- Add Treatment Form (already present) -->
-
-            <div id="remove-treatment-form" style="display: none;">
-                <h4>Remove Treatment</h4>
-                <form id="removeTreatmentForm">
-                    <label for="removeTreatmentSelect">Select Treatment:</label>
-                    <select id="removeTreatmentSelect" name="removeTreatment">
+            <div id="remove-service-form" style="display: none;">
+                <h4>Remove Service</h4>
+                <form id="removeServiceForm">
+                    <label for="removeServiceSelect">Select Service:</label>
+                    <select id="removeServiceSelect" name="removeService">
                         <option value="Braces">Braces</option>
                         <option value="Invisalign">Invisalign</option>
                         <option value="Retainers">Retainers</option>
                         <option value="Teeth Whitening">Teeth Whitening</option>
                         <option value="Fillings">Fillings</option>
                     </select>
-                    <button type="button" id="submitRemoveTreatmentButton">Remove</button>
+                    <button type="button" id="submitRemoveServiceButton">Remove</button>
                 </form>
             </div>
+
             <canvas id="frequencyChart"></canvas>
-
-
-
-
-
         </div>
+
 
         <!-- `END DASHBOARD GROUP-->
 
