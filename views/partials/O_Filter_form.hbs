@@ -9,9 +9,9 @@
                     <label for="treatmentType">Service Type:</label>
                     <select id="treatmentType" name="treatmentType">
                         <option value="">All</option>
-                        <option value="physicalTherapy">Physical Therapy</option>
-                        <option value="dental">Dental</option>
-                        <option value="orthopedic">Orthopedic</option>
+                        {{#each services}}
+                            <option value="{{{service}}}">{{{service}}}</option>              
+                        {{/each}}
                     </select>
                 </div>
 

@@ -452,6 +452,8 @@ router.get("/patient_list", async (req, res) => {
         const limit = 10; 
         const skip = (page - 1) * limit; 
 
+        const services = await Service.find();
+
         // Query to find patients
         const patients = await Patient.find({ 
             isActive: true,
@@ -502,7 +504,9 @@ router.get("/patient_list", async (req, res) => {
             patients: updatedPatients,
             patientCount: totalPatients,
             currentPage: page,
-            totalPages: totalPages
+            totalPages: totalPages,
+
+            services: services
         });
     } catch (error) {
         console.log("Error getting data", error);
