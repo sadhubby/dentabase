@@ -3,20 +3,29 @@
 .patient-info-file .save-change-button {
     display: flex;
     justify-content: flex-end;
-    background-color: #485fe7; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 15px; /* Add padding for size */
-    font-size: 14px; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
-    
+    background-color: #485fe7;
+    /* Blue background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove default border */
+    border-radius: 5px;
+    /* Rounded corners */
+    padding: 10px 15px;
+    /* Add padding for size */
+    font-size: 14px;
+    /* Font size */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Smooth transitions for hover effects */
+
 }
 
 .patient-info-file .save-change-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-   
+    background-color: #0056b3;
+    /* Darker blue on hover */
+
 }
 
 /* ? END SAVE CHANGE BUTTON*/
@@ -581,7 +590,7 @@
 /* Style for checked state */
 .patient-info-file .medical-questions-section input[type="radio"]:checked+.radio-label::before {
     background-color: #485fe7;
-    
+
     /* Color when checked */
 }
 
@@ -669,10 +678,10 @@
 }
 
 .patient-info-file .checkbox-group label {
-  display: flex;
+    display: flex;
     gap: 10px;
-  
-   
+
+
 }
 
 .patient-info-file .column {
@@ -712,24 +721,47 @@
     /* Space between boxes */
 }
 
+
+
 .patient-info-file .dental-chart-box {
     flex: 1;
-    /* Each box will take up equal space */
+flex-wrap: wrap;
     margin: 0 10px;
-    /* Add margin between boxes */
     padding: 20px;
-    /* Padding inside each box */
     background-color: #ffe2e2;
-    /* Background color for boxes */
     border: 1px solid #ccc;
-    /* Border for boxes */
     border-radius: 4px;
-    /* Rounded corners for boxes */
     text-align: center;
-    /* Center text inside boxes */
+
 }
 
 
+/* `DISPLAY OF THE IMAGE AND FONTS*/
+
+.patient-info-file .image-display-group {
+    display: flex;
+    background-color: #0056b3;
+}
+
+
+.patient-info-file .image-item {
+    display: flex;
+    flex-direction: column;
+ 
+    margin: 10px;
+    width: 250px;
+
+}
+
+.patient-info-file .image-display{
+    border-radius: 10px;
+}
+
+
+
+.patient-info-file .image-date, .patient-info-file .image-caption {
+    font-size: 10px;
+}
 
 
 
@@ -943,13 +975,15 @@
 /* Checkbox styling for teeth section */
 .create-treatment-popup .teeth-grid {
     display: grid;
-    grid-template-columns: repeat(10, auto); /* 10 columns */
+    grid-template-columns: repeat(10, auto);
+    /* 10 columns */
     gap: 8px;
     margin-top: 8px;
 }
 
 .create-treatment-popup .teeth-grid input[type="checkbox"] {
-    display: none; /* Hide default checkbox */
+    display: none;
+    /* Hide default checkbox */
 }
 
 .create-treatment-popup .teeth-grid label {
@@ -966,10 +1000,11 @@
     transition: background-color 0.2s, color 0.2s;
 }
 
-.create-treatment-popup .teeth-grid input[type="checkbox"]:checked + label {
+.create-treatment-popup .teeth-grid input[type="checkbox"]:checked+label {
     background-color: #485fe7;
     color: white;
 }
+
 /* ?SUBMIT BUTTONS*/
 
 /* Button styling */
@@ -979,7 +1014,8 @@
     margin-top: 20px;
 }
 
-.create-treatment-popup .submit-button, .close-button {
+.create-treatment-popup .submit-button,
+.close-button {
     width: 48%;
     padding: 10px;
     border: none;
@@ -991,9 +1027,11 @@
 
 
 .create-treatment-popup .close-button {
-    background-color: #d6d6d6;;
+    background-color: #d6d6d6;
+    ;
     color: #fff;
 }
+
 .create-treatment-popup .close-button:hover {
     background-color: #7777;
 
@@ -1003,6 +1041,7 @@
     background-color: #485fe7;
     color: #fff;
 }
+
 .create-treatment-popup .submit-button:hover {
     background-color: #2b3eac;
 }
@@ -1169,35 +1208,43 @@
     justify-content: center;
     align-items: center;
 }
-.agreement-confirmation p{
+
+.agreement-confirmation p {
     width: 40%;
     display: flex;
     align-items: center;
 }
 
 .agreement-confirmation .date-elements {
-    display: flex; /* Use flexbox for the date elements */
-    align-items: center; /* Center align items vertically */
+    display: flex;
+    /* Use flexbox for the date elements */
+    align-items: center;
+    /* Center align items vertically */
 }
 
 .agreement-confirmation input[type="text"],
 .agreement-confirmation input[type="date"] {
     margin: 5px 10px;
     padding: 5px;
-    width: 100%; /* Use full width for better responsiveness */
-    max-width: 350px; /* Set a maximum width */
-    box-sizing: border-box; /* Include padding in width calculation */
-    border: 1px solid #d8d8d8; /* Set border color to blue */
+    width: 100%;
+    /* Use full width for better responsiveness */
+    max-width: 350px;
+    /* Set a maximum width */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+    border: 1px solid #d8d8d8;
+    /* Set border color to blue */
     border-radius: 10px;
     font-size: 16px;
 }
 
 
 .agreement-confirmation label {
-    margin-right: 5px; /* Add space between label and input */
+    margin-right: 5px;
+    /* Add space between label and input */
 }
 
-.image-date{
+.image-date {
     font-size: 32px;
     font-weight: bold;
     margin-top: 5px;
@@ -1208,7 +1255,7 @@
     font-weight: bold;
     font-style: italic;
     font-family: Roboto-Regular, Helvetica, sans-serif;
-    font-size 25px;
+    font-size: 25px;
     margin-top: 5px;
 }
 

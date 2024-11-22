@@ -55,7 +55,7 @@
 .todo-file .buttons-group {
     display: flex;
     align-items: center;
-    margin-right: 1%;
+  
 }
 
 .todo-file .divider {
@@ -69,6 +69,7 @@
 .todo-file .button {
     display: flex;
     align-items: center;
+   
     gap: 4px;
     border-radius: 6.85px;
     

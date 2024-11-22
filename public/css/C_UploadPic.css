@@ -21,7 +21,7 @@
 }
 
 /* Overlay background */
-.overlay {
+.overlay-popup {
     display: none;
     position: fixed;
     top: 0;
@@ -93,3 +93,4 @@
 #close-upload-picture:hover {
     background-color: #e0312c;
 }
+
