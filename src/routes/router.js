@@ -430,8 +430,18 @@ router.get("/to-do", async (req, res) => {
     }
 });
 
-router.get("/services", (req,res) =>{
-    res.render("D_Services");
+router.get("/services",async (req,res) =>{
+    try{
+        let services = await Service.find();
+        res.render("D_Services",{
+            services: services,
+            serviceCount: services.length
+        });
+
+    } catch (error){
+        console.error("Error loading services page.", error);
+    }
+    
 });
 
 

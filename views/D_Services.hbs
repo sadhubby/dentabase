@@ -37,7 +37,7 @@
 
         <div class="treatment-number-elements">
             <img class="icon-stethoscope" src="/img/icon-stethoscope.svg" />
-            <div class="treatment-number">{{recent_treatment_number}}100</div>
+            <div class="treatment-number">{{serviceCount}}</div>
             <div class="total-treatment-text">Services</div>
         </div>
 
@@ -90,25 +90,27 @@
         <tbody>
 
             <!-- #each treatment_patient -->
+            {{#each services}}
 
             <tr>
 
                 <td>
                     <div class="name" onclick="window.location.href='/patient-information/{{{id}}}'"
                         style="cursor: pointer;">
-                        {{firstName}} {{lastName}}ASASAS</div>
+                        {{{service}}}</div>
                 </td>
                 <td>
 
-                    <div class="phone">{{{price}}}ASASASA</div>
+                    <div class="phone">{{{price}}}</div>
                 </td>
                 <td>
 
-                    <div class="email">{{{treatment_duration}}}SDDD</div>
+                    <div class="email">{{{type}}}</div>
                 </td>
 
 
             </tr>
+            {{/each}}
             <!--  /each -->
 
         </tbody>
