@@ -73,7 +73,7 @@
     width: 400px;
     position: absolute;
     right: 0; /* Align the form to the right of the screen */
-    top: 50%; /* Position the form vertically in the center */
+    top: 35%; /* Position the form vertically in the center */
     transform: translateY(-50%); /* Adjust form to stay vertically centered */
     z-index: 2; /* Ensure the form is above the button */
 }

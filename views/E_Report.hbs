@@ -61,6 +61,7 @@
             <table class="patient-table">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Name</th>
                         <th>Services</th>
                     </tr>
@@ -69,6 +70,7 @@
                 <tbody id="patientTableBody">
                     {{#each patients}}
                     <tr data-appointment-month="january">
+                        <td><input type="checkbox" class="patient-checkbox" /></td>
                         <td>{{{patientName}}}</td>
                         <td>{{{service}}}</td>
                     </tr>

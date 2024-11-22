@@ -316,3 +316,20 @@ canvas {
     margin-bottom: 15px;
     font-weight: bold;
 }
+
+.patient-checkbox {
+    border: 2px solid #485fe7; 
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer; 
+    appearance: none; 
+    outline: none; 
+    border-radius: 5px; 
+}
+
+.patient-checkbox:checked {
+    background-color: #485fe7; 
+    border-color: #485fe7; 
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-check" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.073 0l.007.008a.75.75 0 0 1 .007 1.064l-5.023 5.023a.75.75 0 0 1-1.08-.02l-2.496-2.572a.75.75 0 0 1 1.09-1.03l2.03 2.09L10.97 4.97z"></path></svg>'); /* Adds check icon */
+}
+
