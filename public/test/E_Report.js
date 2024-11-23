@@ -151,13 +151,21 @@ function filterPatientsByMonth() {
 }
 */function initializeServiceChart() {
     // Sample data for services per month
+    let yearlyFrequencyCount = getYearFrequency();
     const serviceDataByMonth = {
-        Jan: { labels: ["Braces", "Invisalign", "Retainers"], data: [5, 3, 2] },
-        Feb: { labels: ["Braces", "Invisalign"], data: [7, 4] },
-        Mar: { labels: ["Retainers", "Teeth Whitening"], data: [6, 5] },
-        Apr: { labels: ["Fillings", "Braces"], data: [8, 10] },
-        May: { labels: ["Invisalign", "Teeth Whitening"], data: [3, 7] },
-        All: { labels: ["Braces", "Invisalign", "Retainers", "Teeth Whitening", "Fillings"], data: [20, 15, 10, 8, 5] }
+        Jan: { labels: yearlyFrequencyCount.JanServices, data: yearlyFrequencyCount.JanCounts },
+        Feb: { labels: yearlyFrequencyCount.FebServices, data: yearlyFrequencyCount.FebCounts },
+        Mar: { labels: yearlyFrequencyCount.MarServices, data: yearlyFrequencyCount.MarCounts },
+        Apr: { labels: yearlyFrequencyCount.AprServices, data: yearlyFrequencyCount.AprCounts },
+        May: { labels: yearlyFrequencyCount.MayServices, data: yearlyFrequencyCount.MayCounts },
+        Jun: { labels: yearlyFrequencyCount.JunServices, data: yearlyFrequencyCount.JunCounts },
+        Jul: { labels: yearlyFrequencyCount.JulServices, data: yearlyFrequencyCount.JulCounts },
+        Aug: { labels: yearlyFrequencyCount.AugServices, data: yearlyFrequencyCount.AugCounts },
+        Sep: { labels: yearlyFrequencyCount.SepServices, data: yearlyFrequencyCount.SepCounts },
+        Oct: { labels: yearlyFrequencyCount.OctServices, data: yearlyFrequencyCount.OctCounts },
+        Nov: { labels: yearlyFrequencyCount.NovServices, data: yearlyFrequencyCount.NovCounts },
+        Dec: { labels: yearlyFrequencyCount.DecServices, data: yearlyFrequencyCount.DecCounts },
+        All: { labels: yearlyFrequencyCount.yearlyUniqueProcedures, data: yearlyFrequencyCount.yearlyCounts }
     };
 
     // Initialize chart data

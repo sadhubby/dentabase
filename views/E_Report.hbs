@@ -8,10 +8,120 @@
 
         return monthlyCounts;
     }
+
+    function getYearFrequency(){
+        let yearlyFrequencyCount = {
+            yearlyUniqueProcedures: [],
+            yearlyCounts: [],
+
+            JanServices: [],
+            JanCounts: [],
+
+            FebServices: [],
+            FebCounts: [],
+
+            MarServices: [],
+            MarCounts: [],
+            
+            AprServices: [],
+            AprCounts: [],
+            
+            MayServices: [],
+            MayCounts: [],
+            
+            JunServices: [],
+            JunCounts: [],
+            
+            JulServices: [],
+            JulCounts: [],
+            
+            AugServices: [],
+            AugCounts: [],
+            
+            SepServices: [],
+            SepCounts: [],
+            
+            OctServices: [],
+            OctCounts: [],
+            
+            NovServices: [],
+            NovCounts: [],
+            
+            DecServices: [],
+            DecCounts: []
+        };
+
+        {{#each yearlyUniqueProcedures}}
+            yearlyFrequencyCount.yearlyUniqueProcedures.push("{{{this.name}}}");
+            yearlyFrequencyCount.yearlyCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.JanServices}}
+            yearlyFrequencyCount.JanServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.JanCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.FebServices}}
+            yearlyFrequencyCount.FebServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.FebCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.MarServices}}
+            yearlyFrequencyCount.MarServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.MarCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.AprServices}}
+            yearlyFrequencyCount.AprServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.AprCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.MayServices}}
+            yearlyFrequencyCount.MayServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.MayCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.JunServices}}
+            yearlyFrequencyCount.JunServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.JunCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.JulServices}}
+            yearlyFrequencyCount.JulServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.JulCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.AugServices}}
+            yearlyFrequencyCount.AugServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.AugCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.SepServices}}
+            yearlyFrequencyCount.SepServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.SepCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.OctServices}}
+            yearlyFrequencyCount.OctServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.OctCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.NovServices}}
+            yearlyFrequencyCount.NovServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.NovCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.DecServices}}
+            yearlyFrequencyCount.DecServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.DecCounts.push({{{this.count}}});
+        {{/each}}
+
+        return yearlyFrequencyCount;
+    }
 </script>
 
 
-<!-- +NAME PAGE, SEARCH BOX-->
+<!-- NAME PAGE, SEARCH BOX-->
 <div class="frame-1">
     <div class="name-page"> Treatments</div>
     <div class="search-settings-group">
@@ -42,7 +152,7 @@
     <div class="indicator-line"></div>
 
 </div>
-<!-- `END TITLES-->
+<!-- `END TITLES -->
 
 <!-- +PATIENT DETAILS-->
 <div class="frame-3">

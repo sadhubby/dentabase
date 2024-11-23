@@ -204,57 +204,190 @@ router.get("/report", async (req, res) => {
             }
         });
 
+        let yearlyUniqueProcedures = []; // array of jsons for unique procedures
+        let servicesByMonth = {};
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        
+        months.forEach(month => {
+            servicesByMonth[month + "Services"] = [];
+        });
+        
         treatmentsOfYear.forEach(treatment => {
-            let month = treatment.date.getMonth();
+            let month = treatment.date.getMonth(); // get the month number
+            let procedure = treatment.procedure;
+        
+            // Handle unique procedures for the year
+            const uniqueProcedure = yearlyUniqueProcedures.find(p => p.name === procedure);
+            if (uniqueProcedure) {
+                uniqueProcedure.count++; // increment if procedure already exists
+            } else {
+                yearlyUniqueProcedures.push({ name: procedure, count: 1 }); // create new procedure entry if not found
+            }
 
-                switch(month){
-                    case 0: 
-                    monthlyAppointmentsCounts[0]++; // January
+
+            let procedureOfMonth;
+        
+            // Update monthly appointments count (e.g., total treatments for each month)
+            switch (month) {
+                case 0: // January
+                    monthlyAppointmentsCounts[0]++;
+                    
+                    // Check if procedure exists in January's services
+                    procedureOfMonth = servicesByMonth.JanServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.JanServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 1: 
-                    monthlyAppointmentsCounts[1]++; // February
+                
+                case 1: // February
+                    monthlyAppointmentsCounts[1]++;
+                    
+                    // Check if procedure exists in February's services
+                    procedureOfMonth = servicesByMonth.FebServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.FebServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 2: 
-                    monthlyAppointmentsCounts[2]++; // March
+        
+                case 2: // March
+                    monthlyAppointmentsCounts[2]++;
+                    
+                    // Check if procedure exists in March's services
+                    procedureOfMonth = servicesByMonth.MarServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.MarServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 3: 
-                    monthlyAppointmentsCounts[3]++; // April
+        
+                case 3: // April
+                    monthlyAppointmentsCounts[3]++;
+                    
+                    // Check if procedure exists in April's services
+                    procedureOfMonth = servicesByMonth.AprServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.AprServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 4: 
-                    monthlyAppointmentsCounts[4]++; // May
+        
+                case 4: // May
+                    monthlyAppointmentsCounts[4]++;
+                    
+                    // Check if procedure exists in May's services
+                    procedureOfMonth = servicesByMonth.MayServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.MayServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 5: 
-                    monthlyAppointmentsCounts[5]++; // June
+        
+                case 5: // June
+                    monthlyAppointmentsCounts[5]++;
+                    
+                    // Check if procedure exists in June's services
+                    procedureOfMonth = servicesByMonth.JunServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.JunServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 6: 
-                    monthlyAppointmentsCounts[6]++; // July
+        
+                case 6: // July
+                    monthlyAppointmentsCounts[6]++;
+                    
+                    // Check if procedure exists in July's services
+                    procedureOfMonth = servicesByMonth.JulServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.JulServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 7: 
-                    monthlyAppointmentsCounts[7]++; // August
+        
+                case 7: // August
+                    monthlyAppointmentsCounts[7]++;
+                    
+                    // Check if procedure exists in August's services
+                    procedureOfMonth = servicesByMonth.AugServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.AugServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 8: 
-                    monthlyAppointmentsCounts[8]++; // September
+        
+                case 8: // September
+                    monthlyAppointmentsCounts[8]++;
+                    
+                    // Check if procedure exists in September's services
+                    procedureOfMonth = servicesByMonth.SepServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.SepServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 9: 
-                    monthlyAppointmentsCounts[9]++; // October
+        
+                case 9: // October
+                    monthlyAppointmentsCounts[9]++;
+                    
+                    // Check if procedure exists in October's services
+                    procedureOfMonth = servicesByMonth.OctServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.OctServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 10: 
-                    monthlyAppointmentsCounts[10]++; // November
+        
+                case 10: // November
+                    monthlyAppointmentsCounts[10]++;
+                    
+                    // Check if procedure exists in November's services
+                    procedureOfMonth = servicesByMonth.NovServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.NovServices.push({ name: procedure, count: 1 });
+                    }
                     break;
-                case 11: 
-                    monthlyAppointmentsCounts[11]++; // December
+        
+                case 11: // December
+                    monthlyAppointmentsCounts[11]++;
+                    
+                    // Check if procedure exists in December's services
+                    procedureOfMonth = servicesByMonth.DecServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.DecServices.push({ name: procedure, count: 1 });
+                    }
                     break;
+        
                 default:
                     console.log("Invalid month"); // Fallback for invalid months
-                }
-        });
-
+            }
+        });    
+        
         res.render("E_Report", {
             patients: orthodontics,
             orthoCount: orthodontics.length,
             monthlyCounts: monthlyAppointmentsCounts,
-            appointmentCount: treatmentsOfYear.length
-            
+            appointmentCount: treatmentsOfYear.length,
+
+
+            //for frequency distribution
+            yearlyUniqueProcedures: yearlyUniqueProcedures,
+            servicesByMonth: servicesByMonth
         });
 
 
