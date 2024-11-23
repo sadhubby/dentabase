@@ -1,3 +1,16 @@
+<script>
+    function getMonthlyCounts(){
+        let monthlyCounts = [];
+
+        {{#each monthlyCounts}}
+            monthlyCounts.push({{{this}}});
+        {{/each}}
+
+        return monthlyCounts;
+    }
+</script>
+
+
 <!-- +NAME PAGE, SEARCH BOX-->
 <div class="frame-1">
     <div class="name-page"> Treatments</div>
@@ -39,7 +52,7 @@
 
         <div class="card">
             <h3>Monthly Appointments</h3>
-            <p>Appointments: {{appointmentCount}}20</p>
+            <p>Appointments: {{appointmentCount}}</p>
             <div class="chart-container">
                 <canvas id="appointmentsChart" class="appointment-chart"></canvas>
             </div>

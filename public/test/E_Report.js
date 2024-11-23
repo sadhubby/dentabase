@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     document.getElementById('active-orthodontics-form').addEventListener('submit', function(event){
         event.preventDefault();
 
@@ -41,12 +42,13 @@ $(document).ready(function(){
 
 /* 1ST CARD MONTHLY APPOINTMENT CHART */
 function initializeAppointmentChart() {
+    let monthlyAppointments = getMonthlyCounts();
     // Initial data for the chart
     const appointmentData = {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"], // Months
         datasets: [{
             label: 'Number of Appointments',
-            data: [20, 30, 15, 5, 10, 18, 25, 12, 17, 22, 28, 35], // Monthly appointments
+            data: monthlyAppointments, // Monthly appointments
             backgroundColor: ['#000080', '#909eee'], // Bar colors
             borderWidth: 1,
         }]

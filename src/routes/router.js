@@ -191,9 +191,70 @@ router.get("/report", async (req, res) => {
             ortho.patientName = patient.firstName +" " +patient.lastName;
         }
 
+        const currentYear = new Date().getFullYear(); 
+        const startOfYear = new Date(currentYear, 0, 1); 
+        const startOfNextYear = new Date(currentYear + 1, 0, 1);
+
+        let monthlyAppointmentsCounts = [0,0,0,0,0,0,0,0,0,0,0,0];
+        
+        const treatmentsOfYear = await Treatment.find({
+            date: {
+                $gte: startOfYear, 
+                $lt: startOfNextYear
+            }
+        });
+
+        treatmentsOfYear.forEach(treatment => {
+            let month = treatment.date.getMonth();
+
+                switch(month){
+                    case 0: 
+                    monthlyAppointmentsCounts[0]++; // January
+                    break;
+                case 1: 
+                    monthlyAppointmentsCounts[1]++; // February
+                    break;
+                case 2: 
+                    monthlyAppointmentsCounts[2]++; // March
+                    break;
+                case 3: 
+                    monthlyAppointmentsCounts[3]++; // April
+                    break;
+                case 4: 
+                    monthlyAppointmentsCounts[4]++; // May
+                    break;
+                case 5: 
+                    monthlyAppointmentsCounts[5]++; // June
+                    break;
+                case 6: 
+                    monthlyAppointmentsCounts[6]++; // July
+                    break;
+                case 7: 
+                    monthlyAppointmentsCounts[7]++; // August
+                    break;
+                case 8: 
+                    monthlyAppointmentsCounts[8]++; // September
+                    break;
+                case 9: 
+                    monthlyAppointmentsCounts[9]++; // October
+                    break;
+                case 10: 
+                    monthlyAppointmentsCounts[10]++; // November
+                    break;
+                case 11: 
+                    monthlyAppointmentsCounts[11]++; // December
+                    break;
+                default:
+                    console.log("Invalid month"); // Fallback for invalid months
+                }
+        });
+
         res.render("E_Report", {
             patients: orthodontics,
-            orthoCount: orthodontics.length
+            orthoCount: orthodontics.length,
+            monthlyCounts: monthlyAppointmentsCounts,
+            appointmentCount: treatmentsOfYear.length
+            
         });
 
 
