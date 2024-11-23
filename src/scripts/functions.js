@@ -49,7 +49,7 @@ async function setOrthoInactive(patientID, service){
 
         orth.isActive = false;
 
-        await orthModel.save();
+        await orth.save();
 
         console.log("Successfully inactivated orthodontics.");
     } catch (error) {

@@ -1,3 +1,43 @@
+$(document).ready(function(){
+    document.getElementById('active-orthodontics-form').addEventListener('submit', function(event){
+        event.preventDefault();
+
+        let selectedValues = [];
+
+        let checkedActive = document.getElementsByName('active-patient-row');
+
+
+
+        checkedActive.forEach(checkbox => {
+            if(checkbox.checked){
+                selectedValues.push(checkbox.value);
+            }
+        });
+
+        if(selectedValues.length === 0){
+            return;
+        }
+
+        $.post(
+            '/deactivate-ortho',
+            {
+                orthos: selectedValues
+            },
+            function(data){ //case if successful or fail
+                alert(data.message);
+
+                checkedActive.forEach(checkbox => {
+                    if(checkbox.checked){
+                        checkbox.closest('tr').remove();
+                    }
+                });
+
+                $('#active-patients-count').text("Active Patients: " + data.count);
+            }
+        );
+    })
+});
+
 
 /* 1ST CARD MONTHLY APPOINTMENT CHART */
 function initializeAppointmentChart() {

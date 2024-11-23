@@ -55,29 +55,34 @@
         <div class="card">
             <h3>Active Orthodontic Patients</h3>
 
-            <p>Active Patients: {{orthoCount}}</p>
+            <p id="active-patients-count">Active Patients: {{orthoCount}}</p>
             <!--  <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>-->
 
-            <table class="patient-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Services</th>
-                    </tr>
-                </thead>
+            <form id="active-orthodontics-form" name="active-orthodontics-form">
+                <table class="patient-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Services</th>
+                        </tr>
+                    </thead>
 
-                <tbody id="patientTableBody">
-                    {{#each patients}}
-                    <tr data-appointment-month="january">
-                        <td><input type="checkbox" class="patient-checkbox" /></td>
-                        <td>{{{patientName}}}</td>
-                        <td>{{{service}}}</td>
-                    </tr>
-                    {{/each}}
+                    
+                        <tbody id="patientTableBody">
+                            {{#each patients}}
+                            <tr data-appointment-month="january">
+                                <td><input type="checkbox" name="active-patient-row" class="patient-checkbox" value="{{{patientID}}}{{{service}}}"/></td>
+                                <td>{{{patientName}}}</td>
+                                <td>{{{service}}}</td>
+                            </tr>
+                            {{/each}}
 
-                </tbody>
-            </table>
+                        </tbody>
+                    
+                </table>
+                <button type="submit">Mark Orthodontics Finished</button>
+            </form>
         </div>
 
 

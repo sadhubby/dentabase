@@ -92,6 +92,24 @@ router.post('/upload-pic', upload.single('file'), (req,res) => {
     
 });
 
+router.post('/deactivate-ortho', async function(req, res){
+    try{
+        let orthos = req.body.orthos;
+
+        await Promise.all(orthos.map(ortho => {
+            return Functions.setOrthoInactive(ortho[0], ortho.slice(1));
+        }));
+
+        let count = await Ortho.countDocuments({isActive: true});
+
+        return res.status(200).json({message: "Orthodontic patients successfully marked as finished.", count: count});
+
+    } catch(error){
+        console.error("Error deactivating orthodontics.", error);
+        return res.status(500).json({message: "Error deactivating orthodontic patients", count: -1});
+    }
+});
+
 router.post('/create-patient', function(req, res){
     try{
         Functions.createPatient(
