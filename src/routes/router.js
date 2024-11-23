@@ -376,8 +376,10 @@ router.get("/report", async (req, res) => {
                 default:
                     console.log("Invalid month"); // Fallback for invalid months
             }
-        });    
+        });
         
+        let allServices = await Service.find();
+
         res.render("E_Report", {
             patients: orthodontics,
             orthoCount: orthodontics.length,
@@ -387,7 +389,9 @@ router.get("/report", async (req, res) => {
 
             //for frequency distribution
             yearlyUniqueProcedures: yearlyUniqueProcedures,
-            servicesByMonth: servicesByMonth
+            servicesByMonth: servicesByMonth,
+            allServices: allServices
+
         });
 
 

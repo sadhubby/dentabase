@@ -247,11 +247,9 @@
                 <form id="serviceForm">
                     <label for="serviceSelect">Select Service:</label>
                     <select id="serviceSelect" name="service">
-                        <option value="Braces">Braces</option>
-                        <option value="Invisalign">Invisalign</option>
-                        <option value="Retainers">Retainers</option>
-                        <option value="Teeth Whitening">Teeth Whitening</option>
-                        <option value="Fillings">Fillings</option>
+                        {{#each allServices}}
+                            <option value="{{{this.service}}}">{{{this.service}}}</option>
+                        {{/each}}
                     </select>
                     <button type="button" id="submitServiceButton">Add</button>
                 </form>
@@ -262,11 +260,9 @@
                 <form id="removeServiceForm">
                     <label for="removeServiceSelect">Select Service:</label>
                     <select id="removeServiceSelect" name="removeService">
-                        <option value="Braces">Braces</option>
-                        <option value="Invisalign">Invisalign</option>
-                        <option value="Retainers">Retainers</option>
-                        <option value="Teeth Whitening">Teeth Whitening</option>
-                        <option value="Fillings">Fillings</option>
+                        {{#each allServices}}
+                            <option value="{{{this.service}}}">{{{this.service}}}</option>
+                        {{/each}}
                     </select>
                     <button type="button" id="submitRemoveServiceButton">Remove</button>
                 </form>
