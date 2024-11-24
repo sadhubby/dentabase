@@ -357,6 +357,54 @@ async function getPatientsByProcedure(procedure) {
     }
 }
 
+async function createService(serviceName, price, type) {
+    try {
+        const newService = new serviceModel({
+            service: serviceName,
+            price: price,
+            type: type,
+        });
+        await newService.save();
+        console.log('Service created successfully:', newService);
+        return newService;
+    } catch (error) {
+        console.error('Error creating service:', error);
+        throw error;
+    }
+}
+
+async function readService(serviceId) {
+    try {
+        const service = await serviceModel.findById(serviceId);
+        if (!service) {
+            throw new Error('Service not found');
+        }
+        console.log('Service retrieved:', service);
+        return service;
+    } catch (error) {
+        console.error('Error reading service:', error);
+        throw error;
+    }
+}
+
+async function updateService(serviceId, updates) {
+    try {
+        const updatedService = await serviceModel.findByIdAndUpdate(
+            serviceId,
+            updates,
+            { new: true, runValidators: true }
+        );
+        if (!updatedService) {
+            throw new Error('Service not found');
+        }
+        console.log('Service updated successfully:', updatedService);
+        return updatedService;
+    } catch (error) {
+        console.error('Error updating service:', error);
+        throw error;
+    }
+}
+
 
 module.exports = {
     readPatient,
@@ -375,6 +423,9 @@ module.exports = {
     getPatientsByProcedure,
     getMonthlyStats,
     createOrtho,
-    setOrthoInactive
+    setOrthoInactive,
+    createService,
+    readService,
+    updateService
 };
 
