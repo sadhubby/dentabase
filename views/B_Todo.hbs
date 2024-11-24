@@ -40,10 +40,14 @@
     </div>
 
     <div class="date-elements">
-      <img class="vector" id="prev-date-btn" src="/img/icon-arrow_drop_left.svg" />
-      <div class="date-text" id="date-display"></div>
-      <img class="img" id="next-date-btn" src="/img/icon-arrow_drop_right.svg" />
-
+      <button id="prev-date-btn" style="background: none; border: none; cursor: pointer;">
+        <img class="img" src="/img/icon-arrow_drop_left.svg" alt="Prev" />
+      </button>
+      <div id="date-display" data-page="{{page}}">{{dateDisplay}}</div> 
+      {{!-- changed sa taas --}}
+      <button id="next-date-btn" style="background: none; border: none; cursor: pointer;">
+        <img class="img" src="/img/icon-arrow_drop_right.svg" alt="Next" />
+      </button>
     </div>
 
     <div class="buttons-group">
