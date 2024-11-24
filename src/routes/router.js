@@ -92,6 +92,24 @@ router.post('/upload-pic', upload.single('file'), (req,res) => {
     
 });
 
+router.post('/deactivate-ortho', async function(req, res){
+    try{
+        let orthos = req.body.orthos;
+
+        await Promise.all(orthos.map(ortho => {
+            return Functions.setOrthoInactive(ortho[0], ortho.slice(1));
+        }));
+
+        let count = await Ortho.countDocuments({isActive: true});
+
+        return res.status(200).json({message: "Orthodontic patients successfully marked as finished.", count: count});
+
+    } catch(error){
+        console.error("Error deactivating orthodontics.", error);
+        return res.status(500).json({message: "Error deactivating orthodontic patients", count: -1});
+    }
+});
+
 router.post('/create-patient', function(req, res){
     try{
         Functions.createPatient(
@@ -173,9 +191,207 @@ router.get("/report", async (req, res) => {
             ortho.patientName = patient.firstName +" " +patient.lastName;
         }
 
+        const currentYear = new Date().getFullYear(); 
+        const startOfYear = new Date(currentYear, 0, 1); 
+        const startOfNextYear = new Date(currentYear + 1, 0, 1);
+
+        let monthlyAppointmentsCounts = [0,0,0,0,0,0,0,0,0,0,0,0];
+        
+        const treatmentsOfYear = await Treatment.find({
+            date: {
+                $gte: startOfYear, 
+                $lt: startOfNextYear
+            }
+        });
+
+        let yearlyUniqueProcedures = []; // array of jsons for unique procedures
+        let servicesByMonth = {};
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        
+        months.forEach(month => {
+            servicesByMonth[month + "Services"] = [];
+        });
+        
+        treatmentsOfYear.forEach(treatment => {
+            let month = treatment.date.getMonth(); // get the month number
+            let procedure = treatment.procedure;
+        
+            // Handle unique procedures for the year
+            const uniqueProcedure = yearlyUniqueProcedures.find(p => p.name === procedure);
+            if (uniqueProcedure) {
+                uniqueProcedure.count++; // increment if procedure already exists
+            } else {
+                yearlyUniqueProcedures.push({ name: procedure, count: 1 }); // create new procedure entry if not found
+            }
+
+
+            let procedureOfMonth;
+        
+            // Update monthly appointments count (e.g., total treatments for each month)
+            switch (month) {
+                case 0: // January
+                    monthlyAppointmentsCounts[0]++;
+                    
+                    // Check if procedure exists in January's services
+                    procedureOfMonth = servicesByMonth.JanServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.JanServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+                
+                case 1: // February
+                    monthlyAppointmentsCounts[1]++;
+                    
+                    // Check if procedure exists in February's services
+                    procedureOfMonth = servicesByMonth.FebServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.FebServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 2: // March
+                    monthlyAppointmentsCounts[2]++;
+                    
+                    // Check if procedure exists in March's services
+                    procedureOfMonth = servicesByMonth.MarServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.MarServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 3: // April
+                    monthlyAppointmentsCounts[3]++;
+                    
+                    // Check if procedure exists in April's services
+                    procedureOfMonth = servicesByMonth.AprServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.AprServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 4: // May
+                    monthlyAppointmentsCounts[4]++;
+                    
+                    // Check if procedure exists in May's services
+                    procedureOfMonth = servicesByMonth.MayServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.MayServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 5: // June
+                    monthlyAppointmentsCounts[5]++;
+                    
+                    // Check if procedure exists in June's services
+                    procedureOfMonth = servicesByMonth.JunServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.JunServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 6: // July
+                    monthlyAppointmentsCounts[6]++;
+                    
+                    // Check if procedure exists in July's services
+                    procedureOfMonth = servicesByMonth.JulServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.JulServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 7: // August
+                    monthlyAppointmentsCounts[7]++;
+                    
+                    // Check if procedure exists in August's services
+                    procedureOfMonth = servicesByMonth.AugServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.AugServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 8: // September
+                    monthlyAppointmentsCounts[8]++;
+                    
+                    // Check if procedure exists in September's services
+                    procedureOfMonth = servicesByMonth.SepServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.SepServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 9: // October
+                    monthlyAppointmentsCounts[9]++;
+                    
+                    // Check if procedure exists in October's services
+                    procedureOfMonth = servicesByMonth.OctServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.OctServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 10: // November
+                    monthlyAppointmentsCounts[10]++;
+                    
+                    // Check if procedure exists in November's services
+                    procedureOfMonth = servicesByMonth.NovServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.NovServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                case 11: // December
+                    monthlyAppointmentsCounts[11]++;
+                    
+                    // Check if procedure exists in December's services
+                    procedureOfMonth = servicesByMonth.DecServices.find(p => p.name === procedure);
+                    if (procedureOfMonth) {
+                        procedureOfMonth.count++;
+                    } else {
+                        servicesByMonth.DecServices.push({ name: procedure, count: 1 });
+                    }
+                    break;
+        
+                default:
+                    console.log("Invalid month"); // Fallback for invalid months
+            }
+        });
+        
+        let allServices = await Service.find();
+
         res.render("E_Report", {
             patients: orthodontics,
-            orthoCount: orthodontics.length
+            orthoCount: orthodontics.length,
+            monthlyCounts: monthlyAppointmentsCounts,
+            appointmentCount: treatmentsOfYear.length,
+
+
+            //for frequency distribution
+            yearlyUniqueProcedures: yearlyUniqueProcedures,
+            servicesByMonth: servicesByMonth,
+            allServices: allServices
+
         });
 
 
@@ -184,6 +400,38 @@ router.get("/report", async (req, res) => {
     }
 });
 
+///SERVICE -Information
+
+router.post('/services', async (req, res) => {
+    const { serviceName, price, type } = req.body;
+    try {
+        const newService = await createService(serviceName, price, type);
+        res.status(201).json(newService);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+router.get('/services/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const service = await readService(id);
+        res.status(200).json(service);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+});
+
+router.put('/services/:id', async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    try {
+        const updatedService = await updateService(id, updates);
+        res.status(200).json(updatedService);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
 
 //PATIENT-INFORMATION
 router.get("/patient-information/:id", async (req, res) => {

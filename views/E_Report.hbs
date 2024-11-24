@@ -1,4 +1,127 @@
-<!-- +NAME PAGE, SEARCH BOX-->
+<script>
+    function getMonthlyCounts(){
+        let monthlyCounts = [];
+
+        {{#each monthlyCounts}}
+            monthlyCounts.push({{{this}}});
+        {{/each}}
+
+        return monthlyCounts;
+    }
+
+    function getYearFrequency(){
+        let yearlyFrequencyCount = {
+            yearlyUniqueProcedures: [],
+            yearlyCounts: [],
+
+            JanServices: [],
+            JanCounts: [],
+
+            FebServices: [],
+            FebCounts: [],
+
+            MarServices: [],
+            MarCounts: [],
+            
+            AprServices: [],
+            AprCounts: [],
+            
+            MayServices: [],
+            MayCounts: [],
+            
+            JunServices: [],
+            JunCounts: [],
+            
+            JulServices: [],
+            JulCounts: [],
+            
+            AugServices: [],
+            AugCounts: [],
+            
+            SepServices: [],
+            SepCounts: [],
+            
+            OctServices: [],
+            OctCounts: [],
+            
+            NovServices: [],
+            NovCounts: [],
+            
+            DecServices: [],
+            DecCounts: []
+        };
+
+        {{#each yearlyUniqueProcedures}}
+            yearlyFrequencyCount.yearlyUniqueProcedures.push("{{{this.name}}}");
+            yearlyFrequencyCount.yearlyCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.JanServices}}
+            yearlyFrequencyCount.JanServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.JanCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.FebServices}}
+            yearlyFrequencyCount.FebServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.FebCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.MarServices}}
+            yearlyFrequencyCount.MarServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.MarCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.AprServices}}
+            yearlyFrequencyCount.AprServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.AprCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.MayServices}}
+            yearlyFrequencyCount.MayServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.MayCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.JunServices}}
+            yearlyFrequencyCount.JunServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.JunCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.JulServices}}
+            yearlyFrequencyCount.JulServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.JulCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.AugServices}}
+            yearlyFrequencyCount.AugServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.AugCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.SepServices}}
+            yearlyFrequencyCount.SepServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.SepCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.OctServices}}
+            yearlyFrequencyCount.OctServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.OctCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.NovServices}}
+            yearlyFrequencyCount.NovServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.NovCounts.push({{{this.count}}});
+        {{/each}}
+
+        {{#each servicesByMonth.DecServices}}
+            yearlyFrequencyCount.DecServices.push("{{{this.name}}}");
+            yearlyFrequencyCount.DecCounts.push({{{this.count}}});
+        {{/each}}
+
+        return yearlyFrequencyCount;
+    }
+</script>
+
+
+<!-- NAME PAGE, SEARCH BOX-->
 <div class="frame-1">
     <div class="name-page"> Treatments</div>
     <div class="search-settings-group">
@@ -29,7 +152,7 @@
     <div class="indicator-line"></div>
 
 </div>
-<!-- `END TITLES-->
+<!-- `END TITLES -->
 
 <!-- +PATIENT DETAILS-->
 <div class="frame-3">
@@ -39,7 +162,7 @@
 
         <div class="card">
             <h3>Monthly Appointments</h3>
-            <p>Appointments: {{appointmentCount}}20</p>
+            <p>Appointments: {{appointmentCount}}</p>
             <div class="chart-container">
                 <canvas id="appointmentsChart" class="appointment-chart"></canvas>
             </div>
@@ -53,31 +176,36 @@
 
         <!-- Card for Active Orthodontic Patients -->
         <div class="card">
-            <h3>Active Orthodontic Patients</h3>
+            <h3>Orthodontic Patients</h3>
 
-            <p>Active Patients: {{orthoCount}}</p>
+            <p id="active-patients-count">Patients: {{orthoCount}}</p>
             <!--  <button class="filter-button" onclick="toggleFilterDropdown()">Filter</button>-->
 
-            <table class="patient-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Services</th>
-                    </tr>
-                </thead>
+            <form id="active-orthodontics-form" name="active-orthodontics-form">
+                <table class="patient-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Services</th>
+                        </tr>
+                    </thead>
 
-                <tbody id="patientTableBody">
-                    {{#each patients}}
-                    <tr data-appointment-month="january">
-                        <td><input type="checkbox" class="patient-checkbox" /></td>
-                        <td>{{{patientName}}}</td>
-                        <td>{{{service}}}</td>
-                    </tr>
-                    {{/each}}
+                    
+                        <tbody id="patientTableBody">
+                            {{#each patients}}
+                            <tr data-appointment-month="january">
+                                <td><input type="checkbox" name="active-patient-row" class="patient-checkbox" value="{{{patientID}}}{{{service}}}"/></td>
+                                <td>{{{patientName}}}</td>
+                                <td>{{{service}}}</td>
+                            </tr>
+                            {{/each}}
 
-                </tbody>
-            </table>
+                        </tbody>
+                    
+                </table>
+                <button type="submit">Mark Orthodontics Finished</button>
+            </form>
         </div>
 
 
@@ -119,11 +247,9 @@
                 <form id="serviceForm">
                     <label for="serviceSelect">Select Service:</label>
                     <select id="serviceSelect" name="service">
-                        <option value="Braces">Braces</option>
-                        <option value="Invisalign">Invisalign</option>
-                        <option value="Retainers">Retainers</option>
-                        <option value="Teeth Whitening">Teeth Whitening</option>
-                        <option value="Fillings">Fillings</option>
+                        {{#each allServices}}
+                            <option value="{{{this.service}}}">{{{this.service}}}</option>
+                        {{/each}}
                     </select>
                     <button type="button" id="submitServiceButton">Add</button>
                 </form>
@@ -134,11 +260,9 @@
                 <form id="removeServiceForm">
                     <label for="removeServiceSelect">Select Service:</label>
                     <select id="removeServiceSelect" name="removeService">
-                        <option value="Braces">Braces</option>
-                        <option value="Invisalign">Invisalign</option>
-                        <option value="Retainers">Retainers</option>
-                        <option value="Teeth Whitening">Teeth Whitening</option>
-                        <option value="Fillings">Fillings</option>
+                        {{#each allServices}}
+                            <option value="{{{this.service}}}">{{{this.service}}}</option>
+                        {{/each}}
                     </select>
                     <button type="button" id="submitRemoveServiceButton">Remove</button>
                 </form>

@@ -1,12 +1,54 @@
+$(document).ready(function(){
+
+    document.getElementById('active-orthodontics-form').addEventListener('submit', function(event){
+        event.preventDefault();
+
+        let selectedValues = [];
+
+        let checkedActive = document.getElementsByName('active-patient-row');
+
+
+
+        checkedActive.forEach(checkbox => {
+            if(checkbox.checked){
+                selectedValues.push(checkbox.value);
+            }
+        });
+
+        if(selectedValues.length === 0){
+            return;
+        }
+
+        $.post(
+            '/deactivate-ortho',
+            {
+                orthos: selectedValues
+            },
+            function(data){ //case if successful or fail
+                alert(data.message);
+
+                checkedActive.forEach(checkbox => {
+                    if(checkbox.checked){
+                        checkbox.closest('tr').remove();
+                    }
+                });
+
+                $('#active-patients-count').text("Active Patients: " + data.count);
+            }
+        );
+    })
+});
+
 
 /* 1ST CARD MONTHLY APPOINTMENT CHART */
 function initializeAppointmentChart() {
+    let monthlyAppointments = getMonthlyCounts();
     // Initial data for the chart
     const appointmentData = {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"], // Months
         datasets: [{
             label: 'Number of Appointments',
-            data: [20, 30, 15, 5, 10, 18, 25, 12, 17, 22, 28, 35], // Monthly appointments
+            data: monthlyAppointments, // Monthly appointments
             backgroundColor: ['#000080', '#909eee'], // Bar colors
             borderWidth: 1,
         }]
@@ -109,13 +151,21 @@ function filterPatientsByMonth() {
 }
 */function initializeServiceChart() {
     // Sample data for services per month
+    let yearlyFrequencyCount = getYearFrequency();
     const serviceDataByMonth = {
-        Jan: { labels: ["Braces", "Invisalign", "Retainers"], data: [5, 3, 2] },
-        Feb: { labels: ["Braces", "Invisalign"], data: [7, 4] },
-        Mar: { labels: ["Retainers", "Teeth Whitening"], data: [6, 5] },
-        Apr: { labels: ["Fillings", "Braces"], data: [8, 10] },
-        May: { labels: ["Invisalign", "Teeth Whitening"], data: [3, 7] },
-        All: { labels: ["Braces", "Invisalign", "Retainers", "Teeth Whitening", "Fillings"], data: [20, 15, 10, 8, 5] }
+        Jan: { labels: yearlyFrequencyCount.JanServices, data: yearlyFrequencyCount.JanCounts },
+        Feb: { labels: yearlyFrequencyCount.FebServices, data: yearlyFrequencyCount.FebCounts },
+        Mar: { labels: yearlyFrequencyCount.MarServices, data: yearlyFrequencyCount.MarCounts },
+        Apr: { labels: yearlyFrequencyCount.AprServices, data: yearlyFrequencyCount.AprCounts },
+        May: { labels: yearlyFrequencyCount.MayServices, data: yearlyFrequencyCount.MayCounts },
+        Jun: { labels: yearlyFrequencyCount.JunServices, data: yearlyFrequencyCount.JunCounts },
+        Jul: { labels: yearlyFrequencyCount.JulServices, data: yearlyFrequencyCount.JulCounts },
+        Aug: { labels: yearlyFrequencyCount.AugServices, data: yearlyFrequencyCount.AugCounts },
+        Sep: { labels: yearlyFrequencyCount.SepServices, data: yearlyFrequencyCount.SepCounts },
+        Oct: { labels: yearlyFrequencyCount.OctServices, data: yearlyFrequencyCount.OctCounts },
+        Nov: { labels: yearlyFrequencyCount.NovServices, data: yearlyFrequencyCount.NovCounts },
+        Dec: { labels: yearlyFrequencyCount.DecServices, data: yearlyFrequencyCount.DecCounts },
+        All: { labels: yearlyFrequencyCount.yearlyUniqueProcedures, data: yearlyFrequencyCount.yearlyCounts }
     };
 
     // Initialize chart data
