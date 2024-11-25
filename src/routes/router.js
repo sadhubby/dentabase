@@ -912,24 +912,52 @@ router.get("/", async (req, res) => {
 });
 
 
-router.get('/api/unique-procedures', async (req, res) => {
+router.get('/api/unique-services', async (req, res) => {
     try {
-        const uniqueProcedures = await treatmentModel.distinct('procedure');
-        res.json(uniqueProcedures);
+        const uniqueServices = await serviceModel.distinct('service'); // Fetch distinct services
+        res.json(uniqueServices);
     } catch (error) {
-        res.status(500).send('Error fetching unique procedures');
+        res.status(500).send('Error fetching unique services');
     }
 });
 
-router.get('/api/patients', async (req, res) => {
+
+router.get('/api/patients-by-service', async (req, res) => {
     try {
-        const { procedure } = req.query;
-        const patients = await getPatientsByProcedure(procedure);
-        res.json(patients);
+        const service = req.query.service;
+        if (!service) {
+            return res.status(400).json({ message: 'Service is required' });
+        }
+
+        const patients = await Patient.find({ isActive: true }).populate({
+            path: 'treatments',
+            options: { sort: { date: -1 } }
+        });
+
+        const filteredPatients = patients.filter(patient => {
+            const latestTreatment = patient.treatments[0];
+            return latestTreatment && latestTreatment.procedure === service;
+        });
+
+        const formattedPatients = filteredPatients.map(patient => {
+            const latestTreatment = patient.treatments[0];
+            return {
+                name: `${patient.firstName} ${patient.lastName}`,
+                phone: patient.contact || 'N/A',
+                email: patient.email || 'N/A',
+                address: patient.homeAddress || 'N/A',
+                lastVisit: latestTreatment?.date || 'N/A',
+                lastProcedure: latestTreatment?.procedure || 'N/A',
+            };
+        });
+
+        res.json(formattedPatients);
     } catch (error) {
-        res.status(500).send('Error fetching patients');
+        console.error('Error filtering patients by service:', error);
+        res.status(500).send('Error filtering patients by service');
     }
 });
+
 
 router.post("/update-medical-history", async function(req, res){
     try{
