@@ -24,7 +24,7 @@
                                     isUsingTobacco, isAlcoholOrDrugs, isPregnant, isNursing, isBirthControlPills,
                                     allergies, healthProblems);
                             })
-</script
+</script>
 
 
 <!-- `NAME PAGE, SEARCH BOX-->
@@ -663,12 +663,6 @@
             <div class="text-buttons text-wrapper">Add Record</div>
         </div>
 
-        <div class="divider"></div>
-
-        <div class="button edit-elements">
-            <img class="icon icon-edit" src="/img/icon-edit.svg" />
-            <div class="text-buttons text-wrapper">Edit</div>
-        </div>
 
 
 
@@ -719,40 +713,39 @@
         <!-- `END LIST OF CATEGORY -->
 
 
-        <!-- `PATIENT LIST-->
-        <tbody id="treatment-table-body">
+    <!-- `PATIENT LIST-->
+<tbody id="treatment-table-body">
 
-            <!-- each treatment_history_bar-->
-            {{#each treatments}}
-            <tr>
+    <!-- each treatment_history_bar-->
+    {{#each treatments}}
+    <tr>
 
-                <td>
-                    <div class="treatment-history-text">{{{dateString}}}</div>
-                </td>
+        <td>
+            <input type="text" class="treatment-history-text" value="{{{dateString}}}" />
+        </td>
 
-                <td>
-                    <div class="treatment-history-text">{{{teethAffected}}}</div>
-                </td>
+        <td>
+            <input type="text" class="treatment-history-text" value="{{{teethAffected}}}" />
+        </td>
 
-                <td>
-                    <div class="treatment-history-text">{{{procedure}}}</div>
-                </td>
+        <td>
+            <input type="text" class="treatment-history-text" value="{{{procedure}}}" />
+        </td>
 
-                <td>
-                    <div class="treatment-history-text">{{{amountCharged}}}</div>
-                </td>
+        <td>
+            <input type="number" class="treatment-history-text" value="{{{amountCharged}}}" />
+        </td>
 
-                <td>
-                    <div class="treatment-history-text">{{{amountPaid}}}</div>
-                </td>
+        <td>
+            <input type="number" class="treatment-history-text" value="{{{amountPaid}}}" />
+        </td>
 
+    </tr>
+    {{/each}}
 
+</tbody>
+</table>
 
-            </tr>
-            {{/each}}
-
-        </tbody>
-    </table>
 
 
 
@@ -782,11 +775,7 @@
                 </select>
             </div>
 
-            <!-- Dentist Performing Procedure -->
-            <div class="form-group">
-                <label for="dentistName">Dentist:</label>
-                <input type="text" id="dentistName" name="dentistName" placeholder="Enter dentist's name" required>
-            </div>
+         
 
             <!-- Amount Charged -->
             <div class="form-group">
@@ -802,11 +791,7 @@
                     min="0" required>
             </div>
 
-            <div class="form-group">
-                <label for="nextAppointment">Date of Next Appointment:</label>
-                <input type="date" id="nextAppointment" name="nextAppointment" required>
-            </div>
-
+       
 
             <div>Teeth affected:</div>
             <div class="teeth-grid">
