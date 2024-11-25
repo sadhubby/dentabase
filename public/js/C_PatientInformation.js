@@ -528,14 +528,14 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
     });
     
 
-    $(document).ready(function () {
-        $('.image-item img').on('click', function () {
-            const src = $(this).attr('src'); 
-            $('#enlarged-image').attr('src', src); 
-            $('#image-overlay').css('display', 'flex'); 
-        });
-    
-        $('#image-overlay .close-button').on('click', function () {
-            $('#image-overlay').css('display', 'none'); 
+$(document).ready(function () {
+    $('.image-item img').on('click', function () {
+        const src = $(this).attr('src');
+        $('#enlarged-image').attr('src', src);
+        $('#image-overlay').css('display', 'flex');
     });
     
+    $('#image-overlay .close-button').on('click', function () {
+        $('#image-overlay').css('display', 'none');
+    });
+});
