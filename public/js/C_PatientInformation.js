@@ -528,14 +528,24 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
     });
     
 
-    $(document).ready(function () {
-        $('.image-item img').on('click', function () {
-            const src = $(this).attr('src'); 
-            $('#enlarged-image').attr('src', src); 
-            $('#image-overlay').css('display', 'flex'); 
-        });
-    
-        $('#image-overlay .close-button').on('click', function () {
-            $('#image-overlay').css('display', 'none'); 
+$(document).ready(function () {
+    // Open the image overlay when an image is clicked
+    $('.image-item img').on('click', function () {
+        const src = $(this).attr('src');
+        $('#enlarged-image').attr('src', src);
+        $('#image-overlay').css('display', 'flex');
     });
-    
+
+    // Close the overlay when the close button is clicked
+    $('#image-overlay .close-button').on('click', function () {
+        $('#image-overlay').css('display', 'none');
+    });
+
+    // Close the overlay when clicking outside the enlarged image
+    $('#image-overlay').on('click', function (e) {
+        if ($(e.target).is('#image-overlay')) {
+            $('#image-overlay').css('display', 'none');
+        }
+    });
+});
+

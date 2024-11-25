@@ -721,7 +721,7 @@
 .patient-info-file .dental-chart-container {
     padding: 20px;
     /* Optional padding around the container */
-    border: 1px solid #ffffff;
+    border: 1px solid #faa8a8;
     /* Optional border for the container */
     background-color: #f9f9f9;
     /* Optional background color */
@@ -731,20 +731,21 @@
 
 .patient-info-file .dental-chart-box-container {
     display: flex;
-    /* Use flexbox to arrange boxes in a row */
     flex-direction: column;
     justify-content: space-between;
-    /* Space between boxes */
+   
 }
 
 
 
 .patient-info-file .dental-chart-box {
+    display: flex;
+    flex-direction: row;
     flex: 1;
 flex-wrap: wrap;
     margin: 0 10px;
     padding: 20px;
-    background-color: #ffe2e2;
+    background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 4px;
     text-align: center;
@@ -759,26 +760,114 @@ flex-wrap: wrap;
     background-color: #0056b3;
 }
 
-
 .patient-info-file .image-item {
     display: flex;
     flex-direction: column;
- 
+    align-items: center;
     margin: 10px;
-    width: 250px;
-
+    padding: 10px; /* Add internal padding to prevent overlap */
+    border: 1px solid #ccc; /* Define the border */
+    border-radius: 10px; /* Optional: Rounds the corners */
+    width: 173px; /* Matches the image size (153px) + padding (2 * 10px) */
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    background-color: #ffffff; /* Optional: Set a background for clarity */
 }
 
-.patient-info-file .image-display{
-    border-radius: 10px;
+.patient-info-file .image-picture {
+    width: 190px; /* Scale to fit the container's width */
+    height: 190px; /* Maintain the aspect ratio */
+    max-width: 153px; /* Limit maximum width */
+    max-height: 153px; /* Limit maximum height */
+    object-fit: cover; /* Ensures the image fills the defined dimensions */
+    border-radius: 10px; /* Optional: Adds slight rounding to the image */
+    margin: 0; /* Prevent additional spacing */
+}
+
+.patient-info-file .image-date, 
+.patient-info-file .image-caption {
+    display: block; /* Ensures each text section occupies full width */
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+    overflow-wrap: break-word; /* Ensures long words wrap properly */
+    word-break: break-word; /* Adds compatibility for older browsers */
+    white-space: normal; /* Ensures the text wraps onto new lines */
+    max-width: 100%; /* Restricts text to the image width */
+    text-align: center; /* Centers the text */
 }
 
 
 
-.patient-info-file .image-date, .patient-info-file .image-caption {
-    font-size: 10px;
+.patient-info-file .image-picture:hover {
+    cursor: pointer;
+    opacity: 0.9; /* Optional: Add a slight hover effect */
 }
 
+
+/* Overlay for the enlarged image */
+#image-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#image-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}   
+
+#image-overlay .close-button {
+    position: fixed; 
+    top: 10px; 
+    left: 10px; 
+    width: auto; 
+    padding: 5px 10px; 
+    font-size: 20px;
+    color: white; 
+    background: transparent; 
+    border: none; 
+    cursor: pointer; 
+    z-index: 1001; 
+}
+
+.hidden {
+    display: none;
+}
+
+/*`FOOTER NOTES */
+.patient-info-file .footer-form {
+    display: flex;
+width: 100%;
+height: 100%;
+    
+
+   
+  
+}
+
+.patient-info-file .footer-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.patient-info-file .footer-form textarea,
+.patient-info-file .footer-form input {
+    width: 100%;
+
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 
 
@@ -836,12 +925,9 @@ flex-wrap: wrap;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 20px;
-    /* Adds rounded corners */
     overflow: hidden;
     /* Ensures rounded corners are clipped properly */
 }
-
-
 
 .patient-info-file th,
 .patient-info-file td {
@@ -849,28 +935,21 @@ flex-wrap: wrap;
     border: 1px solid #dddddd;
     padding: 10px;
     text-align: center;
-    /* Center text in header and data cells */
     vertical-align: middle;
 }
 
 .patient-info-file th {
-
     background-color: #f2f2f2;
     padding: 12px;
-    /* Increase padding slightly for better readability */
     white-space: normal;
     /* Allows text to wrap */
 }
 
-
 .patient-info-file .category-text {
     display: inline-flex;
-    /* Positions icon and text side by side */
     align-items: center;
-    /* Aligns items vertically */
     justify-content: center;
     flex-wrap: nowrap;
-    /* Prevents wrapping */
     text-align: center;
     font-family: "Roboto-Bold", Helvetica;
     font-weight: 700;
@@ -884,8 +963,7 @@ flex-wrap: wrap;
     overflow: hidden;
 }
 
-
-.patient-info-file .treatment-history-text {
+.patient-info-file input.treatment-history-text {
     display: inline-block;
     max-width: 10rem;
     /* Limits the width of text previews */
@@ -895,20 +973,28 @@ flex-wrap: wrap;
     /* Hides overflowing text */
     text-overflow: ellipsis;
     /* Adds ellipsis to overflow */
+    border: none;
+    background-color: transparent;
+    font-size: 14px; /* Adjust font size if needed */
+    font-family: inherit;
+    text-align: center;
+    padding: 5px;
 }
 
+.patient-info-file input.treatment-history-text:focus {
+    outline: none;
+    border: 1px solid #0056b3;
+    /* Optional: Style when input is focused */
+    background-color: #f5f5f5;
+}
 
-.patient-info-file td:hover .treatment-history-text {
+.patient-info-file td:hover input.treatment-history-text {
     white-space: normal;
-    /* Allows text to wrap */
     overflow: visible;
-    /* Shows hidden overflow text */
     z-index: 1;
     background-color: #e9e9e9;
-    /* Optional: gives a background to hovered text */
     padding: 5px;
     max-width: none;
-    /* Removes width limit to show full text */
     border-radius: 20px;
 }
 
@@ -920,16 +1006,8 @@ flex-wrap: wrap;
     width: 11px;
     height: 14px;
     margin-left: 5px;
-    /* Adjust space between text and icon */
 }
 
-.patient-info-file .category-text {
-    font-family: "Roboto-Bold", Helvetica;
-    font-weight: 700;
-    color: #00000080;
-    font-size: 16.4px;
-    line-height: normal;
-}
 
 
 
@@ -966,8 +1044,6 @@ flex-wrap: wrap;
     margin-bottom: 20px;
     color: #333;
 }
-
-/* Form styling */
 .create-treatment-popup .form-group {
     margin-bottom: 15px;
 }
@@ -979,7 +1055,8 @@ flex-wrap: wrap;
 
 .create-treatment-popup input[type="text"],
 .create-treatment-popup input[type="date"],
-.create-treatment-popup input[type="number"] {
+.create-treatment-popup input[type="number"],
+.create-treatment-popup select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
@@ -988,7 +1065,36 @@ flex-wrap: wrap;
     margin-top: 5px;
 }
 
-/* Checkbox styling for teeth section */
+/* Optionally, add custom styling for select options */
+.create-treatment-popup select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path d="M9 1L5 5 1 1" stroke="#333" stroke-width="2"/></svg>') no-repeat right 10px center;
+    background-size: 10px;
+}
+
+/* Styling when the select field is focused */
+.create-treatment-popup select:focus,
+.create-treatment-popup input[type="text"]:focus,
+.create-treatment-popup input[type="date"]:focus,
+.create-treatment-popup input[type="number"]:focus {
+    outline: none;
+    border: 1px solid #0056b3;
+    background-color: #ffffff;
+}
+
+/* Styling for placeholder text in inputs */
+.create-treatment-popup input::placeholder {
+    color: #bbb;
+}
+
+/* Dropdown arrow customization */
+.create-treatment-popup select::-ms-expand {
+    display: none;
+}
+
+/* `Checkbox styling for teeth section */
 .create-treatment-popup .teeth-grid {
     display: grid;
     grid-template-columns: repeat(10, auto);
@@ -1063,22 +1169,6 @@ flex-wrap: wrap;
 }
 
 /* `END OF ADD TODO FORM */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1260,63 +1350,6 @@ flex-wrap: wrap;
     /* Add space between label and input */
 }
 
-.image-date {
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.image-caption {
-    font-size: 32px;
-    font-weight: bold;
-    font-style: italic;
-    font-family: Roboto-Regular, Helvetica, sans-serif;
-    font-size: 25px;
-    margin-top: 5px;
-}
-
-.image-picture:hover {
-    cursor: pointer;
-}
 
 
 /* + END INFORMED CONSENT*/
-
-/* Overlay for the enlarged image */
-#image-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-#image-overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 5px;
-}   
-
-#image-overlay .close-button {
-    position: fixed; 
-    top: 10px; 
-    left: 10px; 
-    width: auto; 
-    padding: 5px 10px; 
-    font-size: 20px;
-    color: white; 
-    background: transparent; 
-    border: none; 
-    cursor: pointer; 
-    z-index: 1001; 
-}
-
-.hidden {
-    display: none;
-}
-
