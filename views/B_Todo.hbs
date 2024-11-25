@@ -147,45 +147,41 @@
 
     <!-- `PATIENT LIST-->
     <tbody>
+  {{#if patients.length}}
+    {{#each patients}}
+    <tr>
+      <td>
+        <label class="appointment-checkbox">
+          <input type="checkbox" onclick="toggleRowHighlight(this)" />
+          <span class="custom-checkbox"></span>
+        </label>
+      </td>
+      <td>
+        <div class="name" onclick="window.location.href='/patient-information/{{id}}'" style="cursor: pointer;">
+          {{firstName}} {{lastName}}
+        </div>
+      </td>
+      <td>
+        <div class="phone">{{contact}}</div>
+      </td>
+      <td>
+        <div class="email">{{email}}</div>
+      </td>
+      <td>
+        <div class="time">{{formattedTime}}</div>
+      </td>
+      <td>
+        <div class="treatment">{{latestProcedure}}</div>
+      </td>
+    </tr>
+    {{/each}}
+  {{else}}
+    <tr>
+      <td colspan="6" style="text-align: center;">No appointments found for this day.</td>
+    </tr>
+  {{/if}}
+</tbody>
 
-      {{#each patients}}
-
-      <tr>
-
-
-        <td>
-          <label class="appointment-checkbox">
-            <input type="checkbox" value="{{check_patient}}" onclick="toggleRowHighlight(this)" />
-            <span class="custom-checkbox"></span>
-          </label>
-        </td>
-
-
-
-        <td>
-          <div class="name" onclick="window.location.href='/patient-information/{{{id}}}'" style="cursor: pointer;">
-            {{firstName}} {{lastName}}</div>
-        </td>
-        <td>
-
-          <div class="phone">{{{contact}}}</div>
-        </td>
-        <td>
-
-          <div class="email">{{{email}}}</div>
-        </td>
-
-        <div class="time">{{{apointment_time}}}</div>
-        </td>
-        <td>
-          <div class="treatment">{{{latestProcedure}}}</div>
-
-        </td>
-
-      </tr>
-      {{/each}}
-
-    </tbody>
   </table>
   <!-- `END PATIENT LIST-->
 
