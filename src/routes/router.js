@@ -787,6 +787,51 @@ router.get("/", async (req, res) => {
         res.status(500).end("Error retrieving patient data");
     }
 });
+// router.post('/update-effective-date', async (req, res) => {
+//     console.log("Request received:", req.body); // Debug request data
+//     const { patientID, effectiveDate, startTime, endTime } = req.body;
+
+//     try {
+//         const appointmentStart = new Date(`${effectiveDate}T${startTime}`);
+//         const patient = await Patient.findOne({ id: patientID });
+//         if (!patient) {
+//             console.log("Patient not found");
+//             return res.status(404).json({ message: 'Patient not found' });
+//         }
+
+//         console.log("Updating patient effectiveDate to:", appointmentStart); // Debug update
+//         patient.effectiveDate = appointmentStart;
+//         await patient.save();
+
+//         console.log("Patient updated:", patient);
+//         res.status(200).json({ message: 'Effective date updated successfully' });
+//     } catch (error) {
+//         console.error("Error updating effective date:", error);
+//         res.status(500).json({ message: 'Error updating effective date' });
+//     }
+// });
+router.post('/update-effective-date', async (req, res) => {
+    const { id, effectiveDate, startTime } = req.body; // `id` is passed here
+
+    try {
+        // Combine date and time
+        const updatedEffectiveDate = new Date(`${effectiveDate}T${startTime}`);
+
+        // Find the patient by their `id` and update `effectiveDate`
+        const patient = await Patient.findOne({ id }); // Match the `id` field in MongoDB
+        if (!patient) {
+            return res.status(404).json({ message: 'Patient not found' });
+        }
+
+        patient.effectiveDate = updatedEffectiveDate; // Update the effective date
+        await patient.save(); // Save changes to the database
+
+        res.status(200).json({ message: 'Added to To-Do', effectiveDate: updatedEffectiveDate });
+    } catch (error) {
+        console.error('Error updating effective date:', error);
+        res.status(500).json({ message: 'Error updating effective date' });
+    }
+});
 
 
 router.get('/api/unique-services', async (req, res) => {

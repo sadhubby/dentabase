@@ -180,7 +180,7 @@ async function updatePatientInfo(patientID, nickname,
             patient.officeNo = officeNo;
             patient.faxNo = faxNo;
             patient.contact = contact;
-           // patient.effectiveDate = effectiveDate;
+            patient.effectiveDate = effectiveDate;
             patient.guardianName = guardianName;
             patient.guardianOccupaton = guardianOccupation;
             patient.referralName = referralName;
