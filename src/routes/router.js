@@ -836,9 +836,10 @@ router.post('/update-effective-date', async (req, res) => {
 
 router.get('/api/unique-services', async (req, res) => {
     try {
-        const uniqueServices = await serviceModel.distinct('service'); // Fetch distinct services
-        res.json(uniqueServices);
+        const services = await serviceModel.distinct('service');
+        res.json(services);
     } catch (error) {
+        console.error("Error fetching unique services:", error);
         res.status(500).send('Error fetching unique services');
     }
 });
@@ -875,10 +876,11 @@ router.get('/api/patients-by-service', async (req, res) => {
 
         res.json(formattedPatients);
     } catch (error) {
-        console.error('Error filtering patients by service:', error);
+        console.error("Error filtering patients by service:", error);
         res.status(500).send('Error filtering patients by service');
     }
 });
+
 
 
 router.post("/update-medical-history", async function(req, res){
