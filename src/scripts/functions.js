@@ -337,17 +337,15 @@ async function updateTreatment(treatmentID, date, teethAffected, procedure, dent
     return treatment;
  }
 
- async function uniqueServices() {
+async function uniqueServices() {
     try {
-        const services = await serviceModel.find({}, { service: 1, _id: 0 }); 
-        const uniqueServiceNames = services.map(service => service.service);
-        return uniqueServiceNames;
+        const services = await serviceModel.distinct('service');
+        return services;
     } catch (error) {
         console.error("Error fetching unique services:", error);
         return [];
     }
 }
-
 
 async function getPatientsByProcedure(procedure) {
     try {
