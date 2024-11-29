@@ -74,8 +74,9 @@
                     <img class="icon icon-add" src="/img/icon-add.svg" />
                     <div class="text-buttons create-appointment-text">Add To Do</div>
                 </div>
-
-                {{>B_Todo_form}}
+                    <div id="form-container" data-page-context="patient-information" data-patient-id="{{id}}">
+                        {{> B_Todo_form }}
+                    </div>
             </div>
 
         </div>

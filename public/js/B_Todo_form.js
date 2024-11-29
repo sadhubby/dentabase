@@ -34,40 +34,100 @@
 //         console.error("Error updating appointment:", error);
 //     }
 // });// Extract patient ID from the URL
-const patientID = window.location.pathname.split('/').pop(); // Extracts '16' from '/patient-information/16'
 
-document.querySelector('.done-button').addEventListener('click', async () => {
-    // Extract form data
-    const effectiveDate = document.getElementById('date').value; // Date input
-    const startTime = document.getElementById('start-time').value; // Start time input
 
-    if (!effectiveDate || !startTime) {
-        alert('Please fill in all the required fields.');
-        return;
-    }
+// const patientID = window.location.pathname.split('/').pop(); // Extracts '16' from '/patient-information/16'
 
-    try {
-        // Send data to the backend
-        const response = await fetch('/update-effective-date', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id: patientID, effectiveDate, startTime }),
-        });
+// document.querySelector('.done-button').addEventListener('click', async () => {
+//     // Extract form data
+//     const effectiveDate = document.getElementById('date').value; // Date input
+//     const startTime = document.getElementById('start-time').value; // Start time input
 
-        if (response.ok) {
-            const result = await response.json();
-            alert(result.message);
+//     if (!effectiveDate || !startTime) {
+//         alert('Please fill in all the required fields.');
+//         return;
+//     }
 
-            // Optionally reload the page or update dynamically
-            location.reload(); // Reload to reflect changes (optional)
-        } else {
-            const error = await response.json();
-            alert(`Error: ${error.message}`);
+//     try {
+//         // Send data to the backend
+//         const response = await fetch('/update-effective-date', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({ id: patientID, effectiveDate, startTime }),
+//         });
+
+//         if (response.ok) {
+//             const result = await response.json();
+//             alert(result.message);
+
+//             // Optionally reload the page or update dynamically
+//             location.reload(); // Reload to reflect changes (optional)
+//         } else {
+//             const error = await response.json();
+//             alert(`Error: ${error.message}`);
+//         }
+//     } catch (error) {
+//         console.error('Error updating effective date:', error);
+//     }
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname;
+    const isPatientPage = currentPage.includes('/patient-information/');
+    const patientID = isPatientPage ? currentPage.split('/').pop() : null;
+
+    document.querySelector('.done-button').addEventListener('click', async () => {
+        // Extract form data
+        const name = document.getElementById('patient-name')?.value?.trim();
+        const email = document.getElementById('email-todo')?.value?.trim();
+        const phone = document.getElementById('phone-number')?.value?.trim();
+        const effectiveDate = document.getElementById('date').value;
+        const startTime = document.getElementById('start-time').value;
+
+        if (!effectiveDate || !startTime || (!isPatientPage && (!name || !email))) {
+            alert('Please fill in all the required fields.');
+            return;
         }
-    } catch (error) {
-        console.error('Error updating effective date:', error);
-    }
-});
 
+        try {
+            if (isPatientPage && patientID) {
+                // For registered patients
+                const response = await fetch('/update-effective-date', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: patientID, effectiveDate, startTime }),
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message);
+                    location.reload();
+                } else {
+                    const error = await response.json();
+                    alert(`Error: ${error.message}`);
+                }
+            } else {
+                // For one-time patients
+                const response = await fetch('/non-patient-appointment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, effectiveDate, startTime }),
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message);
+                    location.reload();
+                } else {
+                    const error = await response.json();
+                    alert(`Error: ${error.message}`);
+                }
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('An unexpected error occurred.');
+        }
+    });
+});
