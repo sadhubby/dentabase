@@ -836,7 +836,7 @@ router.post('/update-effective-date', async (req, res) => {
 
 router.get('/api/unique-services', async (req, res) => {
     try {
-        const services = await serviceModel.distinct('service');
+        const services = await Service.distinct('service');
         res.json(services);
     } catch (error) {
         console.error("Error fetching unique services:", error);
@@ -844,23 +844,26 @@ router.get('/api/unique-services', async (req, res) => {
     }
 });
 
-
 router.get('/api/patients-by-service', async (req, res) => {
     try {
         const service = req.query.service;
+        console.log("Backend Received Service:", service);
+
         if (!service) {
             return res.status(400).json({ message: 'Service is required' });
         }
 
         const patients = await Patient.find({ isActive: true }).populate({
             path: 'treatments',
-            options: { sort: { date: -1 } }
+            options: { sort: { date: -1 } } 
         });
 
         const filteredPatients = patients.filter(patient => {
             const latestTreatment = patient.treatments[0];
             return latestTreatment && latestTreatment.procedure === service;
         });
+
+        console.log("Backend Returning Filtered Patients:", filteredPatients);
 
         const formattedPatients = filteredPatients.map(patient => {
             const latestTreatment = patient.treatments[0];
@@ -880,7 +883,6 @@ router.get('/api/patients-by-service', async (req, res) => {
         res.status(500).send('Error filtering patients by service');
     }
 });
-
 
 
 router.post("/update-medical-history", async function(req, res){

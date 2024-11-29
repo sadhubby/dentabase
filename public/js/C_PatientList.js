@@ -1,56 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
-    loadProcedures();
-    document.getElementById('procedureFilterButton').addEventListener('click', filterPatientsByProcedure);
+    const filterButton = document.getElementById("procedure-filter");
+
+    if (filterButton) {
+        filterButton.addEventListener("click", toggleFilterForm);
+    } else {
+        console.error("Filter button not found!");
+    }
+
+    loadPatients();
 });
 
-async function loadProcedures() {
-    try {
-        const response = await fetch('/api/unique-procedures');
-        const procedures = await response.json();
-        const dropdown = document.getElementById('procedureDropdown');
-
-        dropdown.innerHTML = '<option value="">Select Procedure</option>';
-        procedures.forEach(procedure => {
-            const option = document.createElement('option');
-            option.value = procedure;
-            option.textContent = procedure;
-            dropdown.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error loading procedures:', error);
+function toggleFilterForm() {
+    const filterForm = document.getElementById("filterForm");
+    if (!filterForm) {
+        console.error("Filter form element not found!");
+        return;
     }
+
+    filterForm.style.display = "block";
+    console.log("Filter form opened.");
 }
 
-async function filterPatientsByProcedure() {
+// Function to load the patient list dynamically
+async function loadPatients() {
     try {
-        const procedure = document.getElementById('procedureDropdown').value;
-        if (!procedure) {
-            alert('Please select a procedure to filter.');
-            return;
-        }
-
-        const url = `/api/patients?procedure=${encodeURIComponent(procedure)}`;
-        const response = await fetch(url);
+        const response = await fetch('/api/patients');
         const patients = await response.json();
+        console.log("Patients received from API:", patients);
 
         displayPatients(patients);
     } catch (error) {
-        console.error('Error filtering patients:', error);
+        console.error("Error loading patients:", error);
     }
 }
 
+// Function to display patients in the table
 function displayPatients(patients) {
+    console.log("Displaying Patients:", patients);
+
     const patientsTable = document.getElementById('patientsTable');
-    patientsTable.querySelector('tbody').innerHTML = ''; 
+    const tbody = patientsTable.querySelector('tbody');
+    tbody.innerHTML = "";
+
+    if (patients.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td colspan="6">No patients found</td>`;
+        tbody.appendChild(row);
+        return;
+    }
 
     patients.forEach(patient => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${patient.name}</td>
-            <td>${patient.procedure}</td>
-            <td>${patient.status}</td>
-            <td>${new Date(patient.date).toLocaleDateString()}</td>
+            <td>${patient.name || "N/A"}</td>
+            <td>${patient.phone || "N/A"}</td>
+            <td>${patient.email || "N/A"}</td>
+            <td>${patient.address || "N/A"}</td>
+            <td>${patient.lastVisit || "N/A"}</td>
+            <td>${patient.lastProcedure || "N/A"}</td>
         `;
-        patientsTable.querySelector('tbody').appendChild(row);
+        tbody.appendChild(row);
     });
+
+    console.log("Patient list updated.");
 }
