@@ -958,47 +958,29 @@ router.get('/api/patients-by-service', async (req, res) => {
 
 router.post("/update-medical-history", async function(req, res){
     try{
-        let {
-            patientID,
-            physicianName,
-            physicianOfficeAddress,
-            physicianSpecialty,
-            physicianOfficeNumber,
-            
-            prescription,
-            illnessOrSurgery,
-            medicalTreatment,
-            isTobacco,
-            isAlcohol,
-            allergies,
-
-            isPregnant,
-            isNursing,
-            isBirthControl,
-
-            healthProblems
-        } = req.body;
+        
+        
 
         await Functions.updateMedicalHistory(
-            patientID,
-            physicianName,
-            physicianOfficeAddress,
-            physicianSpecialty,
+            req.body.patientID,
+            req.body.physicianName,
+            req.body.physicianOfficeAddress,
+            req.body.physicianSpecialty,
 
-            physicianOfficeNumber,
+            req.body.physicianOfficeNumber,
             
-            medicalTreatment,
-            illnessOrSurgery,
-            prescription,
-            isTobacco,
-            isAlcohol,
-            allergies,
+            req.body.prescription,
+            req.body.illnessOrSurgery,
+            req.body.medicalTreatment,
+            req.body.isTobacco,
+            req.body.isAlcohol,
+            req.body.allergies,
 
-            isPregnant,
-            isNursing,
-            isBirthControl,
+            req.body.isPregnant,
+            req.body.isNursing,
+            req.body.isBirthControl,
 
-            healthProblems
+            req.body.healthProblems
         )
 
         res.status(200).send('Updating medical history successful');

@@ -246,7 +246,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         let healthProblems = [];
 
         if($('#medical-treatment-yes').prop('checked')){
-            medicalTreatment = $('#prescription-details').val();
+            medicalTreatment = $('#condition-details').val();
         } else if ($('#medical-treatment-no').prop('checked')){
             medicalTreatment = "None";
         } else {
@@ -264,7 +264,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         }
 
         if($('#prescription-yes').prop('checked')){
-            prescription = $('#condition-details').val();
+            prescription = $('#prescription-details').val();
         } else if ($('#prescription-no').prop('checked')){
             prescription = 'None';
         } else {
