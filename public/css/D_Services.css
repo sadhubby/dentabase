@@ -97,6 +97,7 @@
     height: 41.12px;
     padding: 11.65px 6.85px;
     background-color: #485fe7;
+    cursor: pointer;
 }
 
 /* Wrapper for the filter button and dropdown */

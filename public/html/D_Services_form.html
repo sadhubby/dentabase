@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Form</title>
+    <link rel="stylesheet" href="/public/css/D_Services_form.css">
+    <script src="D_Services.js"></script>
+</head>
+
+<body>
+
+    <div class="container services-form-file">
+        <div class="main-content">
+            <h2>Add Service</h2>
+            <form>
+                <label for="service-name">Service Name</label>
+                <input type="text" id="service-name" placeholder="Service Name" value="">
+
+                <label for="price">Price</label>
+                <input type="number" id="price" placeholder="Price" value="">
+
+                <label for="orthodontic">Orthodontic</label>
+                <select id="orthodontic">
+                    <option value="non-ortho">Non-Ortho</option>
+                    <option value="ortho">Ortho</option>
+                </select>
+
+                <div class="buttons">
+                    <button type="button" class="cancel-button">Cancel</button>
+                    <button type="submit" class="done-button">Done</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

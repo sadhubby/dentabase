@@ -1,0 +1,108 @@
+/* Base styles remain the same as .todo-form-file */
+.services-form-file.overlay {
+    display: none; /* Hide by default */
+}
+
+/* Container for the overlay */
+.services-form-file .container {
+    display: none; /* Initially hidden */
+    justify-content: flex-end;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Main content box styling */
+.services-form-file .main-content {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* Heading styling */
+.services-form-file .main-content h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Label styling */
+.services-form-file label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Input and select styling */
+.services-form-file input,
+.services-form-file select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Button container */
+.services-form-file .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Cancel and Done button styling */
+.services-form-file .cancel-button,
+.services-form-file .done-button {
+    width: 45%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Cancel button */
+.services-form-file .cancel-button {
+    background-color: #e0e0e0;
+    color: #777;
+}
+
+/* Hover effect for Cancel button */
+.services-form-file .cancel-button:hover {
+    background-color: #d0d0d0;
+    color: #fff;
+}
+
+/* Done button */
+.services-form-file .done-button {
+    background-color: #e0e0e0;
+    color: #777;
+}
+
+/* Hover effect for Done button */
+.services-form-file .done-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* When the form is triggered to show */
+.services-form-file .container.show {
+    display: flex; /* Show the form */
+}
