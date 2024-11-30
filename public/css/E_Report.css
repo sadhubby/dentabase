@@ -99,7 +99,7 @@
     margin: 0;
 }
 
-.filter-button {
+.mark-ortho-button {
     background-color: #485fe7;
     color: white;
     border: none;
@@ -111,33 +111,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.filter-button:hover {
+.mark-ortho-button:hover {
     background-color: #3d4cd2;
 }
 
-.filter-dropdown {
-    display: none;
-    position: static; /* Change position to inline with button */
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 5px;
-    width: auto;
-    margin-left: 10px;
-}
 
-.filter-dropdown.show {
-    display: block;
-}
-
-.filter-dropdown select {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: auto; /* Ensure dropdown isn't stretched */
-    background-color: #ffffff;
-}
 
 .patient-table {
     width: 100%;
