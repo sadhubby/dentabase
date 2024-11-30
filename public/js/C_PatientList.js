@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPatients();
 });
 
+// Function to toggle the filter form
 function toggleFilterForm() {
     const filterForm = document.getElementById("filterForm");
     if (!filterForm) {
@@ -17,7 +18,7 @@ function toggleFilterForm() {
         return;
     }
 
-    filterForm.style.display = "block";
+    filterForm.style.display = "block"; 
     console.log("Filter form opened.");
 }
 
@@ -34,17 +35,17 @@ async function loadPatients() {
     }
 }
 
-// Function to display patients in the table
+// Function to display filtered patients in the table
 function displayPatients(patients) {
     console.log("Displaying Patients:", patients);
 
     const patientsTable = document.getElementById('patientsTable');
     const tbody = patientsTable.querySelector('tbody');
-    tbody.innerHTML = "";
+    tbody.innerHTML = ""; 
 
     if (patients.length === 0) {
         const row = document.createElement('tr');
-        row.innerHTML = `<td colspan="6">No patients found</td>`;
+        row.innerHTML = `<td colspan="6">No patients found for this service</td>`;
         tbody.appendChild(row);
         return;
     }
@@ -63,4 +64,23 @@ function displayPatients(patients) {
     });
 
     console.log("Patient list updated.");
+}
+
+// Function to filter patients based on the selected service
+async function filterPatientsByService(service) {
+    try {
+        const response = await fetch(`/api/patients-by-service?service=${encodeURIComponent(service)}`);
+        console.log("API Request Sent to:", `/api/patients-by-service?service=${encodeURIComponent(service)}`);
+
+        if (!response.ok) {
+            throw new Error(`Failed to filter patients: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log("Filtered Patients:", result);
+
+        displayPatients(result.patients);
+    } catch (error) {
+        console.error("Error filtering patients:", error);
+    }
 }
