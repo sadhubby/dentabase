@@ -187,7 +187,6 @@ async function run(){
         1000,
         1000,
         0,
-        new Date('2024-02-02'),
         'ongoing',
         7
     );
@@ -201,7 +200,6 @@ async function run(){
         1000,
         1000,
         0,
-        new Date('2024-02-02'),
         'ongoing',
         7
     );
@@ -215,7 +213,6 @@ async function run(){
         1000,
         1000,
         0,
-        new Date('2024-02-02'),
         'ongoing',
         7
     );
@@ -230,7 +227,6 @@ async function run(){
         5000,
         4000,
         1000,
-        new Date('2023-12-12'),
         'ongoing'
     )
     await functions.createPatient(
@@ -296,7 +292,6 @@ async function run(){
         1000,
         1000,
         0,
-        new Date('2024-02-02'),
         'ongoing',
         9
     );
@@ -498,7 +493,6 @@ async function run(){
         1000,
         1000,
         0,
-        new Date('2024-02-02'),
         'ongoing',
         10
     );

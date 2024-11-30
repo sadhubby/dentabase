@@ -495,6 +495,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
 
     });
 
+
     document.addEventListener("DOMContentLoaded", function () {
         const patientFullName = document.querySelector(".name-group").textContent.trim().split("|")[0].trim();
         const patientAge = document.querySelector(".name-group").textContent.trim().split("|")[1].trim();
@@ -505,6 +506,59 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         // Get the "Add To Do" button and the form
         const addToDoButton = document.querySelector(".create-appointment-elements");
         const toDoForm = document.querySelector(".overlay.todo-form-file");
+
+        $("#save-informed-consent-form").on("submit", function(event){
+            event.preventDefault();
+            let patientID = document.getElementById("buttons-group-deactivate").getAttribute('data-id');
+
+            $.post(
+                "/fill-consent",
+                {
+                    patientID: patientID,
+                    consentName: $("#consent-name").val(),
+                    consentDate: $('#consent-date').val()
+                },
+                function(data){
+                    alert(data.message);
+                }
+            )
+        })
+
+
+        document.getElementById("save-footnote-button").addEventListener("click", function(){
+            let patientID = document.getElementById("buttons-group-deactivate").getAttribute('data-id');
+
+            $.post(
+                "/edit-footnote",
+                {
+                    patientID: patientID,
+                    footnote: $("#footer-note").val()
+                },
+                function(data){
+                    alert(data.message);
+                }
+
+            )
+        });
+
+
+        document.getElementById("deactivate-patient-button").addEventListener("click", function (){
+            let patientID = document.getElementById("buttons-group-deactivate").getAttribute('data-id');
+            
+            $.post(
+                "/deactivate-patient",
+                {
+                    patientID: patientID
+                },
+                function(data){
+                    if(data.state == true) {
+                        alert('Patient has been successfully deactivated.');
+                    } else {
+                        alert('Error in deactivating patient.');
+                    }
+                }
+            )
+        });
     
         addToDoButton.addEventListener("click", function () {
             if (toDoForm) {

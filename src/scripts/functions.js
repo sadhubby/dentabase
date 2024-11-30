@@ -273,7 +273,7 @@ async function readMedicalHistory(patientID){
 }
 
 async function createTreatment(patientID, date, teethAffected, procedure, dentist, amountCharged
-                                , amountPaid, balance, nextAppointmentDate, status
+                                , amountPaid, balance, status
 ){
     const lastTreatment = await treatmentModel.findOne().sort({id: -1});
     var treatmentID = 1;
@@ -291,7 +291,6 @@ async function createTreatment(patientID, date, teethAffected, procedure, dentis
         amountCharged: amountCharged,
         amountPaid: amountPaid,
         balance: balance,
-        nextAppointmentDate: nextAppointmentDate,
         status: status,
         patientID: patientID
     })
@@ -312,7 +311,7 @@ async function createTreatment(patientID, date, teethAffected, procedure, dentis
 }
 
 async function updateTreatment(treatmentID, date, teethAffected, procedure, dentist, amountCharged
-                                , amountPaid, balance, nextAppointmentDate, status){
+                                , amountPaid, balance, status){
 
     const treatment = await treatmentModel.findOne({ id: treatmentID });    
 
@@ -323,7 +322,6 @@ async function updateTreatment(treatmentID, date, teethAffected, procedure, dent
         treatment.amountCharged = amountCharged;
         treatment.amountPaid = amountPaid;
         treatment.balance = balance;
-        treatment.nextAppointmentDate = nextAppointmentDate;
         treatment.status = status;
 
     await treatment.save();

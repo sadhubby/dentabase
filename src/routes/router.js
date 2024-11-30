@@ -137,7 +137,7 @@ router.post('/create-patient', function(req, res){
             req.body.referral,
             req.body.consultationReason,
             req.body.previousDentist,
-            req.body.lastDentalVisit ? new Date(req.body.birthdate) : null,
+            req.body.lastVisit ? new Date(req.body.lastVisit) : null,
             "random pic" //placeholder for not sure pic
         ).then(function(patientID){
             console.log('Patient record created successfully with ID: ' + patientID);
@@ -158,7 +158,6 @@ router.post('/create-treatment', function(req, res){
         let dentistName = req.body.dentistName;
         let amountCharged = req.body.amountCharged;
         let amountPaid = req.body.amountPaid;
-        let nextAppointmentDate = new Date(req.body.nextAppointmentDate);
         let teethAffected = req.body.teethAffected;
 
         Functions.createTreatment(
@@ -170,7 +169,6 @@ router.post('/create-treatment', function(req, res){
             amountCharged,
             amountPaid,
             5000, //change balance
-            nextAppointmentDate,
             'ongoing'
         ).then(function(){
             console.log('Treatment record created successfully.');
@@ -181,6 +179,8 @@ router.post('/create-treatment', function(req, res){
         res.status(500).send("Server error");
     }
 });
+
+
 
 router.get("/report", async (req, res) => {
     try{
@@ -403,6 +403,20 @@ router.get("/report", async (req, res) => {
 
 ///SERVICE -Information
 
+router.post('/edit-footnote', async function(req, res){
+    try{
+        let patient = await Patient.findOne({id: req.body.patientID});
+
+        patient.footnote = req.body.footnote;
+
+        await patient.save();
+
+        res.status(200).json({state: true, message: "Successfully updated footnote."});
+    } catch(error){
+        res.status(400).json({state: false, message: "Error editing footnote."});
+    }
+})
+
 router.post('/services', async (req, res) => {
     const { serviceName, price, type } = req.body;
     try {
@@ -410,6 +424,15 @@ router.post('/services', async (req, res) => {
         res.status(201).json(newService);
     } catch (error) {
         res.status(400).json({ message: error.message });
+    }
+});
+
+router.post('/deactivate-patient', async(req, res) =>{
+    try{
+        await Functions.deactivatePatient(req.body.patientID);
+        res.status(200).json({state: true});
+    } catch(error){
+        res.status(400).json({state: false});
     }
 });
 
@@ -431,6 +454,21 @@ router.put('/services/:id', async (req, res) => {
         res.status(200).json(updatedService);
     } catch (error) {
         res.status(400).json({ message: error.message });
+    }
+});
+
+router.post("/fill-consent", async(req, res) => {
+    try{
+        const patient = await Patient.findOne({id: req.body.patientID});
+
+        patient.consentName = req.body.consentName;
+        patient.consentDate = new Date(req.body.consentDate);
+
+        await patient.save();
+
+        res.status(200).json({message: "Consent form filled successfully."});
+    } catch(error){
+        res.status(400).json({message: "Error filling up consent form."});
     }
 });
 
@@ -487,6 +525,7 @@ router.get("/patient-information/:id", async (req, res) => {
         })
 
         const services = await Service.find();
+
         
 
         res.render("C_PatientInformation", {
@@ -514,6 +553,7 @@ router.get("/patient-information/:id", async (req, res) => {
             guardian_occupation: patient.guardianOccupation,
             minor_referral_question: patient.referralName,
             consultation: patient.consultationReason,
+            footnote: patient.footnote,
 
 
             //medicalHistory
@@ -540,7 +580,11 @@ router.get("/patient-information/:id", async (req, res) => {
             pictures : pictures,
 
             //services
-            services: services
+            services: services,
+
+            //informed consent
+            consentName: patient.consentName,
+            consentDate: Functions.convertToDate(patient.consentDate)
         });
     } catch (error) {
         console.error("Error fetching patient information:", error);

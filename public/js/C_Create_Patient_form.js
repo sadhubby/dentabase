@@ -76,9 +76,6 @@ $(document).ready(function() {
                     <div class="address">${info.homeAddress}</div>
                     </td>
                     <td>
-                    <div class="registered-date">N/A</div>
-                    </td>
-                    <td>
                     <div class="next-visit">N/A</div>
                     </td>
                     <td>

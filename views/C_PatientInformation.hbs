@@ -69,7 +69,8 @@
         <div class="name-button-group">
             <div class="name-group">{{full_name}} | {{age}} | {{sex}}</div>
 
-            <div class="buttons-group">
+            <div class="buttons-group" data-id="{{id}}" id="buttons-group-deactivate">
+                <button id="deactivate-patient-button" >Deactivate</button>
                 <div class="button create-appointment-elements">
                     <img class="icon icon-add" src="/img/icon-add.svg" />
                     <div class="text-buttons create-appointment-text">Add To Do</div>
@@ -633,7 +634,7 @@
         <form class="footer-form">
            
             <input id="footer-note" name="footer-note" rows="3"
-                placeholder="Enter your footer note here..."></input>
+                placeholder="Enter your footer note here..." value="{{footnote}}"></input>
 
       
   
@@ -645,7 +646,7 @@
 
     <!--SAVE CHANGE FOR DENTAL RECORD-->
     <div class="buttons-group">
-        <button type="submit" class="save-change-button">Save Dental Record Changes</button>
+        <button type="submit" class="save-change-button" id="save-footnote-button">Save Dental Record Changes</button>
     </div>
 </div>
 
@@ -870,7 +871,7 @@
 
             <!-- ?Submit Button -->
             <div class="form-buttons">
-                <button id="close-create-treatment" class="close-button">Close</button>
+                <button id="close-create-treatment" class="close-button" type="reset">Close</button>
                 <button type="submit" class="submit-button">Submit</button>
             </div>
         </form>
@@ -1030,35 +1031,35 @@
             </p>
 
         </div>
+        <form id="save-informed-consent-form">
+            <div class="agreement-section">
+                <p class="agreement-text"><strong>I understand that dentistry is not an exact science and
+                        that no dentist can properly guarantee accurate results all the time.</strong></p>
+                <p>I hereby authorize any of the doctors/dental auxiliaries to proceed with & perform the
+                    dental restorations & treatments as explained to me. I understand that these are subject
+                    to modification depending on undiagnosable circumstances that may arise during the
+                    course of treatment. I understand that regardless of any dental insurance coverage I may
+                    have, I am responsible for payment of dental fees. I agree to pay any attorney's fees,
+                    collection fees, or court costs that may be incurred to satisfy any obligation to this
+                    office. All treatment was properly explained to me & any untoward circumstances that may
+                    arise during the procedure, the attending dentist will not be held liable since it is my
+                    free will, with full trust & confidence in him/her, to undergo dental treatment under
+                    his/her care.</p>
 
-        <div class="agreement-section">
-            <p class="agreement-text"><strong>I understand that dentistry is not an exact science and
-                    that no dentist can properly guarantee accurate results all the time.</strong></p>
-            <p>I hereby authorize any of the doctors/dental auxiliaries to proceed with & perform the
-                dental restorations & treatments as explained to me. I understand that these are subject
-                to modification depending on undiagnosable circumstances that may arise during the
-                course of treatment. I understand that regardless of any dental insurance coverage I may
-                have, I am responsible for payment of dental fees. I agree to pay any attorney's fees,
-                collection fees, or court costs that may be incurred to satisfy any obligation to this
-                office. All treatment was properly explained to me & any untoward circumstances that may
-                arise during the procedure, the attending dentist will not be held liable since it is my
-                free will, with full trust & confidence in him/her, to undergo dental treatment under
-                his/her care.</p>
+                <div class="agreement-confirmation">
+                    <p>I, <input id="consent-name" type="text" placeholder="Name of Patient" value="{{consentName}}" required/> agree to the above terms.</p>
 
-            <div class="agreement-confirmation">
-                <p>I, <input type="text" placeholder="Name of Patient" /> agree to the above terms.</p>
-
-                <div class="date-elements">
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" />
+                    <div class="date-elements">
+                        <label for="date">Date:</label>
+                        <input type="date" id="consent-date" name="date" value="{{consentDate}}" required/>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!--SAVE CHANGE FOR INFORMED CONSENT-->
+            <!--SAVE CHANGE FOR INFORMED CONSENT-->
 
     </div>
-    <form>
+    
 
         <div class="buttons-group">
             <button type="submit" class="save-change-button">Save Informed Consent</button>

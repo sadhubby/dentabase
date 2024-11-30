@@ -99,7 +99,20 @@ const patientSchema = new mongoose.Schema({
         required: true,
         default: "https://i.sstatic.net/l60Hf.png"
     },
-    treatments:[{type: mongoose.Schema.Types.ObjectId, ref: 'Treatments'}]
+    treatments:[{type: mongoose.Schema.Types.ObjectId, ref: 'Treatments'}],
+    footnote:{
+        type: String,
+        default: ""
+    },
+
+    consentName:{
+        type: String,
+        default: ""
+    },
+
+    consentDate:{
+        type: Date,
+    }
 
     
 });

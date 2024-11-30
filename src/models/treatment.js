@@ -28,9 +28,6 @@ const treatmentSchema = new mongoose.Schema({
     balance:{
         type: Number
     },
-    nextAppointmentDate:{
-        type: Date
-    },
     status:{
         type: String, 
         enum:['ongoing', 'completed'], default: 'ongoing'
