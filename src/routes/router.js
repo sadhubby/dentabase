@@ -958,8 +958,6 @@ router.get('/api/patients-by-service', async (req, res) => {
 
 router.post("/update-medical-history", async function(req, res){
     try{
-        
-        
 
         await Functions.updateMedicalHistory(
             req.body.patientID,

@@ -239,9 +239,9 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
         let isAlcohol;
         let checkedAllergies = [];
 
-        let isPregnant = null;
-        let isNursing = null;
-        let isBirthControl = null;
+        let isPregnant = "None";
+        let isNursing = "None";
+        let isBirthControl = "None";
 
         let healthProblems = [];
 

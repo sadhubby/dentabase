@@ -209,25 +209,45 @@ async function createMedicalHistory(patientID, physicianName, physicianOfficeAdd
                                     , physicianOfficeNumber, prescription, illnessOrSurgery, condition
                                     , isUsingTobacco, isAlcoholOrDrugs, allergies, isPregnant, isNursing
                                     , isBirthControlPills, healthProblems){
-        const medicalHistory = new medicalHistoryModel(
-            {
-                patientID: patientID,
-                physicianName: physicianName,
-                physicianOfficeAddress: physicianOfficeAddress,
-                physicianSpecialty: physicianSpecialty,
-                physicianOfficeNumber: physicianOfficeNumber,
-                prescription: prescription,
-                illnessOrSurgery: illnessOrSurgery,
-                condition: condition,
-                isUsingTobacco: isUsingTobacco,
-                isAlcoholOrDrugs: isAlcoholOrDrugs,
-                allergies: allergies,
-                isPregnant: isPregnant,
-                isNursing: isNursing,
-                isBirthControlPills: isBirthControlPills,
-                healthProblems: healthProblems,
-            }
-        );
+         
+        let medicalHistory;
+        if(isPregnant === "None" || isNursing === "None" || isBirthControlPills === "None"){
+             medicalHistory = new medicalHistoryModel(
+                {
+                    patientID: patientID,
+                    physicianName: physicianName,
+                    physicianOfficeAddress: physicianOfficeAddress,
+                    physicianSpecialty: physicianSpecialty,
+                    physicianOfficeNumber: physicianOfficeNumber,
+                    prescription: prescription,
+                    illnessOrSurgery: illnessOrSurgery,
+                    condition: condition,
+                    isUsingTobacco: isUsingTobacco,
+                    isAlcoholOrDrugs: isAlcoholOrDrugs,
+                    allergies: allergies,
+                    healthProblems: healthProblems,
+                });        
+        } else{
+             medicalHistory = new medicalHistoryModel(
+                {
+                    patientID: patientID,
+                    physicianName: physicianName,
+                    physicianOfficeAddress: physicianOfficeAddress,
+                    physicianSpecialty: physicianSpecialty,
+                    physicianOfficeNumber: physicianOfficeNumber,
+                    prescription: prescription,
+                    illnessOrSurgery: illnessOrSurgery,
+                    condition: condition,
+                    isUsingTobacco: isUsingTobacco,
+                    isAlcoholOrDrugs: isAlcoholOrDrugs,
+                    allergies: allergies,
+                    isPregnant: isPregnant,
+                    isNursing: isNursing,
+                    isBirthControlPills: isBirthControlPills,
+                    healthProblems: healthProblems,
+                });            
+        }
+
 
         await medicalHistory.save();
         console.log('medical history created');
@@ -238,6 +258,7 @@ async function updateMedicalHistory(patientID, physicianName, physicianOfficeAdd
                                     , isUsingTobacco, isAlcoholOrDrugs, allergies, isPregnant, isNursing
                                     , isBirthControlPills, healthProblems){
     const medicalHistory = await medicalHistoryModel.findOne({patientID: patientID});
+
 
     if(medicalHistory){
         console.log("updating med history found.");
@@ -251,9 +272,19 @@ async function updateMedicalHistory(patientID, physicianName, physicianOfficeAdd
         medicalHistory.isUsingTobacco = isUsingTobacco;
         medicalHistory.isAlcoholOrDrugs = isAlcoholOrDrugs;
         medicalHistory.allergies = allergies;
-        medicalHistory.isPregnant = isPregnant;
-        medicalHistory.isNursing = isNursing;
-        medicalHistory.isBirthControlPills = isBirthControlPills;
+
+        if(isPregnant !== "None"){
+            medicalHistory.isPregnant = isPregnant;
+        }
+            
+        if(isNursing !== "None"){
+            medicalHistory.isNursing = isNursing;
+        }
+            
+        if(isBirthControlPills !== "None"){
+            medicalHistory.isBirthControlPills = isBirthControlPills;
+        }
+            
         medicalHistory.healthProblems = healthProblems;
 
         await medicalHistory.save();
