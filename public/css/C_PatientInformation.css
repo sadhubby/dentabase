@@ -137,6 +137,7 @@
     align-items: center;
     justify-content: flex-end;
     margin-right: 0.5rem;
+    gap: 10px;
 }
 
 
@@ -184,6 +185,35 @@
     width: 15.05px;
     height: 15.49px;
 }
+
+/* Reset the default styles of the <button> */
+#deactivate-patient-button {
+    all: unset; /* Resets all styles to their inherited or initial values */
+    display: block; /* Ensures it behaves as a block element for styling */
+    width: 100%; /* Matches the parent container width */
+    height: 100%; /* Matches the parent container height */
+    text-align: center; /* Centers text */
+    cursor: pointer; /* Adds a pointer cursor for interactivity */
+}
+
+/* Deactivate button parent container styles */
+.patient-info-file .deactivate-patient-elements {
+    width: 110px;
+    height: 41.12px;
+    padding: 11.65px 6.85px;
+    background-color: #db2424; /* Same color as Add To Do */
+    cursor: pointer;
+    display: flex; /* Centers the button content */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover styles for Deactivate button */
+.patient-info-file .deactivate-patient-elements:hover {
+    background-color: #a81111;
+}
+
+
 
 #patient-data,
 #medical-history,
