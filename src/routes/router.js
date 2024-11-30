@@ -21,7 +21,6 @@ const sampleTreatments = require('../scripts/sampleData/treatmentData');
 const NonPatient = require('../models/nonpatient.js');
 
 const Functions = require('../scripts/functions');
-const { uniqueProcedures } = require('../scripts/functions');
 
 const router = Router();
 router.use(express.json());
