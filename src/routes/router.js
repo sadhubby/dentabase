@@ -927,19 +927,14 @@ router.get('/api/patients-by-service', async (req, res) => {
             return res.status(400).json({ message: 'Service is required' });
         }
 
-        const patients = await Patient.find({ isActive: true }).populate({
-            path: 'treatments',
-            options: { sort: { date: -1 } } 
-        });
+        const patients = await Patient.find({ 'treatments.procedure': service }).populate('treatments');
 
-        const filteredPatients = patients.filter(patient => {
-            const latestTreatment = patient.treatments[0];
-            return latestTreatment && latestTreatment.procedure === service;
-        });
+        if (patients.length === 0) {
+            console.log("No patients found for this service.");
+            return res.json({ message: "No patients match the criteria", patients: [] });
+        }
 
-        console.log("Backend Returning Filtered Patients:", filteredPatients);
-
-        const formattedPatients = filteredPatients.map(patient => {
+        const formattedPatients = patients.map(patient => {
             const latestTreatment = patient.treatments[0];
             return {
                 name: `${patient.firstName} ${patient.lastName}`,
@@ -951,7 +946,9 @@ router.get('/api/patients-by-service', async (req, res) => {
             };
         });
 
-        res.json(formattedPatients);
+        console.log("Backend Returning Filtered Patients:", formattedPatients);
+
+        res.json({ message: "Patients found", patients: formattedPatients });
     } catch (error) {
         console.error("Error filtering patients by service:", error);
         res.status(500).send('Error filtering patients by service');
