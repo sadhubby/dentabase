@@ -4,7 +4,8 @@ const serviceSchema = new mongoose.Schema ({
     service: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim: true
     },
     price: {
         type: Number,
