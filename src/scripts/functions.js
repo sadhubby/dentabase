@@ -378,11 +378,20 @@ async function uniqueServices() {
 
 async function getPatientsByProcedure(procedure) {
     try {
-        const query = procedure ? { procedure } : {};
-        return await patientModel.find(query).exec();
+        console.log("Fetching patients for procedure:", procedure);
+
+        const response = await fetch(`/api/patients-by-service?service=${encodeURIComponent(procedure)}`);
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch patients: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log("Filtered patients:", result);
+
+        displayPatients(result.patients);  
     } catch (error) {
-        console.error('Error fetching patients by procedure:', error);
-        throw error;
+        console.error("Error fetching patients:", error);
     }
 }
 
