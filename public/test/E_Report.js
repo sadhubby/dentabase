@@ -38,8 +38,6 @@ $(document).ready(function(){
         );
     })
 });
-
-
 /* 1ST CARD MONTHLY APPOINTMENT CHART */
 function initializeAppointmentChart() {
     let monthlyAppointments = getMonthlyCounts();
@@ -77,7 +75,6 @@ function initializeAppointmentChart() {
                         },
                     },
                 },
-               
             },
 
             indexAxis: 'y', // Swap axes: 'y' makes the bar chart horizontal
@@ -94,8 +91,10 @@ function initializeAppointmentChart() {
                     },
                     beginAtZero: true, // Start x-axis from 0
                     ticks: {
-                        maxRotation: 45, // Rotate the x-axis labels if needed
-                        minRotation: 0,
+                        stepSize: 1, // Ensure only whole numbers are displayed
+                        callback: function (value) {
+                            return Number.isInteger(value) ? value : null; // Show only whole numbers
+                        },
                     },
                 },
                 y: {
@@ -126,7 +125,6 @@ function initializeAppointmentChart() {
 // Call the function to initialize the chart when the page is loaded
 document.addEventListener('DOMContentLoaded', initializeAppointmentChart);
 
-
 /*========================================================== */
 // 2ND CARD Toggle the visibility of the filter dropdown
 
@@ -149,7 +147,11 @@ function filterPatientsByMonth() {
         }
     });
 }
-*/function initializeServiceChart() {
+*/
+
+/*========================================================== */
+//3RD CARD FREQUENCY DISTRIBUTION
+function initializeServiceChart() {
     // Sample data for services per month
     let yearlyFrequencyCount = getYearFrequency();
     const serviceDataByMonth = {
@@ -198,6 +200,12 @@ function filterPatientsByMonth() {
                         font: { size: 14, weight: 'bold' },
                     },
                     beginAtZero: true,
+                    ticks: {
+                        stepSize: 1, // Ensure only whole numbers are displayed
+                        callback: function (value) {
+                            return Number.isInteger(value) ? value : null; // Show only whole numbers
+                        },
+                    },
                 },
                 y: {
                     title: {
@@ -328,8 +336,6 @@ function filterPatientsByMonth() {
 
 // Initialize the chart when the page loads
 document.addEventListener('DOMContentLoaded', initializeServiceChart);
-
-
 
 
 
