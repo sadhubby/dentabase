@@ -167,7 +167,7 @@
     cursor: pointer;
 }
 
-/* Specific button styles */
+/* ? ADD TO DO BUTTON*/
 .patient-info-file .create-appointment-elements {
     width: 110px;
     height: 41.12px;
@@ -176,7 +176,7 @@
     cursor: pointer;
 }
 
-/* Specific button styles */
+
 .patient-info-file .create-appointment-elements:hover {
     background-color: #2843da;
 }
@@ -186,31 +186,60 @@
     height: 15.49px;
 }
 
-/* Reset the default styles of the <button> */
-#deactivate-patient-button {
-    all: unset; /* Resets all styles to their inherited or initial values */
-    display: block; /* Ensures it behaves as a block element for styling */
-    width: 100%; /* Matches the parent container width */
-    height: 100%; /* Matches the parent container height */
-    text-align: center; /* Centers text */
-    cursor: pointer; /* Adds a pointer cursor for interactivity */
+
+/*?deactivate button*/
+
+.toggle-button {
+    display: none;
 }
 
-/* Deactivate button parent container styles */
-.patient-info-file .deactivate-patient-elements {
-    width: 110px;
-    height: 41.12px;
-    padding: 11.65px 6.85px;
-    background-color: #db2424; /* Same color as Add To Do */
-    cursor: pointer;
-    display: flex; /* Centers the button content */
+.deactivate-patient-elements {
+    display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    width: 110px;
+    height: 41.12px;
+    
+    border-radius: 6.85px; /* Rounded corners like Add To Do button */
+    transition: background-color 0.3s ease; /* Smooth color transitions */
 }
 
-/* Hover styles for Deactivate button */
-.patient-info-file .deactivate-patient-elements:hover {
-    background-color: #a81111;
+/* Base text styles for the Deactivate button */
+#deactivate-patient-button {
+    font-family: "Roboto-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 13.7px;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+ border-radius: 6.85px; /* Rounded corners like Add To Do button */
+}
+
+/* Hover effect for the Deactivate button */
+.deactivate-patient-elements:hover {
+    background-color: #860909; /* Darker red on hover */
+}
+
+/* Toggled (checked) state for Reactivate */
+.toggle-button:checked + #deactivate-patient-button {
+    background-color: gray; /* Change to gray for Reactivate */
+    color: white;
+}
+
+/* Update button text when toggled (this should be a simple solution) */
+.toggle-button:checked + #deactivate-patient-button {
+    content: 'Reactivate';
+}
+
+/* Optionally, change text color when toggled */
+.toggle-button:checked + #deactivate-patient-button {
+    background-color: #888; /* Update background color for Reactivate */
 }
 
 
