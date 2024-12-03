@@ -78,8 +78,13 @@
                 </div> 
                 
                 <div class="button deactivate-patient-elements">
-                    <button class="text-buttons create-appointment-text" id="deactivate-patient-button">Deactivate</button>
+                    <input type="checkbox" id="deactivate-patient-toggle" class="toggle-button" />
+                    <label for="deactivate-patient-toggle" id="deactivate-patient-button" class="text-buttons">
+                    Deactivate
+                    </label>
                 </div>
+
+
 
                     <div id="form-container" data-page-context="patient-information" data-patient-id="{{id}}">
                         {{> B_Todo_form }}
@@ -93,7 +98,7 @@
             <a href="#patient-data" class="nav-item">Patient Information</a>
             <a href="#medical-history" class="nav-item">Medical History</a>
             <a href="#dental-record-chart" class="nav-item">Dental Record Chart</a>
-            <a href="#treatment-record" class="nav-item">Treatment History</a>
+            <a href="#treatment-record" class="nav-item">Treatment Record</a>
             <a href="#informed-consent" class="nav-item">Informed Consent</a>
         </div>
     </div>
@@ -657,7 +662,7 @@
 
 <!--+ TREATMENT RECORD FRAME-->
 <div class="frame-4">
-    <div class="header treatment-history-title" id="treatment-record">| TREATMENT HISTORY</div>
+    <div class="header treatment-history-title" id="treatment-record">| TREATMENT RECORD</div>
 
     <div class="buttons-group">
 
@@ -1082,3 +1087,4 @@
 </div>
 
 <script src="/js/C_PatientInformation.js"></script>
+<script src="/js/C_PatientInfo_animation.js"></script>
