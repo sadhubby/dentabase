@@ -21,7 +21,6 @@ const sampleTreatments = require('../scripts/sampleData/treatmentData');
 const NonPatient = require('../models/nonpatient.js');
 
 const Functions = require('../scripts/functions');
-const { uniqueProcedures } = require('../scripts/functions');
 
 const router = Router();
 router.use(express.json());
@@ -919,38 +918,55 @@ router.get('/api/unique-services', async (req, res) => {
 });
 
 router.get('/api/patients-by-service', async (req, res) => {
+    console.log("Endpoint reached for /api/patients-by-service");
     try {
         const service = req.query.service;
-        console.log("Backend Received Service:", service);
+        console.log("Received service for filtering:", service);
 
         if (!service) {
             return res.status(400).json({ message: 'Service is required' });
         }
 
-        const patients = await Patient.find({ 'treatments.procedure': service }).populate('treatments');
+        const treatments = await Treatment.find({ procedure: service }).exec();
+        console.log("Found treatments:", treatments);
 
-        if (patients.length === 0) {
-            console.log("No patients found for this service.");
+        if (treatments.length === 0) {
+            console.log("No treatments found for this service.");
             return res.json({ message: "No patients match the criteria", patients: [] });
         }
 
-        const formattedPatients = patients.map(patient => {
-            const latestTreatment = patient.treatments[0];
-            return {
-                name: `${patient.firstName} ${patient.lastName}`,
-                phone: patient.contact || 'N/A',
-                email: patient.email || 'N/A',
-                address: patient.homeAddress || 'N/A',
-                lastVisit: latestTreatment?.date || 'N/A',
-                lastProcedure: latestTreatment?.procedure || 'N/A',
-            };
-        });
+        const patientIds = treatments.map(treatment => treatment.patientID);
+        console.log("Patient IDs from treatments:", patientIds);
 
-        console.log("Backend Returning Filtered Patients:", formattedPatients);
+        const patients = await Patient.find({ id: { $in: patientIds } }).populate('treatments').exec();
+        console.log("Found patients:", patients);
+
+        const formattedPatients = patients
+            .map(patient => {
+                const latestTreatment = patient.treatments.reduce((latest, treatment) => {
+                    return !latest || new Date(treatment.date) > new Date(latest.date) ? treatment : latest;
+                }, null);
+
+                if (latestTreatment?.procedure === service) {
+                    return {
+                        name: `${patient.firstName} ${patient.lastName}`,
+                        phone: patient.contact || 'N/A',
+                        email: patient.email || 'N/A',
+                        address: patient.homeAddress || 'N/A',
+                        lastVisit: latestTreatment.date || 'N/A',
+                        lastProcedure: latestTreatment.procedure || 'N/A',
+                    };
+                }
+
+                return null;
+            })
+            .filter(patient => patient !== null);
+
+        console.log("Formatted Patients:", formattedPatients);
 
         res.json({ message: "Patients found", patients: formattedPatients });
     } catch (error) {
-        console.error("Error filtering patients by service:", error);
+        console.error("Error filtering patients:", error);
         res.status(500).send('Error filtering patients by service');
     }
 });
