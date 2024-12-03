@@ -5,19 +5,15 @@
   font-family: "Roboto-Regular", Helvetica, sans-serif;
 }
 
-.container-login-page html,.container-login-page body {
-  height: 100%;
-  overflow: hidden;
-
-}
 
 .container-login-page {
-  
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  height: 98.5vh;
+  width: 99.5vw;
   position: relative;
   overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   justify-content: center;
   align-items: center;
 }
@@ -26,6 +22,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+
 }
 
 
@@ -56,9 +53,11 @@
 }
 
 .container-login-page .logo {
-  width: 70%;
+  width: 23%;
   height: 100%;
   object-fit: contain;
+  background-color: #0f93b5;
+
 
 }
 
