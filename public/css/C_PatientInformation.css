@@ -39,8 +39,8 @@
 }
 
 .patient-info-file .save-change-button:hover {
-    background-color: #0056b3;
-    /* Darker blue on hover */
+   background-color: #2843da;
+    
 
 }
 
@@ -991,7 +991,7 @@ height: 100%;
 .patient-info-file th,
 .patient-info-file td {
     height: 20px;
-    border: 1px solid #dddddd;
+ 
     padding: 10px;
     text-align: center;
     vertical-align: middle;
@@ -1016,6 +1016,17 @@ height: 100%;
     font-size: 16.4px;
     line-height: normal;
 }
+
+/* Apply background color to even rows */
+.patient-info-file tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray */
+}
+
+/* Apply background color to odd rows */
+.patient-info-file tr:nth-child(odd) {
+    background-color: #ffffff; /* White */
+}
+
 
 .patient-info-file td {
     position: relative;

@@ -88,6 +88,7 @@
 .patient-list-file .buttons-group {
     display: flex;
     align-items: center;
+    gap: 7px;
 }
 
 .patient-list-file .divider {

@@ -63,8 +63,6 @@
 
 
 
-      <div class="divider"></div> <!-- Divider between buttons -->
-
 
       <div class="buttons-group">
         <div class="button filter-elements" id="procedure-filter">
@@ -74,13 +72,6 @@
       </div>
       {{>O_Filter_form}}
 
-
-      <div class="divider"></div> <!-- Divider between buttons -->
-      <div class="button edit-elements">
-        <img class="icon icon-edit" src="/img/icon-edit.svg" />
-        <div class="text-buttons text-wrapper">Edit</div>
-      </div>
-      <div class="divider"></div> <!-- Divider between buttons -->
       <div class="button trash-elements">
         <img class="icon icon-trash" src="/img/icon-trash.svg" />
         <div class="text-buttons text-wrapper">Delete</div>
@@ -150,23 +141,30 @@
           <span class="custom-checkbox"></span>
         </label>
       </td>
+      
       <td>
         <div class="name" onclick="window.location.href='/patient-information/{{id}}'" style="cursor: pointer;">
           {{firstName}} {{lastName}}
         </div>
       </td>
+      
       <td>
-        <div class="phone">{{contact}}</div>
+         <input type="text" class="phone sched-text" value="{{contact}}" />
+        
       </td>
+      
       <td>
-        <div class="email">{{email}}</div>
+        <input type="text" class="email sched-text" value="{{email}}"></input>
       </td>
+      
       <td>
-        <div class="time">{{formattedTime}}</div>
+        <input type="text" class="time sched-text" value="{{formattedTime}}"></input>
       </td>
+      
       <td>
-        <div class="treatment">{{latestProcedure}}</div>
+        <div class="treatment sched-text">{{latestProcedure}}</div>
       </td>
+    
     </tr>
     {{/each}}
   {{else}}

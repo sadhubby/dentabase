@@ -66,14 +66,7 @@
 .todo-file .buttons-group {
     display: flex;
     align-items: center;
-  
-}
-
-.todo-file .divider {
-    width: 2px;
-    height: 30px;
-    background-color: #c5c5c5;
-    margin: 0 5px;
+    gap: 4px;
 }
 
 /* Base styles for buttons */
@@ -345,6 +338,7 @@
 .todo-file td {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .todo-file td .appointment-checkbox input[type="checkbox"] {
@@ -358,6 +352,46 @@
 }
 
 
+
+.todo-file input.sched-text {
+    display: inline-block;
+    max-width: 12rem;
+    /* Limits the width of text previews */
+    white-space: nowrap;
+    /* Keeps text on one line */
+    overflow: hidden;
+    /* Hides overflowing text */
+    text-overflow: ellipsis;
+    /* Adds ellipsis to overflow */
+    border: none;
+    background-color: transparent;
+    font-size: 16px; /* Adjust font size if needed */
+    font-family: inherit;
+    text-align: center;
+    padding: 5px;
+}
+
+.todo-file input.sched-text:focus {
+    outline: none;
+    border: 1px solid #0056b3;
+    /* Optional: Style when input is focused */
+    background-color: #f5f5f5;
+}
+
+.todo-file td:hover input.sched-text {
+    white-space: normal;
+    overflow: visible;
+    z-index: 1;
+    background-color: #e9e9e9;
+    padding: 5px;
+    max-width: none;
+    border-radius: 20px;
+  
+}
+
+
+
+
 .todo-file .name,
 .todo-file .phone,
 .todo-file .email,
@@ -369,6 +403,8 @@
     overflow: hidden; /* Hides overflowing text */
     text-overflow: ellipsis; /* Adds ellipsis to overflow */
 }
+
+
 
 
 .todo-file td:hover .name,

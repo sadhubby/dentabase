@@ -98,17 +98,16 @@
             <tr>
 
                 <td>
-                    <div class="name" onclick="window.location.href='/patient-information/{{{id}}}'"
-                        style="cursor: pointer;">
-                        {{{service}}}</div>
+                    <input type="text" class="name service-text" onclick="window.location.href='/patient-information/{{{id}}}'" value="  {{{service}}}">
+                     </input>
                 </td>
                 <td>
 
-                    <div class="phone">{{{price}}}</div>
+                    <input type="text" class="phone service-text" value="{{{price}}}"></input>
                 </td>
                 <td>
 
-                    <div class="email">{{{type}}}</div>
+                    <input type="text" class="email service-text" value="{{{type}}}"></input>
                 </td>
 
 
