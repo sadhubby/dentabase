@@ -1,20 +1,21 @@
-/* Base styles remain the same as .todo-form-file */
-.services-form-file.overlay {
-    display: none; /* Hide by default */
-}
-
-/* Container for the overlay */
-.services-form-file .container {
-    display: none; /* Initially hidden */
-    justify-content: flex-end;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    position: fixed;
+/* Base styles */
+.services-form-file {
+    display: none; 
+    position: fixed; /* Ensure the popup is fixed on the screen */
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    width: 100%;
+}
+
+/* Show the container when activated */
+.services-form-file .container.show {
+    display: flex; 
+    justify-content: flex-end; /* Push content to the right */
+    align-items: center; /* Center vertically */
+    background: rgba(0, 0, 0, 0.5); /* Overlay effect */
     z-index: 1000;
 }
 
@@ -24,12 +25,16 @@
     flex-direction: column;
     background: #fff;
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* Limit the width of the form */
     padding: 20px;
     border-radius: 15px;
-    margin-right: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
+    position: fixed; /* Position relative to the viewport */
+    top: 35%; /* Vertically center */
+    right: 0; /* Align to the right */
+    transform: translateY(-50%); /* Adjust vertical centering */
+    margin: 0; /* Remove unwanted margins */
 }
 
 /* Heading styling */
@@ -100,9 +105,4 @@
 .services-form-file .done-button:hover {
     background-color: #007bff;
     color: #fff;
-}
-
-/* When the form is triggered to show */
-.services-form-file .container.show {
-    display: flex; /* Show the form */
 }
