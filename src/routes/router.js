@@ -941,19 +941,15 @@ router.get('/api/patients-by-service', async (req, res) => {
             return res.json({ message: "All patients fetched successfully", patients: formattedPatients });
         }
 
-        // Step 1: Fetch all patients who have any treatment
         const patients = await Patient.find().populate('treatments').exec();
         console.log("Found patients with treatments:", patients);
 
-        // Step 2: Filter patients by their latest treatment matching the selected procedure
         const formattedPatients = patients
             .map(patient => {
-                // Find the latest treatment for the patient
                 const latestTreatment = patient.treatments.reduce((latest, treatment) => {
                     return !latest || new Date(treatment.date) > new Date(latest.date) ? treatment : latest;
                 }, null);
 
-                // Include the patient only if their latest treatment matches the selected procedure
                 if (latestTreatment && latestTreatment.procedure === service) {
                     return {
                         name: `${patient.firstName} ${patient.lastName}`,
@@ -965,10 +961,9 @@ router.get('/api/patients-by-service', async (req, res) => {
                     };
                 }
 
-                // Exclude patients whose latest treatment does not match the procedure
                 return null;
             })
-            .filter(patient => patient !== null); // Exclude null entries
+            .filter(patient => patient !== null);
 
         console.log("Formatted Patients:", formattedPatients);
 

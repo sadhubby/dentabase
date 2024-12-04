@@ -21,7 +21,7 @@ async function loadServices() {
         const services = await response.json();
         const dropdown = document.getElementById('treatmentType');
 
-        dropdown.innerHTML = '<option value="All">All</option>'; // Default option to show all patients
+        dropdown.innerHTML = '<option value="All">All</option>';
         services.forEach(service => {
             const option = document.createElement('option');
             option.value = service;
