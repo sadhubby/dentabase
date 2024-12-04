@@ -242,11 +242,7 @@
   margin-left: -6rem; /* Bring it closer to the checkbox */
 }
 
-.todo-file .icon-updown {
-  width: 11px;
-  height: 14px;
-  margin-left: 8px; /* Space between text and icon */
-}
+
 
 .todo-file .category-text {
   font-family: "Roboto-Bold", Helvetica;
@@ -318,6 +314,33 @@
 
 
 
+.todo-file a {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+
+.todo-file a:hover {
+    color: #007bff; 
+    cursor: pointer;
+    
+}
+
+.todo-file td {
+    position: relative;
+    overflow: hidden;    
+}
+
+/* Apply background color to even rows */
+.todo-file tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray */
+}
+
+/* Apply background color to odd rows */
+.todo-file tr:nth-child(odd) {
+    background-color: #ffffff; /* White */
+}
+
 
 .todo-file td {
     position: relative;
@@ -366,12 +389,6 @@
 
 .todo-file .icon {
     margin-right: 5px;
-}
-
-.todo-file .icon-updown {
-    width: 11px;
-    height: 14px;
-    margin-left: 8px; /* Space between text and icon */
 }
 
 .todo-file .category-text {

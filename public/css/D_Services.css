@@ -258,11 +258,7 @@
 }
 
 
-.services-file .icon-updown {
-  width: 11px;
-  height: 14px;
-  margin-left: 8px; /* Space between text and icon */
-}
+
 
 .services-file .category-text {
   font-family: "Roboto-Bold", Helvetica;
@@ -378,11 +374,6 @@
     margin-right: 5px;
 }
 
-.services-file .icon-updown {
-    width: 11px;
-    height: 14px;
-    margin-left: 8px; /* Space between text and icon */
-}
 
 .services-file .category-text {
     font-family: "Roboto-Bold", Helvetica;
