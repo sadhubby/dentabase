@@ -269,7 +269,7 @@
 
 .patient-list-file th,
 .patient-list-file td {
-    border: 1px solid #dddddd;
+    border: 0px solid #dddddd;
     padding: 10px;
     text-align: center;
     /* Center text in header and data cells */
@@ -301,9 +301,32 @@
     /* Center text */
 }
 
+
+.patient-list-file a {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+
+.patient-list-file a:hover {
+    color: #007bff; 
+    cursor: pointer;
+    
+}
+
 .patient-list-file td {
     position: relative;
-    overflow: hidden;
+    overflow: hidden;    
+}
+
+/* Apply background color to even rows */
+.patient-list-file tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray */
+}
+
+/* Apply background color to odd rows */
+.patient-list-file tr:nth-child(odd) {
+    background-color: #ffffff; /* White */
 }
 
 .patient-list-file .name,

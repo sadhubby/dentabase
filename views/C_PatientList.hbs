@@ -139,23 +139,21 @@
       <tr>
 
         <td>
-          <div class="name" onclick="window.location.href='/patient-information/{{{id}}}'" style="cursor: pointer;">
-            {{firstName}} {{lastName}}</div>
+          <a class="name" onclick="window.location.href='/patient-information/{{{id}}}'">
+            {{firstName}} {{lastName}}</a>
         </td>
+      
         <td>
-
-          <div class="phone">{{{contact}}}</div>
+          <a onclick="window.location.href='/patient-information/{{{id}}}'" class="phone">{{{contact}}}</a>
         </td>
+       
         <td>
-
-          <div class="email">{{{email}}}</div>
+          <a onclick="window.location.href='/patient-information/{{{id}}}'" class="email">{{{email}}}</a>
         </td>
 
         <td>
-
-          <div class="address">{{{homeAddress}}}</div>
+          <a onclick="window.location.href='/patient-information/{{{id}}}'" class="address">{{{homeAddress}}}</a>
         </td>
-
 
         <td>
           <div class="next-visit">{{{latestTreatmentDate}}}</div>
@@ -163,7 +161,6 @@
 
         <td>
           <div class="treatment">{{{latestProcedure}}}</div>
-
         </td>
 
       </tr>
