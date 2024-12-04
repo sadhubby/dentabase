@@ -38,18 +38,19 @@ async function loadServices() {
 // Function to apply the selected filters and trigger dynamic filtering
 async function applyFilters() {
     const treatmentType = document.getElementById("treatmentType").value;
-    console.log("Applying filters for treatment type:", treatmentType);
+    const sortOrder = document.getElementById("patientNameSort").value;
+
+    const query = new URLSearchParams();
+    if (treatmentType) query.append('service', treatmentType);
+    if (sortOrder) query.append('sortOrder', sortOrder);
 
     try {
-        if (treatmentType === "All") {
-            console.log("Fetching all patients as 'All' option selected.");
-            await filterPatientsByService("All"); // Fetch all patients
-        } else {
-            await filterPatientsByService(treatmentType); // Fetch filtered patients
-        }
-        cancelFilter(); // Hide the filter form
+        const response = await fetch(`/api/patients-by-service?${query.toString()}`);
+        const result = await response.json();
+        updatePatientList(result.patients);
+        cancelFilter();
     } catch (error) {
         console.error("Error applying filters:", error);
-        alert("Failed to apply filters. Please try again.");
     }
 }
+

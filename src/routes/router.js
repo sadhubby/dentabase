@@ -918,62 +918,42 @@ router.get('/api/unique-services', async (req, res) => {
 });
 
 router.get('/api/patients-by-service', async (req, res) => {
-    console.log("Endpoint reached for /api/patients-by-service");
     try {
-        const service = req.query.service;
-        console.log("Received service for filtering:", service);
+        const { service, sortOrder } = req.query;
 
-        if (!service || service === "All") {
-            console.log("Returning all patients as 'All' filter selected.");
-            const patients = await Patient.find().populate('treatments').exec();
-            const formattedPatients = patients.map(patient => ({
-                name: `${patient.firstName} ${patient.lastName}`,
-                phone: patient.contact || 'N/A',
-                email: patient.email || 'N/A',
-                address: patient.homeAddress || 'N/A',
-                lastVisit: patient.treatments.length > 0
-                    ? new Date(Math.max(...patient.treatments.map(t => new Date(t.date)))).toISOString()
-                    : 'N/A',
-                lastProcedure: patient.treatments.length > 0
-                    ? patient.treatments.sort((a, b) => new Date(b.date) - new Date(a.date))[0].procedure
-                    : 'N/A'
-            }));
-            return res.json({ message: "All patients fetched successfully", patients: formattedPatients });
+        let patients = await Patient.find().populate('treatments').exec();
+
+        if (service && service !== 'All') {
+            patients = patients.filter(patient =>
+                patient.treatments.some(treatment => treatment.procedure === service)
+            );
         }
 
-        const patients = await Patient.find().populate('treatments').exec();
-        console.log("Found patients with treatments:", patients);
+        if (sortOrder === 'A-Z') {
+            patients.sort((a, b) => a.firstName.localeCompare(b.firstName));
+        } else if (sortOrder === 'Z-A') {
+            patients.sort((a, b) => b.firstName.localeCompare(a.firstName));
+        }
 
-        const formattedPatients = patients
-            .map(patient => {
-                const latestTreatment = patient.treatments.reduce((latest, treatment) => {
-                    return !latest || new Date(treatment.date) > new Date(latest.date) ? treatment : latest;
-                }, null);
+        const formattedPatients = patients.map(patient => ({
+            name: `${patient.firstName} ${patient.lastName}`,
+            phone: patient.contact || 'N/A',
+            email: patient.email || 'N/A',
+            address: patient.homeAddress || 'N/A',
+            lastVisit: patient.treatments.length > 0
+                ? new Date(Math.max(...patient.treatments.map(t => new Date(t.date)))).toISOString()
+                : 'N/A',
+            lastProcedure: patient.treatments.length > 0
+                ? patient.treatments.sort((a, b) => new Date(b.date) - new Date(a.date))[0].procedure
+                : 'N/A'
+        }));
 
-                if (latestTreatment && latestTreatment.procedure === service) {
-                    return {
-                        name: `${patient.firstName} ${patient.lastName}`,
-                        phone: patient.contact || 'N/A',
-                        email: patient.email || 'N/A',
-                        address: patient.homeAddress || 'N/A',
-                        lastVisit: latestTreatment.date || 'N/A',
-                        lastProcedure: latestTreatment.procedure || 'N/A',
-                    };
-                }
-
-                return null;
-            })
-            .filter(patient => patient !== null);
-
-        console.log("Formatted Patients:", formattedPatients);
-
-        res.json({ message: "Filtered patients fetched successfully", patients: formattedPatients });
+        res.json({ message: "Patients fetched successfully", patients: formattedPatients });
     } catch (error) {
-        console.error("Error filtering patients:", error);
-        res.status(500).send('Error filtering patients by service');
+        console.error("Error fetching patients:", error);
+        res.status(500).send('Error fetching patients');
     }
 });
-
 
 
 router.post("/update-medical-history", async function(req, res){
