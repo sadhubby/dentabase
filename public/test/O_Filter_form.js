@@ -21,7 +21,7 @@ async function loadServices() {
         const services = await response.json();
         const dropdown = document.getElementById('treatmentType');
 
-        dropdown.innerHTML = '<option value="">Select Service</option>';
+        dropdown.innerHTML = '<option value="All">All</option>'; // Default option to show all patients
         services.forEach(service => {
             const option = document.createElement('option');
             option.value = service;
@@ -40,11 +40,16 @@ async function applyFilters() {
     const treatmentType = document.getElementById("treatmentType").value;
     console.log("Applying filters for treatment type:", treatmentType);
 
-    if (!treatmentType) {
-        alert("Please select a service type.");
-        return;
+    try {
+        if (treatmentType === "All") {
+            console.log("Fetching all patients as 'All' option selected.");
+            await filterPatientsByService("All"); // Fetch all patients
+        } else {
+            await filterPatientsByService(treatmentType); // Fetch filtered patients
+        }
+        cancelFilter(); // Hide the filter form
+    } catch (error) {
+        console.error("Error applying filters:", error);
+        alert("Failed to apply filters. Please try again.");
     }
-
-    await filterPatientsByService(treatmentType);
-    cancelFilter(); // Hide the filter form after applying filters
 }

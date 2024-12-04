@@ -923,31 +923,38 @@ router.get('/api/patients-by-service', async (req, res) => {
         const service = req.query.service;
         console.log("Received service for filtering:", service);
 
-        if (!service) {
-            return res.status(400).json({ message: 'Service is required' });
+        if (!service || service === "All") {
+            console.log("Returning all patients as 'All' filter selected.");
+            const patients = await Patient.find().populate('treatments').exec();
+            const formattedPatients = patients.map(patient => ({
+                name: `${patient.firstName} ${patient.lastName}`,
+                phone: patient.contact || 'N/A',
+                email: patient.email || 'N/A',
+                address: patient.homeAddress || 'N/A',
+                lastVisit: patient.treatments.length > 0
+                    ? new Date(Math.max(...patient.treatments.map(t => new Date(t.date)))).toISOString()
+                    : 'N/A',
+                lastProcedure: patient.treatments.length > 0
+                    ? patient.treatments.sort((a, b) => new Date(b.date) - new Date(a.date))[0].procedure
+                    : 'N/A'
+            }));
+            return res.json({ message: "All patients fetched successfully", patients: formattedPatients });
         }
 
-        const treatments = await Treatment.find({ procedure: service }).exec();
-        console.log("Found treatments:", treatments);
+        // Step 1: Fetch all patients who have any treatment
+        const patients = await Patient.find().populate('treatments').exec();
+        console.log("Found patients with treatments:", patients);
 
-        if (treatments.length === 0) {
-            console.log("No treatments found for this service.");
-            return res.json({ message: "No patients match the criteria", patients: [] });
-        }
-
-        const patientIds = treatments.map(treatment => treatment.patientID);
-        console.log("Patient IDs from treatments:", patientIds);
-
-        const patients = await Patient.find({ id: { $in: patientIds } }).populate('treatments').exec();
-        console.log("Found patients:", patients);
-
+        // Step 2: Filter patients by their latest treatment matching the selected procedure
         const formattedPatients = patients
             .map(patient => {
+                // Find the latest treatment for the patient
                 const latestTreatment = patient.treatments.reduce((latest, treatment) => {
                     return !latest || new Date(treatment.date) > new Date(latest.date) ? treatment : latest;
                 }, null);
 
-                if (latestTreatment?.procedure === service) {
+                // Include the patient only if their latest treatment matches the selected procedure
+                if (latestTreatment && latestTreatment.procedure === service) {
                     return {
                         name: `${patient.firstName} ${patient.lastName}`,
                         phone: patient.contact || 'N/A',
@@ -958,18 +965,20 @@ router.get('/api/patients-by-service', async (req, res) => {
                     };
                 }
 
+                // Exclude patients whose latest treatment does not match the procedure
                 return null;
             })
-            .filter(patient => patient !== null);
+            .filter(patient => patient !== null); // Exclude null entries
 
         console.log("Formatted Patients:", formattedPatients);
 
-        res.json({ message: "Patients found", patients: formattedPatients });
+        res.json({ message: "Filtered patients fetched successfully", patients: formattedPatients });
     } catch (error) {
         console.error("Error filtering patients:", error);
         res.status(500).send('Error filtering patients by service');
     }
 });
+
 
 
 router.post("/update-medical-history", async function(req, res){

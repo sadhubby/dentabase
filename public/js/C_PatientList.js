@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Filter button not found!");
     }
 
-    loadPatients();
+    loadPatients(); // Initial load of all patients
 });
 
 // Function to toggle the filter form
@@ -27,11 +27,11 @@ async function loadPatients() {
     try {
         const response = await fetch('/api/patients');
         const patients = await response.json();
-        console.log("Patients received from API:", patients);
+        console.log("All patients received from API:", patients);
 
         displayPatients(patients);
     } catch (error) {
-        console.error("Error loading patients:", error);
+        console.error("Error loading all patients:", error);
     }
 }
 
