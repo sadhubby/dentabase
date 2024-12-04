@@ -11,7 +11,7 @@ function cancelFilter() {
     }
 
     filterForm.style.display = "none";
-    console.log("Filter form hidden."); 
+    console.log("Filter form hidden.");
 }
 
 // Function to load unique services into the dropdown
@@ -21,7 +21,7 @@ async function loadServices() {
         const services = await response.json();
         const dropdown = document.getElementById('treatmentType');
 
-        dropdown.innerHTML = '<option value="">Select Service</option>'; 
+        dropdown.innerHTML = '<option value="All">All</option>';
         services.forEach(service => {
             const option = document.createElement('option');
             option.value = service;
@@ -36,14 +36,21 @@ async function loadServices() {
 }
 
 // Function to apply the selected filters and trigger dynamic filtering
-function applyFilters() {
-    const treatmentType = document.getElementById("treatmentType").value; 
-    console.log("Selected Treatment Type:", treatmentType);
-    
-    if (!treatmentType) {
-        alert("Please select a service type.");
-        return;
-    }
+async function applyFilters() {
+    const treatmentType = document.getElementById("treatmentType").value;
+    const sortOrder = document.getElementById("patientNameSort").value;
 
-    filterPatientsByService(treatmentType);
+    const query = new URLSearchParams();
+    if (treatmentType) query.append('service', treatmentType);
+    if (sortOrder) query.append('sortOrder', sortOrder);
+
+    try {
+        const response = await fetch(`/api/patients-by-service?${query.toString()}`);
+        const result = await response.json();
+        updatePatientList(result.patients);
+        cancelFilter();
+    } catch (error) {
+        console.error("Error applying filters:", error);
+    }
 }
+

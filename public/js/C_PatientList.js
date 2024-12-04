@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Filter button not found!");
     }
 
-    loadPatients();
+    loadPatients(); // Initial load of all patients
 });
 
 // Function to toggle the filter form
@@ -18,7 +18,7 @@ function toggleFilterForm() {
         return;
     }
 
-    filterForm.style.display = "block"; 
+    filterForm.style.display = "block";
     console.log("Filter form opened.");
 }
 
@@ -27,21 +27,41 @@ async function loadPatients() {
     try {
         const response = await fetch('/api/patients');
         const patients = await response.json();
-        console.log("Patients received from API:", patients);
+        console.log("All patients received from API:", patients);
 
         displayPatients(patients);
     } catch (error) {
-        console.error("Error loading patients:", error);
+        console.error("Error loading all patients:", error);
     }
 }
 
-// Function to display filtered patients in the table
-function displayPatients(patients) {
-    console.log("Displaying Patients:", patients);
+// Function to filter patients by service
+async function filterPatientsByService(service) {
+    try {
+        console.log("Fetching patients for service:", service);
+        const response = await fetch(`/api/patients-by-service?service=${encodeURIComponent(service)}`);
 
-    const patientsTable = document.getElementById('patientsTable');
-    const tbody = patientsTable.querySelector('tbody');
-    tbody.innerHTML = ""; 
+        if (!response.ok) throw new Error(`Failed to fetch patients: ${response.statusText}`);
+
+        const result = await response.json();
+        console.log("Filtered patients response:", result);
+
+        updatePatientList(result.patients); // Dynamically update the table
+    } catch (error) {
+        console.error("Error filtering patients:", error);
+    }
+}
+
+// Function to dynamically update the patient list in the table
+function updatePatientList(patients) {
+    const tbody = document.getElementById('patient-table');
+
+    if (!tbody) {
+        console.error("Patient table body element not found!");
+        return;
+    }
+
+    tbody.innerHTML = ""; // Clear previous rows
 
     if (patients.length === 0) {
         const row = document.createElement('tr');
@@ -53,34 +73,15 @@ function displayPatients(patients) {
     patients.forEach(patient => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${patient.name || "N/A"}</td>
-            <td>${patient.phone || "N/A"}</td>
-            <td>${patient.email || "N/A"}</td>
-            <td>${patient.address || "N/A"}</td>
-            <td>${patient.lastVisit || "N/A"}</td>
-            <td>${patient.lastProcedure || "N/A"}</td>
+            <td>${patient.name}</td>
+            <td>${patient.phone}</td>
+            <td>${patient.email}</td>
+            <td>${patient.address}</td>
+            <td>${new Date(patient.lastVisit).toLocaleDateString()}</td>
+            <td>${patient.lastProcedure}</td>
         `;
         tbody.appendChild(row);
     });
 
-    console.log("Patient list updated.");
-}
-
-// Function to filter patients based on the selected service
-async function filterPatientsByService(service) {
-    try {
-        const response = await fetch(`/api/patients-by-service?service=${encodeURIComponent(service)}`);
-        console.log("API Request Sent to:", `/api/patients-by-service?service=${encodeURIComponent(service)}`);
-
-        if (!response.ok) {
-            throw new Error(`Failed to filter patients: ${response.statusText}`);
-        }
-
-        const result = await response.json();
-        console.log("Filtered Patients:", result);
-
-        displayPatients(result.patients);
-    } catch (error) {
-        console.error("Error filtering patients:", error);
-    }
+    console.log("Patient list updated with:", patients);
 }
