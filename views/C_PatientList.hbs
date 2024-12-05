@@ -51,7 +51,7 @@
         <img class="icon icon-add" src="/img/icon-add.svg" />
         <div class="text-buttons create-patient-text" onclick="createPatient()">Create patient</div>
       </div>
-     
+
       <div class="buttons-group">
         <div class="button filter-elements" id="procedure-filter">
           <button class="filter-text">
@@ -61,7 +61,7 @@
         </div>
       </div>
       {{>O_Filter_form}}
-      
+
 
     </div>
 
@@ -75,41 +75,33 @@
     <thead>
       <tr>
         <th>
-          <div class="patient-name-elements">
-            <div class="category-text">NAME</div>
-          </div>
+          <div class="category-text">NAME</div>
         </th>
 
         <th>
-          <div class="phone-elements">
-            <div class="category-text">PHONE</div>
-          </div>
+          <div class="category-text">PHONE</div>
         </th>
 
         <th>
-          <div class="email-elements">
-            <div class="category-text">EMAIL</div>
-          </div>
+          <div class="category-text">EMAIL</div>
         </th>
 
         <th>
-          <div class="address-elements">
-            <div class="category-text">ADDRESS</div>
-          </div>
+          <div class="category-text">ADDRESS</div>
         </th>
 
 
 
         <th>
-          <div class="last-visit-elements">
-            <div class="category-text">LAST VISIT</div>
-          </div>
+          <div class="category-text">LAST VISIT</div>
         </th>
 
         <th>
-          <div class="last-treatment-elements">
-            <div class="category-text">LAST TREATMENT</div>
-          </div>
+          <div class="category-text">LAST TREATMENT</div>
+        </th>
+
+        <th>
+          <div class="category-text">STATUS</div>
         </th>
 
       </tr>
@@ -128,11 +120,11 @@
           <a class="name" onclick="window.location.href='/patient-information/{{{id}}}'">
             {{firstName}} {{lastName}}</a>
         </td>
-      
+
         <td>
           <a onclick="window.location.href='/patient-information/{{{id}}}'" class="phone">{{{contact}}}</a>
         </td>
-       
+
         <td>
           <a onclick="window.location.href='/patient-information/{{{id}}}'" class="email">{{{email}}}</a>
         </td>
@@ -147,6 +139,10 @@
 
         <td>
           <div class="treatment">{{{latestProcedure}}}</div>
+        </td>
+
+        <td>
+          <div class="status">{{{isActive}}}</div>
         </td>
 
       </tr>

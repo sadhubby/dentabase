@@ -1,22 +1,34 @@
-// Get the button and the checkbox
+
+
+// Get the elements
 const deactivateButton = document.getElementById('deactivate-patient-button');
 const toggleCheckbox = document.getElementById('deactivate-patient-toggle');
+const nameGroup = document.getElementById('name-group');
 
-// Function to toggle the button state
+// Function to toggle the button and name group state
 function toggleButtonState() {
     if (toggleCheckbox.checked) {
-        // Change to Reactivate
+        // Update button to "Reactivate"
         deactivateButton.textContent = "Reactivate";
-        deactivateButton.style.backgroundColor = "gray"; // Change background to gray
+        deactivateButton.style.backgroundColor = "rgb(2, 158, 9)";
+        
+        // Add gray-out effect to the name group
+        nameGroup.classList.add('grayed-out');
     } else {
-        // Change to Deactivate
+        // Update button to "Deactivate"
         deactivateButton.textContent = "Deactivate";
-        deactivateButton.style.backgroundColor = "#db2424"; // Reset to the original red color
+        deactivateButton.style.backgroundColor = "#db2424";
+        
+        // Remove gray-out effect from the name group
+        nameGroup.classList.remove('grayed-out');
     }
 }
 
 // Listen for changes in the checkbox (toggle state)
 toggleCheckbox.addEventListener('change', toggleButtonState);
 
-// Initialize the button state when the page loads (in case it's already checked)
+// Initialize the button and name group state when the page loads
 toggleButtonState();
+
+
+//==================================================================
