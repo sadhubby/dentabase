@@ -114,7 +114,9 @@
         </th>
 
         <th>
-            <div class="category-text">TREATMENT</div>
+          <div class="last-treatment-elements">
+            <div class="category-text">SERVICE</div>
+          </div>
         </th>
 
       </tr>
@@ -123,7 +125,7 @@
 
 
     <!-- `PATIENT LIST-->
-    <tbody>
+  <tbody>
   {{#if patients.length}}
     {{#each patients}}
     <tr>
@@ -135,14 +137,17 @@
       </td>
       
       <td>
-        <div class="name" onclick="window.location.href='/patient-information/{{id}}'" style="cursor: pointer;">
+        <div class="name" 
+            {{#if id}} 
+            onclick="window.location.href='/patient-information/{{id}}'" 
+            style="cursor: pointer;" 
+            {{/if}}>
           {{firstName}} {{lastName}}
         </div>
       </td>
       
       <td>
-         <input type="text" class="phone sched-text" value="{{contact}}" />
-        
+        <input type="text" class="phone sched-text" value="{{contact}}" />
       </td>
       
       <td>
@@ -156,7 +161,6 @@
       <td>
         <div class="treatment sched-text">{{latestProcedure}}</div>
       </td>
-    
     </tr>
     {{/each}}
   {{else}}

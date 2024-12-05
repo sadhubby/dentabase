@@ -1,6 +1,6 @@
 /* +FRAME 2 */
 .services-frame2 .indicator-line {
-  width: 11rem; /* Full width for the indicator line */
+  width: 9.5rem; /* Full width for the indicator line */
   height: 2px; /* Adjust height for visibility */
   background-color: #485fe7;; /* Color for the indicator line (you can change this) */
   margin-top: -4px; /* Space between the title group and the indicator line */
@@ -68,7 +68,7 @@
 .services-file .buttons-group {
     display: flex;
     align-items: center;
-    margin-right: 1%;
+    justify-content: flex-end;
 }
 
 .services-file .divider {
@@ -82,6 +82,7 @@
 .services-file .button {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
     border-radius: 6.85px;
     
@@ -100,112 +101,6 @@
     cursor: pointer;
 }
 
-/* Wrapper for the filter button and dropdown */
-.services-file .filter-elements {
- position: relative;
-    display: inline-flex;
-    align-items: center;
-    padding: 9.59px 4.8px;
-    width: 80px;
-    background-color: #485fe796;
-    height: 41.12px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* Hover effect for filter button */
-.services-file .filter-elements:hover {
-    background-color: #7789f396;
-}
-
-/* Filter button styling */
-.services-file .filter-text {
-    background-color: transparent;
-    color: white;
-    padding: 0px 10px 0px 0px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Icon styles */
-.services-file .icon-filter {
-    width: 18px;
-    height: 18px;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-
-/* Dropdown content (hidden by default) */
-.services-file .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    /* Place dropdown below the button */
-    left: 0;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    z-index: 1;
-}
-
-/* Dropdown items */
-.services-file .dropdown-content a {
-    color: black;
-    padding: 10px 16px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #f3f3f3;
-}
-
-/* Last item without border */
-.services-file .dropdown-content a:last-child {
-    border-bottom: none;
-}
-
-/* Change color on hover */
-.services-file .dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show the dropdown menu on button click */
-.services-file .filter-elements:focus-within .dropdown-content {
-    display: block;
-}
-
-
-.services-file .edit-elements {
-    width: 69.9px;
-    height: 41.12px;
-    padding: 8.22px;
-    background-color: #bcbcbc;
-}
-
-.services-file .trash-elements {
-    width: 81.55px;
-    height: 41.12px;
-    padding: 8.22px;
-    background-color: #e7484a96;
-}
-
-/* Icon styles */
-.services-file .icon-filter {
-    position: relative;
-    width: 20px; /* Default icon width */
-    height: 20px; /* Default icon height */
-}
-
-.services-file .icon-add {
-    width: 15.05px;
-    height: 15.49px;
-}
-
-.services-file .icon-edit {
-    width: 20.07px;
-    height: 20.07px;
-}
 
 .services-file .icon-trash {
     width: 17.85px;
@@ -433,6 +328,19 @@
     color: #00000080;
     font-size: 16.4px;
     line-height: normal;
+}
+
+
+
+.services-file .save-change-button {
+    width: 8rem;
+    height: 41.12px;
+    padding: 11.65px 6.85px;
+    background-color: #485fe7;
+    cursor: pointer;
+   
+    border: white;
+   
 }
 
 

@@ -31,6 +31,7 @@ app.use(express.static('public'));
 //file transfers
 const path = require('path');
 const multer = require('multer');
+const nonpatient = require('../models/nonpatient.js');
 
 // function copyFile(src){
 //     let destDir = path.join(__dirname, '../../public/patientPic');
@@ -655,40 +656,90 @@ router.get("/deactivate-patient", (req, res) => {
 })
 
 //also applies to get"/"
+// router.get("/to-do", async (req, res) => {
+//     try {
+        
+//         const page = parseInt(req.query.page) || 0;
+
+//         const today = new Date();
+//         today.setHours(0, 0, 0, 0); //start of today if you see in console its like a day before, thats normal, just adjusting to our timezone
+//         const targetDate = new Date(today);
+//         targetDate.setDate(today.getDate() + page); //adjust target date by page offset. so like today is page 0, the next day is page = 1
+
+//         //define the start and end of the day for the target date
+//         const startOfDay = new Date(targetDate);
+//         const endOfDay = new Date(targetDate);
+//         endOfDay.setHours(23, 59, 59, 999); // end of target date day
+
+//         console.log("Start of day:", startOfDay);
+//         console.log("End of day:", endOfDay);
+
+//         //query patients with appointments on the target date day
+//         const patients = await Patient.find({
+//             isActive: true,
+//             effectiveDate: {
+//                 //essentially says from start to end of day si effective date. so long a withing (impossible outside), allowed.
+//                 $gte: startOfDay, 
+//                 $lt: endOfDay,    
+//             },
+//         }).populate({
+//             path: "treatments",
+//             select: "procedure",
+//         });
+
+//         console.log("Patients fetched for target date:", patients);
+
+//         //format the patient data 
+//         patients.forEach(patient => {
+//             if (patient.effectiveDate) {
+//                 const date = new Date(patient.effectiveDate);
+//                 patient.formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+//             } else {
+//                 patient.formattedTime = "N/A";
+//             }
+//         });
+
+//         res.render("B_Todo", {
+//             patients, //all patient information, just select accordingly at handlebars
+//             appointmentCount: patients.length, //count of patients with appointments day of
+//             dateDisplay: startOfDay.toDateString(), //date to be passed into B_Todo
+//             page, //page number
+//         });
+//     } catch (error) {
+//         console.error("Error fetching appointments:", error);
+//         res.status(500).send("Error retrieving patient data.");
+//     }
+// });
+
 router.get("/to-do", async (req, res) => {
     try {
-        
         const page = parseInt(req.query.page) || 0;
 
         const today = new Date();
-        today.setHours(0, 0, 0, 0); //start of today if you see in console its like a day before, thats normal, just adjusting to our timezone
+        today.setHours(0, 0, 0, 0); //start of today
         const targetDate = new Date(today);
-        targetDate.setDate(today.getDate() + page); //adjust target date by page offset. so like today is page 0, the next day is page = 1
+        targetDate.setDate(today.getDate() + page); //adjust by page offset
 
-        //define the start and end of the day for the target date
+        //start and end time of date, adjusting for timezone
         const startOfDay = new Date(targetDate);
         const endOfDay = new Date(targetDate);
-        endOfDay.setHours(23, 59, 59, 999); // end of target date day
+        endOfDay.setHours(23, 59, 59, 999);
 
-        console.log("Start of day:", startOfDay);
-        console.log("End of day:", endOfDay);
-
-        //query patients with appointments on the target date day
+        //fetch from patient model given isActive and the effective date
         const patients = await Patient.find({
             isActive: true,
-            effectiveDate: {
-                //essentially says from start to end of day si effective date. so long a withing (impossible outside), allowed.
-                $gte: startOfDay, 
-                $lt: endOfDay,    
-            },
+            effectiveDate: { $gte: startOfDay, $lt: endOfDay },
         }).populate({
             path: "treatments",
             select: "procedure",
         });
 
-        console.log("Patients fetched for target date:", patients);
+        //fetch non-patients with appointments target date
+        const nonPatients = await nonpatient.find({
+            effectiveDate: { $gte: startOfDay, $lt: endOfDay },
+        });
 
-        //format the patient data 
+        //format patient data
         patients.forEach(patient => {
             if (patient.effectiveDate) {
                 const date = new Date(patient.effectiveDate);
@@ -698,18 +749,33 @@ router.get("/to-do", async (req, res) => {
             }
         });
 
+        //format non-patient data to match the structure of patient data
+        const formattedNonPatients = nonPatients.map(nonPatient => ({
+            id: null, // Non-patients won't have an ID
+            firstName: nonPatient.name.split(' ')[0] || "N/A",
+            lastName: nonPatient.name.split(' ').slice(1).join(' ') || "N/A",
+            contact: "N/A",
+            email: nonPatient.email,
+            formattedTime: nonPatient.startTime
+                ? `${new Date(nonPatient.startTime).getHours().toString().padStart(2, '0')}:${new Date(nonPatient.startTime).getMinutes().toString().padStart(2, '0')}`
+                : "N/A",
+            latestProcedure: "One-Time Appointment", // service label
+        }));
+
+        //combine patients and non-patients
+        const allAppointments = [...patients, ...formattedNonPatients];
+
         res.render("B_Todo", {
-            patients, //all patient information, just select accordingly at handlebars
-            appointmentCount: patients.length, //count of patients with appointments day of
-            dateDisplay: startOfDay.toDateString(), //date to be passed into B_Todo
-            page, //page number
+            patients: allAppointments,
+            appointmentCount: allAppointments.length,
+            dateDisplay: startOfDay.toDateString(),
+            page,
         });
     } catch (error) {
         console.error("Error fetching appointments:", error);
-        res.status(500).send("Error retrieving patient data.");
+        res.status(500).send("Error retrieving appointment data.");
     }
 });
-
 
 
 
