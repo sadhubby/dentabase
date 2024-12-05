@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevDateBtn = document.getElementById('prev-date-btn');
     const nextDateBtn = document.getElementById('next-date-btn');
 
-    let currentPage = 0; // Tracks the current page offset (0 = today, -1 = yesterday, etc.)
+    let currentPage = 0; //offset of pages. 0 = today
 
     async function fetchAppointments(page) {
         try {
@@ -33,18 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const html = await response.text();
     
-            // Parse the returned HTML to update the DOM
+            //parse the returned HTML to update the DOM
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
     
-            // Update the appointments container
+            //update the appointments container
             const newAppointmentsContainer = doc.querySelector("tbody");
             if (newAppointmentsContainer) {
                 const currentAppointmentsContainer = document.querySelector("tbody");
                 currentAppointmentsContainer.innerHTML = newAppointmentsContainer.innerHTML;
             }
     
-            // Update the date display
+            //update date display
             const newDateDisplay = doc.getElementById("date-display");
             if (newDateDisplay) {
                 const dateDisplay = document.getElementById("date-display");
@@ -66,20 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
 
-    // Previous Date Button Click
+    //prev-Date btn click
     prevDateBtn.addEventListener('click', () => {
         currentPage--; // Move to the previous page (day)
         console.log("Previous button clicked, current page:", currentPage);
         fetchAppointments(currentPage); // Fetch appointments for the new page
     });
 
-    // Next Date Button Click
+    //next-Date btn click
     nextDateBtn.addEventListener('click', () => {
         currentPage++; // Move to the next page (day)
         console.log("Next button clicked, current page:", currentPage);
         fetchAppointments(currentPage); // Fetch appointments for the new page
     });
 
-    // Fetch today's appointments on page load
+    //load appointments on current
     fetchAppointments(currentPage);
 });
