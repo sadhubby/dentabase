@@ -14,7 +14,7 @@ document.getElementById('login-button').addEventListener('click', async () => {
         if (response.ok) {
             const message = await response.text(); 
             loginMessage.style.color = 'green';
-            loginMessage.textContent = message; 
+            loginMessage.textContent = "Login Successful";
             setTimeout(() => {
                 window.location.href = '/to-do';
             }, 1000);

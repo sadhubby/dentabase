@@ -42,6 +42,19 @@ server.engine('hbs', handlebars.engine({
     }
 }));
 
+// //helper function for authetnthication
+
+
+server.use((req, res, next) => {
+    const publicRoutes = ['/login', '/css/A_LoginPage.css', '/img/logo-better-smiles.svg']; 
+    if (publicRoutes.includes(req.path) || req.session.isAuthenticated) {
+        return next(); 
+    }
+    res.redirect('/login'); 
+});
+server.use('/css', functions.isAuthenticated, express.static(path.join(__dirname, '/css')));
+server.use('/js', functions.isAuthenticated, express.static(path.join(__dirname, '/js')));
+server.use('/img', functions.isAuthenticated, express.static(path.join(__dirname, '/img')));
 //"C:\Users\joaqu\Pictures\kk.jpg"
 
 server.use(router);
@@ -502,4 +515,12 @@ const hbs = handlebars.create({
 //   // console.log("Total Earned for Month: " + monthStats[0] + ", Num of Appointments:  " + monthStats[1]);
 // }
 
+// const bcrypt = require('bcrypt');
 
+//  const plainTextPassword = "dentabase"; // Replace with your shared password
+//     bcrypt.hash(plainTextPassword, 10, (err, hash) => {
+//     if (err) {
+//         console.error('Error hashing password:', err);
+//     } else {
+//         console.log('Hashed password:', hash);
+//     }});

@@ -712,7 +712,10 @@ router.get("/deactivate-patient", (req, res) => {
 // });
 
 router.get("/to-do", async (req, res) => {
-    try {
+    if (!req.session.isAuthenticated) {
+        return res.redirect('/login'); // Redirect to login if not authenticated
+    }
+    try {   
         const page = parseInt(req.query.page) || 0;
 
         const today = new Date();
@@ -987,7 +990,7 @@ router.post('/non-patient-appointment', async (req, res) => {
     }
 });
 
-router.get('/api/unique-services', async (req, res) => {
+router.get('/api/unique-services', Functions.isAuthenticated, async (req, res) => {
     try {
         const services = await Service.distinct('service');
         res.json(services);
@@ -997,7 +1000,7 @@ router.get('/api/unique-services', async (req, res) => {
     }
 });
 
-router.get('/api/patients-by-service', async (req, res) => {
+router.get('/api/patients-by-service', Functions.isAuthenticated, async (req, res) => {
     try {
         const { service, sortOrder, statusSort } = req.query;
 
@@ -1145,20 +1148,16 @@ router.post("/appointments", async (req, res) => {
 //     }
 // });
 
-
-
-
-
-
 router.get("/report", (req,res) =>{
     res.render("E_Report");
 });
 
 
-
-
 router.get('/login', (req, res) => {
-    res.render('A_LoginPage'); 
+    if (req.session.isAuthenticated) {
+        return res.redirect('/to-do');
+    }
+    res.render('A_LoginPage');
 });
 
 router.post('/login', async (req, res) => {
@@ -1168,9 +1167,10 @@ router.post('/login', async (req, res) => {
         const sharedHash = process.env.SHARED_PASSWORD_HASH;
 
         const isMatch = await bcrypt.compare(password, sharedHash);
-
+        console.log(isMatch);
         if (isMatch) {
-            res.status(200).send('Login successful!');
+            req.session.isAuthenticated = true;
+            res.redirect("/");
         } else {
             res.status(400).send('Invalid password');
         }
@@ -1179,6 +1179,12 @@ router.post('/login', async (req, res) => {
         res.status(500).send('An error occurred');
     }
 });
-
+// router.use((req, res, next) => {
+//     const publicRoutes = ['/login']; 
+//     if (publicRoutes.includes(req.path) || req.session.isAuthenticated) {
+//         return next();
+//     }
+//     res.redirect('/login'); 
+// });
 
 module.exports = router;
