@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Extract form data
         const name = document.getElementById('patient-name')?.value?.trim();
         const email = document.getElementById('email-todo')?.value?.trim();
-        const phone = document.getElementById('phone-number')?.value?.trim();
+        const contact = document.getElementById('phone-number')?.value?.trim();
         const effectiveDate = document.getElementById('date').value;
         const startTime = document.getElementById('start-time').value;
 
-        if (!effectiveDate || !startTime || (!isPatientPage && (!name || !email))) {
+        if (!effectiveDate || !startTime || (!isPatientPage && (!name || !email || !contact))) {
             alert('Please fill in all the required fields.');
             return;
         }
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('/non-patient-appointment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, effectiveDate, startTime }),
+                    body: JSON.stringify({ name, email, contact, effectiveDate, startTime }),
                 });
 
                 if (response.ok) {

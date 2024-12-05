@@ -741,7 +741,7 @@ router.get("/to-do", async (req, res) => {
             id: null, // Non-patients won't have an ID
             firstName: nonPatient.name.split(' ')[0] || "N/A",
             lastName: nonPatient.name.split(' ').slice(1).join(' ') || "N/A",
-            contact: "N/A",
+            contact: nonPatient.contact || "N/A",
             email: nonPatient.email,
             formattedTime: nonPatient.startTime
                 ? `${new Date(nonPatient.startTime).getHours().toString().padStart(2, '0')}:${new Date(nonPatient.startTime).getMinutes().toString().padStart(2, '0')}`
@@ -948,10 +948,10 @@ router.post('/update-effective-date', async (req, res) => {
 
 router.post('/non-patient-appointment', async (req, res) => {
     try {
-        const { name, email, effectiveDate, startTime } = req.body;
+        const { name, email, contact, effectiveDate, startTime } = req.body;
 
         // Validate required fields
-        if (!name || !email || !effectiveDate || !startTime) {
+        if (!name || !email || !contact || !effectiveDate || !startTime) {
             return res.status(400).json({ message: 'All fields are required for a non-patient appointment.' });
         }
 
@@ -959,6 +959,7 @@ router.post('/non-patient-appointment', async (req, res) => {
         const appointmentStart = new Date(`${effectiveDate}T${startTime}`);
         const nonPatientAppointment = new NonPatient({
             name,
+            contact,
             email,
             effectiveDate: appointmentStart,
             startTime: appointmentStart,
