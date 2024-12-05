@@ -148,7 +148,12 @@
     width: 81.55px;
     height: 41.12px;
     padding: 8.22px;
-    background-color: #e7484a96;
+    background-color: #e20c1096;
+}
+
+.todo-file .trash-elements:hover {
+   cursor: pointer;
+    background-color: #b4070a96;
 }
 
 /* Icon styles */

@@ -39,12 +39,12 @@ async function loadServices() {
 async function applyFilters() {
     const treatmentType = document.getElementById("treatmentType").value;
     const sortOrder = document.getElementById("patientNameSort").value;
-    const lastVisitSort = document.getElementById("lastVisitSort").value;
+    const statusSort = document.getElementById("StatusSort").value;
 
     const query = new URLSearchParams();
     if (treatmentType) query.append('service', treatmentType);
     if (sortOrder) query.append('sortOrder', sortOrder);
-    if (lastVisitSort) query.append('lastVisitSort', lastVisitSort);
+    if (statusSort) query.append('statusSort', statusSort);
 
     try {
         const response = await fetch(`/api/patients-by-service?${query.toString()}`);

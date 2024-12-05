@@ -985,7 +985,7 @@ router.get('/api/unique-services', async (req, res) => {
 
 router.get('/api/patients-by-service', async (req, res) => {
     try {
-        const { service, sortOrder, lastVisitSort } = req.query;
+        const { service, sortOrder, statusSort } = req.query;
 
         let patients = await Patient.find().populate('treatments').exec();
 
@@ -1000,21 +1000,10 @@ router.get('/api/patients-by-service', async (req, res) => {
             });
         }
 
-        // Filter by last visit (within 6 months or more than 6 months)
-        if (lastVisitSort) {
-            const currentDate = new Date();
-            const sixMonthsAgo = new Date();
-            sixMonthsAgo.setMonth(currentDate.getMonth() - 6);
-
-            patients = patients.filter(patient => {
-                if (patient.treatments.length > 0) {
-                    const lastVisitDate = new Date(Math.max(...patient.treatments.map(t => new Date(t.date))));
-                    return lastVisitSort === 'recent'
-                        ? lastVisitDate >= sixMonthsAgo && lastVisitDate <= currentDate // Within 6 months
-                        : lastVisitDate < sixMonthsAgo; // Older than 6 months
-                }
-                return false;
-            });
+        // Filter patients by status (active/inactive)
+        if (statusSort) {
+            const isActiveFilter = statusSort === 'true';  
+            patients = patients.filter(patient => patient.isActive === isActiveFilter);
         }
 
         // Sort patients by name if specified
@@ -1035,7 +1024,8 @@ router.get('/api/patients-by-service', async (req, res) => {
                 : 'N/A',
             lastProcedure: patient.treatments.length > 0
                 ? patient.treatments.sort((a, b) => new Date(b.date) - new Date(a.date))[0].procedure
-                : 'N/A'
+                : 'N/A',
+            isActive: patient.isActive,
         }));
 
         res.json({ message: "Patients fetched successfully", patients: formattedPatients });
@@ -1044,6 +1034,7 @@ router.get('/api/patients-by-service', async (req, res) => {
         res.status(500).send('Error fetching patients');
     }
 });
+
 
 router.post("/update-medical-history", async function(req, res){
     try{
