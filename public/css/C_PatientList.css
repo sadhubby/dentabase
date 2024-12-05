@@ -354,7 +354,8 @@
 .patient-list-file td:hover .address,
 .patient-list-file td:hover .registered-date,
 .patient-list-file td:hover .next-visit,
-.patient-list-file td:hover .treatment {
+.patient-list-file td:hover .treatment,
+.patient-list-file td:hover .status {
     white-space: normal;
     /* Allows text to wrap */
     overflow: visible;

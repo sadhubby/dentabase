@@ -124,6 +124,20 @@
     background-color: #ffffff;
 }
 
+.patient-info-file .name-group.grayed-out {
+    color: gray;
+    opacity: 1;
+}
+
+.patient-info-file .deactivate-patient-elements #deactivate-patient-button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+
 .patient-info-file .name-group {
     margin-left: 0.5rem;
     font-size: 25px;
@@ -131,6 +145,7 @@
     font-weight: bold;
     /* Additional styling for name-group if needed */
 }
+
 
 .patient-info-file .buttons-group {
     display: flex;
@@ -198,7 +213,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 110px;
+    width: 105px;
     height: 41.12px;
     
     border-radius: 6.85px; /* Rounded corners like Add To Do button */
@@ -228,7 +243,7 @@
 
 /* Toggled (checked) state for Reactivate */
 .toggle-button:checked + #deactivate-patient-button {
-    background-color: gray; /* Change to gray for Reactivate */
+    background-color: rgb(2, 158, 9); /* Change to gray for Reactivate */
     color: white;
 }
 
@@ -239,7 +254,7 @@
 
 /* Optionally, change text color when toggled */
 .toggle-button:checked + #deactivate-patient-button {
-    background-color: #888; /* Update background color for Reactivate */
+    background-color: rgb(0, 114, 6); /* Update background color for Reactivate */
 }
 
 
