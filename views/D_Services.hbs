@@ -44,17 +44,17 @@
         <div class="buttons-group">
             <div class="button create-treatment-elements" id="add-service">
                 <img class="icon icon-add" src="/img/icon-add.svg" />
-                <div class="text-buttons add-treatment-text" >Add Service</div>
-            </div>        
+                <div class="text-buttons add-treatment-text">Add Service</div>
+            </div>
 
         </div>
 
-        
+
 
     </div>
     <!--`END SCHEDULE GROUP-->
 
-{{>D_Services_form}}
+    {{>D_Services_form}}
 
 
 
@@ -90,6 +90,9 @@
 
 
         <!-- `TREATMENT LIST-->
+
+
+
         <tbody>
 
             <!-- #each treatment_patient -->
@@ -98,8 +101,9 @@
             <tr>
 
                 <td>
-                    <input type="text" class="name service-text" onclick="window.location.href='/patient-information/{{{id}}}'" value="  {{{service}}}">
-                     </input>
+                    <input type="text" class="name service-text"
+                        onclick="window.location.href='/patient-information/{{{id}}}'" value="  {{{service}}}">
+                    </input>
                 </td>
                 <td>
 
@@ -116,11 +120,18 @@
             <!--  /each -->
 
         </tbody>
+
+
+
     </table>
+
     <!-- `END TREATMENT LIST-->
+    <form>
 
-
-
+        <div class="buttons-group">
+            <button type="submit" class="save-change-button button">Save Changes</button>
+        </div>
+    </form>
 
 
 
