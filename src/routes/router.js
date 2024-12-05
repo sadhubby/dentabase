@@ -417,15 +417,6 @@ router.post('/edit-footnote', async function(req, res){
     }
 })
 
-router.post('/services', async (req, res) => {
-    const { serviceName, price, type } = req.body;
-    try {
-        const newService = await createService(serviceName, price, type);
-        res.status(201).json(newService);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
 
 router.post('/deactivate-patient', async(req, res) =>{
     try{
@@ -436,10 +427,31 @@ router.post('/deactivate-patient', async(req, res) =>{
     }
 });
 
+router.post('/services', async (req, res) => {
+    const { serviceName, price, type } = req.body;
+
+    try {
+        const result = await Service.findOneAndUpdate(
+            { service: serviceName },
+            { $setOnInsert: { service: serviceName, price, type } },
+            { upsert: true, new: true }
+        );
+
+        if (result.service === serviceName) {
+            res.json(result);
+        } else {
+            res.status(400).json({ message: 'Service creation failed' });
+        }
+    } catch (error) {
+        console.error('Error creating service:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 router.get('/services/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const service = await readService(id);
+        const service = await Functions.readService(id);
         res.status(200).json(service);
     } catch (error) {
         res.status(404).json({ message: error.message });
@@ -450,12 +462,13 @@ router.put('/services/:id', async (req, res) => {
     const { id } = req.params;
     const updates = req.body;
     try {
-        const updatedService = await updateService(id, updates);
+        const updatedService = await Functions.updateService(id, updates);
         res.status(200).json(updatedService);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
 });
+
 
 router.post("/fill-consent", async(req, res) => {
     try{
