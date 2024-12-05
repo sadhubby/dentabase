@@ -919,22 +919,46 @@ router.get('/api/unique-services', async (req, res) => {
 
 router.get('/api/patients-by-service', async (req, res) => {
     try {
-        const { service, sortOrder } = req.query;
+        const { service, sortOrder, lastVisitSort } = req.query;
 
         let patients = await Patient.find().populate('treatments').exec();
 
+        // Filter patients by service if specified
         if (service && service !== 'All') {
-            patients = patients.filter(patient =>
-                patient.treatments.some(treatment => treatment.procedure === service)
-            );
+            patients = patients.filter(patient => {
+                if (patient.treatments.length > 0) {
+                    const latestTreatment = patient.treatments.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+                    return latestTreatment.procedure === service;
+                }
+                return false;
+            });
         }
 
+        // Filter by last visit (within 6 months or more than 6 months)
+        if (lastVisitSort) {
+            const currentDate = new Date();
+            const sixMonthsAgo = new Date();
+            sixMonthsAgo.setMonth(currentDate.getMonth() - 6);
+
+            patients = patients.filter(patient => {
+                if (patient.treatments.length > 0) {
+                    const lastVisitDate = new Date(Math.max(...patient.treatments.map(t => new Date(t.date))));
+                    return lastVisitSort === 'recent'
+                        ? lastVisitDate >= sixMonthsAgo && lastVisitDate <= currentDate // Within 6 months
+                        : lastVisitDate < sixMonthsAgo; // Older than 6 months
+                }
+                return false;
+            });
+        }
+
+        // Sort patients by name if specified
         if (sortOrder === 'A-Z') {
             patients.sort((a, b) => a.firstName.localeCompare(b.firstName));
         } else if (sortOrder === 'Z-A') {
             patients.sort((a, b) => b.firstName.localeCompare(a.firstName));
         }
 
+        // Format the patient data for the response
         const formattedPatients = patients.map(patient => ({
             name: `${patient.firstName} ${patient.lastName}`,
             phone: patient.contact || 'N/A',
@@ -954,7 +978,6 @@ router.get('/api/patients-by-service', async (req, res) => {
         res.status(500).send('Error fetching patients');
     }
 });
-
 
 router.post("/update-medical-history", async function(req, res){
     try{
