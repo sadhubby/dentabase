@@ -33,6 +33,7 @@ const path = require('path');
 const multer = require('multer');
 const nonpatient = require('../models/nonpatient.js');
 
+
 // function copyFile(src){
 //     let destDir = path.join(__dirname, '../../public/patientPic');
 //     let fileName = path.basename(src);
@@ -712,9 +713,12 @@ router.get("/deactivate-patient", (req, res) => {
 // });
 
 router.get("/to-do", async (req, res) => {
+    const isAuthenticated = !!req.session.isAuthenticated;
+
     if (!req.session.isAuthenticated) {
-        return res.redirect('/login'); // Redirect to login if not authenticated
+        return res.redirect('/login'); //redirect to login if not authenticated
     }
+    
     try {   
         const page = parseInt(req.query.page) || 0;
 
@@ -772,7 +776,7 @@ router.get("/to-do", async (req, res) => {
             patients: allAppointments,
             appointmentCount: allAppointments.length,
             dateDisplay: startOfDay.toDateString(),
-            page,
+            page, isAuthenticated
         });
     } catch (error) {
         console.error("Error fetching appointments:", error);
@@ -1154,10 +1158,11 @@ router.get("/report", (req,res) =>{
 
 
 router.get('/login', (req, res) => {
+    const isAuthenticated = !!req.session.isAuthenticated;
     if (req.session.isAuthenticated) {
         return res.redirect('/to-do');
     }
-    res.render('A_LoginPage');
+    res.render('A_LoginPage', { isAuthenticated });
 });
 
 router.post('/login', async (req, res) => {
@@ -1177,6 +1182,7 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         console.error('Error during login:', error);
         res.status(500).send('An error occurred');
+        
     }
 });
 // router.use((req, res, next) => {
