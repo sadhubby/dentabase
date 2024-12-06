@@ -113,8 +113,8 @@
     font-size: 16px; /* Consistent font size */
     border: none;
     cursor: pointer;
-    background-color: #777; /* Primary button color */
-    color: white;/* White text for better contrast */
+   background-color: #e0e0e0;
+    color: #777;
     border-radius: 4px; /* Rounded corners for buttons */
     transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
     
@@ -133,7 +133,7 @@
 }
 
 #cancelBtn:hover { 
-    background-color: #5a6268;
+    background-color: #d0d0d0;
     color: #fff;
 }
 

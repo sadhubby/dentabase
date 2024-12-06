@@ -641,7 +641,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Space between radio buttons */
+    
 }
 
 .patient-info-file .medical-questions-section .radio-label {
@@ -791,6 +791,18 @@
 .patient-info-file .dental-chart-text {
     margin-left: 1rem;
 }
+
+
+
+.patient-info-file .add-picture-elements{
+background-color: #000;
+justify-content: center;
+margin-right: 1%;
+}
+
+
+
+
 
 .patient-info-file .dental-chart-container {
     padding: 20px;

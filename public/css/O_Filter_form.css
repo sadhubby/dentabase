@@ -114,14 +114,22 @@
     transition: background-color 0.3s;
 }
 
-.filter-form-file button:hover {
-    background-color: #aaaaaa96;
+.filter-form-file button:nth-child(1) {
+ background-color: #e0e0e0;
+    color: #777;
+}
+
+.filter-form-file button:nth-child(1):hover {
+background-color: #d0d0d0;
+    color: #fff;
 }
 
 .filter-form-file button:nth-child(2) {
-    background-color: #007bff;
+   background-color: #278dfa; /* Primary button color */
+    color: white;/* White text for better contrast */
 }
 
 .filter-form-file button:nth-child(2):hover {
-    background-color: #007bff;
+        background-color: #007bff;
+    color: #fff;
 }
