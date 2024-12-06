@@ -167,7 +167,7 @@
     </a>
     {{/if}}
 
-    <span>Page {{currentPage}} of {{totalPages}}</span>
+    <div class="page-number">Page {{currentPage}} of {{totalPages}}</div>
 
     {{#if (lt currentPage totalPages)}}
     <a href="/patient_list?page={{add currentPage 1}}{{#if search}}&search={{search}}{{/if}}" class="next-button">
