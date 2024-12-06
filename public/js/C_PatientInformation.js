@@ -229,6 +229,70 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
 
     }
 
+    function validateNumbers(input) {
+        // Trim the input to remove extra spaces
+        const trimmedInput = input.trim();
+      
+        // Split the input string by commas
+        const numbers = trimmedInput.split(',');
+      
+        // Check each number
+        for (let num of numbers) {
+          // Trim each number in case of extra spaces
+          num = num.trim();
+      
+          // Check if it is a valid number and within the range
+          if (!/^\d+$/.test(num) || num < 1 || num > 32) {
+            return false;
+          }
+        }
+      
+        // If all numbers pass the checks, return true
+        return true;
+      }
+
+    $('#edit-treatment-record').on('submit', function(event){
+        event.preventDefault();
+        let numOfTreatments = document.getElementById('edit-treatment-record').dataset.id;
+        let rows = document.getElementById('treatment-table-body').querySelectorAll('tr');
+
+        let treatments = [];
+
+        if(numOfTreatments == 0){
+            return;
+        }
+
+        rows.forEach(row => {
+            if(!validateNumbers(row.querySelector('input[name="treatment-teeth"]').value)){
+                alert('Invalid Tooth No./s format. Numbers must be separated by comma.');
+                return;
+            }
+
+            const treatmentInstance = {
+                id: row.getAttribute('data-name'),
+                date: row.querySelector('input[name="treatment-date"]').value,
+                teethAffected: row.querySelector('input[name="treatment-teeth"]').value.split(","),
+                procedure: row.querySelector('input[name="treatment-procedure"]').value,
+                amountCharged: row.querySelector('input[name="treatment-amount-charged"]').value,
+                amountPaid: row.querySelector('input[name="treatment-amount-paid"]').value
+            };
+
+
+            treatments.push(treatmentInstance);
+        });
+
+        $.post(
+            '/update-treatments',
+            {
+                treatments: treatments
+            },
+            function(data){
+                alert(data.message);
+            }
+        );
+
+    });
+
     $('#update-medical-history-form').on('submit', function(event){
         event.preventDefault();
 
@@ -442,22 +506,25 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
                 nextAppointmentDate : nextAppointmentDate,
                 teethAffected : teethAffected
             },
-            function(){ //include status, success or fail
+            function(data){ //include status, success or fail
                 const teethString = teethAffected.join(', ');
+
                 const newRow = `
-                <tr>
-                    <td><div class="treatment-history-text">${procedureDate}</div></td>
-                    <td><div class="treatment-history-text">${teethString}</div></td>
-                    <td><div class="treatment-history-text">${procedureName}</div></td>
-                    <td><div class="treatment-history-text">${amountCharged}</div></td>
-                    <td><div class="treatment-history-text">${amountPaid}</div></td>
+                <tr data-name="${data.id}">
+                    <td><input type="date" class="treatment-history-text" value="${procedureDate}" name="treatment-date"/></td>
+                    <td><input type="text" class="treatment-history-text" value="${teethString}" name="treatment-teeth"/></td>
+                    <td><input type="text" class="treatment-history-text" value="${procedureName}" name="treatment-procedure"/></td>
+                    <td><input type="number" class="treatment-history-text" value="${amountCharged}" name="treatment-amount-charged"/></td>
+                    <td><input type="number" class="treatment-history-text" value="${amountPaid}" name="treatment-amount-paid"/></td>
                 </tr>
                 `;
 
                 $('#treatment-table-body').append(newRow);
 
+                $('#no-treatments').hide();
 
-                alert('Treatment recorded successfully.');
+
+                alert('Treatment recorded successfully.' + data.id);
             }
         );
     });
@@ -541,27 +608,7 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
             )
         });
 
-        function validateNumbers(input) {
-            // Trim the input to remove extra spaces
-            const trimmedInput = input.trim();
-          
-            // Split the input string by commas
-            const numbers = trimmedInput.split(',');
-          
-            // Check each number
-            for (let num of numbers) {
-              // Trim each number in case of extra spaces
-              num = num.trim();
-          
-              // Check if it is a valid number and within the range
-              if (!/^\d+$/.test(num) || num < 1 || num > 32) {
-                return false;
-              }
-            }
-          
-            // If all numbers pass the checks, return true
-            return true;
-          }
+
           
 
 
