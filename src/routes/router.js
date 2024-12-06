@@ -531,7 +531,7 @@ router.get("/patient-information/:id", async (req, res) => {
 
         let fullSex = patient.sex;
 
-        if(fullSex = "M"){
+        if(fullSex == "M"){
             fullSex = "Male";
         } else {
             fullSex = "Female";
@@ -637,6 +637,8 @@ try{
     } else {
         patientSex = 'F';
     }
+
+    console.log(patientSex);
 
     await Functions.updatePatientInfo(
             req.body.patientID,
