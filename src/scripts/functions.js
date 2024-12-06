@@ -204,7 +204,7 @@ async function updatePatientInfo(patientID, nickname,
 
 async function deactivatePatient(patientID){
     patientModel.findOne({id: patientID}).then(function(patient){
-        patient.isActive = false;
+        patient.isActive = !patient.isActive;
 
         patient.save().then(function(updated){
             console.log(updated.firstName + " patient deactivated");
