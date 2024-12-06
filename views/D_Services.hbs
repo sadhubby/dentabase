@@ -98,16 +98,13 @@
             <!-- #each treatment_patient -->
             {{#each services}}
 
-            <tr>
+            <tr data-id="{{_id}}">
 
                 <td>
-                    <input type="text" class="name service-text"
-                        onclick="window.location.href='/patient-information/{{{id}}}'" value="  {{{service}}}">
-                    </input>
+                    <input type="text" class="name service-text" value="  {{{service}}}"></input>
                 </td>
                 <td>
-
-                    <input type="text" class="phone service-text" value="{{{price}}}"></input>
+                    <input type="number" class="phone service-text" value="{{{price}}}"></input>
                 </td>
                 <td>
 
@@ -129,7 +126,7 @@
     <form>
 
         <div class="buttons-group">
-            <button type="submit" class="save-change-button button">Save Changes</button>
+            <button type="submit" id="save-changes" class="save-change-button button">Save Changes</button>
         </div>
     </form>
 

@@ -459,14 +459,15 @@ router.get('/services/:id', async (req, res) => {
     }
 });
 
-router.put('/services/:id', async (req, res) => {
-    const { id } = req.params;
-    const updates = req.body;
+router.put('/services/update-multiple', async (req, res) => {
+    const { updates } = req.body;
+
     try {
-        const updatedService = await Functions.updateService(id, updates);
-        res.status(200).json(updatedService);
+        const results = await Functions.updateMultipleServices(updates);
+        res.status(200).json({ message: 'Services updated successfully', results });
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        console.error('Error updating services:', error);
+        res.status(500).json({ message: 'Failed to update services' });
     }
 });
 

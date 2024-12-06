@@ -425,23 +425,20 @@ async function readService(serviceId) {
     }
 }
 
-async function updateService(serviceId, updates) {
+async function updateMultipleServices(updates) {
     try {
-        const updatedService = await serviceModel.findByIdAndUpdate(
-            serviceId,
-            updates,
-            { new: true, runValidators: true }
-        );
-        if (!updatedService) {
-            throw new Error('Service not found');
-        }
-        console.log('Service updated successfully:', updatedService);
-        return updatedService;
+        const updatePromises = updates.map(async (update) => {
+            const { id, ...fields } = update;
+            return await serviceModel.findByIdAndUpdate(id, fields, { new: true, runValidators: true });
+        });
+        const results = await Promise.all(updatePromises);
+        return results;
     } catch (error) {
-        console.error('Error updating service:', error);
+        console.error('Error updating multiple services:', error);
         throw error;
     }
 }
+
 async function isAuthenticated(req, res, next) {
     if (req.session.isAuthenticated) {
         return next(); // User is authenticated
@@ -469,7 +466,7 @@ module.exports = {
     setOrthoInactive,
     createService,
     readService,
-    updateService,
+    updateMultipleServices,
     isAuthenticated
 };
 
