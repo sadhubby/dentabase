@@ -45,11 +45,18 @@ async function createOrtho(patientID, service){
 
 async function setOrthoInactive(patientID, service){
     try{
-        let orth = await orthoModel.findOne({patientID : patientID, service: service});
+        console.log("id: " + patientID);
+        console.log("service: " + service);
+        let orth = await orthoModel.find({patientID : patientID, service: service});
 
-        orth.isActive = false;
 
-        await orth.save();
+        const promises = orth.map(async (orthoInstance) => {
+            orthoInstance.isActive = false;
+            await orthoInstance.save();
+        })
+
+
+        await Promise.all(promises);
 
         console.log("Successfully inactivated orthodontics.");
     } catch (error) {

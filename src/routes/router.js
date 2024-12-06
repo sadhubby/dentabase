@@ -99,7 +99,19 @@ router.post('/deactivate-ortho', async function(req, res){
         let orthos = req.body.orthos;
 
         await Promise.all(orthos.map(ortho => {
-            return Functions.setOrthoInactive(ortho[0], ortho.slice(1));
+            let firstPart;
+            let secondPart;
+            const spaceIndex = ortho.indexOf(' ');
+
+            if (spaceIndex === -1) {
+               firstPart = ortho;
+            }
+            firstPart = ortho.substring(0, spaceIndex);
+            secondPart = ortho.substring(spaceIndex + 1);
+
+
+
+            return Functions.setOrthoInactive(firstPart, secondPart);
         }));
 
         let count = await Ortho.countDocuments({isActive: true});
@@ -185,7 +197,14 @@ router.post('/create-treatment', function(req, res){
 
 router.get("/report", async (req, res) => {
     try{
-        let orthodontics = await Ortho.find({isActive: true});
+        let orthodontics = await Ortho.aggregate([
+            { $match: { isActive: true } },  // Filter for active records
+            { $group: { 
+                _id: { patientID: "$patientID", service: "$service" },  // Group by patientID and service
+                doc: { $first: "$$ROOT" }  // Keep the first document in each group
+            }},
+            { $replaceRoot: { newRoot: "$doc" } }  // Replace the root with the document itself
+          ]);
 
         for(let ortho of orthodontics){
             let patient = await Patient.findOne({id: ortho.patientID });
@@ -592,6 +611,7 @@ router.get("/patient-information/:id", async (req, res) => {
 
             //treatments
             treatments: patientTreatments,
+            treatmentsSize: patientTreatments.size,
 
             //pictures
             pictures : pictures,

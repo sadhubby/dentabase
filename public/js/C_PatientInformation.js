@@ -541,6 +541,29 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
             )
         });
 
+        function validateNumbers(input) {
+            // Trim the input to remove extra spaces
+            const trimmedInput = input.trim();
+          
+            // Split the input string by commas
+            const numbers = trimmedInput.split(',');
+          
+            // Check each number
+            for (let num of numbers) {
+              // Trim each number in case of extra spaces
+              num = num.trim();
+          
+              // Check if it is a valid number and within the range
+              if (!/^\d+$/.test(num) || num < 1 || num > 32) {
+                return false;
+              }
+            }
+          
+            // If all numbers pass the checks, return true
+            return true;
+          }
+          
+
 
         document.getElementById("deactivate-patient-button").addEventListener("click", function (){
             let patientID = document.getElementById("buttons-group-deactivate").getAttribute('data-id');

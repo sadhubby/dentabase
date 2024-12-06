@@ -80,11 +80,7 @@
                 <div class="button deactivate-patient-elements">
                     <input type="checkbox" id="deactivate-patient-toggle" class="toggle-button" />
                     <label for="deactivate-patient-toggle" id="deactivate-patient-button" class="text-buttons">
-                    {{#if isActive}}
-                    Deactivate
-                    {{else}}
-                    Reactivate
-                    {{/if}}
+                        Deactivate
                     </label>
                 </div>
 
@@ -723,6 +719,7 @@
     <!-- `PATIENT LIST-->
 <tbody id="treatment-table-body">
 
+    <div id="treatment-count" style="display: none;" data-id="{{treatmentsSize}}"/>
     <!-- each treatment_history_bar-->
     {{#each treatments}}
     <tr>
@@ -732,11 +729,17 @@
         </td>
 
         <td>
-            <input type="text" class="treatment-history-text" value="{{{teethAffected}}}" />
+            <input type="text" class="treatment-history-text" value="{{{teethAffected}}}" id="teeth{{{id}}}"/>
         </td>
 
         <td>
-            <input type="text" class="treatment-history-text" value="{{{procedure}}}" />
+            <select id="procedureName" name="procedureName" required>
+                <option value="{{{procedure}}}">Choose a procedure</option>
+                {{#each services}}
+                <option value="{{{service}}}">{{{service}}}</option>
+                {{/each}}
+                </select>
+            <input type="text" class="treatment-history-text" value="{{{procedure}}}"/>
         </td>
 
         <td>
