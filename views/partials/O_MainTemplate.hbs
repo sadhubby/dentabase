@@ -54,29 +54,36 @@
         });
     });
   document.querySelector('#logout-btn').addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent the default link behavior
+     const logoutButton = document.querySelector('#logout-btn a');
 
-    if (!isAuthenticated) {
-      alert('You are not logged in.');
-      return;
+    if (logoutButton) {
+        logoutButton.addEventListener('click', (event) => {
+            event.preventDefault(); 
+
+            if (!{{isAuthenticated}}) { 
+                alert('You are not logged in.');
+                return;
+            }
+
+            fetch('/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        alert('Thank you for using Dentabase.');
+                        window.location.href = '/login';
+                    } else {
+                        alert('Failed to log out. Please try again.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error logging out:', error);
+                    alert('An error occurred while logging out.');
+                });
+        });
     }
-    fetch('/logout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert('Thank you for using Dentabase.');
-          window.location.href = '/login';
-        } else {
-          alert('Failed to log out. Please try again.');
-        }
-      })
-      .catch((error) => {
-        console.error('Error logging out:', error);
-        alert('An error occurred while logging out.');
-      });
   });
 </script>

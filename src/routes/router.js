@@ -783,11 +783,12 @@ router.get("/to-do", async (req, res) => {
 
 
 router.get("/services",async (req,res) =>{
+    const isAuthenticated = !!req.session.isAuthenticated;
     try{
         let services = await Service.find();
         res.render("D_Services",{
             services: services,
-            serviceCount: services.length
+            serviceCount: services.length, isAuthenticated
         });
 
     } catch (error){
@@ -797,6 +798,7 @@ router.get("/services",async (req,res) =>{
 });
 
 router.get("/patient_list", async (req, res) => {
+    const isAuthenticated = !!req.session.isAuthenticated;
     try {
         const searchQuery = req.query.search || "";
         const page = parseInt(req.query.page) || 1; 
@@ -857,7 +859,8 @@ router.get("/patient_list", async (req, res) => {
             currentPage: page,
             totalPages: totalPages,
 
-            services: services
+            services: services,
+            isAuthenticated
         });
     } catch (error) {
         console.log("Error getting data", error);
@@ -1043,6 +1046,7 @@ router.get('/api/patients-by-service', Functions.isAuthenticated, async (req, re
 });
 
 router.get('/patient/:id', Functions.isAuthenticated, async (req, res) => {
+    
     try {
         const patientId = req.params.id;
         const id = Number(patientId); 
@@ -1125,7 +1129,8 @@ router.post("/appointments", async (req, res) => {
 
 
 router.get("/report", (req,res) =>{
-    res.render("E_Report");
+    const isAuthenticated = !!req.session.isAuthenticated;
+    res.render("E_Report", {isAuthenticated});
 });
 
 
