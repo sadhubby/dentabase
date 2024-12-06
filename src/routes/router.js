@@ -570,6 +570,8 @@ router.get("/patient-information/:id", async (req, res) => {
             consultation: patient.consultationReason,
             footnote: patient.footnote,
 
+            isActive: patient.isActive,
+
 
             //medicalHistory
             physician_name: medicalHistory ? medicalHistory.physicianName : "N/A",

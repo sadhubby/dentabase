@@ -80,7 +80,11 @@
                 <div class="button deactivate-patient-elements">
                     <input type="checkbox" id="deactivate-patient-toggle" class="toggle-button" />
                     <label for="deactivate-patient-toggle" id="deactivate-patient-button" class="text-buttons">
+                    {{#if isActive}}
                     Deactivate
+                    {{else}}
+                    Reactivate
+                    {{/if}}
                     </label>
                 </div>
 
