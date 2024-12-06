@@ -1061,6 +1061,7 @@ router.get('/api/patients-by-service', Functions.isAuthenticated, async (req, re
 
         // Format the patient data for the response
         const formattedPatients = patients.map(patient => ({
+            id: patient.id,
             name: `${patient.firstName} ${patient.lastName}`,
             phone: patient.contact || 'N/A',
             email: patient.email || 'N/A',
@@ -1081,6 +1082,35 @@ router.get('/api/patients-by-service', Functions.isAuthenticated, async (req, re
     }
 });
 
+router.get('/patient/:id', Functions.isAuthenticated, async (req, res) => {
+    try {
+        const patientId = req.params.id;
+        const id = Number(patientId); 
+        
+        const patient = await Patient.findOne({ id }).populate('treatments').exec();
+
+        if (!patient) {
+            return res.status(404).send("Patient not found");
+        }
+
+        const formattedPatient = {
+            name: `${patient.firstName} ${patient.lastName}`,
+            phone: patient.contact || 'N/A',
+            email: patient.email || 'N/A',
+            address: patient.homeAddress || 'N/A',
+            treatments: patient.treatments.map(treatment => ({
+                procedure: treatment.procedure,
+                date: new Date(treatment.date).toISOString()
+            })),
+            isActive: patient.isActive,
+        };
+
+        res.json({ message: "Patient information fetched successfully", patient: formattedPatient });
+    } catch (error) {
+        console.error("Error fetching patient information:", error);
+        res.status(500).send('Error fetching patient information');
+    }
+});
 
 router.post("/update-medical-history", async function(req, res){
     try{
