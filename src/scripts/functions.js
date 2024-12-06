@@ -346,21 +346,24 @@ async function createTreatment(patientID, date, teethAffected, procedure, dentis
     await patient.treatments.push(treatment._id);
 
     await patient.save();
+    return treatmentID;
 }
 
 async function updateTreatment(treatmentID, date, teethAffected, procedure, dentist, amountCharged
                                 , amountPaid, balance, status){
 
-    const treatment = await treatmentModel.findOne({ id: treatmentID });    
+    const treatment = await treatmentModel.findOne({ id: treatmentID });  
 
-     treatment.date = date;
-    treatment.teethAffected = teethAffected;
+        treatment.date = date;
+        treatment.teethAffected = teethAffected;
         treatment.procedure = procedure;
         treatment.dentist = dentist;
         treatment.amountCharged = amountCharged;
         treatment.amountPaid = amountPaid;
         treatment.balance = balance;
         treatment.status = status;
+
+    console.log(treatment);
 
     await treatment.save();
 

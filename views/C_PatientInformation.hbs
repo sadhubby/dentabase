@@ -151,7 +151,7 @@
                         <label for="sex">Sex:</label>
                         <div class="input-wrapper">
                             <select id="sex" class="input-field" name="sex" title="Please select your sex" required>
-                                <option value="{{fullSex}}" disabled selected>{{fullSex}}</option>
+                                <option value="{{fullSex}}">{{fullSex}}</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
@@ -672,10 +672,10 @@
 <!--+end DENTAL CHART FRAME-->
 
 
-
+<form id="edit-treatment-record" data-id="{{treatmentsSize}}">
 <!--+ TREATMENT RECORD FRAME-->
 <div class="frame-4">
-    <div class="header treatment-history-title" id="treatment-record">| TREATMENT RECORD</div>
+    <div class="header treatment-history-title" id="treatment-record">| TREATMENT RECORD {{treatmentsSize}}</div>
 
     <div class="buttons-group">
 
@@ -705,7 +705,7 @@
                 </th>
 
                 <th>
-                    <div class="category-text">Services</div>
+                    <div class="category-text">Service</div>
                 </th>
 
 
@@ -731,30 +731,28 @@
 
     <!-- `PATIENT LIST-->
 <tbody id="treatment-table-body">
-
-    <div id="treatment-count" style="display: none;" data-id="{{treatmentsSize}}"/>
     <!-- each treatment_history_bar-->
     {{#each treatments}}
-    <tr>
+    <tr data-name="{{{id}}}">
 
         <td>
-            <input type="text" class="treatment-history-text" value="{{{dateString}}}" />
+            <input type="date" class="treatment-history-text" value="{{{dateString}}}" name="treatment-date"/>
         </td>
 
         <td>
-            <input type="text" class="treatment-history-text" value="{{{teethAffected}}}" id="teeth{{{id}}}"/>
+            <input type="text" class="treatment-history-text" value="{{{teethAffected}}}" name="treatment-teeth"/>
         </td>
 
         <td>
-            <input type="text" class="treatment-history-text" value="{{{procedure}}}"/>
+            <input type="text" class="treatment-history-text" value="{{{procedure}}}" name="treatment-procedure"/>
         </td>
 
         <td>
-            <input type="number" class="treatment-history-text" value="{{{amountCharged}}}" />
+            <input type="number" class="treatment-history-text" value="{{{amountCharged}}}" name="treatment-amount-charged"/>
         </td>
 
         <td>
-            <input type="number" class="treatment-history-text" value="{{{amountPaid}}}" />
+            <input type="number" class="treatment-history-text" value="{{{amountPaid}}}" name="treatment-amount-paid"/>
         </td>
 
     </tr>
@@ -763,6 +761,16 @@
 </tbody>
 </table>
 
+{{#if hasTreatments}}
+{{else}}
+    <div id="no-treatments"> No Treatment Records </div>
+{{/if}}
+
+    <div class="buttons-group">
+        <button type="submit" class="save-change-button">Save Treatment Record Changes</button>
+    </div>
+
+</form>
 
 
 
@@ -899,9 +907,7 @@
 
 
     <!--SAVE CHANGE FOR TREATMENT RECORD-->
-    <div class="buttons-group">
-        <button type="submit" class="save-change-button">Save Treatment Record Changes</button>
-    </div>
+
 </div>
 <!-- +END TREATMENT RECORD FRAME-->
 

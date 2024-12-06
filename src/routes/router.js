@@ -184,9 +184,10 @@ router.post('/create-treatment', function(req, res){
             amountPaid,
             5000, //change balance
             'ongoing'
-        ).then(function(){
+        ).then(function(treatmentID){
+            console.log("Treatment ID: " + treatmentID);
             console.log('Treatment record created successfully.');
-            return res.status(200).send("Treatment created successfully.");
+            return res.status(200).send({id: treatmentID});
         })
     } catch(error){
         console.error("Error creating treatment record.", error);
@@ -492,6 +493,29 @@ router.put('/services/update-multiple', async (req, res) => {
 });
 
 
+router.post("/update-treatments", async(req, res) => {
+    try{
+        const promises = req.body.treatments.map(async(instance) => {
+            const treatment = await Treatment.findOne({ id: instance.id });  
+
+            treatment.date = instance.date;
+            treatment.teethAffected = instance.teethAffected;
+            treatment.procedure = instance.procedure;
+            treatment.amountCharged = instance.amountCharged;
+            treatment.amountPaid = instance.amountPaid;
+        
+        
+            await treatment.save();
+        });
+
+        await Promise.all(promises);
+
+        res.status(200).json({message: "Treatments updated successfully."});
+    } catch(error) {
+        res.status(400).json({message: "Error updating treatment."});
+    }
+});
+
 router.post("/fill-consent", async(req, res) => {
     try{
         const patient = await Patient.findOne({id: req.body.patientID});
@@ -573,7 +597,6 @@ router.get("/patient-information/:id", async (req, res) => {
             hasTreatments = false;
         }
 
-        
 
         res.render("C_PatientInformation", {
             hasPictures: hasPictures,
@@ -628,7 +651,7 @@ router.get("/patient-information/:id", async (req, res) => {
 
             //treatments
             treatments: patientTreatments,
-            treatmentsSize: patientTreatments.size,
+            treatmentsSize: patientTreatments.length,
 
             //pictures
             pictures : pictures,
@@ -783,11 +806,12 @@ router.get("/to-do", async (req, res) => {
 
 
 router.get("/services",async (req,res) =>{
+    const isAuthenticated = !!req.session.isAuthenticated;
     try{
         let services = await Service.find();
         res.render("D_Services",{
             services: services,
-            serviceCount: services.length
+            serviceCount: services.length, isAuthenticated
         });
 
     } catch (error){
@@ -797,6 +821,7 @@ router.get("/services",async (req,res) =>{
 });
 
 router.get("/patient_list", async (req, res) => {
+    const isAuthenticated = !!req.session.isAuthenticated;
     try {
         const searchQuery = req.query.search || "";
         const page = parseInt(req.query.page) || 1; 
@@ -857,7 +882,8 @@ router.get("/patient_list", async (req, res) => {
             currentPage: page,
             totalPages: totalPages,
 
-            services: services
+            services: services,
+            isAuthenticated
         });
     } catch (error) {
         console.log("Error getting data", error);
@@ -1043,6 +1069,7 @@ router.get('/api/patients-by-service', Functions.isAuthenticated, async (req, re
 });
 
 router.get('/patient/:id', Functions.isAuthenticated, async (req, res) => {
+    
     try {
         const patientId = req.params.id;
         const id = Number(patientId); 
@@ -1125,7 +1152,8 @@ router.post("/appointments", async (req, res) => {
 
 
 router.get("/report", (req,res) =>{
-    res.render("E_Report");
+    const isAuthenticated = !!req.session.isAuthenticated;
+    res.render("E_Report", {isAuthenticated});
 });
 
 
