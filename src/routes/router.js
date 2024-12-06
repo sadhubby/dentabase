@@ -20,6 +20,7 @@ const { TopologyDescription } = require('mongodb');
 const sampleTreatments = require('../scripts/sampleData/treatmentData');
 const NonPatient = require('../models/nonpatient.js');
 
+
 const Functions = require('../scripts/functions');
 
 const router = Router();
@@ -31,7 +32,7 @@ app.use(express.static('public'));
 //file transfers
 const path = require('path');
 const multer = require('multer');
-const nonpatient = require('../models/nonpatient.js');
+
 
 
 // function copyFile(src){
@@ -697,61 +698,7 @@ router.get("/deactivate-patient", (req, res) => {
     }
 })
 
-//also applies to get"/"
-// router.get("/to-do", async (req, res) => {
-//     try {
-        
-//         const page = parseInt(req.query.page) || 0;
 
-//         const today = new Date();
-//         today.setHours(0, 0, 0, 0); //start of today if you see in console its like a day before, thats normal, just adjusting to our timezone
-//         const targetDate = new Date(today);
-//         targetDate.setDate(today.getDate() + page); //adjust target date by page offset. so like today is page 0, the next day is page = 1
-
-//         //define the start and end of the day for the target date
-//         const startOfDay = new Date(targetDate);
-//         const endOfDay = new Date(targetDate);
-//         endOfDay.setHours(23, 59, 59, 999); // end of target date day
-
-//         console.log("Start of day:", startOfDay);
-//         console.log("End of day:", endOfDay);
-
-//         //query patients with appointments on the target date day
-//         const patients = await Patient.find({
-//             isActive: true,
-//             effectiveDate: {
-//                 //essentially says from start to end of day si effective date. so long a withing (impossible outside), allowed.
-//                 $gte: startOfDay, 
-//                 $lt: endOfDay,    
-//             },
-//         }).populate({
-//             path: "treatments",
-//             select: "procedure",
-//         });
-
-//         console.log("Patients fetched for target date:", patients);
-
-//         //format the patient data 
-//         patients.forEach(patient => {
-//             if (patient.effectiveDate) {
-//                 const date = new Date(patient.effectiveDate);
-//                 patient.formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-//             } else {
-//                 patient.formattedTime = "N/A";
-//             }
-//         });
-
-//         res.render("B_Todo", {
-//             patients, //all patient information, just select accordingly at handlebars
-//             appointmentCount: patients.length, //count of patients with appointments day of
-//             dateDisplay: startOfDay.toDateString(), //date to be passed into B_Todo
-//             page, //page number
-//         });
-//     } catch (error) {
-//         console.error("Error fetching appointments:", error);
-//         res.status(500).send("Error retrieving patient data.");
-//     }
-// });
 
 router.get("/to-do", async (req, res) => {
     
@@ -781,24 +728,30 @@ router.get("/to-do", async (req, res) => {
             effectiveDate: { $gte: startOfDay, $lt: endOfDay },
         }).populate({
             path: "treatments",
-            select: "procedure",
+            options: { sort: { date: -1 }, limit: 1 },
         });
 
         //fetch non-patients with appointments target date
-        const nonPatients = await nonpatient.find({
+        const nonPatients = await NonPatient.find({
             effectiveDate: { $gte: startOfDay, $lt: endOfDay },
         });
 
-        //format patient data
-        patients.forEach(patient => {
-            if (patient.effectiveDate) {
-                const date = new Date(patient.effectiveDate);
-                patient.formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-            } else {
-                patient.formattedTime = "N/A";
-            }
-        });
+        
+        const formattedPatients = patients.map(patient => {
+            const latestTreatment = patient.treatments.length > 0 ? patient.treatments[0] : null;
 
+            return {
+                id: patient.id,
+                firstName: patient.firstName,
+                lastName: patient.lastName,
+                contact: patient.contact || "N/A",
+                email: patient.email || "N/A",
+                formattedTime: patient.effectiveDate
+                    ? `${patient.effectiveDate.getHours().toString().padStart(2, '0')}:${patient.effectiveDate.getMinutes().toString().padStart(2, '0')}`
+                    : "N/A",
+                latestProcedure: latestTreatment ? latestTreatment.procedure : "N/A",
+            };
+        });
         //format non-patient data to match the structure of patient data
         const formattedNonPatients = nonPatients.map(nonPatient => ({
             id: null, // Non-patients won't have an ID
@@ -813,7 +766,7 @@ router.get("/to-do", async (req, res) => {
         }));
 
         //combine patients and non-patients
-        const allAppointments = [...patients, ...formattedNonPatients];
+        const allAppointments = [...formattedPatients, ...formattedNonPatients];
 
         res.render("B_Todo", {
             patients: allAppointments,
@@ -963,35 +916,14 @@ router.get("/", async (req, res) => {
         res.status(500).end("Error retrieving patient data");
     }
 });
-// router.post('/update-effective-date', async (req, res) => {
-//     console.log("Request received:", req.body); // Debug request data
-//     const { patientID, effectiveDate, startTime, endTime } = req.body;
 
-//     try {
-//         const appointmentStart = new Date(`${effectiveDate}T${startTime}`);
-//         const patient = await Patient.findOne({ id: patientID });
-//         if (!patient) {
-//             console.log("Patient not found");
-//             return res.status(404).json({ message: 'Patient not found' });
-//         }
-
-//         console.log("Updating patient effectiveDate to:", appointmentStart); // Debug update
-//         patient.effectiveDate = appointmentStart;
-//         await patient.save();
-
-//         console.log("Patient updated:", patient);
-//         res.status(200).json({ message: 'Effective date updated successfully' });
-//     } catch (error) {
-//         console.error("Error updating effective date:", error);
-//         res.status(500).json({ message: 'Error updating effective date' });
-//     }
-// });
 router.post('/update-effective-date', async (req, res) => {
     const { id, effectiveDate, startTime, service} = req.body; // `id` is passed here
 
     try {
         // Combine date and time
         const updatedEffectiveDate = new Date(`${effectiveDate}T${startTime}`);
+    
 
         // Find the patient by their `id` and update `effectiveDate`
         const patient = await Patient.findOne({ id }); // Match the `id` field in MongoDB
@@ -1000,6 +932,16 @@ router.post('/update-effective-date', async (req, res) => {
         }
 
         patient.effectiveDate = updatedEffectiveDate; // Update the effective date
+        const newTreatment = new Treatment({
+            id: new Date().getTime(), // Generate a unique ID
+            date: updatedEffectiveDate,
+            procedure: service,
+            patientID: patient.id,
+            status: 'ongoing',
+        });
+        await newTreatment.save();
+        patient.treatments.push(newTreatment._id);
+
         await patient.save(); // Save changes to the database
         res.status(200).json({ message: 'Added to To-Do', effectiveDate: updatedEffectiveDate });
     } catch (error) {
@@ -1180,50 +1122,7 @@ router.post("/appointments", async (req, res) => {
         res.status(500).json({ message: "Error creating appointment" });
     }
 });
-// router.get('/appointments', async (req, res) => {
-//     try {
-//         const targetDate = req.query.date ? new Date(req.query.date) : new Date();
-//         targetDate.setHours(0, 0, 0, 0);
 
-//         const appointments = await Patient.find({
-//             isActive: true,
-//             effectiveDate: {
-//                 $gte: targetDate,
-//                 $lt: new Date(targetDate.getTime() + 24 * 60 * 60 * 1000)
-//             }
-//         }).populate('treatments', 'procedure');
-
-//         // Send JSON data for AJAX to process
-//         res.json(appointments);
-//     } catch (error) {
-//         console.error('Error fetching appointments:', error);
-//         res.status(500).json({ error: 'Error retrieving patient data' });
-//     }
-// });
-
-// router.post("/create-appointment", async (req, res) => {
-//     try {
-//         const { treatment, patientName, email, phone, date, startTime, endTime, nextAppointmentDate } = req.body;
-
-//         const appointmentDate = new Date(`${date}T${startTime}`);
-
-//         const newTreatment = new Treatment({
-//             id: /* generate or provide an ID */,
-//             date: appointmentDate,
-//             procedure: treatment,
-//             dentist: "Your Dentist Name", // Fetch or set as needed
-//             nextAppointmentDate: appointmentDate, // Using the calculated date-time
-//             status: "ongoing"
-//             // Add other fields as necessary
-//         });
-
-//         await newTreatment.save();
-//         res.status(201).json({ message: "Appointment created successfully" });
-//     } catch (error) {
-//         console.error("Error creating appointment:", error);
-//         res.status(500).json({ message: "Failed to create appointment" });
-//     }
-// });
 
 router.get("/report", (req,res) =>{
     res.render("E_Report");
@@ -1258,12 +1157,16 @@ router.post('/login', async (req, res) => {
         
     }
 });
-// router.use((req, res, next) => {
-//     const publicRoutes = ['/login']; 
-//     if (publicRoutes.includes(req.path) || req.session.isAuthenticated) {
-//         return next();
-//     }
-//     res.redirect('/login'); 
-// });
+router.post('/logout', (req, res) => {
+    req.session.destroy((err) => {
+    if (err) {
+        console.error('Error during logout:', err);
+        return res.status(500).send('Failed to log out.');
+    }
+      res.clearCookie('connect.sid'); // Clear session cookie
+      res.redirect('/login'); // Redirect to login
+    });
+});
+
 
 module.exports = router;
