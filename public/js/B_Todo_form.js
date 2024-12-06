@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.done-button').addEventListener('click', async () => {
         // Extract form data
-        const name = document.getElementById('patient-name')?.value?.trim();
+        const name = document.getElementById('patient-name')?.value;
         const email = document.getElementById('email-todo')?.value?.trim();
         const contact = document.getElementById('phone-number')?.value?.trim();
         const effectiveDate = document.getElementById('date').value;
         const startTime = document.getElementById('start-time').value;
-
+        const service = document.getElementById('treatment')?.value;
         if (!effectiveDate || !startTime || (!isPatientPage && (!name || !email || !contact))) {
             alert('Please fill in all the required fields.');
             return;
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('/update-effective-date', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: patientID, effectiveDate, startTime }),
+                    body: JSON.stringify({ id: patientID, effectiveDate, startTime, service}),
                 });
 
                 if (response.ok) {
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('/non-patient-appointment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, contact, effectiveDate, startTime }),
+                    body: JSON.stringify({ name, email, contact, effectiveDate, startTime, service}),
                 });
 
                 if (response.ok) {

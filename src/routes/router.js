@@ -714,6 +714,7 @@ router.get("/deactivate-patient", (req, res) => {
 // });
 
 router.get("/to-do", async (req, res) => {
+    
     const isAuthenticated = !!req.session.isAuthenticated;
 
     if (!req.session.isAuthenticated) {
@@ -721,6 +722,7 @@ router.get("/to-do", async (req, res) => {
     }
     
     try {   
+        const services = await Service.find({});
         const page = parseInt(req.query.page) || 0;
 
         const today = new Date();
@@ -767,7 +769,7 @@ router.get("/to-do", async (req, res) => {
             formattedTime: nonPatient.startTime
                 ? `${new Date(nonPatient.startTime).getHours().toString().padStart(2, '0')}:${new Date(nonPatient.startTime).getMinutes().toString().padStart(2, '0')}`
                 : "N/A",
-            latestProcedure: "One-Time Appointment", // service label
+            latestProcedure: nonPatient.service // service label
         }));
 
         //combine patients and non-patients
@@ -777,7 +779,7 @@ router.get("/to-do", async (req, res) => {
             patients: allAppointments,
             appointmentCount: allAppointments.length,
             dateDisplay: startOfDay.toDateString(),
-            page, isAuthenticated
+            page, isAuthenticated, services
         });
     } catch (error) {
         console.error("Error fetching appointments:", error);
@@ -945,7 +947,7 @@ router.get("/", async (req, res) => {
 //     }
 // });
 router.post('/update-effective-date', async (req, res) => {
-    const { id, effectiveDate, startTime } = req.body; // `id` is passed here
+    const { id, effectiveDate, startTime, service} = req.body; // `id` is passed here
 
     try {
         // Combine date and time
@@ -959,7 +961,6 @@ router.post('/update-effective-date', async (req, res) => {
 
         patient.effectiveDate = updatedEffectiveDate; // Update the effective date
         await patient.save(); // Save changes to the database
-
         res.status(200).json({ message: 'Added to To-Do', effectiveDate: updatedEffectiveDate });
     } catch (error) {
         console.error('Error updating effective date:', error);
@@ -969,10 +970,10 @@ router.post('/update-effective-date', async (req, res) => {
 
 router.post('/non-patient-appointment', async (req, res) => {
     try {
-        const { name, email, contact, effectiveDate, startTime } = req.body;
+        const { name, email, contact, effectiveDate, startTime, service } = req.body;
 
         // Validate required fields
-        if (!name || !email || !contact || !effectiveDate || !startTime) {
+        if (!name || !email || !contact || !effectiveDate || !startTime || !service) {
             return res.status(400).json({ message: 'All fields are required for a non-patient appointment.' });
         }
 
@@ -984,6 +985,7 @@ router.post('/non-patient-appointment', async (req, res) => {
             email,
             effectiveDate: appointmentStart,
             startTime: appointmentStart,
+            service
         });
 
         await nonPatientAppointment.save();
