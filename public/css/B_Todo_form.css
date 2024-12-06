@@ -114,8 +114,8 @@
 
 /* Done button */
 .todo-form-file .done-button {
-    background-color: #e0e0e0;
-    color: #777;
+    background-color: #278dfa; /* Primary button color */
+    color: white;/* White text for better contrast */
 }
 
 /* Hover effect for Done button */

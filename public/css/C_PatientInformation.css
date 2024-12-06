@@ -641,7 +641,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Space between radio buttons */
+    
 }
 
 .patient-info-file .medical-questions-section .radio-label {
@@ -792,6 +792,18 @@
     margin-left: 1rem;
 }
 
+
+
+.patient-info-file .add-picture-elements{
+background-color: #000;
+justify-content: center;
+margin-right: 1%;
+}
+
+
+
+
+
 .patient-info-file .dental-chart-container {
     padding: 20px;
     /* Optional padding around the container */
@@ -810,6 +822,11 @@
    
 }
 
+.patient-info-file .no-image-text {
+    width: 100%;
+    justify-content: center;
+    opacity: 0.6;
+}
 
 
 .patient-info-file .dental-chart-box {

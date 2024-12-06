@@ -130,9 +130,9 @@ body {
 /* Hover effect for sidebar menu items */
 .sidebar li:hover {
   background-color: #94a9ff;
-  /* Change background color to #6b84ea on hover */
   color: rgb(255, 255, 255);
-  /* Optional: change text color to white for contrast */
+  border-radius: 10px;
+
 }
 
 /* Adjust icon color on hover */
