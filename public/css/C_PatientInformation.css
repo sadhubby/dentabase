@@ -822,6 +822,11 @@ margin-right: 1%;
    
 }
 
+.patient-info-file .no-image-text {
+    width: 100%;
+    justify-content: center;
+    opacity: 0.6;
+}
 
 
 .patient-info-file .dental-chart-box {

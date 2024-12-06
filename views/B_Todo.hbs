@@ -43,7 +43,7 @@
       <button id="prev-date-btn" style="background: none; border: none; cursor: pointer;">
         <img class="img" src="/img/icon-arrow_drop_left.svg" alt="Prev" />
       </button>
-      <div id="date-display" data-page="{{page}}">{{dateDisplay}}</div> 
+      <div id="date-display" data-page="{{page}}">{{dateDisplay}}</div>
       {{!-- changed sa taas --}}
       <button id="next-date-btn" style="background: none; border: none; cursor: pointer;">
         <img class="img" src="/img/icon-arrow_drop_right.svg" alt="Next" />
@@ -87,90 +87,78 @@
 
         <th>
 
-            <div class="category-text">NAME</div>
-          </div>
-        </th>
+          <div class="category-text">NAME</div>
+</div>
+</th>
 
-        <th>
-            <div class="category-text">PHONE</div>
-        </th>
+<th>
+  <div class="category-text">PHONE</div>
+</th>
 
-        <th>
-            <div class="category-text">EMAIL</div>
-        </th>
+<th>
+  <div class="category-text">EMAIL</div>
+</th>
 
-        <th>
-            <div class="category-text">TIME</div>
-        </th>
+<th>
+  <div class="category-text">TIME</div>
+</th>
 
-        <th>
-          <div class="last-treatment-elements">
-            <div class="category-text">SERVICE</div>
-          </div>
-        </th>
+<th>
+  <div class="last-treatment-elements">
+    <div class="category-text">SERVICE</div>
+  </div>
+</th>
 
-      </tr>
-    </thead>
-    <!-- `END LIST OF CATEGORY -->
+</tr>
+</thead>
+<!-- `END LIST OF CATEGORY -->
 
 
-    <!-- `PATIENT LIST-->
-  <tbody>
+<!-- `PATIENT LIST-->
+<tbody>
   {{#if patients.length}}
-    {{#each patients}}
-    <tr>
-      <td>
-        <label class="appointment-checkbox">
-          <input type="checkbox" onclick="toggleRowHighlight(this)" />
-          <span class="custom-checkbox"></span>
-        </label>
-      </td>
-      
-      <td>
-        <div class="name" 
-            {{#if id}} 
-            onclick="window.location.href='/patient-information/{{id}}'" 
-            style="cursor: pointer;" 
-            {{/if}}>
-          {{firstName}} {{lastName}}
-        </div>
-      </td>
-      
-      <td>
-        <input type="text" class="phone sched-text" value="{{contact}}" />
-      </td>
-      
-      <td>
-        <input type="text" class="email sched-text" value="{{email}}"></input>
-      </td>
-      
-      <td>
-        <input type="text" class="time sched-text" value="{{formattedTime}}"></input>
-      </td>
-      
-      <td>
-        <div class="treatment sched-text">{{latestProcedure}}</div>
-      </td>
-    </tr>
-    {{/each}}
+  {{#each patients}}
+  <tr>
+    <td>
+      <label class="appointment-checkbox">
+        <input type="checkbox" onclick="toggleRowHighlight(this)" />
+        <span class="custom-checkbox"></span>
+      </label>
+    </td>
+
+    <td>
+      <div class="name" {{#if id}} onclick="window.location.href='/patient-information/{{id}}'" style="cursor: pointer;"
+        {{/if}}>
+        {{firstName}} {{lastName}}
+      </div>
+    </td>
+
+    <td>
+      <input type="text" class="phone sched-text" value="{{contact}}" />
+    </td>
+
+    <td>
+      <input type="text" class="email sched-text" value="{{email}}"></input>
+    </td>
+
+    <td>
+      <input type="text" class="time sched-text" value="{{formattedTime}}"></input>
+    </td>
+
+    <td>
+      <div class="treatment sched-text">{{latestProcedure}}</div>
+    </td>
+  </tr>
+  {{/each}}
   {{else}}
-    <tr>
-      <td colspan="6" style="text-align: center;">No appointments found for this day.</td>
-    </tr>
+  <tr>
+    <td class="no-appointment-text" colspan="6" style="text-align: center;">No appointments found for this day.</td>
+  </tr>
   {{/if}}
 </tbody>
 
-  </table>
-  <!-- `END PATIENT LIST-->
-
-
-
-
-
-
-
-
-
+</table>
+<!-- `END PATIENT LIST-->
 
 
 </div>
