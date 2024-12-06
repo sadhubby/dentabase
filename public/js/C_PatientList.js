@@ -77,7 +77,7 @@ function updatePatientList(patients) {
             <td>${patient.address}</td>
             <td>${new Date(patient.lastVisit).toLocaleDateString()}</td>
             <td>${patient.lastProcedure}</td>
-            <td>${patient.isActive}</td>
+            <td>${patient.isActive ? "Active" : "Inactive"}</td>
         `;
 
         tbody.appendChild(row);
