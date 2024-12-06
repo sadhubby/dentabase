@@ -77,13 +77,21 @@
                     <div class="text-buttons create-appointment-text">Add To Do</div>
                 </div> 
                 
-                <div class="button deactivate-patient-elements">
-                    <input type="checkbox" id="deactivate-patient-toggle" class="toggle-button" />
-                    <label for="deactivate-patient-toggle" id="deactivate-patient-button" class="text-buttons">
-                        Deactivate
-                    </label>
+                {{#if isActive}}
+                    <div class="button deactivate-patient-elements">
+                        <input type="checkbox" id="deactivate-patient-toggle" class="toggle-button" />
+                        <label for="deactivate-patient-toggle" id="deactivate-patient-button" class="text-buttons">
+                            Deactivate
+                        </label>
                 </div>
-
+                {{else}}
+                    <div class="button deactivate-patient-elements">
+                        <input type="checkbox" id="deactivate-patient-toggle" class="toggle-button" checked/>
+                        <label for="deactivate-patient-toggle" id="deactivate-patient-button" class="text-buttons">
+                            Activate
+                        </label>
+                    </div>
+                {{/if}}
 
 
                     <div id="form-container" data-page-context="patient-information" data-patient-id="{{id}}">
