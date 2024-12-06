@@ -566,10 +566,17 @@ router.get("/patient-information/:id", async (req, res) => {
             hasPictures = false;
         }
 
+        let hasTreatments = true;
+
+        if(patientTreatments.length == 0){
+            hasTreatments = false;
+        }
+
         
 
         res.render("C_PatientInformation", {
             hasPictures: hasPictures,
+            hasTreatments: hasTreatments,
 
 
             id: patient.id,
