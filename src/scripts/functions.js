@@ -316,7 +316,7 @@ async function createTreatment(patientID, date, teethAffected, procedure, dentis
     const lastTreatment = await treatmentModel.findOne().sort({id: -1});
     var treatmentID = 1;
 
-    if(lastTreatment){
+    if(lastTreatment && lastTreatment.id){
         treatmentID = lastTreatment.id + 1;
     }
 
