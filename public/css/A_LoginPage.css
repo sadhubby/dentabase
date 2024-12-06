@@ -1,3 +1,4 @@
+/* Global Styles */
 .container-login-page * {
   margin: 0;
   padding: 0;
@@ -5,27 +6,25 @@
   font-family: "Roboto-Regular", Helvetica, sans-serif;
 }
 
-
 .container-login-page {
   display: flex;
-  height: 98.5vh;
-  width: 99.5vw;
+  height: 100%;
+  width: 100%;
   position: relative;
   overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: hidden;
   justify-content: center;
   align-items: center;
 }
 
- .container-login-page img {
+/* Fullscreen Background Image */
+.container-login-page img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
+  border-radius: 10px;
 }
 
-
+/* Login Frame */
 .container-login-page .frame-1 {
   display: flex;
   position: absolute;
@@ -36,15 +35,78 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-   width: 40%; /* Set width to 40% for left positioning */
+  width: 40%;
   height: 30%;
   padding: 20px;
-  
+  transition: all 0.3s ease;
+  /* Smooth transition */
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .container-login-page .frame-1 {
+    width: 60%;
+    /* Adjust width for tablets */
+    height: auto;
+    /* Allow height to grow naturally */
+    padding: 15px;
+  }
 
+  .container-login-page .name h2 {
+    font-size: 5vw;
+    /* 5% of viewport width */
+  }
 
-/* `BRAND GROUP*/
+  .container-login-page .name h3 {
+    font-size: 4vw;
+  }
+
+  .container-login-page .name p {
+    font-size: 2.5vw;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .container-login-page .frame-1 {
+    width: 80%;
+    /* Adjust width for smaller screens */
+    padding: 10px;
+  }
+
+  .password-group input {
+    width: 90%;
+    /* Expand input field width */
+  }
+
+  #login-button {
+    width: 100%;
+    /* Button takes full width */
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-login-page .frame-1 {
+    width: 95%;
+    padding: 8px;
+  }
+
+  .container-login-page .name h2 {
+    font-size: 5vw;
+    /* 5% of viewport width */
+  }
+
+  .container-login-page .name h3 {
+    font-size: 4vw;
+  }
+
+  .container-login-page .name p {
+    font-size: 2.5vw;
+  }
+}
+
+/* Brand Group */
 .container-login-page .brand-group {
   display: flex;
   align-items: center;
@@ -56,9 +118,6 @@
   width: 23%;
   height: 100%;
   object-fit: contain;
-
-
-
 }
 
 .container-login-page .name {
@@ -85,10 +144,7 @@
   font-size: 18px;
 }
 
-
-
-
-/* `PASSWORD GROUP*/
+/* Password Group */
 .password-group {
   display: flex;
   flex-direction: column;
@@ -97,32 +153,36 @@
   margin-top: 2.5rem;
 }
 
-.password-group label {
-  font-size: 16px;
-  color: #333;
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.icon-lock {
-  font-size: 18px;
-  margin-right: 8px;
-}
-
 .password-group input {
   width: 70%;
   padding: 10px;
-  padding-left: 35px; /* Space for lock icon */
+  padding-left: 35px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 .password-group input:focus {
-  border-color: #0f93b5; /* Color on focus */
+  border-color: #0f93b5;
+}
+
+#login-button {
+  width: 8rem;
+  height: 41.12px;
+  padding: 11.65px 6.85px;
+  background-color: #0f93b5;
+  border: 0;
+  border-radius: 7px;
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+
+
+}
+
+#login-button:hover {
+  background-color: #077d9b;
 }
