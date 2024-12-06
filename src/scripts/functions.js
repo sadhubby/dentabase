@@ -189,7 +189,7 @@ async function updatePatientInfo(patientID, nickname,
             patient.contact = contact;
           //  patient.effectiveDate = effectiveDate;
             patient.guardianName = guardianName;
-            patient.guardianOccupaton = guardianOccupation;
+            patient.guardianOccupation = guardianOccupation;
             patient.referralName = referralName;
             patient.consultationReason = consultationReason;
             patient.lastDentist = lastDentist;
