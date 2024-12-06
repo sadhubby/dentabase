@@ -154,6 +154,7 @@ function filterPatientsByMonth() {
 function initializeServiceChart() {
     // Sample data for services per month
     let yearlyFrequencyCount = getYearFrequency();
+
     const serviceDataByMonth = {
         Jan: { labels: yearlyFrequencyCount.JanServices, data: yearlyFrequencyCount.JanCounts },
         Feb: { labels: yearlyFrequencyCount.FebServices, data: yearlyFrequencyCount.FebCounts },
@@ -254,6 +255,8 @@ function initializeServiceChart() {
     // Apply month filter
     document.getElementById('applyFilterButton').addEventListener('click', () => {
         const selectedMonth = document.getElementById('monthSelect').value;
+
+
         const filteredData = serviceDataByMonth[selectedMonth] || serviceDataByMonth.All;
 
         // Update the chart data
