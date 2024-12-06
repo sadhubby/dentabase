@@ -142,7 +142,13 @@
         </td>
 
         <td>
-          <div class="status">{{{isActive}}}</div>
+          <div class="status">
+            {{#if isActive}}
+            Active
+            {{else}}
+            Inactive
+            {{/if}}
+            </div>
         </td>
 
       </tr>
