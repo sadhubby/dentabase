@@ -606,7 +606,7 @@
 
     {{!-- Button for adding picture --}}
     <div class="button-container">
-        <button class="open-upload-popup" id="open-upload-popup">Add Picture</button>
+        <button class="open-upload-popup" id="open-upload-popup"> <img class="icon icon-add" src="/img/icon-add.svg" />Add Picture</button>
     </div>
 
 
@@ -614,7 +614,7 @@
         <div class="dental-chart-box">
             {{#if hasPictures}}
             {{else}}
-            No pictures added.
+            <div class="no-image-text">No pictures added.</div>
             {{/if}}
 
             {{#each pictures}}
@@ -692,9 +692,7 @@
 
 
     <table>
-        
         <thead>
-            
             <tr>
                 <th>
 

@@ -439,3 +439,11 @@
     font-size: 16.4px;
     line-height: normal;
 }
+
+.todo-file .no-appointment-text {
+    width: 100%;
+    opacity: 0.6;
+}
+
+
+

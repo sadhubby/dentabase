@@ -19,19 +19,24 @@
 
       <ul>
         <div class="clinic-text"> CLINIC</div>
+        
         <li><a href="/to-do" data-restricted = "true">
             <img src="/img/icon-todo.svg" alt="To Do" class="sidebar-icon">
             <span class="sidebar-text">To Do</span></a></li>
+        
         <li><a href="/patient_list" data-restricted = "true">
             <img src="/img/icon-sidemenu-user.svg" alt="Patients" class="sidebar-icon">
             <span class="sidebar-text">Patients</span> </a></li>
+        
         <li><a href="/services" data-restricted = "true">
             <img src="/img/icon-stethoscope.svg" alt="Services" class="sidebar-icon" ><span
               class="sidebar-text">Services</span></a></li>
+        
         <li><a href="/report" data-restricted = "true">
             <img src="/img/icon-piechart.svg" alt="Report" class="sidebar-icon" ><span
               class="sidebar-text" data-restricted = "true">Report</span></a></li>
-        <li><a href="/login" data-restricted = "true">
+        
+        <li id = "logout-btn"><a href="#">
             <img src="/img/icon-logout.svg" alt="Logout" class="sidebar-icon">
             <span class="sidebar-text">Logout</span></a></li>
       </ul>
@@ -53,5 +58,30 @@
             }
         });
     });
+  document.querySelector('#logout-btn').addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default link behavior
 
+    if (!isAuthenticated) {
+      alert('You are not logged in.');
+      return;
+    }
+    fetch('/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert('Thank you for using Dentabase.');
+          window.location.href = '/login';
+        } else {
+          alert('Failed to log out. Please try again.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error logging out:', error);
+        alert('An error occurred while logging out.');
+      });
+  });
 </script>
