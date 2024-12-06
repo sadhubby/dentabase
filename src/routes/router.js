@@ -560,9 +560,18 @@ router.get("/patient-information/:id", async (req, res) => {
 
         const services = await Service.find();
 
+        let hasPictures = true;
+
+        if(pictures.length == 0){
+            hasPictures = false;
+        }
+
         
 
         res.render("C_PatientInformation", {
+            hasPictures: hasPictures,
+
+
             id: patient.id,
             title: fullName.trim(),
             full_name: fullName,
