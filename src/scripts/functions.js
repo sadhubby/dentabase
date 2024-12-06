@@ -105,11 +105,11 @@ async function createPatient(firstName, lastName, middleName, nickname,
     let lastPatient = await patientModel.findOne().sort({ id: -1 });
     // console.log(await patientModel.countDocuments());
 
-    if(lastPatient){
+    if(lastPatient && lastPatient.id){
         patientID = lastPatient.id + 1;
     }
 
-    
+    console.log(patientID);
 
     // Create the new patient document
     const patient = new patientModel({
