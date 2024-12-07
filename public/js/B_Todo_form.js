@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const contact = document.getElementById('phone-number')?.value?.trim();
         const effectiveDate = document.getElementById('date').value;
         const startTime = document.getElementById('start-time').value;
+        const endTime = document.getElementById('end-time').value;
         const service = document.getElementById('treatment')?.value;
         if (!effectiveDate || !startTime || (!isPatientPage && (!name || !email || !contact))) {
             alert('Please fill in all the required fields.');
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('/update-effective-date', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: patientID, effectiveDate, startTime, service}),
+                    body: JSON.stringify({ id: patientID, effectiveDate, startTime, endTime, service}),
                 });
 
                 if (response.ok) {

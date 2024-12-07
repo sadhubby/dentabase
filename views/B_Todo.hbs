@@ -128,25 +128,24 @@
 
     <td>
       <div class="name" {{#if id}} onclick="window.location.href='/patient-information/{{id}}'" style="cursor: pointer;"
-        {{/if}}>
-        {{firstName}} {{lastName}}
+        {{/if}}readonly>{{firstName}} {{lastName}}
       </div>
     </td>
 
     <td>
-      <input type="text" class="phone sched-text" value="{{contact}}" />
+      <input type="text" class="phone sched-text" value="{{contact}}" readonly/>
     </td>
 
     <td>
-      <input type="text" class="email sched-text" value="{{email}}"></input>
+      <input type="text" class="email sched-text" value="{{email}}"readonly></input>
     </td>
 
     <td>
-      <input type="text" class="time sched-text" value="{{formattedTime}}"></input>
+      <input type="text" class="time sched-text" value="{{formattedTime}}" readonly></input>
     </td>
 
     <td>
-      <div class="treatment sched-text">{{latestProcedure}}</div>
+      <div class="treatment sched-text" readonly>{{latestProcedure}}</div>
     </td>
   </tr>
   {{/each}}
