@@ -54,5 +54,79 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
+**----BUG3----**
+Sex and Occupation not saving
+
+**Describe the bug**
+When editing the sex and occupation in the patient information, it does not save the user input
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Patient(sidebar) -> Click any Patient
+4.  Change the sex and occupation field 
+5. click the save button
+
+**Expected behavior**
+The "sex" and "Occupation" field in the database should match the date entered by the user in the application.
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+**----BUG4----**
+Report Page - Frequency Distribution
+
+**Describe the bug**
+Inside the Report page, if I add a month of "November" to the treatment record, The Frequency distribution does also adds it in "September"
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Patient(sidebar) -> Click any Patient
+4.  Add a treatment record that has a Month-Date "November" 
+5. Go to Report Page -> Check the Frequency Distribution -> Filter to Month "November"
+6. Check the FIlter to the Month "September"
+
+**Expected behavior**
+the frequency distribution should not be added to "September" if I add a treatment record during "November"
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+**----BUG5----**
+Report Page - Orthodontic Patients - Mark Orthodontics Finished button not working properly
+
+**Describe the bug**
+In the Orthodontic Patients Section inside the Report Page, The Mark Orthodontics Finished button is not correctly removing the shown orthodontic patients
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Report(sidebar) -> Go to Orthodontic Patients Section
+4.  Check all the shown patients
+5. Click the Mark Orthodontics Finished button
+
+
+**Expected behavior**
+The Mark Orthodontics Finished button should remove all the Orthodontic Patients that are selected in the checkbox buttons
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
 
 
