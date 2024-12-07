@@ -103,6 +103,30 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
+**----BUG5----**
+Report Page - Orthodontic Patients - Mark Orthodontics Finished button not working properly
+
+**Describe the bug**
+In the Orthodontic Patients Section inside the Report Page, The Mark Orthodontics Finished button is not correctly removing the shown orthodontic patients
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Report(sidebar) -> Go to Orthodontic Patients Section
+4.  Check all the shown patients
+5. Click the Mark Orthodontics Finished button
+
+
+**Expected behavior**
+The Mark Orthodontics Finished button should remove all the Orthodontic Patients that are selected in the checkbox buttons
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
 
 
 
