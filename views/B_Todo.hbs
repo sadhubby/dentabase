@@ -62,14 +62,14 @@
       </div>
 
 
-      <div class="button trash-elements">
+      <div class="button trash-elements" data-action="delete-selected">
         <img class="icon icon-trash" src="/img/icon-trash.svg" />
-        <div class="text-buttons text-wrapper">Delete</div>
+        <div class="text-buttons text-wrapper" id = Delete>Delete</div>
       </div>
     </div>
 
   </div>
-  <!--`END SCHEDULE GROUP-->
+  <!--`END SCHEDULE GROUP-->  
 
 
 
@@ -118,10 +118,10 @@
 <tbody>
   {{#if patients.length}}
   {{#each patients}}
-  <tr>
+  <tr id = "row-{{id}}">
     <td>
       <label class="appointment-checkbox">
-        <input type="checkbox" onclick="toggleRowHighlight(this)" />
+        <input type="checkbox" onclick="toggleRowHighlight(this)" value="{{id}}" />
         <span class="custom-checkbox"></span>
       </label>
     </td>

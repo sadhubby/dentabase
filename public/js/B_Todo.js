@@ -83,3 +83,52 @@ document.addEventListener('DOMContentLoaded', () => {
     //load appointments on current
     fetchAppointments(currentPage);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const deleteButton = document.querySelector(".trash-elements[data-action='delete-selected']");
+    
+    deleteButton.addEventListener("click", async () => {
+        // Get all checkboxes and filter for checked ones
+        const selectedCheckboxes = Array.from(document.querySelectorAll("input[type='checkbox']:checked"));
+        
+        // Extract patient IDs from checkboxes
+        const selectedIds = selectedCheckboxes.map(checkbox => checkbox.value);
+        
+        if (selectedIds.length === 0) {
+            alert("Please select at least one patient to delete.");
+            return;
+        }
+
+        // Confirm deletion
+        const confirmDelete = confirm("Are you sure you want to delete the selected patients?");
+        if (!confirmDelete) return;
+
+        // Send request to the server to remove the effectiveDate for each patient
+        try {
+            const response = await fetch("/remove-effective-dates", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ patientIds: selectedIds }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                // Remove the rows from the table
+                selectedIds.forEach(id => {
+                    const row = document.getElementById(`row-${id}`);
+                    if (row) row.remove();
+                });
+
+                alert("Selected patients removed from the To-Do list.");
+            } else {
+                alert("Failed to delete patients. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error deleting patients:", error);
+            alert("An error occurred while deleting patients.");
+        }
+    });
+});

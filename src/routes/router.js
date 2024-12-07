@@ -803,7 +803,31 @@ router.get("/to-do", async (req, res) => {
     }
 });
 
+router.post("/remove-effective-dates", async (req, res) => {
+    try {
+        const { patientIds } = req.body;
 
+        if (!patientIds || patientIds.length === 0) {
+            return res.status(400).send({ success: false, message: "No patients selected for deletion." });
+        }
+
+        
+        await Patient.updateMany(
+            { id: { $in: patientIds } },
+            { $unset: { effectiveDate: "" } }
+        );
+
+        await NonPatient.updateMany(
+            { id: { $in: patientIds } },
+            { $unset: { effectiveDate: "" } }
+        );
+
+        res.status(200).send({ success: true, message: "Patients successfully removed from the To-Do list." });
+    } catch (error) {
+        console.error("Error removing effectiveDates:", error);
+        res.status(500).send({ success: false, message: "Failed to update patient data." });
+    }
+});
 
 router.get("/services",async (req,res) =>{
     const isAuthenticated = !!req.session.isAuthenticated;
