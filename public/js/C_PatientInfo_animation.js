@@ -1,4 +1,4 @@
-
+//Animation for "reactivate and deactivate" button
 
 // Get the elements
 const deactivateButton = document.getElementById('deactivate-patient-button');
