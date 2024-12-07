@@ -56,7 +56,11 @@ server.use('/css', functions.isAuthenticated, express.static(path.join(__dirname
 server.use('/js', functions.isAuthenticated, express.static(path.join(__dirname, '/js')));
 server.use('/img', functions.isAuthenticated, express.static(path.join(__dirname, '/img')));
 //"C:\Users\joaqu\Pictures\kk.jpg"
-
+server.use((req, res, next) => {
+    const isAuthenticated = !!req.session.isAuthenticated; // Check session authentication
+    res.locals.isAuthenticated = isAuthenticated;         // Pass to views
+    next();
+});
 server.use(router);
 
 const port = process.env.PORT || 3000;

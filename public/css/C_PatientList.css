@@ -387,8 +387,33 @@
     justify-content: flex-end;
     width: 100%;
     margin-top: 10px;
+    
+    
+}
+
+.patient-list-file .page-number {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90px;
+    margin-right: 3px;
     gap: 7px;
+    
+}
+
+.patient-list-file .prev-button{
+   display: flex;
+   justify-content: flex-end;
+   margin-left: 100px;
+    width: 10%;
+
 }
 
 
+.patient-list-file .next-button{
+   display: flex;
+   justify-content: flex-end;
+   margin-left: 10px;
+    
 
+}
