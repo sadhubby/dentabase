@@ -146,6 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function resetFormFields() {
         serviceNameInput.value = '';
         priceInput.value = '';
-        orthodonticSelect.value = 'non-ortho';
+        orthodonticSelect.value = 'Non-Ortho';
     }
 });
