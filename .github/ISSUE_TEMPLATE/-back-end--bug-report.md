@@ -54,5 +54,28 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
+**----BUG3----**
+Sex and Occupation not saving
+
+**Describe the bug**
+When editing the sex and occupation in the patient information, it does not save the user input
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Patient(sidebar) -> Click any Patient
+4.  Change the sex and occupation field 
+5. click the save button
+
+**Expected behavior**
+The "sex" and "Occupation" field in the database should match the date entered by the user in the application.
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
 
 
