@@ -78,4 +78,31 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
+**----BUG4----**
+Report Page - Frequency Distribution
+
+**Describe the bug**
+Inside the Report page, if I add a month of "November" to the treatment record, The Frequency distribution does also adds it in "September"
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Patient(sidebar) -> Click any Patient
+4.  Add a treatment record that has a Month-Date "November" 
+5. Go to Report Page -> Check the Frequency Distribution -> Filter to Month "November"
+6. Check the FIlter to the Month "September"
+
+**Expected behavior**
+the frequency distribution should not be added to "September" if I add a treatment record during "November"
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+
+
 
