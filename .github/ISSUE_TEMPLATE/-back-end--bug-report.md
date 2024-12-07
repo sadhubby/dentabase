@@ -157,4 +157,29 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
+**----BUG7----**
+Informed Consent
+
+**Describe the bug**
+The Informed Consent Name and Date are not saving after clicking the save button
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Patient(sidebar) -> Go to Any Patients
+4.  In the Informed Consent Section, Input the Name and Date Needed
+6.  click the save button
+
+
+**Expected behavior**
+The Name and Date should be saved as per user input in the Informed Consent
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
 
