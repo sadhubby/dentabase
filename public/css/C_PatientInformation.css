@@ -1067,11 +1067,11 @@ height: 100%;
 
 .patient-info-file input.treatment-history-text {
     display: inline-block;
-    max-width: 10rem;
+    width: 100%;
     /* Limits the width of text previews */
     white-space: nowrap;
     /* Keeps text on one line */
-    overflow: hidden;
+    overflow: visible;
     /* Hides overflowing text */
     text-overflow: ellipsis;
     /* Adds ellipsis to overflow */
