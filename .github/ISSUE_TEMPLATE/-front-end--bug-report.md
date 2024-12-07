@@ -101,6 +101,54 @@ https://drive.google.com/file/d/1VOhHKhhMCowbUdbczivrJM-LDfAm_xB_/view?usp=shari
 **Additional context**
 Add any other context about the problem here.
 
+**----BUG5----**
+Sidebar appears on the Login Page 
+
+**Describe the bug**
+Sidebar appears on the Login Page 
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Input npm run start in the terminal 
+2. Go to http://localhost:3000
+
+**Expected behavior**
+The sidebar should not be visible on the Login Page 
+
+**Screenshots**
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+**Additional context**
+Add any other context about the problem here.
+
+**----BUG6----**
+Services Page - Name of the Service
+
+**Describe the bug**
+In the Services Page, the name of the Services are only partially visible 
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Input npm run start in the terminal 
+2. Go to http://localhost:3000
+3. Login First
+4. Go to Services Page
+5. Check the Names of the List of Services
+
+**Expected behavior**
+The Names of the Services on the Services Page should all be visible
+
+**Screenshots**
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+**Additional context**
+Add any other context about the problem here.
+
 
 
 
