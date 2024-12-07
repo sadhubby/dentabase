@@ -772,7 +772,7 @@ router.get("/to-do", async (req, res) => {
                 formattedTime: patient.effectiveDate
                     ? `${patient.effectiveDate.getHours().toString().padStart(2, '0')}:${patient.effectiveDate.getMinutes().toString().padStart(2, '0')}`
                     : "N/A",
-                latestProcedure: latestTreatment ? latestTreatment.procedure : "N/A",
+                latestProcedure: latestTreatment ? latestTreatment.procedure : req.query.services,
             };
         });
         //format non-patient data to match the structure of patient data
@@ -971,19 +971,19 @@ router.post('/update-effective-date', async (req, res) => {
     const { id, effectiveDate, startTime, service} = req.body; // `id` is passed here
 
     try {
-        // Combine date and time
+        //combine date and time
         const updatedEffectiveDate = new Date(`${effectiveDate}T${startTime}`);
     
 
-        // Find the patient by their `id` and update `effectiveDate`
+        // find the patient by their `id` and update `effectiveDate`
         const patient = await Patient.findOne({ id }); // Match the `id` field in MongoDB
         if (!patient) {
             return res.status(404).json({ message: 'Patient not found' });
         }
 
-        patient.effectiveDate = updatedEffectiveDate; // Update the effective date
+        patient.effectiveDate = updatedEffectiveDate; // update the effective date
         const newTreatment = new Treatment({
-            id: new Date().getTime(), // Generate a unique ID
+            id: new Date().getTime(), 
             date: updatedEffectiveDate,
             procedure: service,
             patientID: patient.id,
@@ -992,7 +992,7 @@ router.post('/update-effective-date', async (req, res) => {
         await newTreatment.save();
         patient.treatments.push(newTreatment._id);
 
-        await patient.save(); // Save changes to the database
+        await patient.save(); //save changes to the database
         res.status(200).json({ message: 'Added to To-Do', effectiveDate: updatedEffectiveDate });
     } catch (error) {
         console.error('Error updating effective date:', error);
@@ -1004,12 +1004,12 @@ router.post('/non-patient-appointment', async (req, res) => {
     try {
         const { name, email, contact, effectiveDate, startTime, service } = req.body;
 
-        // Validate required fields
+        //validate required fields
         if (!name || !email || !contact || !effectiveDate || !startTime || !service) {
             return res.status(400).json({ message: 'All fields are required for a non-patient appointment.' });
         }
 
-        // Create the appointment
+        //create the appointment
         const appointmentStart = new Date(`${effectiveDate}T${startTime}`);
         const nonPatientAppointment = new NonPatient({
             name,
@@ -1045,7 +1045,7 @@ router.get('/api/patients-by-service', Functions.isAuthenticated, async (req, re
 
         let patients = await Patient.find().populate('treatments').exec();
 
-        // Filter patients by service if specified
+        // filter patients by service if specified
         if (service && service !== 'All') {
             patients = patients.filter(patient => {
                 if (patient.treatments.length > 0) {
@@ -1056,20 +1056,20 @@ router.get('/api/patients-by-service', Functions.isAuthenticated, async (req, re
             });
         }
 
-        // Filter patients by status (active/inactive)
+        //filter patients by status
         if (statusSort) {
             const isActiveFilter = statusSort === 'true';  
             patients = patients.filter(patient => patient.isActive === isActiveFilter);
         }
 
-        // Sort patients by name if specified
+        // sort patients by name if specified
         if (sortOrder === 'A-Z') {
             patients.sort((a, b) => a.firstName.localeCompare(b.firstName));
         } else if (sortOrder === 'Z-A') {
             patients.sort((a, b) => b.firstName.localeCompare(a.firstName));
         }
 
-        // Format the patient data for the response
+        // format the patient data for response
         const formattedPatients = patients.map(patient => ({
             id: patient.id,
             name: `${patient.firstName} ${patient.lastName}`,
@@ -1159,12 +1159,12 @@ router.post("/appointments", async (req, res) => {
     try {
         const { patientID, date, startTime, endTime, procedure, dentist } = req.body;
 
-        // Combine date with start and end times to create Date objects for the appointment times
+        // combine start and end 
         const appointmentDate = new Date(date);
         const startDateTime = new Date(appointmentDate.setHours(...startTime.split(':')));
         const endDateTime = new Date(appointmentDate.setHours(...endTime.split(':')));
 
-        // Call createAppointment function
+        //call createAppointment function
         await createAppointment(patientID, startDateTime, endDateTime, procedure, dentist);
 
         res.status(201).json({ message: "Appointment created successfully" });
