@@ -149,6 +149,31 @@ The Names of the Services on the Services Page should all be visible
 **Additional context**
 Add any other context about the problem here.
 
+**----BUG7----**
+Report Page - Monthly Appointments
+
+**Describe the bug**
+On the Report Page, the monthly appointments graph shows decimal counts of patients 
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Input npm run start in the terminal 
+2. Go to http://localhost:3000
+3. Login First
+4. Go to the Report Page
+
+**Expected behavior**
+On the Report Page, the monthly appointments graph should show the whole number count per month
+
+**Screenshots**
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+**Additional context**
+Add any other context about the problem here.
+
 
 
 
