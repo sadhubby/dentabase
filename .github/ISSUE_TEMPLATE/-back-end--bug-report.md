@@ -182,4 +182,28 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
+**----BUG8----**
+Adding Services 
+
+**Describe the bug**
+After adding a service button on the services page and clicking the cancel button, going back to the add service button will not require the Orthodontic field
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Service(sidebar) -> Click add service button
+4.  click the cancel button -> Go to the Add Service button again
+
+**Expected behavior**
+The Add Service Button should require the orthodontics after clicking the cancel button in the Add Service Button again
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
+
 
