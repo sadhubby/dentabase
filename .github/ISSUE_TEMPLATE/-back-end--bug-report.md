@@ -128,4 +128,33 @@ If applicable, add screenshots to help explain your problem.
  - OS: [Windows]
  - Browser [Chrome]
 
+**----BUG6----**
+Medical History Bug
+
+**Describe the bug**
+ 1. Are you under medical treatment now?
+ 3. Are you taking any prescription/non-prescription medication?
+
+    -If 1 is yes, after saving and refreshing the page, the 1 is now no, and 3 is yes, and vice versa.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1.  Input npm run start in the terminal 
+2.  Go to http://localhost:3000
+3.  Click Patient(sidebar) -> Go to Any Patients
+4.  In the Medical History, click the checkbox in the "Are you under medical treatment now?" to yes 
+5.  Click the checkbox "Are you taking any prescription/non-prescription medication?" to no
+6.  click save button
+
+
+**Expected behavior**
+The Section should not interchange after saving the Medical History Changes
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
+
+**Desktop (please complete the following information):**
+ - OS: [Windows]
+ - Browser [Chrome]
+
 
