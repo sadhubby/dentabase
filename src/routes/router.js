@@ -442,10 +442,10 @@ router.post('/edit-footnote', async function(req, res){
 
 router.post('/deactivate-patient', async(req, res) =>{
     try{
-        await Functions.deactivatePatient(req.body.patientID);
-        res.status(200).json({state: true});
+        const isActive = await Functions.deactivatePatient(req.body.patientID);
+        res.status(200).json({state: isActive});
     } catch(error){
-        res.status(400).json({state: false});
+        res.status(400).json({state: null});
     }
 });
 

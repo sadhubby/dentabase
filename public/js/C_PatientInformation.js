@@ -622,6 +622,8 @@ function fillMedicalFields(physicianName, physicianOfficeAddress, physicianSpeci
                 },
                 function(data){
                     if(data.state == true) {
+                        alert('Patient has been successfully reactivated.');
+                    } else if (data.state === false) {
                         alert('Patient has been successfully deactivated.');
                     } else {
                         alert('Error in deactivating patient.');
