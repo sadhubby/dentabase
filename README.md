@@ -11,3 +11,5 @@ A software for storage, safekeeping and ease-of-access for dental doctors
 ## Notes
 - Node.js, npm and MongoDB must be installed in local PC.
 - No server is currently running on chosen port or default port. Meaning nothing must be running on localhost:PORT (default is 3000)
+- Add this connection to MongoDB Compass mongodb+srv://dentabase:<pass>@cluster0.kx8r3po.mongodb.net/?
+- The password for the connection will be pinned in the GC
