@@ -637,7 +637,7 @@
           },
           {
             "position": {
-              "x": 885,
+              "x": 895,
               "y": 235
             },
             "size": {
@@ -656,6 +656,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -739,7 +740,6 @@
               ]
             },
             "id": "8bdd1e8f-2225-4ca6-8997-3fc007797d10",
-            "zIndex": 12,
             "data": {
               "type": "tm.Actor",
               "name": "Authenticated\nUser",
