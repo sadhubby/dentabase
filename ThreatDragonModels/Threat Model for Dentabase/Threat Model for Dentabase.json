@@ -556,12 +556,7 @@
               "cell": "017257bf-422e-4d46-a229-1a273bbdb981",
               "port": "5c73df03-0973-4fc5-be9f-756992dce4c4"
             },
-            "vertices": [
-              {
-                "x": 951,
-                "y": 340
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -846,15 +841,15 @@
           {
             "position": {
               "x": 895,
-              "y": 245
+              "y": 205
             },
             "size": {
-              "width": 112.5,
-              "height": 60
+              "width": 150,
+              "height": 90
             },
             "attrs": {
               "text": {
-                "text": "Authenticated\nUser"
+                "text": "Authenticated\nUser (i.e., Doctors)"
               },
               "body": {
                 "stroke": "#333333",
@@ -950,7 +945,7 @@
             "id": "8bdd1e8f-2225-4ca6-8997-3fc007797d10",
             "data": {
               "type": "tm.Actor",
-              "name": "Authenticated\nUser",
+              "name": "Authenticated\nUser (i.e., Doctors)",
               "description": "Dental Doctor for example",
               "isTrustBoundary": false,
               "outOfScope": false,
@@ -962,7 +957,7 @@
           },
           {
             "position": {
-              "x": 876.25,
+              "x": 895,
               "y": 382
             },
             "size": {
@@ -1101,6 +1096,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 14,
             "ports": {
               "groups": {
                 "top": {
@@ -1184,7 +1180,6 @@
               ]
             },
             "id": "3ae26c19-3190-4d1a-a549-e3ce99f91ef4",
-            "zIndex": 14,
             "data": {
               "type": "tm.Store",
               "name": "Store",
