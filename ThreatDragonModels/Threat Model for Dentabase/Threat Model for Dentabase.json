@@ -512,6 +512,53 @@
             "vertices": []
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Authenticated User Tries to Retrieve Client Data",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Authenticated User Tries to Retrieve Client Data"
+            ],
+            "id": "728de84f-c765-4fbf-8ff0-3e1b74b075c1",
+            "source": {
+              "cell": "8bdd1e8f-2225-4ca6-8997-3fc007797d10",
+              "port": "1cb64814-f1db-43c4-90ea-b8af5c3f487a"
+            },
+            "target": {
+              "cell": "017257bf-422e-4d46-a229-1a273bbdb981",
+              "port": "5c73df03-0973-4fc5-be9f-756992dce4c4"
+            },
+            "vertices": []
+          },
+          {
             "position": {
               "x": 130,
               "y": 270
@@ -743,12 +790,132 @@
             "data": {
               "type": "tm.Actor",
               "name": "Authenticated\nUser",
-              "description": "",
+              "description": "Dental Doctor for example",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 876.25,
+              "y": 382
+            },
+            "size": {
+              "width": 150,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "Client\nData Retrieval"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5c73df03-0973-4fc5-be9f-756992dce4c4"
+                },
+                {
+                  "group": "right",
+                  "id": "5e080316-aad0-43dc-b163-5d2e26082995"
+                },
+                {
+                  "group": "bottom",
+                  "id": "d7a63783-a18d-4daf-9ecb-453ca6046f35"
+                },
+                {
+                  "group": "left",
+                  "id": "a74cea84-0c29-4217-834d-c24c04a1414a"
+                }
+              ]
+            },
+            "id": "017257bf-422e-4d46-a229-1a273bbdb981",
+            "zIndex": 13,
+            "data": {
+              "type": "tm.Process",
+              "name": "Client\nData Retrieval",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
               "threats": []
             }
           }
